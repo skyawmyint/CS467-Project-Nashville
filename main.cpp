@@ -12,7 +12,7 @@
 #include "item.hpp"
 #include "room.hpp"
 #include "game.hpp"
-#include "menuOptions.hpp"
+#include "UI.hpp"
 
 using std::cin;
 using std::cout;
@@ -31,7 +31,7 @@ int main(){
 
     // Exit game if choice was 3
     // Create a new game for choice 1
-    if(menuChoice1 == 1){
+    if(menuChoice1 == 0){
 
         // Set new game stats here!
         currentGame = new game();
@@ -42,7 +42,7 @@ int main(){
     }
 
     // Load an existing game here
-    else if(menuChoice1 == 2){
+    else if(menuChoice1 == 1){
 
         cout << "Load game has not been implemented yet. Sorry!" << endl;
         continueSim = false;

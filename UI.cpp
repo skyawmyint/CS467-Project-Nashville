@@ -19,33 +19,60 @@ UI::UI() {
    general_actions.insert({ "go", 10 });
    general_actions.insert({ "exit", 11 });
 
+   menu_options.insert({"new", 0});
+   menu_options.insert({"load", 1});
+   menu_options.insert({"exit", 2});
+
 }
 UI::~UI() {}
 
-/*
- * Maybe int startUI function?
- * Something like:
- * Returns 0, no futher action need by GameClass
- * 1 pause time
- * 2 resume time
- * etc.
-*/
+int UI::menuStartUp()
+{
+  int retChoice = -1;
 
-void UI::getInput(){
-   std::string input;
-   std::cout << "Enter choice: ";
+   std::cout << "Welcome to Project Nashville" << std::endl;
+   std::cout << "New game" << std::endl; //0
+   std::cout << "Load game" << std::endl; //1
+   std::cout << "Exit game" << std::endl; //2
 
-   if(!std::getline(std::cin, input)){
-      //IO ERROR
-      return;
+   std::vector<std::string> input = getInput();
+
+   while(retChoice == -1){
+     //Valid menu optio
+     //0: new game
+     //1: load Game
+     //2: exit game
+     if(menu_options.find(input[0]) != menu_options.end()){
+       retChoice = menu_options[input[0]];
+       break;
+     }
+     std::cout << "Invalid input." << std::endl;
    }
-   if(!input.empty()){
-      std::vector<std::string> input_vec = parseClean(input);
-      if(general_actions.find(input_vec[0]) != general_actions.end()){	 
-	 generalActions(input_vec);
+   return retChoice;
+}
+
+std::vector<std::string> UI::getInput(){
+   std::string input = "";
+
+   while(input.empty()){
+      std::cout << "Enter choice: ";
+      if(!std::getline(std::cin, input)){
+	       //IO ERROR
+        return {};
+      }
+      if(!input.empty()){
+        std::vector<std::string> input_vec = parseClean(input);
+        return input_vec;
       }
    }
+   return {};
+}
 
+void UI::play(){
+   std::vector<std::string> input = getInput();
+   if(general_actions.find(input[0]) != general_actions.end()){
+      generalActions(input);
+   }
 }
 
 //Convert everything to lowercase and tokenize
@@ -79,9 +106,9 @@ void UI::generalActions(std::vector<std::string> input){
 	 break;
       case 5:
 	 break;
-      case 6: 
+      case 6:
 	 break;
-      case 7: 
+      case 7:
 	 break;
       case 8:
 	 showMap();
@@ -97,7 +124,7 @@ void UI::generalActions(std::vector<std::string> input){
 }
 
 
-void UI::showMap(){ 
+void UI::showMap(){
 
    //print ASCII art of Map
 
@@ -119,11 +146,11 @@ int main(){
 /*
    std::vector<Room*> loadRooms(){
 
-  Load room files and return a Rooms vec to Game?
-  start with instantiating with items current in room
+   Load room files and return a Rooms vec to Game?
+   start with instantiating with items current in room
 
-  }
-*/
+   }
+   */
 
 
 
@@ -135,5 +162,3 @@ int main(){
   Iterate through Items to store file
   Different room states ?
   }*/
-
-
