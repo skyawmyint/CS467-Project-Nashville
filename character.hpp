@@ -37,8 +37,6 @@ private:
 public:
 
     character();  // Constructor
-    void setCurrentRoom(room* roomInput);
-    room* getCurrentRoom();
     void addItem(item* inputItem);
     bool searchItem(string inputItemName);
     item* removeItem(string inputItemName);

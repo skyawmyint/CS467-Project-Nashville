@@ -18,8 +18,24 @@ It declares all our member variables and member function prototypes.
 #include "character.hpp"
 #include "Item.hpp"
 #include "room.hpp"
+
+#include "corridor1.hpp"
+#include "corridor2.hpp"
+#include "corridor3.hpp"
+
 #include "medbay.hpp"
-///#include "corridor1.hpp"
+#include "escapepodroom.hpp"
+#include "mainframeroom.hpp"
+#include "communications.hpp"
+#include "electrical.hpp"
+#include "navigation.hpp"
+
+#include "cafeteria.hpp"
+#include "reactor.hpp"
+#include "enginebay.hpp"
+#include "storage.hpp"
+#include "lifesupporto2.hpp"
+#include "captainslodge.hpp"
 
 class game {
 
@@ -39,11 +55,29 @@ private:
     item* flareGunItem;
 
     // Rooms in the game
-    room* medbayRoom;
-    room* corridor1Room;
+    room* corridor1Room; // Corridors
+    room* corridor2Room;
+    room* corridor3Room;
+
+    room* medbayRoom; // West-side
+    room* escapePodRoomRoom;
+    room* mainframeRoomRoom;
+    room* communicationsRoom;
+    room* electricalRoom;
+    room* navigationRoom;
+
+    room* cafeteriaRoom; // East-side
+    room* reactorRoom;
+    room* engineBayRoom;
+    room* storageRoom;
+    room* lifeSupportO2Room;
+    room* captainsLodgeRoom;
 
     // Current room
     room* currentPosition;
+
+    // Add some flags here for unlocking doors or powering up electrical, etc
+
 
 
 public:
@@ -53,7 +87,7 @@ public:
     void currentRoomDescription();
     void moveRooms(string roomName);
 
-    ~game(); // deconstructor
+    ~game(); // destructor
 
 
 };
