@@ -16,7 +16,7 @@ It declares all our member variables and member function prototypes.
 #include <vector>
 #include <memory>
 
-#include "item.hpp"
+#include "Item.hpp"
 
 using std::cin;
 using std::cout;
@@ -34,8 +34,8 @@ private:
     string longDescription;
     string shortDescription;
     vector<room*> connectedRooms;
-    int numConnectedRooms = 0;
-    bool repeatVisit = false; // false if it is first visit. true for any other visit
+    int numConnectedRooms;
+    bool repeatVisit; // false if it is first visit. true for any other visit
 
 
     // vector<shared_ptr<item*>>droppedItems;

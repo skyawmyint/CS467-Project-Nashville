@@ -4,7 +4,7 @@ CS467 - Online Capstone Project
 Description: This is the class implementation file for the class item.
 ******************************************************************/
 
-#include "item.hpp"
+#include "Item.hpp"
 
 /********************************************************************************
 default constructor, never called

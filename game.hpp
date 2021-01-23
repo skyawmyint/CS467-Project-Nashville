@@ -16,7 +16,7 @@ It declares all our member variables and member function prototypes.
 #include <string>
 
 #include "character.hpp"
-#include "item.hpp"
+#include "Item.hpp"
 #include "room.hpp"
 
 #include "corridor1.hpp"

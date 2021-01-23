@@ -7,8 +7,8 @@ contains the class declaration for the class corridor1. This is a child
 It declares all our member variables and member function prototypes.
 ******************************************************************/
 
-#ifndef CS467_PROJECT_NASHVILLE2_CORRIDOR1_H
-#define CS467_PROJECT_NASHVILLE2_CORRIDOR1_H
+#ifndef PROJECT_NASHVILLE2_CORRIDOR1_H
+#define PROJECT_NASHVILLE2_CORRIDOR1_H
 
 #include "room.hpp"
 

@@ -16,7 +16,8 @@ It declares all our member variables and member function prototypes.
 #include <vector>
 #include <memory>
 
-#include <item.hpp>
+#include "room.hpp"
+#include "Item.hpp"
 
 using std::cin;
 using std::cout;
