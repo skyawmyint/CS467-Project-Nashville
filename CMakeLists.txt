@@ -23,4 +23,30 @@ add_executable(CS467_Project_Nashville2
         menuOptions.hpp
         utilityFunctions.cpp
         utilityFunctions.hpp
+        corridor2.cpp
+        corridor2.hpp
+        corridor3.cpp
+        corridor3.hpp
+        escapepodroom.cpp
+        escapepodroom.hpp
+        mainframeroom.cpp
+        mainframeroom.hpp
+        communications.cpp
+        communications.hpp
+        electrical.cpp
+        electrical.hpp
+        navigation.cpp
+        navigation.hpp
+        cafeteria.cpp
+        cafeteria.hpp
+        reactor.cpp
+        reactor.hpp
+        enginebay.cpp
+        enginebay.hpp
+        storage.cpp
+        storage.hpp
+        lifesupporto2.cpp
+        lifesupporto2.hpp
+        captainslodge.cpp
+        captainslodge.hpp
         )

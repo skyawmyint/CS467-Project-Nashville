@@ -16,7 +16,6 @@ It declares all our member variables and member function prototypes.
 #include <vector>
 #include <memory>
 
-#include <room.hpp>
 #include <item.hpp>
 
 using std::cin;
@@ -37,8 +36,6 @@ private:
 public:
 
     character();  // Constructor
-    void setCurrentRoom(room* roomInput);
-    room* getCurrentRoom();
     void addItem(item* inputItem);
     bool searchItem(string inputItemName);
     item* removeItem(string inputItemName);
