@@ -138,11 +138,6 @@ void UI::help(){
 
 
 
-// dummy
-int main(){
-   return 0;
-}
-
 /*
    std::vector<Room*> loadRooms(){
 

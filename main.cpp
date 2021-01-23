@@ -9,7 +9,7 @@
 #include <string>
 
 #include "character.hpp"
-#include "item.hpp"
+#include "Item.hpp"
 #include "room.hpp"
 #include "game.hpp"
 #include "UI.hpp"
@@ -22,12 +22,14 @@ using std::string;
 
 int main(){
 
+    UI* user_interface = new UI();
+
     bool continueSim = true; //bool for do-while loop.
 
     game* currentGame;
 
     // Acquire whether to play New Game, Load Game, or Exit Game
-    int menuChoice1 = menuStartUp();
+    int menuChoice1 = user_interface->menuStartUp();
 
     // Exit game if choice was 3
     // Create a new game for choice 1
