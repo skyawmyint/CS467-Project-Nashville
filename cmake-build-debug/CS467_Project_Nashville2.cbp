@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CS467_Project_Nashville2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CS467_Project_Nashville2">
+				<Option output="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/CS467_Project_Nashville2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/."/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 CS467_Project_Nashville2"/>
+					<CompileFile command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CS467_Project_Nashville2/fast">
+				<Option output="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/CS467_Project_Nashville2.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/."/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.3.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 CS467_Project_Nashville2/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j16 -f &quot;/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/character.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/character.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/corridor1.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/corridor1.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/game.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/game.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/interface.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/item.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/item.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/medbay.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/medbay.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/menuOptions.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/menuOptions.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/room.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/room.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/utilityFunctions.cpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/utilityFunctions.hpp">
+			<Option target="CS467_Project_Nashville2"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
