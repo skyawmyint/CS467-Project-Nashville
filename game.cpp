@@ -46,11 +46,11 @@ game::game(){
 
     // Setup Rooms in the game
     medbayRoom = new medbay;
-    corridor1Room = new corridor1;
+    //corridor1Room = new corridor1;
 
     // Connect all rooms together
-    medbayRoom->setConnectedRooms(corridor1Room);
-    corridor1Room->setConnectedRooms(medbayRoom);
+   // medbayRoom->setConnectedRooms(corridor1Room);
+    //corridor1Room->setConnectedRooms(medbayRoom);
 
     // Set up a new character
     character* player = new character();

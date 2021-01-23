@@ -1,7 +1,7 @@
 
 
-nashville: main.o UI.o game.o corridor1.o Item.o medbay.o character.o room.o utilityFunctions.o 
-	g++ -std=c++11 main.o game.o UI.o corridor1.o Item.o medbay.o character.o room.o utilityFunctions.o -o nashville
+nashville: main.o UI.o game.o Item.o medbay.o character.o room.o utilityFunctions.o
+	g++ -std=c++11 main.o game.o UI.o Item.o medbay.o character.o room.o utilityFunctions.o -o nashville
 
 main.o: main.cpp
 	g++ -std=c++11 -c main.cpp
@@ -27,8 +27,8 @@ room.o: room.cpp room.hpp
 utilityFunctions.o: utilityFunctions.cpp utilityFunctions.hpp
 	g++ -std=c++11 -c utilityFunctions.cpp
 
-corridor1.o: corridor1.cpp corridor1.hpp
-	g++ -std=c++11 -c corrdior1.cpp
+#corridor1.o: corridor1.cpp corridor1.hpp
+#	g++ -std=c++11 -c corrdior1.cpp
 
 
 clean:

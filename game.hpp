@@ -19,7 +19,7 @@ It declares all our member variables and member function prototypes.
 #include "Item.hpp"
 #include "room.hpp"
 #include "medbay.hpp"
-#include "corridor1.hpp"
+///#include "corridor1.hpp"
 
 class game {
 
