@@ -23,6 +23,7 @@ class UI {
       void generalActions(std::vector<std::string> input);
       void showMap();
       void help();
+      void moveRoom(std::vector<std::string> input);
 
 
    public:
