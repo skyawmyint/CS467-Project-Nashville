@@ -5,23 +5,41 @@
 #include "UI.hpp"
 
 
-UI::UI() {
-   general_actions.insert({ "look", 0 });
-   general_actions.insert({ "help", 1 });
-   general_actions.insert({ "inventory", 2 });
-   general_actions.insert({ "savegame", 3 });
-   general_actions.insert({ "loadgame", 4 });
-   general_actions.insert({ "time", 5 });
-   general_actions.insert({ "pause", 6 });
-   general_actions.insert({ "unpause", 7 });
-   general_actions.insert({ "map", 8 });
-   general_actions.insert({ "look", 9 });
-   general_actions.insert({ "go", 10 });
-   general_actions.insert({ "exit", 11 });
+UI::UI(game* currentGame) {
+   general_actions.insert({ "LOOK", 0 });
+   general_actions.insert({ "HELP", 1 });
+   general_actions.insert({ "INVENTORY", 2 });
+   general_actions.insert({ "SAVEGAME", 3 });
+   general_actions.insert({ "LOADGAME", 4 });
+   general_actions.insert({ "TIME", 5 });
+   general_actions.insert({ "PAUSE", 6 });
+   general_actions.insert({ "UNPAUSE", 7 });
+   general_actions.insert({ "MAP", 8 });
+   general_actions.insert({ "LOOK", 9 });
+   general_actions.insert({ "GO", 10 });
+   general_actions.insert({ "EXIT", 11 });
 
-   menu_options.insert({"new", 0});
-   menu_options.insert({"load", 1});
-   menu_options.insert({"exit", 2});
+   menu_options.insert({"NEW", 0});
+   menu_options.insert({"LOAD", 1});
+   menu_options.insert({"EXIT", 2});
+
+   rooms.insert("ESCAPEPOD");
+   rooms.insert("MEDBAY");
+   rooms.insert("MAINFRAME");
+   rooms.insert("COMMUNICATION");
+   rooms.insert("ELECTRICAL");
+   rooms.insert("NAVIGATION");
+   rooms.insert("CORRIDOR1");
+   rooms.insert("CORRIDOR2");
+   rooms.insert("CORRIDOR3");
+   rooms.insert("REACTOR");
+   rooms.insert("ENGINEBAY");
+   rooms.insert("CAFETERIA");
+   rooms.insert("CAPTAINSLODGE");
+   rooms.insert("LIFESUPPORTO2");
+   rooms.insert("STORAGE");
+
+   this->currentGame = currentGame;
 
 }
 UI::~UI() {}
@@ -68,17 +86,18 @@ std::vector<std::string> UI::getInput(){
    return {};
 }
 
-std::pair<int, std::string>  UI::play(){
+void UI::play(){
    std::vector<std::string> input = getInput();
    if(general_actions.find(input[0]) != general_actions.end()){
       generalActions(input);
+   } else {
+      std::cout << "Input not recognized." << std::endl;
    }
-   return std::make_pair(0, "");
 }
 
 //Convert everything to lowercase and tokenize
 std::vector<std::string> UI::parseClean(std::string str){
-   std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+   std::transform(str.begin(), str.end(), str.begin(), ::toupper);
 
    std::istringstream ss(str);
    std::string word;
@@ -117,6 +136,9 @@ void UI::generalActions(std::vector<std::string> input){
       case 9:
 	 break;
       case 10:
+	 if(input.size() > 1 && rooms.find(input[1]) != rooms.end()){
+	    currentGame->moveRooms(input[1]);
+	 }
 	 break;
       case 11:
 	 break;

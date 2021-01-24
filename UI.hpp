@@ -5,13 +5,18 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 #include <utility>
+#include "game.hpp"
 
 class UI {
 
    private:
+
+      game* currentGame;
       std::unordered_map<std::string, int> general_actions;
       std::unordered_map<std::string, int> menu_options;
+      std::unordered_set<std::string> rooms;
 
       std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
@@ -22,8 +27,8 @@ class UI {
 
    public:
      int menuStartUp();
-     std::pair <int, std::string> play();
-      UI();
+     void play();
+      UI(game* currentGame);
       ~UI();
 };
 #endif

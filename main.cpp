@@ -22,11 +22,10 @@ using std::string;
 
 int main(){
 
-    UI* user_interface = new UI();
+    game* currentGame;
+    UI* user_interface = new UI(currentGame);
 
     bool continueSim = true; //bool for do-while loop.
-
-    game* currentGame;
 
     // Acquire whether to play New Game, Load Game, or Exit Game
     int menuChoice1 = user_interface->menuStartUp();
@@ -61,10 +60,10 @@ int main(){
     // Run the game here!
     do{
      
-        auto p = user_interface->play();
+        user_interface->play();
 	//std::cout << p.first << " " << p.second << std::endl;
 
-        // Get input from  the user
+        /*// Get input from  the user
         string getInput;
         cout << ": ";
         std::getline(cin, getInput);
@@ -77,7 +76,7 @@ int main(){
         // Write something to exit game
         if(getInput == "EXIT GAME"){
             continueSim = false;
-        }
+        }*/
 
     }while(continueSim == true);
 
