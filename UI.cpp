@@ -68,11 +68,12 @@ std::vector<std::string> UI::getInput(){
    return {};
 }
 
-void UI::play(){
+std::pair<int, std::string>  UI::play(){
    std::vector<std::string> input = getInput();
    if(general_actions.find(input[0]) != general_actions.end()){
       generalActions(input);
    }
+   return std::make_pair(0, "");
 }
 
 //Convert everything to lowercase and tokenize
@@ -126,7 +127,7 @@ void UI::generalActions(std::vector<std::string> input){
 
 void UI::showMap(){
 
-   //print ASCII art of Map
+   std::cout << "print ASCII art of Map" << std::endl;
 
 }
 

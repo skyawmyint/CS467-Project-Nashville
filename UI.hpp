@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <utility>
 
 class UI {
 
@@ -18,9 +19,10 @@ class UI {
       void showMap();
       void help();
 
+
    public:
      int menuStartUp();
-     void play();
+     std::pair <int, std::string> play();
       UI();
       ~UI();
 };

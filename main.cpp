@@ -60,6 +60,9 @@ int main(){
 
     // Run the game here!
     do{
+     
+        auto p = user_interface->play();
+	//std::cout << p.first << " " << p.second << std::endl;
 
         // Get input from  the user
         string getInput;
