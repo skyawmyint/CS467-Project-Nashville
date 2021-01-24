@@ -64,16 +64,16 @@ RM = /cygdrive/c/Users/Stuart/AppData/Local/JetBrains/CLion2020.2/cygwin_cmake/b
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/CS467_Project_Nashville2.dir/all
+all: CMakeFiles/CS467_Project_Nashville.dir/all
 
 .PHONY : all
 
@@ -83,36 +83,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/CS467_Project_Nashville2.dir/clean
+clean: CMakeFiles/CS467_Project_Nashville.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/CS467_Project_Nashville2.dir
+# Target rules for target CMakeFiles/CS467_Project_Nashville.dir
 
 # All Build rule for target.
-CMakeFiles/CS467_Project_Nashville2.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville2.dir/build.make CMakeFiles/CS467_Project_Nashville2.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville2.dir/build.make CMakeFiles/CS467_Project_Nashville2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target CS467_Project_Nashville2"
-.PHONY : CMakeFiles/CS467_Project_Nashville2.dir/all
+CMakeFiles/CS467_Project_Nashville.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville.dir/build.make CMakeFiles/CS467_Project_Nashville.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville.dir/build.make CMakeFiles/CS467_Project_Nashville.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23 "Built target CS467_Project_Nashville"
+.PHONY : CMakeFiles/CS467_Project_Nashville.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CS467_Project_Nashville2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/CMakeFiles 10
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CS467_Project_Nashville2.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville2/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/CS467_Project_Nashville2.dir/rule
+CMakeFiles/CS467_Project_Nashville.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CS467_Project_Nashville.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/CS467_Project_Nashville.dir/rule
 
 # Convenience name for target.
-CS467_Project_Nashville2: CMakeFiles/CS467_Project_Nashville2.dir/rule
+CS467_Project_Nashville: CMakeFiles/CS467_Project_Nashville.dir/rule
 
-.PHONY : CS467_Project_Nashville2
+.PHONY : CS467_Project_Nashville
 
 # clean rule for target.
-CMakeFiles/CS467_Project_Nashville2.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville2.dir/build.make CMakeFiles/CS467_Project_Nashville2.dir/clean
-.PHONY : CMakeFiles/CS467_Project_Nashville2.dir/clean
+CMakeFiles/CS467_Project_Nashville.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CS467_Project_Nashville.dir/build.make CMakeFiles/CS467_Project_Nashville.dir/clean
+.PHONY : CMakeFiles/CS467_Project_Nashville.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -103,6 +103,9 @@ game::game(){
     // Set up the current position on the game board
     currentPosition = medbayRoom;
 
+    // Set up flags
+    gameStillRunning = true;
+
 }
 
 /********************************************************************************

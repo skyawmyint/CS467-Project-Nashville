@@ -8,10 +8,6 @@
 #include <memory>
 #include <string>
 
-#include "character.hpp"
-#include "Item.hpp"
-#include "room.hpp"
-#include "game.hpp"
 #include "UI.hpp"
 
 using std::cin;
@@ -22,8 +18,7 @@ using std::string;
 
 int main(){
 
-    game* currentGame;
-    UI* user_interface = new UI(currentGame);
+    UI* user_interface = new UI();
 
     bool continueSim = true; //bool for do-while loop.
 
@@ -31,20 +26,17 @@ int main(){
     int menuChoice1 = user_interface->menuStartUp();
 
     // Exit game if choice was 3
-    // Create a new game for choice 1
+    // Create a new game for choice 0
     if(menuChoice1 == 0){
 
-        // Set new game stats here!
-        currentGame = new game();
-
-        // Since it will be new game, output description of first room
-        currentGame->currentRoomDescription();
+        user_interface->makeNewGame();
 
     }
 
     // Load an existing game here
     else if(menuChoice1 == 1){
 
+        // We will probably call something like user_interface->makeLoadGame();
         cout << "Load game has not been implemented yet. Sorry!" << endl;
         continueSim = false;
         return 0;
@@ -57,26 +49,10 @@ int main(){
         return 0;
     }
 
-    // Run the game here!
+    // Continue running the game here, until the play() returns a false.
     do{
      
-        user_interface->play();
-	//std::cout << p.first << " " << p.second << std::endl;
-
-        /*// Get input from  the user
-        string getInput;
-        cout << ": ";
-        std::getline(cin, getInput);
-
-        // Write something here to parse all the words in the string. Maybe into an array?
-
-        // TEMP CODE HERE JUST TO SEE IF MOVEMENT IS WORKING. Just type the room name. All CAPS
-        currentGame->moveRooms(getInput);
-
-        // Write something to exit game
-        if(getInput == "EXIT GAME"){
-            continueSim = false;
-        }*/
+        continueSim = user_interface->play();
 
     }while(continueSim == true);
 
