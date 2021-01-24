@@ -77,13 +77,14 @@ private:
     room* currentPosition;
 
     // Add some flags here for unlocking doors or powering up electrical, etc
-
+    bool gameStillRunning;
 
 
 public:
 
     game(); // constructor
     // game(txtInput) EVENTUALLY do a constructor with text file
+    // bool doGameCommand(int, string);
     void currentRoomDescription();
     void moveRooms(string roomName);
 
