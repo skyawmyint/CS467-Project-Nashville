@@ -15,7 +15,6 @@ default constructor
 **********************************************************************************/
 UI::UI() {
 
-
    general_actions.insert({ "LOOK", 0 });
    general_actions.insert({ "HELP", 1 });
    general_actions.insert({ "INVENTORY", 2 });
@@ -26,8 +25,28 @@ UI::UI() {
    general_actions.insert({ "UNPAUSE", 7 });
    general_actions.insert({ "MAP", 8 });
    general_actions.insert({ "LOOK AT", 9 });
+
+   // Case 10 - GO
    general_actions.insert({ "GO", 10 });
-   general_actions.insert({ "EXIT", 11 });
+   general_actions.insert({ "GO TO", 10 });
+   general_actions.insert({"ESCAPE POD ROOM", 10});
+   general_actions.insert({"MEDBAY",10});
+   general_actions.insert({"MAINFRAME ROOM" , 10});
+   general_actions.insert({"COMMUNICATION", 10});
+   general_actions.insert({"ELECTRICAL", 10});
+   general_actions.insert({"NAVIGATION", 10});
+   general_actions.insert({"CORRIDOR 1", 10});
+   general_actions.insert({"CORRIDOR 2", 10});
+   general_actions.insert({"CORRIDOR 3", 10});
+   general_actions.insert({"REACTOR", 10});
+   general_actions.insert({"ENGINE BAY", 10});
+   general_actions.insert({"CAFETERIA", 10});
+   general_actions.insert({"CAPTAIN'S LODGE", 10});
+   general_actions.insert({"LIFE SUPPORT O2", 10});
+   general_actions.insert({"STORAGE", 10});
+
+
+   general_actions.insert({ "EXIT GAME", 11 });
 
    
    menu_options.insert({"NEW", 0});
@@ -86,18 +105,13 @@ int UI::menuStartUp()
       //0: new game
       //1: load Game
       //2: exit game
-      for(int i = 0; i<input.size(); i++){
-          if(menu_options.find(input[i]) != menu_options.end()) {
-              retChoice = menu_options[input[i]];
-          }
-      // if(menu_options.find(input[0]) != menu_options.end()){
-	 // retChoice = menu_options[input[0]];
-	 // break;
+      if(menu_options.find(input[0]) != menu_options.end()){
+          retChoice = menu_options[input[0]];
+          break;
       }
-    if(retChoice == -1){
+      if(retChoice == -1){
         std::cout << "Invalid input." << std::endl;
         input = getInput();
-
     }
    }
    return retChoice;
@@ -123,7 +137,7 @@ vector<string> UI::getInput(){
    string input = "";
 
    while(input.empty()){
-      std::cout << "Enter choice: ";
+      std::cout << "\nEnter choice: ";
       if(!std::getline(cin, input)){
 	       //IO ERROR
         return {};
@@ -147,35 +161,26 @@ bool UI::play(){
     std::vector<std::string> input = getInput();
 
     // Variables to check input
-    bool inputFound = false;
     int inputChoice = -1;
+    int generalActionStringSize = 1;
 
-    // Check for each input index
-    for(int i = 0; i < input.size(); i++){
-
-        // Work with one-word actions
-        if(general_actions.find(input[i]) != general_actions.end()) {
-            inputChoice = general_actions[input[i]];
-            inputFound = true;
-        }
-
-        // Work with two-word actions
-        if(i < input.size()-1){
-            string tempString = input[i] + " " +input[i+1];
-            if(general_actions.find(tempString) != general_actions.end()){
-                inputChoice = general_actions[tempString];
-            }
-        }
-        // Break if an input was found
-        if(inputFound == true){
-            break;
-        }
-
+    // Check for one-word general actions
+    if(general_actions.find(input[0]) != general_actions.end()) {
+            inputChoice = general_actions[input[0]];
     }
 
-    // Do the input action
-    if(inputFound == true){
-        generalActions(input, inputChoice);
+    // Check for two-word general actions
+    if(input.size()>1){
+            string tempString = input[0] + " " +input[1];
+            if(general_actions.find(tempString) != general_actions.end()){
+                inputChoice = general_actions[tempString];
+                generalActionStringSize = 2;
+            }
+    }
+
+    // Do the input general action
+    if(inputChoice >=0 && inputChoice <= 11){
+        generalActions(input, inputChoice, generalActionStringSize);
     }
     else{
         cout << "Input not recognized." << endl;
@@ -205,12 +210,16 @@ vector<string> UI::parseClean(string str){
    return input;
 }
 
-void UI::generalActions(vector<string> input, int actionChoice){
+void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
    switch(actionChoice){
-      case 0:
-          cout << "We made it to the LOOK branch!"<< endl;
-	 break;
+
+       // Case to 'LOOK'
+       case 0: {
+           currentGame->lookDescription();
+           break;
+       }
+
       case 1:
 	 help();
 	 break;
@@ -235,8 +244,7 @@ void UI::generalActions(vector<string> input, int actionChoice){
 
 	 // Case to move rooms
       case 10: {
-          string roomInputName = combineRoomItemName(input);
-          currentGame->moveRooms(roomInputName);
+          moveRoomCall(input, actionSize);
           break;
       }
 
@@ -261,6 +269,87 @@ void UI::help(){
       std::cout << command.first << std::endl;
    }
 }
+
+
+
+/********************************************************************************
+moveRoomCall - calls the moveRoom from the game in order to change the character
+ room location
+**********************************************************************************/
+void UI::moveRoomCall(vector<string>input, int actionSize) {
+
+    string roomName = "";
+    string tempName = "";
+    int roomFoundCount = 0;
+    bool roomFound = false;
+
+    // If a Room was used as the action
+    if(input.size() == 1){
+        // One-word room
+        if(rooms.find(input[0]) != rooms.end()){
+            roomName = input[0];
+            roomFound = true;
+
+        }
+    }
+    // Two-word room
+    else if(input.size() == 2){
+        string twoRoom = input[0] + " " + input[1];
+        if(rooms.find(twoRoom) != rooms.end()){
+            roomName = twoRoom;
+            roomFound = true;
+        }
+    }
+    // Three-word room
+    else if(input.size() == 3){
+        string threeRoom = input[0] + " " + input[1] + " " + input[2];
+        if(rooms.find(threeRoom) != rooms.end()){
+            roomName = threeRoom;
+            roomFound = true;
+        }
+    }
+
+    // If no room was found as an action
+    if(roomFound == false){
+        // Check for one-word rooms
+        if(input.size() == actionSize+1){
+            tempName = input[actionSize];
+            if(rooms.find(tempName) != rooms.end()) {
+                roomName = tempName;
+                roomFoundCount = 1;
+            }
+        }
+            // Check for two-word rooms
+        else if(input.size() == actionSize+2){
+            tempName = input[actionSize] + " " + input[actionSize+1];
+            if(rooms.find(tempName) != rooms.end()) {
+                roomName = tempName;
+                roomFoundCount = 2;
+            }
+        }
+            // Check for three-word rooms
+        else if(input.size() == actionSize+3){
+            tempName = input[actionSize] + " " + input[actionSize+1] + " " + input[actionSize+2];
+            if(rooms.find(tempName) != rooms.end()) {
+                roomName = tempName;
+                roomFoundCount = 3;
+            }
+        }
+
+    }
+
+    // Error if size too big
+    if(input.size() > (actionSize + roomFoundCount)){
+        cout << "Input not recognized." << endl;
+    }
+    else{
+        currentGame->moveRooms(roomName);
+    };
+
+}
+
+
+
 
 
 /********************************************************************************

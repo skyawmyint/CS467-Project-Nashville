@@ -107,31 +107,52 @@ game::game(){
     gameStillRunning = true;
 
     // First game room introduction should be here
+    cout << endl;
     cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
-            "You sit up. You appear to be lying on some kind of SURGICAL TABLE. You get up and look around the room. " << endl <<
-            "You are surrounded by white walls. A COMPUTER sits atop of a metal table in the corner. " << endl <<
-            "There appears to be something next to it. In front of you is an open door leading into a dark hall." << endl;
+            "You hear a loud beeping sound accompanied by a voice counting down numbers. Something bad is going on!" << endl <<
+            "You sit up. You appear to be lying on some kind of surgical table. You get up and look around the room... " << endl <<
+            "there is no one in sight. The last thing you remember is working on a cure for a deadly virus affecting Earth " << endl <<
+            "on the Project Nashville space station." << endl;
+    cout << endl;
+    cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
+            "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
+            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
+            "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
+            "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
+            "something bad is happening to the station and you must escape by any means possible!" << endl;
 
 }
 
 /********************************************************************************
-currentRoomLongDescription - outputs the long description of the current room.
+currentRoomDescription - outputs the description of the current room.
 **********************************************************************************/
 void game::currentRoomDescription(){
 
     // Output the room name and long description
-    cout << "Current Room: " << currentPosition->getName() << endl;
+    cout << "\nYou enter the room " << currentPosition->getName() << "..." << endl;
 
     // Long description
     if(currentPosition->isRepeatVisit()==false){
-        cout << "Room Description: " << currentPosition->getLongDescription() << endl;
+        cout << currentPosition->getLongDescription() << endl;
         currentPosition->toggleEnteredRoom();
     }
     // Short description
     else{
-        cout << "Room Description: " << currentPosition->getShortDescription() << endl;
+        cout << currentPosition->getShortDescription() << endl;
     }
 }
+
+/********************************************************************************
+lookDescription - outputs the long description of the current room.
+**********************************************************************************/
+void game::lookDescription() {
+
+    cout << "\nYou look around the room..." << endl;
+    cout << currentPosition->getLongDescription() << endl;
+
+}
+
+
 
 /********************************************************************************
 moveRooms - changes the current room to the user input Room string name
@@ -191,10 +212,10 @@ void game::moveRooms(string roomNameInput){
         currentRoomDescription();
     }
     else if(currentPosition->getName() == roomNameInput){
-        cout << "You are already in that room." << endl;
+        cout << "\nYou are already in that room." << endl;
     }
     else{
-        cout << "You look around to go there, but could not find the way to." << endl;
+        cout << "\nYou look around to go there, but could not find the way to." << endl;
     }
 }
 

@@ -86,7 +86,10 @@ public:
     // game(txtInput) EVENTUALLY do a constructor with text file
     // bool doGameCommand(int, string);
     void currentRoomDescription();
+    void lookDescription();
+
     void moveRooms(string roomName);
+
 
     ~game(); // destructor
 
