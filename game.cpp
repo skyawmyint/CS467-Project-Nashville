@@ -106,6 +106,12 @@ game::game(){
     // Set up flags
     gameStillRunning = true;
 
+    // First game room introduction should be here
+    cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
+            "You sit up. You appear to be lying on some kind of SURGICAL TABLE. You get up and look around the room. " << endl <<
+            "You are surrounded by white walls. A COMPUTER sits atop of a metal table in the corner. " << endl <<
+            "There appears to be something next to it. In front of you is an open door leading into a dark hall." << endl;
+
 }
 
 /********************************************************************************
@@ -184,8 +190,11 @@ void game::moveRooms(string roomNameInput){
         // Call the current room description
         currentRoomDescription();
     }
+    else if(currentPosition->getName() == roomNameInput){
+        cout << "You are already in that room." << endl;
+    }
     else{
-        cout << "You look around to go to " << roomNameInput << ", but could not find the way." << endl;
+        cout << "You look around to go there, but could not find the way to." << endl;
     }
 }
 
