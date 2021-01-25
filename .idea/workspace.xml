@@ -42,11 +42,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -68,6 +63,7 @@
       <workItem from="1611255020447" duration="11653000" />
       <workItem from="1611343966956" duration="16869000" />
       <workItem from="1611510122563" duration="6686000" />
+      <workItem from="1611530059678" duration="6819000" />
     </task>
     <servers />
   </component>
@@ -75,6 +71,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="658" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611529532090">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="658" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1611529532090" />
     <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611141055241">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -83,38 +83,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="676" y="457" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1611143183966" />
-    <state width="1785" height="393" key="GridCell.Tab.0.bottom" timestamp="1611516520795">
+    <state width="1707" height="491" key="GridCell.Tab.0.bottom" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1785" height="393" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611516520795" />
-    <state width="1785" height="393" key="GridCell.Tab.0.center" timestamp="1611516520795">
+    <state width="1707" height="491" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.0.center" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1785" height="393" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611516520795" />
-    <state width="1785" height="393" key="GridCell.Tab.0.left" timestamp="1611516520795">
+    <state width="1707" height="491" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.0.left" timestamp="1611536887555">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1785" height="393" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611516520795" />
-    <state width="1785" height="393" key="GridCell.Tab.0.right" timestamp="1611516520795">
+    <state width="1707" height="491" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887555" />
+    <state width="1707" height="491" key="GridCell.Tab.0.right" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1785" height="393" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611516520795" />
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1611361730326">
+    <state width="1707" height="491" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.1.bottom" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611361730326" />
-    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1611361730326">
+    <state width="1707" height="491" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.1.center" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611361730326" />
-    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1611361730326">
+    <state width="1707" height="491" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.1.left" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611361730326" />
-    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1611361730326">
+    <state width="1707" height="491" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
+    <state width="1707" height="491" key="GridCell.Tab.1.right" timestamp="1611536887556">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611361730326" />
+    <state width="1707" height="491" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611536887556" />
     <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1611143187598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

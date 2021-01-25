@@ -15,10 +15,6 @@ default constructor
 **********************************************************************************/
 UI::UI() {
 
-   /*startMenuOptions.push_back("NEW");
-   startMenuOptions.push_back("LOAD");
-   startMenuOptions.push_back("EXIT");*/
-
 
    general_actions.insert({ "LOOK", 0 });
    general_actions.insert({ "HELP", 1 });
@@ -38,9 +34,9 @@ UI::UI() {
    menu_options.insert({"LOAD", 1});
    menu_options.insert({"EXIT", 2});
 
-   rooms.insert("ESCAPE POD");
-   rooms.insert("MED BAY");
-   rooms.insert("MAIN FRAME");
+   rooms.insert("ESCAPE POD ROOM");
+   rooms.insert("MEDBAY");
+   rooms.insert("MAINFRAME ROOM");
    rooms.insert("COMMUNICATION");
    rooms.insert("ELECTRICAL");
    rooms.insert("NAVIGATION");
@@ -86,12 +82,19 @@ int UI::menuStartUp()
       //0: new game
       //1: load Game
       //2: exit game
-      if(menu_options.find(input[0]) != menu_options.end()){
-	 retChoice = menu_options[input[0]];
-	 break;
+      for(int i = 0; i<input.size(); i++){
+          if(menu_options.find(input[i]) != menu_options.end()) {
+              retChoice = menu_options[input[i]];
+          }
+      // if(menu_options.find(input[0]) != menu_options.end()){
+	 // retChoice = menu_options[input[0]];
+	 // break;
       }
-      std::cout << "Invalid input." << std::endl;
-      input = getInput();
+    if(retChoice == -1){
+        std::cout << "Invalid input." << std::endl;
+        input = getInput();
+
+    }
    }
    return retChoice;
 }
@@ -139,13 +142,44 @@ play() - gets input from the user and calls the game file accordingly.
 **********************************************************************************/
 bool UI::play(){
 
+    // Get user input
     std::vector<std::string> input = getInput();
 
-    if(general_actions.find(input[0]) != general_actions.end()){
-      generalActions(input);
-    } else {
-        std::cout << "Input not recognized." << std::endl;
+    // Variables to check input
+    bool inputFound = false;
+    int inputChoice = -1;
+
+    // Check for each input index
+    for(int i = 0; i < input.size(); i++){
+
+        // Work with one-word actions
+        if(general_actions.find(input[i]) != general_actions.end()) {
+            inputChoice = general_actions[input[i]];
+            inputFound = true;
+        }
+
+        // Work with two-word actions
+        if(i < input.size()-1){
+            string tempString = input[i] + " " +input[i+1];
+            if(general_actions.find(tempString) != general_actions.end()){
+                inputChoice = general_actions[tempString];
+            }
+        }
+        // Break if an input was found
+        if(inputFound == true){
+            break;
+        }
+
     }
+
+    // Do the input action
+    if(inputFound == true){
+        generalActions(input, inputChoice);
+    }
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
     return this->gameRunning;
 }
 
@@ -170,10 +204,11 @@ vector<string> UI::parseClean(string str){
    return input;
 }
 
-void UI::generalActions(std::vector<std::string> input){
+void UI::generalActions(vector<string> input, int actionChoice){
 
-   switch(general_actions[input[0]]){
+   switch(actionChoice){
       case 0:
+          cout << "We made it to the LOOK branch!"<< endl;
 	 break;
       case 1:
 	 help();
@@ -194,11 +229,20 @@ void UI::generalActions(std::vector<std::string> input){
 	 showMap();
 	 break;
       case 9:
+          cout << "We made it to the LOOK AT branch!" << endl;
 	 break;
-      case 10:
-	 moveRoom(input);
-	 break;
+
+	 // Case to move rooms
+      case 10: {
+          string roomInputName = combineRoomItemName(input);
+          currentGame->moveRooms(roomInputName);
+          break;
+      }
+
+	 // Case to exit the game
       case 11:
+          cout << "Exiting game now." << endl;
+          this->gameRunning = false;
 	 break;
 
    }
@@ -217,29 +261,68 @@ void UI::help(){
    }
 }
 
-void UI::moveRoom(std::vector<std::string>input){
-   std::string room_name = "";
-   if(input.size() > 1) {
-      for(int i = 1; i < input.size(); i++){
-	 if(input[i] != "TO"){
-	    if(room_name.length() < 1){
-	       room_name = input[i];
-	    }
-	    else {
-	       room_name = room_name + " " + input[i];
-	    }
-	 }
-      }
-   }
-   std::cout << room_name << std::endl; 
-   if(input.size() > 1 && rooms.find(room_name) != rooms.end()){
-    //  std::cout << room_name << " found." << std::endl;
-      currentGame->moveRooms(room_name);
 
-   } else {
-      std::cout << "Invalid command." << std::endl;
-   }
+/********************************************************************************
+combineRoomItemName - takes in a vector of a parsed string input and finds a
+ Room or Item name and combines and returns it into a single string
+**********************************************************************************/
+string UI::combineRoomItemName(vector<string> input) {
+
+    // Setup the return string variable
+    string newString = "BAD INPUT";
+
+    // Flag to break if a room was found
+    bool roomItemFound = false;
+
+    // Go through all the indexes
+    for(int i = 0; i < input.size(); i++){
+
+        // Work with one-word rooms
+        if(rooms.find(input[i]) != rooms.end()) {
+            newString = input[i];
+            roomItemFound = true;
+        }
+
+        // Work with two-word rooms
+        if(i < input.size()-1){
+            string tempString = input[i] + " " +input[i+1];
+            if(rooms.find(tempString) != rooms.end()){
+                newString = tempString;
+                roomItemFound = true;
+            }
+        }
+
+        // Work with three-word rooms
+        if(i < input.size()-2){
+            string tempString = input[i] + " " +input[i+1] + " " + input[i+2];
+            if(rooms.find(tempString) != rooms.end()){
+                newString = tempString;
+                roomItemFound = true;
+            }
+        }
+
+        if(roomItemFound == true){
+            break;
+        }
+    }
+
+    // Add something for Item
+
+
+
+
+    return newString;
+
 }
+
+
+
+
+
+
+
+
+
 
 /*
    std::vector<Room*> loadRooms(){
