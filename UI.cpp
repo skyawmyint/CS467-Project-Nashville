@@ -70,10 +70,14 @@ int UI::menuStartUp()
 {
    int retChoice = -1;
 
-   std::cout << "Welcome to Project Nashville" << std::endl;
-   std::cout << "New game" << std::endl; //0
-   std::cout << "Load game" << std::endl; //1
-   std::cout << "Exit game" << std::endl; //2
+   cout << "|----------------------------|" << endl;
+   cout << "|     Project Nashville      |" << endl;
+   cout << "|----------------------------|" << endl;
+   cout << "|          New game          |" << std::endl; //0
+   cout << "|          Load game         |" << std::endl; //1
+   cout << "|          Exit game         |" << std::endl; //2
+   cout << "|----------------------------|" << endl;
+   cout << endl;
 
    std::vector<std::string> input = getInput();
 
@@ -108,9 +112,6 @@ void UI::makeNewGame() {
 
     // Create new game object
     currentGame = new game();
-
-    // Since it will be new game, output description of first room
-    currentGame->currentRoomDescription();
 
 }
 
