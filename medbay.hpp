@@ -24,8 +24,8 @@ class medbay : public room {
 
 private:
 
-
-
+    bool scalpelTaken = false;
+    bool medicalBoxOpened = false;
 
 public:
 

@@ -27,11 +27,11 @@ class UI {
 
       std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
-      void generalActions(vector<string> input, int actionChoice);
+      void generalActions(vector<string> input, int actionChoice, int actionSize);
       void showMap();
       void help();
       string combineRoomItemName(vector<string>input);
-
+      void moveRoomCall(vector<string>input, int actionSize);
 
    public:
      int menuStartUp();
