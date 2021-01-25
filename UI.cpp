@@ -28,22 +28,23 @@ UI::UI() {
 
    // Case 10 - GO
    general_actions.insert({ "GO", 10 });
-   general_actions.insert({ "GO TO", 10 });
-   general_actions.insert({"ESCAPE POD ROOM", 10});
-   general_actions.insert({"MEDBAY",10});
-   general_actions.insert({"MAINFRAME ROOM" , 10});
-   general_actions.insert({"COMMUNICATION", 10});
-   general_actions.insert({"ELECTRICAL", 10});
-   general_actions.insert({"NAVIGATION", 10});
-   general_actions.insert({"CORRIDOR 1", 10});
-   general_actions.insert({"CORRIDOR 2", 10});
-   general_actions.insert({"CORRIDOR 3", 10});
-   general_actions.insert({"REACTOR", 10});
-   general_actions.insert({"ENGINE BAY", 10});
-   general_actions.insert({"CAFETERIA", 10});
-   general_actions.insert({"CAPTAIN'S LODGE", 10});
-   general_actions.insert({"LIFE SUPPORT O2", 10});
-   general_actions.insert({"STORAGE", 10});
+   general_actions.insert({"GO TO", 10 });
+   
+   rooms.insert({"ESCAPE POD ROOM", 10});
+   rooms.insert({"MEDBAY",10});
+   rooms.insert({"MAINFRAME ROOM" , 10});
+   rooms.insert({"COMMUNICATION", 10});
+   rooms.insert({"ELECTRICAL", 10});
+   rooms.insert({"NAVIGATION", 10});
+   rooms.insert({"CORRIDOR 1", 10});
+   rooms.insert({"CORRIDOR 2", 10});
+   rooms.insert({"CORRIDOR 3", 10});
+   rooms.insert({"REACTOR", 10});
+   rooms.insert({"ENGINE BAY", 10});
+   rooms.insert({"CAFETERIA", 10});
+   rooms.insert({"CAPTAIN'S LODGE", 10});
+   rooms.insert({"LIFE SUPPORT O2", 10});
+   rooms.insert({"STORAGE", 10});
 
 
    general_actions.insert({ "EXIT GAME", 11 });
@@ -53,7 +54,7 @@ UI::UI() {
    menu_options.insert({"LOAD", 1});
    menu_options.insert({"EXIT", 2});
 
-   rooms.insert("ESCAPE POD ROOM");
+  /* rooms.insert("ESCAPE POD ROOM");
    rooms.insert("MEDBAY");
    rooms.insert("MAINFRAME ROOM");
    rooms.insert("COMMUNICATION");
@@ -68,7 +69,7 @@ UI::UI() {
    rooms.insert("CAPTAIN'S LODGE");
    rooms.insert("LIFE SUPPORT O2");
    rooms.insert("STORAGE");
-
+*/
 
    gameRunning = true;
 
@@ -165,14 +166,14 @@ bool UI::play(){
     int generalActionStringSize = 1;
 
     // Check for one-word general actions
-    if(general_actions.find(input[0]) != general_actions.end()) {
+    if(general_actions.find(input[0]) != general_actions.end() || rooms.find(input[0]) != rooms.end()) {
             inputChoice = general_actions[input[0]];
     }
 
     // Check for two-word general actions
     if(input.size()>1){
             string tempString = input[0] + " " +input[1];
-            if(general_actions.find(tempString) != general_actions.end()){
+            if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
                 inputChoice = general_actions[tempString];
                 generalActionStringSize = 2;
             }
@@ -181,7 +182,7 @@ bool UI::play(){
     // Check for three-word general actions
     if(input.size()>2 && generalActionStringSize != 2){
         string tempString = input[0] + " " +input[1] + " " + input[2];
-        if(general_actions.find(tempString) != general_actions.end()){
+        if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
             inputChoice = general_actions[tempString];
             generalActionStringSize = 3;
         }
@@ -275,7 +276,17 @@ void UI::showMap(){
 
 void UI::help(){
    for(auto command : general_actions){
-      std::cout << command.first << std::endl;
+      if(command.first == "GO"){
+	 continue;
+      }
+      std::cout << command.first;
+      if(command.first == "GO TO"){
+	 std::cout << " <ROOM>";
+      }
+      else if(command.first == "LOOK AT"){
+	 std::cout <<" <OBJECT>";
+      }
+      std::cout << std::endl;
    }
 }
 
