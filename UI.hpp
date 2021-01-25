@@ -20,24 +20,17 @@ class UI {
       game* currentGame;
       bool gameRunning; // Flag to see if the game is ever to exit.
 
-      vector<string>startMenuOptions;
-
-
       std::unordered_map<std::string, int> general_actions;
-
-
       std::unordered_map<std::string, int> menu_options;
-
-
       std::unordered_set<std::string> rooms;
 
 
       std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
-      void generalActions(std::vector<std::string> input);
+      void generalActions(vector<string> input, int actionChoice);
       void showMap();
       void help();
-      void moveRoom(std::vector<std::string> input);
+      string combineRoomItemName(vector<string>input);
 
 
    public:
