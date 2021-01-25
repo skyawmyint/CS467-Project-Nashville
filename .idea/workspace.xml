@@ -42,11 +42,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,6 +63,7 @@
       <workItem from="1611565021234" duration="2011000" />
       <workItem from="1611569941001" duration="11970000" />
       <workItem from="1611582166542" duration="2605000" />
+      <workItem from="1611585360361" duration="254000" />
     </task>
     <servers />
   </component>
@@ -87,22 +83,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="676" y="457" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1611143183966" />
-    <state width="2117" height="385" key="GridCell.Tab.0.bottom" timestamp="1611584776040">
+    <state width="2117" height="385" key="GridCell.Tab.0.bottom" timestamp="1611585613952">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2117" height="385" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611584776040" />
-    <state width="2117" height="385" key="GridCell.Tab.0.center" timestamp="1611584776040">
+    <state width="2117" height="385" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1611585613952" />
+    <state width="2117" height="385" key="GridCell.Tab.0.center" timestamp="1611585613952">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2117" height="385" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611584776040" />
-    <state width="2117" height="385" key="GridCell.Tab.0.left" timestamp="1611584776040">
+    <state width="2117" height="385" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1611585613952" />
+    <state width="2117" height="385" key="GridCell.Tab.0.left" timestamp="1611585613952">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2117" height="385" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611584776039" />
-    <state width="2117" height="385" key="GridCell.Tab.0.right" timestamp="1611584776040">
+    <state width="2117" height="385" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1611585613952" />
+    <state width="2117" height="385" key="GridCell.Tab.0.right" timestamp="1611585613952">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2117" height="385" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611584776040" />
+    <state width="2117" height="385" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1611585613952" />
     <state width="2117" height="491" key="GridCell.Tab.1.bottom" timestamp="1611584776037">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

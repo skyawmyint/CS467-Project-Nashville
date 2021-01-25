@@ -178,6 +178,15 @@ bool UI::play(){
             }
     }
 
+    // Check for three-word general actions
+    if(input.size()>2 && generalActionStringSize != 2){
+        string tempString = input[0] + " " +input[1] + " " + input[2];
+        if(general_actions.find(tempString) != general_actions.end()){
+            inputChoice = general_actions[tempString];
+            generalActionStringSize = 3;
+        }
+    }
+
     // Do the input general action
     if(inputChoice >=0 && inputChoice <= 11){
         generalActions(input, inputChoice, generalActionStringSize);
