@@ -166,8 +166,12 @@ bool UI::play(){
     int generalActionStringSize = 1;
 
     // Check for one-word general actions
-    if(general_actions.find(input[0]) != general_actions.end() || rooms.find(input[0]) != rooms.end()) {
+    if(general_actions.find(input[0]) != general_actions.end()) {
             inputChoice = general_actions[input[0]];
+    }
+    // One-word room action
+    if(rooms.find(input[0]) != rooms.end()){
+        inputChoice = rooms[input[0]];
     }
 
     // Check for two-word general actions
@@ -178,12 +182,28 @@ bool UI::play(){
                 generalActionStringSize = 2;
             }
     }
+    // Two-word room action
+    if(input.size()>1){
+        string tempString = input[0] + " " +input[1];
+        if(rooms.find(tempString) != rooms.end()){
+            inputChoice = rooms[tempString];
+            generalActionStringSize = 2;
+        }
+    }
 
     // Check for three-word general actions
-    if(input.size()>2 && generalActionStringSize != 2){
+    if(input.size()>2){
         string tempString = input[0] + " " +input[1] + " " + input[2];
         if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
             inputChoice = general_actions[tempString];
+            generalActionStringSize = 3;
+        }
+    }
+    // Three-word room action
+    if(input.size()>2){
+        string tempString = input[0] + " " +input[1] + " " + input[2];
+        if(rooms.find(tempString) != rooms.end()){
+            inputChoice = rooms[tempString];
             generalActionStringSize = 3;
         }
     }
