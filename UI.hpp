@@ -23,7 +23,7 @@ class UI {
       std::unordered_map<std::string, int> general_actions;
       std::unordered_map<std::string, int> menu_options;
       std::unordered_map<std::string, int> rooms;
-
+      std::unordered_map<std::string, int> items;
 
       std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
