@@ -73,6 +73,9 @@ private:
     room* lifeSupportO2Room;
     room* captainsLodgeRoom;
 
+    // Vector of rooms in the game
+    vector<room*> roomVector;
+
     // Current room
     room* currentPosition;
 
@@ -87,7 +90,9 @@ public:
     // bool doGameCommand(int, string);
     void currentRoomDescription();
     void lookDescription();
-
+    void dropItem(string itemName);
+    void takeItem(string itemName);
+    void displayInventory();
     void moveRooms(string roomName);
 
 

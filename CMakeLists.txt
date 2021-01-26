@@ -29,7 +29,7 @@ add_executable(CS467_Project_Nashville
         game.cpp
         game.hpp
         Item.cpp
-        item.hpp
+        Item.hpp
         lifesupporto2.cpp
         lifesupporto2.hpp
         main.cpp

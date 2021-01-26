@@ -160,9 +160,6 @@
 		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp">
 			<Option target="CS467_Project_Nashville"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/item.hpp">
-			<Option target="CS467_Project_Nashville"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/lifesupporto2.cpp">
 			<Option target="CS467_Project_Nashville"/>
 		</Unit>
