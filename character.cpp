@@ -12,7 +12,6 @@ default constructor
 character::character()
 {
 
-    inventorySize = 0;
 
 }
 
@@ -23,7 +22,6 @@ void character::addItem(item *inputItem)
 {
 
     inventory.push_back(inputItem);
-    inventorySize++;
 
 }
 
@@ -34,7 +32,7 @@ bool character::searchItem(string inputItemName){
 
     bool itemExist = false;
 
-    for (int i = 0; i < inventorySize; i++)
+    for (int i = 0; i < inventory.size(); i++)
     {
         if (inputItemName == inventory[i]->getName())
         {
@@ -52,14 +50,13 @@ item* character::removeItem(string inputItemName){
 
     item* tempItemPointer;
 
-    for (int i = 0; i < inventorySize; i++)
+    for (int i = 0; i < inventory.size(); i++)
     {
         if (inputItemName == inventory[i]->getName())
         {
 
             tempItemPointer = inventory[i];
             inventory.erase(inventory.begin() + i);
-            inventorySize--;
             break;
 
         }
@@ -74,11 +71,20 @@ listInventory outputs the entire inventory that the character has
 *************************************************************************************/
 void character::listInventory() {
 
-    // ADJUST THIS LATER FOR HOW WE WANT IT TO BE SHOWN
-    for(int i = 0; i < inventorySize; i++){
-
-        cout << inventory[i]->getName() << " ";
-
+    // If inventory is not empty
+    if(inventory.size() != 0){
+        cout << "You have the following in your inventory: ";
+        for(int i = 0; i < inventory.size(); i++){
+            if(i<inventory.size()-1){
+                cout << inventory[i]->getName() << ", ";
+            }
+            else{
+                cout << inventory[i]->getName() << ".";
+            }
+        }
+    }
+    else{
+        cout << "You have nothing in your inventory.";
     }
     cout << endl;
 

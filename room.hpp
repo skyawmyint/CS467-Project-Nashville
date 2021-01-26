@@ -17,6 +17,7 @@ It declares all our member variables and member function prototypes.
 #include <memory>
 
 #include "Item.hpp"
+#include "character.hpp"
 
 using std::cin;
 using std::cout;
@@ -34,31 +35,44 @@ private:
     string longDescription;
     string shortDescription;
     vector<room*> connectedRooms;
+    vector<item*> startingItems;
+    vector<item*> droppedItems;
     int numConnectedRooms;
     bool repeatVisit; // false if it is first visit. true for any other visit
-
-
-    // vector<shared_ptr<item*>>droppedItems;
 
 public:
 
     room(); // Default constructor
+
+    // Name and description functions
     void setName(string nameIn);
     string getName() const;
     void setLongDescription(string stringIn);
     string getLongDescription() const;
     void setShortDescription(string stringIn);
     string getShortDescription() const;
+
+    // Connecting rooms and tracking visited rooms
     void setConnectedRooms(room* inputRoom);
     bool isConnectedRoom(string inputRoomName);
     bool isRepeatVisit();
     void toggleEnteredRoom();
 
+    // Functions to deal with adding/removing items
+    void addItemStarting(item* inputItem);
+    bool searchItemStarting(string inputItemName);
+    item* removeItemStarting(string inputItemName);
+    void addItemDropped(item* inputItem);
+    bool searchItemDropped(string inputItemName);
+    item* removeItemDropped(string inputItemName);
+    void listItemDropped();
 
-    // void addItem();
-    // void removeItem();
+
+    // virtual void lookAtFeature();
     // virtual void interactRoom();
-    ~room(); // Destructor
+
+    // Destructor
+    ~room();
 
 };
 

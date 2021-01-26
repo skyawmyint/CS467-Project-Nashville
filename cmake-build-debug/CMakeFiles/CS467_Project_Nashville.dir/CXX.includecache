@@ -12,32 +12,6 @@ string
 iostream
 -
 
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.cpp
-iostream
--
-algorithm
--
-sstream
--
-UI.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
-
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
-string
--
-vector
--
-unordered_map
--
-unordered_set
--
-utility
--
-game.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp
-utilityFunctions.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
-
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cafeteria.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
@@ -91,6 +65,10 @@ room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/escapepodroom.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.cpp
+game.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp
 iostream
@@ -160,6 +138,10 @@ room.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
 
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.cpp
+room.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
 string
 -
@@ -175,12 +157,10 @@ memory
 -
 Item.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
+character.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
-
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
-string
--
 

@@ -23,15 +23,15 @@ class UI {
       std::unordered_map<std::string, int> general_actions;
       std::unordered_map<std::string, int> menu_options;
       std::unordered_map<std::string, int> rooms;
-      std::unordered_map<std::string, int> items;
+      std::unordered_set<std::string> items;
 
       std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
       void generalActions(vector<string> input, int actionChoice, int actionSize);
       void showMap();
       void help();
-      string combineRoomItemName(vector<string>input);
       void moveRoomCall(vector<string>input, int actionSize);
+      void dropTakeItemCall(vector<string> input, int actionChoice, int actionSize);
 
    public:
      int menuStartUp();

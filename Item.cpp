@@ -22,7 +22,7 @@ item::item(string nameIn, string descriptionIn)
 {
     setName(nameIn);
     setDescription(descriptionIn);
-    setTrigger(false);
+    // setTrigger(false);
 }
 
 /*********************************************************************************
@@ -67,20 +67,22 @@ setTrigger sets the bool triggered of the Item. it takes a bool as a parameter a
 This code is used ingame to determine correct or incorrect item interactions
 *************************************************************************************/
 
-void item::setTrigger(bool triggerIn)
+/* void item::setTrigger(bool triggerIn)
 {
     triggered = triggerIn;
 }
+ */
 
 /*********************************************************************************
 getTrigger gets the bool trigeered of the Item. it takes a nothing as a parameter and returns a bool.
 This code is used ingame to determine correct or incorrect item interactions
 *************************************************************************************/
-
+/*
 bool item::getTrigger() const
 {
     return triggered;
 }
+ */
 
 /********************************************************************************
 Destructor

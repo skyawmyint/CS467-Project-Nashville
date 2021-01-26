@@ -29,7 +29,6 @@ UI::UI() {
    // Case 10 - GO
    general_actions.insert({ "GO", 10 });
    general_actions.insert({"GO TO", 10 });
-   
    rooms.insert({"ESCAPE POD ROOM", 10});
    rooms.insert({"MEDBAY",10});
    rooms.insert({"MAINFRAME ROOM" , 10});
@@ -46,30 +45,34 @@ UI::UI() {
    rooms.insert({"LIFE SUPPORT O2", 10});
    rooms.insert({"STORAGE", 10});
 
-
+   // Case 11 - EXIT GAME
    general_actions.insert({ "EXIT GAME", 11 });
 
-   
+   // Case 12 - DROP <OBJECT>
+   general_actions.insert({ "DROP", 12 });
+   general_actions.insert({ "LEAVE", 12 });
+   general_actions.insert({ "LEAVE BEHIND", 12 });
+
+   // Case 13 - TAKE <OBJECT>
+   general_actions.insert({ "TAKE", 13 });
+   general_actions.insert({ "PICK UP", 13 });
+
+
+   // MENU OPTIONS
    menu_options.insert({"NEW", 0});
    menu_options.insert({"LOAD", 1});
    menu_options.insert({"EXIT", 2});
 
-  /* rooms.insert("ESCAPE POD ROOM");
-   rooms.insert("MEDBAY");
-   rooms.insert("MAINFRAME ROOM");
-   rooms.insert("COMMUNICATION");
-   rooms.insert("ELECTRICAL");
-   rooms.insert("NAVIGATION");
-   rooms.insert("CORRIDOR 1");
-   rooms.insert("CORRIDOR 2");
-   rooms.insert("CORRIDOR 3");
-   rooms.insert("REACTOR");
-   rooms.insert("ENGINE BAY");
-   rooms.insert("CAFETERIA");
-   rooms.insert("CAPTAIN'S LODGE");
-   rooms.insert("LIFE SUPPORT O2");
-   rooms.insert("STORAGE");
-*/
+
+   // ITEMS
+   items.insert("KEY");
+   items.insert("BADGE");
+   items.insert("SCALPEL");
+   items.insert("WORK GLOVES");
+   items.insert("NAV COMM UPDATE MODULE");
+   items.insert("EMPTY CONTAINER");
+   items.insert("WRENCH");
+   items.insert("FLARE GUN");
 
    gameRunning = true;
 
@@ -102,7 +105,7 @@ int UI::menuStartUp()
    std::vector<std::string> input = getInput();
 
    while(retChoice == -1){
-      //Valid menu optio
+      //Valid menu option
       //0: new game
       //1: load Game
       //2: exit game
@@ -126,7 +129,7 @@ makeNewGame() - creates a new game object if the user selects New Game
 void UI::makeNewGame() {
 
     // Create new game object
-    currentGame = new game();
+    this->currentGame = new game();
 
 }
 
@@ -209,7 +212,7 @@ bool UI::play(){
     }
 
     // Do the input general action
-    if(inputChoice >=0 && inputChoice <= 11){
+    if(inputChoice >=0 && inputChoice <= 13){
         generalActions(input, inputChoice, generalActionStringSize);
     }
     else{
@@ -240,6 +243,10 @@ vector<string> UI::parseClean(string str){
    return input;
 }
 
+
+/********************************************************************************
+generalActions -
+**********************************************************************************/
 void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
    switch(actionChoice){
@@ -249,12 +256,17 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
            currentGame->lookDescription();
            break;
        }
+       // Case to 'HELP'
+      case 1:{
+          help();
+          break;
+      }
+      // Case to 'INVENTORY'
+      case 2:{
+          currentGame->displayInventory();
+          break;
+      }
 
-      case 1:
-	 help();
-	 break;
-      case 2:
-	 break;
       case 3:
 	 break;
       case 4:
@@ -272,18 +284,28 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
           cout << "We made it to the LOOK AT branch!" << endl;
 	 break;
 
-	 // Case to move rooms
+	 // Case to 'MOVE <ROOM>'
       case 10: {
           moveRoomCall(input, actionSize);
           break;
       }
 
-	 // Case to exit the game
-      case 11:
+	 // Case to 'EXIT'
+      case 11: {
           cout << "Exiting game now." << endl;
           this->gameRunning = false;
-	 break;
-
+          break;
+      }
+      // Case to 'DROP <ITEM>'
+      case 12:{
+          dropTakeItemCall(input, actionChoice, actionSize);
+          break;
+      }
+      // Case to 'TAKE <ITEM>'
+      case 13:{
+          dropTakeItemCall(input, actionChoice, actionSize);
+          break;
+      }
    }
 }
 
@@ -388,67 +410,68 @@ void UI::moveRoomCall(vector<string>input, int actionSize) {
 
 }
 
-
-
-
-
 /********************************************************************************
-combineRoomItemName - takes in a vector of a parsed string input and finds a
- Room or Item name and combines and returns it into a single string
+dropTakeItemCall -
 **********************************************************************************/
-string UI::combineRoomItemName(vector<string> input) {
+void UI::dropTakeItemCall(vector<string> input, int actionChoice, int actionSize) {
 
-    // Setup the return string variable
-    string newString = "BAD INPUT";
+    string itemName = "";
+    string tempName = "";
+    int itemFoundCount = 0;
 
-    // Flag to break if a room was found
-    bool roomItemFound = false;
-
-    // Go through all the indexes
-    for(int i = 0; i < input.size(); i++){
-
-        // Work with one-word rooms
-        if(rooms.find(input[i]) != rooms.end()) {
-            newString = input[i];
-            roomItemFound = true;
+    // Check for one-word items
+    if(input.size() == actionSize+1){
+        tempName = input[actionSize];
+        if(items.find(tempName) != items.end()) {
+            itemName = tempName;
+            itemFoundCount = 1;
         }
-
-        // Work with two-word rooms
-        if(i < input.size()-1){
-            string tempString = input[i] + " " +input[i+1];
-            if(rooms.find(tempString) != rooms.end()){
-                newString = tempString;
-                roomItemFound = true;
-            }
+    }
+    // Check for two-word items
+    else if(input.size() == actionSize+2){
+        tempName = input[actionSize] + " " + input[actionSize+1];
+        if(items.find(tempName) != items.end()) {
+            itemName = tempName;
+            itemFoundCount = 2;
         }
-
-        // Work with three-word rooms
-        if(i < input.size()-2){
-            string tempString = input[i] + " " +input[i+1] + " " + input[i+2];
-            if(rooms.find(tempString) != rooms.end()){
-                newString = tempString;
-                roomItemFound = true;
-            }
+    }
+    // Check for three-word items
+    else if(input.size() == actionSize+3){
+        tempName = input[actionSize] + " " + input[actionSize+1]+ " " + input[actionSize+2];
+        if(items.find(tempName) != items.end()) {
+            itemName = tempName;
+            itemFoundCount = 3;
         }
-
-        if(roomItemFound == true){
-            break;
+    }
+    // Check for four-word items
+    else if(input.size() == actionSize+3){
+        tempName = input[actionSize] + " " + input[actionSize+1]+ " " + input[actionSize+2]+ " " + input[actionSize+3];
+        if(items.find(tempName) != items.end()) {
+            itemName = tempName;
+            itemFoundCount = 4;
         }
     }
 
-    // Add something for Item
+    // Error if size too big
+    if(input.size() > (actionSize + itemFoundCount)){
+        cout << "Input not recognized." << endl;
+    }
+    else if(input.size() == actionSize){
+        cout << "Input not recognized." << endl;
+    }
+    // Call drop/take game functions
+    else{
+        // Drop item for case 12
+        if(actionChoice == 12){
+            currentGame->dropItem(itemName);
+        }
+        // take item for case 13
+        else if(actionChoice == 13){
+            currentGame->takeItem(itemName);
+        }
 
-
-
-
-    return newString;
-
+    }
 }
-
-
-
-
-
 
 
 

@@ -14,35 +14,35 @@ game::game(){
     // Set up the items in the game
     keyItem = new item();
     keyItem->setName("KEY");
-    keyItem->setDescription("KEY DESCRIPTION HERE");
+    keyItem->setDescription("This KEY can be used to escape in the ESCAPE POD.");
 
     badgeItem = new item();
     badgeItem->setName("BADGE");
-    badgeItem->setDescription("BADGE DESCRIPTION HERE");
+    badgeItem->setDescription("This BADGE allows access to open the MAINFRAME ROOM.");
 
     scalpelItem = new item();
     scalpelItem->setName("SCALPEL");
-    scalpelItem->setDescription("SCALPEL DESCRIPTION HERE");
+    scalpelItem->setDescription("This is a handy SCALPEL that can be used in multiple objects to cut and pry.");
 
     workGlovesItem = new item();
     workGlovesItem->setName("WORK GLOVES");
-    workGlovesItem->setDescription("WORK GLOVES DESCRIPTION HERE");
+    workGlovesItem->setDescription("These WORK GLOVES can be handy in working with dangerous electrical objects.");
 
     navCommUpdateModuleItem = new item();
     navCommUpdateModuleItem->setName("NAV COMM UPDATE MODULE");
-    navCommUpdateModuleItem->setDescription("NAV COMM UPDATE MODULE DESCRIPTION HERE");
+    navCommUpdateModuleItem->setDescription("The NAV COMM UPDATE MODULE can be used on a computer to allow a safe route on an escape pod.");
 
     emptyContainerItem = new item();
     emptyContainerItem->setName("EMPTY CONTAINER");
-    emptyContainerItem->setDescription("EMPTY CONTAINER DESCRIPTION HERE");
+    emptyContainerItem->setDescription("This EMPTY CONTAINER can be filled with something.");
 
     wrenchItem = new item();
     wrenchItem->setName("WRENCH");
-    wrenchItem->setDescription("WRENCH DESCRIPTION HERE");
+    wrenchItem->setDescription("This WRENCH can be used to turn valves or bolts.");
 
     flareGunItem = new item();
     flareGunItem->setName("FLARE GUN");
-    flareGunItem->setDescription("FLARE GUN DESCRIPTION HERE");
+    flareGunItem->setDescription("This FLARE GUN can probably be used to ignite something with O2.");
 
     // Setup Rooms in the game
     corridor1Room = new corridor1; // Corridors
@@ -97,14 +97,35 @@ game::game(){
     lifeSupportO2Room->setConnectedRooms(storageRoom);
     captainsLodgeRoom->setConnectedRooms(corridor3Room);
 
+    // Add starting items to the rooms
+    storageRoom->addItemStarting(keyItem);
+    // captainsLodgeRoom->addItemStarting(badgeItem);
+    medbayRoom->addItemStarting(scalpelItem);
+    engineBayRoom->addItemStarting(workGlovesItem);
+    reactorRoom->addItemStarting(navCommUpdateModuleItem);
+    lifeSupportO2Room->addItemStarting(emptyContainerItem);
+    corridor2Room->addItemStarting(wrenchItem);
+    // medbayRoom->addItemStarting(flareGunItem);
+
+
+
+    // Add all the rooms to the roomsVector
+
+
+
     // Set up a new character
     character* player = new character();
 
+    // CHECKING IF ITEMS WORKING - TEMP!!!!
+    this->player->addItem(badgeItem);
+    this->player->addItem(flareGunItem);
+    // TEMP CODE!!!!!!!!!!!!!!!!!!!!!!!!!
+
     // Set up the current position on the game board
-    currentPosition = medbayRoom;
+    this->currentPosition = medbayRoom;
 
     // Set up flags
-    gameStillRunning = true;
+    this->gameStillRunning = true;
 
     // First game room introduction should be here
     cout << endl;
@@ -133,12 +154,16 @@ void game::currentRoomDescription(){
 
     // Long description
     if(currentPosition->isRepeatVisit()==false){
-        cout << currentPosition->getLongDescription() << endl;
+        cout << currentPosition->getLongDescription();
+        currentPosition->listItemDropped();
+        cout << endl;
         currentPosition->toggleEnteredRoom();
     }
     // Short description
     else{
-        cout << currentPosition->getShortDescription() << endl;
+        cout << currentPosition->getShortDescription();
+        currentPosition->listItemDropped();
+        cout << endl;
     }
 }
 
@@ -150,6 +175,34 @@ void game::lookDescription() {
     cout << "\nYou look around the room..." << endl;
     cout << currentPosition->getLongDescription() << endl;
 
+}
+
+/********************************************************************************
+dropItem - drops an item in the player's inventory to the room
+**********************************************************************************/
+void game::dropItem(string itemName) {
+
+    if(player->searchItem(itemName) == true){
+        cout << "You drop the " << itemName << " on the floor of " << currentPosition->getName() << "." << endl;
+        currentPosition->addItemDropped(player->removeItem(itemName));
+    }
+    else{
+        cout << "Invalid command." << endl;
+    }
+}
+
+/********************************************************************************
+takeItem - takes an item and puts it into player's inventory from the room
+**********************************************************************************/
+void game::takeItem(string itemName) {
+
+    if(currentPosition->searchItemDropped(itemName) == true){
+        cout << "You take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
+        player->addItem(currentPosition->removeItemDropped(itemName));
+    }
+    else{
+        cout << "Invalid command." << endl;
+    }
 }
 
 
@@ -218,6 +271,18 @@ void game::moveRooms(string roomNameInput){
         cout << "\nYou look around to go there, but could not find the way to." << endl;
     }
 }
+
+/********************************************************************************
+displayInventory - shows a list of all items that the character has
+**********************************************************************************/
+void game::displayInventory() {
+
+    player->listInventory();
+
+}
+
+
+
 
 /********************************************************************************
 destructor

@@ -32,7 +32,6 @@ class character {
 private:
 
     vector<item*> inventory;
-    int inventorySize;
 
 public:
 
