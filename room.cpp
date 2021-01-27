@@ -219,7 +219,7 @@ void room::listItemDropped() {
 
     // Output what you see on the ground
     if(droppedItems.size() != 0){
-        cout << " You see the following items on the ground: ";
+        cout << "\nYou see the following items on the ground: ";
     }
 
     // Lists all the items in the droppedItems vector

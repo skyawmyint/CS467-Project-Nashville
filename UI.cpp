@@ -60,9 +60,11 @@ UI::UI() {
 
    // MENU OPTIONS
    menu_options.insert({"NEW", 0});
+   menu_options.insert({"NEW GAME", 0});
    menu_options.insert({"LOAD", 1});
+   menu_options.insert({"LOAD GAME", 1});
    menu_options.insert({"EXIT", 2});
-
+   menu_options.insert({"EXIT GAME", 2});
 
    // ITEMS
    items.insert("KEY");
@@ -74,7 +76,7 @@ UI::UI() {
    items.insert("WRENCH");
    items.insert("FLARE GUN");
 
-   gameRunning = true;
+   this->gameRunning = true;
 
 }
 
@@ -104,18 +106,38 @@ int UI::menuStartUp()
 
    std::vector<std::string> input = getInput();
 
+   string combinedInput = "";
+
+   for(int i = 0; i<input.size(); i++){
+       if(i == input.size()-1){
+           combinedInput += input[i];
+       }
+       else{
+           combinedInput+= input[i] + " ";
+       }
+   }
+
    while(retChoice == -1){
       //Valid menu option
       //0: new game
       //1: load Game
       //2: exit game
-      if(menu_options.find(input[0]) != menu_options.end()){
-          retChoice = menu_options[input[0]];
+      if(menu_options.find(combinedInput) != menu_options.end()){
+          retChoice = menu_options[combinedInput];
           break;
       }
       if(retChoice == -1){
-        std::cout << "Invalid input." << std::endl;
+        std::cout << "Input not recognized." << std::endl;
         input = getInput();
+        combinedInput = "";
+          for(int i = 0; i<input.size(); i++){
+              if(i == input.size()-1){
+                  combinedInput += input[i];
+              }
+              else{
+                  combinedInput+= input[i] + " ";
+              }
+          }
     }
    }
    return retChoice;
@@ -253,17 +275,32 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
        // Case to 'LOOK'
        case 0: {
-           currentGame->lookDescription();
+           if(input.size() > actionSize){
+               cout << "Input not recognized." << endl;
+           }
+           else{
+               currentGame->lookDescription();
+           }
            break;
        }
        // Case to 'HELP'
       case 1:{
-          help();
+          if(input.size() > actionSize){
+              cout << "Input not recognized." << endl;
+          }
+          else{
+              help();
+          }
           break;
       }
       // Case to 'INVENTORY'
       case 2:{
-          currentGame->displayInventory();
+          if(input.size() > actionSize){
+              cout << "Input not recognized." << endl;
+          }
+          else{
+              currentGame->displayInventory();
+          }
           break;
       }
 
@@ -292,8 +329,13 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
 	 // Case to 'EXIT'
       case 11: {
-          cout << "Exiting game now." << endl;
-          this->gameRunning = false;
+          if(input.size() > actionSize){
+              cout << "Input not recognized." << endl;
+          }
+          else{
+              cout << "Exiting game now." << endl;
+              this->gameRunning = false;
+          }
           break;
       }
       // Case to 'DROP <ITEM>'
@@ -469,7 +511,6 @@ void UI::dropTakeItemCall(vector<string> input, int actionChoice, int actionSize
         else if(actionChoice == 13){
             currentGame->takeItem(itemName);
         }
-
     }
 }
 
