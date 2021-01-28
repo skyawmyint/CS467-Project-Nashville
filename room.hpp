@@ -31,13 +31,16 @@ class room{
 
 private:
 
+    // Initialize setup of room with descriptions
     string roomName;
     string longDescription;
     string shortDescription;
     vector<room*> connectedRooms;
+
+    // Tracks items in the room
     vector<item*> startingItems;
     vector<item*> droppedItems;
-    int numConnectedRooms;
+
     bool repeatVisit; // false if it is first visit. true for any other visit
 
 public:
@@ -66,9 +69,16 @@ public:
     bool searchItemDropped(string inputItemName);
     item* removeItemDropped(string inputItemName);
     void listItemDropped();
+    int itemIndexDrop(string inputItemName);
+    void displayItemDropDescription(int index);
 
+    // Functions and variables to deal with features
+    vector<string>feature;
+    vector<string>featureDescription;
+    vector<vector<string>>featureInteraction; //Each x index will iterate through different feature action. Each y will be synonyms for the action
+    void addFeature(string inputName, string inputDescription);
+    virtual void lookAtFeature(string inputFeature);
 
-    // virtual void lookAtFeature();
     // virtual void interactRoom();
 
     // Destructor

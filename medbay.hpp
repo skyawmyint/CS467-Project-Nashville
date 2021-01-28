@@ -28,8 +28,12 @@ private:
     bool flareGunTaken = false;
 
 public:
+
+  
     medbay();    //constructor
-    // virtual void interactRoom();
+    void lookAtFeature(string featureInputName);
+
+    //virtual void interactRoom();
 
 
 

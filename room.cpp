@@ -12,7 +12,6 @@ default constructor
 room::room()
 {
 
-
 }
 
 /*********************************************************************************
@@ -20,7 +19,7 @@ setName sets the name of the room it takes a string as a parameter and returns n
 *************************************************************************************/
 void room::setName(string nameIn)
 {
-    roomName = nameIn;
+    this->roomName = nameIn;
 }
 
 /*********************************************************************************
@@ -29,7 +28,7 @@ a string;
 *************************************************************************************/
 string room::getName() const
 {
-    return roomName;
+    return this->roomName;
 }
 
 /*********************************************************************************
@@ -37,7 +36,7 @@ setLongDescription sets the description of the current room object, it takes a s
 *************************************************************************************/
 void room::setLongDescription(string scriptIn)
 {
-    longDescription = scriptIn;
+    this->longDescription = scriptIn;
 }
 
 /*********************************************************************************
@@ -46,7 +45,7 @@ a string;
 *************************************************************************************/
 string room::getLongDescription() const
 {
-    return longDescription;
+    return this->longDescription;
 }
 
 /*********************************************************************************
@@ -54,7 +53,7 @@ setShortDescription sets the description of the current room object, it takes a 
 *************************************************************************************/
 void room::setShortDescription(string scriptIn)
 {
-    shortDescription = scriptIn;
+    this->shortDescription = scriptIn;
 }
 
 /*********************************************************************************
@@ -63,7 +62,7 @@ a string;
 *************************************************************************************/
 string room::getShortDescription() const
 {
-    return shortDescription;
+    return this->shortDescription;
 }
 
 /*********************************************************************************************
@@ -72,8 +71,7 @@ setConnectedRooms takes a room* pointer input and sets it in the connectedRooms 
 *********************************************************************************************/
 void room::setConnectedRooms(room* inputRoom)
 {
-    connectedRooms.push_back(inputRoom);
-    numConnectedRooms++;
+    this->connectedRooms.push_back(inputRoom);
 
 }
 
@@ -87,7 +85,7 @@ bool room::isConnectedRoom(string inputRoomName)
     bool connectedRoomFlag = false;
 
     // Go through each index in the array
-    for(int i = 0; i<numConnectedRooms; i++){
+    for(int i = 0; i<connectedRooms.size(); i++){
 
         // Compare the room name with the input string room name
         if(connectedRooms[i]->getName() == inputRoomName){
@@ -103,7 +101,7 @@ isRepeatVisit returns the bool of if it is the first time someone has entered th
 *********************************************************************************************/
 bool room::isRepeatVisit()
 {
-    return repeatVisit;
+    return this->repeatVisit;
 }
 
 /*********************************************************************************************
@@ -111,7 +109,7 @@ toggleEnteredRoom sets the repeatVisit to TRUE if the room has been already visi
 *********************************************************************************************/
 void room::toggleEnteredRoom()
 {
-    repeatVisit = true;
+    this->repeatVisit = true;
 }
 
 /*********************************************************************************
@@ -120,7 +118,7 @@ addItemStarting adds an item to the starting vector of items in a room
 void room::addItemStarting(item *inputItem)
 {
 
-    startingItems.push_back(inputItem);
+    this->startingItems.push_back(inputItem);
 
 }
 
@@ -154,7 +152,7 @@ item* room::removeItemStarting(string inputItemName){
         {
 
             tempItemPointer = startingItems[i];
-            startingItems.erase(startingItems.begin() + i);
+            this->startingItems.erase(startingItems.begin() + i);
             break;
 
         }
@@ -169,7 +167,7 @@ addItemDropped adds an item to the dropped vector of items in a room
 void room::addItemDropped(item *inputItem)
 {
 
-    droppedItems.push_back(inputItem);
+    this->droppedItems.push_back(inputItem);
 
 }
 
@@ -203,7 +201,7 @@ item* room::removeItemDropped(string inputItemName){
         {
 
             tempItemPointer = droppedItems[i];
-            droppedItems.erase(droppedItems.begin() + i);
+            this->droppedItems.erase(droppedItems.begin() + i);
             break;
 
         }
@@ -234,11 +232,52 @@ void room::listItemDropped() {
     }
 }
 
+/*********************************************************************************
+itemIndexDrop - returns the index if an item was found in the room's dropped items
+*************************************************************************************/
+int room::itemIndexDrop(string inputItemName){
 
+    int itemIndex = -1;
 
+    for (int i = 0; i < droppedItems.size(); i++)
+    {
+        if (inputItemName == droppedItems[i]->getName())
+        {
+            itemIndex = i;
+        }
+    }
+    return itemIndex;
 
+}
 
+/*********************************************************************************
+displayItemDropDescription - displays the item description at the the drop index
+*************************************************************************************/
+void room::displayItemDropDescription(int index) {
 
+    // Index cannot be greater than the inventory size or negative
+    if(index<droppedItems.size() && (index > -1)){
+        cout << droppedItems[index]->getDescription() << endl;
+    }
+}
+
+/*********************************************************************************
+addFeature adds a feature name and description for the look at action in the
+ vector
+*************************************************************************************/
+void room::addFeature(string inputName, string inputDescription) {
+
+    this->feature.push_back(inputName);
+    this->featureDescription.push_back(inputDescription);
+
+}
+
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void room::lookAtFeature(string inputFeature) {
+
+}
 
 
 
