@@ -23,7 +23,11 @@ UI::UI() {
    general_actions.insert({ "TIME", 5 });
    general_actions.insert({ "PAUSE", 6 });
    general_actions.insert({ "UNPAUSE", 7 });
+
+   // Case 8 - MAP
    general_actions.insert({ "MAP", 8 });
+
+   // Case 9 - LOOK AT
    general_actions.insert({ "LOOK AT", 9 });
 
    // Case 10 - GO
@@ -317,10 +321,11 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
       case 8:
 	 showMap();
 	 break;
-      case 9:
-          cout << "We made it to the LOOK AT branch!" << endl;
-	 break;
-
+	 // Case to 'LOOK AT <FEATURE>'
+      case 9:{
+          currentGame->lookAtFeatureCall(input, actionSize);
+          break;
+      }
 	 // Case to 'MOVE <ROOM>'
       case 10: {
           moveRoomCall(input, actionSize);

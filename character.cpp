@@ -21,7 +21,7 @@ addItem adds an item class to the character inventory
 void character::addItem(item *inputItem)
 {
 
-    inventory.push_back(inputItem);
+    this->inventory.push_back(inputItem);
 
 }
 
@@ -40,6 +40,37 @@ bool character::searchItem(string inputItemName){
         }
     }
     return itemExist;
+}
+
+/*********************************************************************************
+itemIndex - returns the index if an item was found in the player's inventory
+*************************************************************************************/
+int character::itemIndex(string inputItemName){
+
+    int itemIndex = -1;
+
+    for (int i = 0; i < inventory.size(); i++)
+    {
+        if (inputItemName == inventory[i]->getName())
+        {
+            itemIndex = i;
+        }
+    }
+    return itemIndex;
+
+
+}
+
+/*********************************************************************************
+displayItemDescription - displays the item description at the player's inventory index
+*************************************************************************************/
+void character::displayItemDescription(int index) {
+
+    // Index cannot be greater than the inventory size or negative
+    if(index<inventory.size() && (index > -1)){
+        cout << inventory[index]->getDescription() << endl;
+    }
+
 }
 
 /*********************************************************************************

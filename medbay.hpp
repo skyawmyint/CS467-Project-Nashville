@@ -30,7 +30,9 @@ private:
 public:
 
     medbay();
-    // virtual void interactRoom();
+    void lookAtFeature(string featureInputName);
+
+    //virtual void interactRoom();
 
 
 
