@@ -362,15 +362,7 @@ void UI::showMap(){
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
    std::cout << "         /                 /               |                                |               \\                 \\" << std::endl;
    std::cout << "        /   ESCAPE POD    X                |                                |                X     REACTOR     \\" << std::endl;
-   std::cout << "       /          ";       
-   //Player in ESCAPE POD
-   if(player_location == 0) {
-      std::cout << "*";
-   }
-   else{
-      std::cout << " ";
-   }
-   std::cout << "      /                /                                  \\                \\                 \\" << std::endl;
+   std::cout << "       /                 /                /                                  \\                \\                 \\" << std::endl;
    std::cout << "      /_________________/                /                                    \\                \\_________________\\" << std::endl;
    std::cout << "     /                 /                /                                      \\                \\                 \\" << std::endl;
    std::cout << "    /                 /                /                                        \\                \\                 \\" << std::endl;
