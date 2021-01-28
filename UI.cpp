@@ -353,8 +353,50 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
 
 void UI::showMap(){
+   
+   //Eventuall have the game class return the player location
+   int player_location = 0;
 
    std::cout << "print ASCII art of Map" << std::endl;
+   std::cout << "           ________________________________                                  ________________________________" << std::endl;
+   std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
+   std::cout << "         /                 /               |                                |               \\                 \\" << std::endl;
+   std::cout << "        /   ESCAPE POD    X                |                                |                X     REACTOR     \\" << std::endl;
+   std::cout << "       /          ";       
+   //Player in ESCAPE POD
+   if(player_location == 0) {
+      std::cout << "*";
+   }
+   else{
+      std::cout << " ";
+   }
+   std::cout << "      /                /                                  \\                \\                 \\" << std::endl;
+   std::cout << "      /_________________/                /                                    \\                \\_________________\\" << std::endl;
+   std::cout << "     /                 /                /                                      \\                \\                 \\" << std::endl;
+   std::cout << "    /                 /                /                                        \\                \\                 \\" << std::endl;
+   std::cout << "   /    MED BAY      X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
+   std::cout << "  /                 /                /                                            \\                \\                 \\" << std::endl;
+   std::cout << " /_________________/                /                                              \\                \\_________________\\" << std::endl;
+   std::cout << "|                  |       C       /                                                \\       C       |                  |" << std::endl;
+   std::cout << "|                  |       O      /                                                  \\      O       |                  |" << std::endl;
+   std::cout << "|   MAINFRAME      X       R      |__________________________________________________|      R       X    CAFETERIA     |" << std::endl;
+   std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
+   std::cout << "|__________________|       I                           CORRIDOR 2                           I       |__________________|" << std::endl;
+   std::cout << "|                  |       D                                                                D       |                  |" << std::endl;
+   std::cout << "|                  |       O       __________________________________________________       O       |    CAPTAIN'S     |" << std::endl;
+   std::cout << "|  COMMUNICATIONS  X       R      |                                                  |      R       X      LODGE       |" << std::endl;
+   std::cout << "|                  |              \\                                                 /               |                  |" << std::endl;
+   std::cout << "|__________________|       1       \\                                               /        3       |__________________|" << std::endl;
+   std::cout << " \\                  \\               \\                                             /                 /                 /" << std::endl;
+   std::cout << "  \\                  \\               \\                                           /                 /     LIFE        /" << std::endl;
+   std::cout << "   \\    ELECTRICAL    X               \\                                         /                 X     SUPPORT     /" << std::endl;
+   std::cout << "    \\                  \\               \\                                       /                 /        O2       /" << std::endl;
+   std::cout << "     \\__________________\\               \\                                     /                 /_________________/" << std::endl;
+   std::cout << "      \\                  \\               \\                                   /                 /                 /" << std::endl;
+   std::cout << "       \\                  \\               \\                                 /                 /     STORAGE     /" << std::endl;
+   std::cout << "        \\    NAVIGATION    X               |                               |                 /                 /" << std::endl;
+   std::cout << "         \\                  \\              |                               |                /                 /" << std::endl;
+   std::cout << "          \\__________________\\_____________|                               |______________ /_________________/" << std::endl;
 
 }
 
