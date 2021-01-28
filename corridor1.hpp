@@ -25,9 +25,6 @@ class corridor1 : public room {
 
 private:
 
-
-
-
 public:
 
     corridor1();

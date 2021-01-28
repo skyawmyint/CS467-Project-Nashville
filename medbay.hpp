@@ -23,13 +23,14 @@ using std::make_shared;
 class medbay : public room {
 
 private:
-
     bool scalpelTaken = false;
     bool medicalBoxOpened = false;
+    bool flareGunTaken = false;
 
 public:
 
-    medbay();
+  
+    medbay();    //constructor
     void lookAtFeature(string featureInputName);
 
     //virtual void interactRoom();

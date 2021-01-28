@@ -24,9 +24,7 @@ class corridor2 : public room {
 
 
 private:
-
-
-
+    bool wrenchTaken = false;
 
 public:
 

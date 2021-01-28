@@ -24,9 +24,9 @@ class communications : public room {
 
 
 private:
-
-
-
+    bool astronautHailed = false;
+    bool astronautCanBeHailed = true;
+    bool hasPower = false;
 
 public:
 
