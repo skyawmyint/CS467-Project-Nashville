@@ -23,7 +23,8 @@ using std::make_shared;
 class medbay : public room {
 
 private:
-    bool scalpelTaken = false;
+
+    // Flags for room
     bool medicalBoxOpened = false;
     bool flareGunTaken = false;
 
@@ -32,7 +33,7 @@ public:
   
     medbay();    //constructor
     void lookAtFeature(string featureInputName);
-
+    bool isTakeableFromStarting(string inputItemName);
     //virtual void interactRoom();
 
 

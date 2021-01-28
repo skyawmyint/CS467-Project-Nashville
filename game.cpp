@@ -198,6 +198,10 @@ void game::takeItem(string itemName) {
         cout << "\nYou take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
         player->addItem(currentPosition->removeItemDropped(itemName));
     }
+    else if(currentPosition->isTakeableFromStarting(itemName) == true){
+        cout << "\nYou take the " << itemName << " and put it in your inventory." << endl;
+        player->addItem(currentPosition->removeItemStarting(itemName));
+    }
     else{
         cout << "Input not recognized." << endl;
     }
@@ -284,7 +288,13 @@ lookAtFeatureCall - does the 'Look at' command for the current room the player i
 void game::lookAtFeatureCall(vector<string> input, int actionSize){
 
     // Add together all words after the ACTION, this must be the feature...
-    string featureInputName = input[actionSize];
+    string featureInputName;
+    if(input.size()>actionSize){
+        featureInputName = input[actionSize];
+    }
+    else{
+        featureInputName = "BAD STUFF";
+    }
     if(input.size()>actionSize+1){
         for(int i = actionSize+1; i<input.size(); i++){
             featureInputName+= " ";

@@ -29,6 +29,28 @@ medbay::medbay()
     addFeature("MEDICAL BOX","If only you could OPEN this MEDICAL BOX with some kind of mechanical tool...");
 
 }
+
+/*********************************************************************************
+isTakeableFromStarting - will return true if the player can TAKE an item from the
+ starting vector.
+*************************************************************************************/
+bool medbay::isTakeableFromStarting(string inputItemName){
+
+    // Only the SCALPEL can be TAKE from the starting vector for this room
+    if(inputItemName == "SCALPEL" && searchItemStarting("SCALPEL") == true){
+        // The item will have been taken at this point, remove scalpel from long/short description.
+        setLongDescription("You see that you are surrounded by white walls that are very bright and clean, the air quite sterile with very little in the room. \n"
+                           "The only things that draw your eye are the empty surgical table that you woke up on, a metal table in the corner of the room, \n"
+                           "a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. You also see a COMPUTER on top of the metal table that looks functional.");
+        setShortDescription("A surgical table lays in the center of the room.  A COMPUTER sits atop of a metal table in the corner with a MEDICAL BOX next to it.");
+
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
@@ -46,7 +68,7 @@ void medbay::lookAtFeature(string featureInputName) {
 
     // Output the feature description
     // Found the SCALPEL
-    if(foundIndex == 0 && scalpelTaken == false){
+    if(foundIndex == 0 && searchItemStarting("SCALPEL") == true){
         cout << endl << featureDescription[foundIndex] << endl;
     }
     // Found the COMPUTER
