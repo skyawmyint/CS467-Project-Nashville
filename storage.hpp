@@ -24,8 +24,7 @@ class storage : public room {
 
 
 private:
-
-
+    bool keyTaken = false;
 
 
 public:

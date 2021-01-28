@@ -24,8 +24,8 @@ class engineBay : public room {
 
 
 private:
-
-
+    bool workGlovesTaken = false;
+    bool pumpPrimerEmpty = true;
 
 
 public:
