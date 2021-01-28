@@ -37,7 +37,6 @@ private:
     vector<room*> connectedRooms;
     vector<item*> startingItems;
     vector<item*> droppedItems;
-    int numConnectedRooms;
     bool repeatVisit; // false if it is first visit. true for any other visit
 
 public:

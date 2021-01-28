@@ -37,11 +37,6 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CS467_Project_Nashville" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS467_Project_Nashville" TARGET_NAME="CS467_Project_Nashville" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS467_Project_Nashville" RUN_TARGET_NAME="CS467_Project_Nashville">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -76,6 +71,7 @@
       <workItem from="1611585360361" duration="254000" />
       <workItem from="1611683682657" duration="15382000" />
       <workItem from="1611707397665" duration="3895000" />
+      <workItem from="1611820338735" duration="330000" />
     </task>
     <servers />
   </component>

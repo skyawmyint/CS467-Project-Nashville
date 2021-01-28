@@ -11,7 +11,6 @@ default constructor
 **********************************************************************************/
 room::room()
 {
-   this->numConnectedRooms = 0;
 
 }
 
@@ -73,7 +72,6 @@ setConnectedRooms takes a room* pointer input and sets it in the connectedRooms 
 void room::setConnectedRooms(room* inputRoom)
 {
     connectedRooms.push_back(inputRoom);
-    numConnectedRooms++;
 
 }
 
@@ -87,7 +85,7 @@ bool room::isConnectedRoom(string inputRoomName)
     bool connectedRoomFlag = false;
 
     // Go through each index in the array
-    for(int i = 0; i<numConnectedRooms; i++){
+    for(int i = 0; i<connectedRooms.size(); i++){
 
         // Compare the room name with the input string room name
         if(connectedRooms[i]->getName() == inputRoomName){
