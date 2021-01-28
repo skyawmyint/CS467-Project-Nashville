@@ -24,7 +24,7 @@ class mainframeRoom : public room {
 
 
 private:
-
+    bool selfDestruct = true;
 
 
 

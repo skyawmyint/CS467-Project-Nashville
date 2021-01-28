@@ -24,9 +24,8 @@ class reactor : public room {
 
 
 private:
-
-
-
+    bool noisyValveOpen = true;
+    bool navCommTaken = false;
 
 public:
 

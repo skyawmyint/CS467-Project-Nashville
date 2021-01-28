@@ -24,8 +24,8 @@ class lifeSupportO2 : public room {
 
 
 private:
-
-
+    bool O2CanistersDestroyed = false;
+    bool emptyContainerTaken = false;
 
 
 public:
