@@ -38,6 +38,8 @@ public:
     character();  // Constructor
     void addItem(item* inputItem);
     bool searchItem(string inputItemName);
+    int itemIndex(string inputItemName);
+    void displayItemDescription(int index);
     item* removeItem(string inputItemName);
     void listInventory();
     ~character(); // Destructor

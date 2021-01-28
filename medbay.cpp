@@ -23,4 +23,48 @@ medbay::medbay()
     // Toggle the game to say it has been visited already since it is where we begin
     toggleEnteredRoom();
 
+    // Add features to the room
+    addFeature("SCALPEL","This item may just be useful to TAKE with you.");
+    addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
+    addFeature("MEDICAL BOX","If only you could OPEN this MEDICAL BOX with some kind of mechanical tool...");
+
 }
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void medbay::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the SCALPEL
+    if(foundIndex == 0 && scalpelTaken == false){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+    // Found the COMPUTER
+    else if(foundIndex == 1){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+    // Found the MEDICAL BOX
+    else if(foundIndex == 2 && medicalBoxOpened == false){
+        cout << endl << featureDescription[foundIndex] << endl;
+
+    }
+    // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
+}
+
+
+
+

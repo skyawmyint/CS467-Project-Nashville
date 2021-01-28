@@ -74,7 +74,7 @@ private:
     room* captainsLodgeRoom;
 
     // Vector of rooms in the game
-    vector<room*> roomVector;
+    // vector<room*> roomVector;
 
     // Current room
     room* currentPosition;
@@ -94,7 +94,7 @@ public:
     void takeItem(string itemName);
     void displayInventory();
     void moveRooms(string roomName);
-
+    void lookAtFeatureCall(vector<string>input, int actionSize);
 
     ~game(); // destructor
 

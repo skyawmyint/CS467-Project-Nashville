@@ -55,8 +55,7 @@ game::game(){
     this->communicationsRoom = new communications;
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
-
-    this->cafeteriaRoom = new cafeteria;
+    this->cafeteriaRoom = new cafeteria; // East-side
     this->reactorRoom = new reactor;
     this->engineBayRoom = new engineBay;
     this->storageRoom = new storage;
@@ -99,26 +98,23 @@ game::game(){
 
     // Add starting items to the rooms
     this->storageRoom->addItemStarting(keyItem);
-    // this->captainsLodgeRoom->addItemStarting(badgeItem);
+    this->captainsLodgeRoom->addItemStarting(badgeItem);
     this->medbayRoom->addItemStarting(scalpelItem);
     this->engineBayRoom->addItemStarting(workGlovesItem);
     this->reactorRoom->addItemStarting(navCommUpdateModuleItem);
     this->lifeSupportO2Room->addItemStarting(emptyContainerItem);
     this->corridor2Room->addItemStarting(wrenchItem);
-    // this->medbayRoom->addItemStarting(flareGunItem);
-
-
+    this->medbayRoom->addItemStarting(flareGunItem);
 
     // Add all the rooms to the roomsVector
-
-
+    // MAYBE if we want to refactor a bit...
 
     // Set up a new character
     this->player = new character();
 
     // CHECKING IF ITEMS WORKING - TEMP!!!!
-    this->player->addItem(badgeItem);
-    this->player->addItem(flareGunItem);
+    // this->player->addItem(badgeItem);
+    // this->player->addItem(flareGunItem);
     // TEMP CODE!!!!!!!!!!!!!!!!!!!!!!!!!
 
     // Set up the current position on the game board
@@ -207,8 +203,6 @@ void game::takeItem(string itemName) {
     }
 }
 
-
-
 /********************************************************************************
 moveRooms - changes the current room to the user input Room string name
 **********************************************************************************/
@@ -283,6 +277,39 @@ void game::displayInventory() {
 
 }
 
+/********************************************************************************
+lookAtFeatureCall - does the 'Look at' command for the current room the player is
+ in.
+**********************************************************************************/
+void game::lookAtFeatureCall(vector<string> input, int actionSize){
+
+    // Add together all words after the ACTION, this must be the feature...
+    string featureInputName = input[actionSize];
+    if(input.size()>actionSize+1){
+        for(int i = actionSize+1; i<input.size(); i++){
+            featureInputName+= " ";
+            featureInputName+= input[i];
+        }
+    }
+
+    // Check if this is an item in inventory
+    int inventoryLocation = -1;
+    int dropLocation = -1;
+    if(player->searchItem(featureInputName) == true){
+        inventoryLocation = player->itemIndex(featureInputName);
+        this->player->displayItemDescription(inventoryLocation);
+
+    }
+    // Check if this is an item on the floor
+    else if(currentPosition->searchItemDropped(featureInputName) == true){
+        dropLocation = currentPosition->itemIndexDrop(featureInputName);
+        this->currentPosition->displayItemDropDescription(dropLocation);
+    }
+    // Else check for room features
+    else{
+        this->currentPosition->lookAtFeature(featureInputName);
+    }
+}
 
 
 
