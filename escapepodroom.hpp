@@ -22,14 +22,11 @@ using std::make_shared;
 
 class escapePodRoom : public room {
 
-
 private:
-
-
-
+    bool navCoordinatesUploaded = false;
+    bool escapePodUnlocked = false;
 
 public:
-
     escapePodRoom();
 
     // virtual void interactRoom();

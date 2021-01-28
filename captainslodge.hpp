@@ -24,9 +24,7 @@ class captainsLodge : public room {
 
 
 private:
-
-
-
+    bool badgeTaken = false;
 
 public:
 

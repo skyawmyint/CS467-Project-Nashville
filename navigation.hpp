@@ -24,9 +24,8 @@ class navigation : public room {
 
 
 private:
-
-
-
+    bool hasPower = false;
+    bool navCoordinatesUploaded = false;
 
 public:
 

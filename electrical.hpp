@@ -22,10 +22,8 @@ using std::make_shared;
 
 class electrical : public room {
 
-
 private:
-
-
+    bool electricalPanelRepaired = false;
 
 
 public:
