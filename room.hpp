@@ -71,6 +71,8 @@ public:
     void listItemDropped();
     int itemIndexDrop(string inputItemName);
     void displayItemDropDescription(int index);
+    // Take items from starting vector! - separated since some flags may be necessary to take
+    virtual bool isTakeableFromStarting(string inputItemName);
 
     // Functions and variables to deal with features
     vector<string>feature;

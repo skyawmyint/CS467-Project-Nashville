@@ -273,6 +273,19 @@ void room::addFeature(string inputName, string inputDescription) {
 }
 
 /*********************************************************************************
+isTakeableFromStarting returns true if the item in the starting room is takeable
+ from the starting vector outright. Otherwise returns false.
+*************************************************************************************/
+bool room::isTakeableFromStarting(string inputItemName){
+
+
+}
+
+
+
+
+
+/*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
 void room::lookAtFeature(string inputFeature) {
