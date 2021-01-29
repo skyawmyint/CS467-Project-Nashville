@@ -15,6 +15,7 @@ It declares all our member variables and member function prototypes.
 #include <ctime>
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 #include "Item.hpp"
 #include "character.hpp"
@@ -31,6 +32,9 @@ class room{
 
 private:
 
+    // Point to the player in the room
+    character* playerPointer;
+
     // Initialize setup of room with descriptions
     string roomName;
     string longDescription;
@@ -41,11 +45,15 @@ private:
     vector<item*> startingItems;
     vector<item*> droppedItems;
 
-    bool repeatVisit; // false if it is first visit. true for any other visit
+    bool repeatVisit = false; // false if it is first visit. true for any other visit
 
 public:
 
     room(); // Default constructor
+
+    // Functions dealing with the character
+    void setCharacter(character* inputCharacter);
+    character* getCharacter();
 
     // Name and description functions
     void setName(string nameIn);
@@ -77,11 +85,11 @@ public:
     // Functions and variables to deal with features
     vector<string>feature;
     vector<string>featureDescription;
-    vector<vector<string>>featureInteraction; //Each x index will iterate through different feature action. Each y will be synonyms for the action
     void addFeature(string inputName, string inputDescription);
     virtual void lookAtFeature(string inputFeature);
 
-    // virtual void interactRoom();
+    // Functions to deal with interacting with Room feature
+    virtual void interactRoom(string inputString);
 
     // Destructor
     ~room();

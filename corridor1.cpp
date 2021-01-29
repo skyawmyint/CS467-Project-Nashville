@@ -17,6 +17,6 @@ corridor1::corridor1()
                        "along one wall. A large screen spans across the other wall displaying a map. You hear a rumbling sound. \n"
                        "Suddenly the room shakes and you stumble fighting for balance. You feel a sinking sensation of doom...");
     setShortDescription("You enter a long vertical corridor. There are six doors along the west wall. \n"
-                        "A large screen spans across the west wall displaying a map.")
+                        "A large screen spans across the west wall displaying a map.");
 
 }
