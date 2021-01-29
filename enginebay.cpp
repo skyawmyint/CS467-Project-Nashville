@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class engineBay.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-engineBay::engineBay()
+engineBay::engineBay() : room(3)
 {
 
     setName("ENGINE BAY");

@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class reactor.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-reactor::reactor()
+reactor::reactor() : room(1)
 {
 
     setName("REACTOR");

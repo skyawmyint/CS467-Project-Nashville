@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class mainframeRoom.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-mainframeRoom::mainframeRoom()
+mainframeRoom::mainframeRoom() : room(4)
 {
     setName("MAINFRAME ROOM");
     setLongDescription("If NAVIGATION could be considered the mind of the space station, and the CAPTAIN'S CABIN the soul, \n"

@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class lifeSupportO2.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-lifeSupportO2::lifeSupportO2()
+lifeSupportO2::lifeSupportO2() : room(12)
 {
 
     setName("LIFE SUPPORT O2");

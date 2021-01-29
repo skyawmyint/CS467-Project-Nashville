@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class escapePodRoom.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-escapePodRoom::escapePodRoom()
+escapePodRoom::escapePodRoom() : room(0)
 {
 
     setName("ESCAPE POD ROOM");

@@ -27,8 +27,7 @@ private:
     bool escapePodUnlocked = false;
 
 public:
-    escapePodRoom();
-
+    escapePodRoom(); 
     // virtual void interactRoom();
 
     // ~escapePodRoom();

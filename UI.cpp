@@ -11,8 +11,8 @@ using std::cin;
 using std::vector;
 
 /********************************************************************************
-default constructor
-**********************************************************************************/
+  default constructor
+ **********************************************************************************/
 UI::UI() {
 
    general_actions.insert({ "LOOK", 0 });
@@ -85,21 +85,21 @@ UI::UI() {
 }
 
 /********************************************************************************
-destructor
-**********************************************************************************/
+  destructor
+ **********************************************************************************/
 UI::~UI() {}
 
 
 
 /********************************************************************************
-menuStartUp() - prompts the user if  they would like to create a New Game, Load
- Game, or Exit game. This will then return an int value back to main.
-**********************************************************************************/
+  menuStartUp() - prompts the user if  they would like to create a New Game, Load
+  Game, or Exit game. This will then return an int value back to main.
+ **********************************************************************************/
 int UI::menuStartUp()
 {
 
-    // Track the menu startup choice
-    int retChoice = -1;
+   // Track the menu startup choice
+   int retChoice = -1;
 
    // Make a cool starting screen!
    cout << "|----------------------------|" << endl;
@@ -117,12 +117,12 @@ int UI::menuStartUp()
    string combinedInput = "";
 
    for(int i = 0; i<input.size(); i++){
-       if(i == input.size()-1){
-           combinedInput += input[i];
-       }
-       else{
-           combinedInput+= input[i] + " ";
-       }
+      if(i == input.size()-1){
+	 combinedInput += input[i];
+      }
+      else{
+	 combinedInput+= input[i] + " ";
+      }
    }
 
    while(retChoice == -1){
@@ -131,22 +131,22 @@ int UI::menuStartUp()
       //1: load Game
       //2: exit game
       if(menu_options.find(combinedInput) != menu_options.end()){
-          retChoice = menu_options[combinedInput];
-          break;
+	 retChoice = menu_options[combinedInput];
+	 break;
       }
       if(retChoice == -1){
-        std::cout << "Input not recognized." << std::endl;
-        input = getInput();
-        combinedInput = "";
-          for(int i = 0; i<input.size(); i++){
-              if(i == input.size()-1){
-                  combinedInput += input[i];
-              }
-              else{
-                  combinedInput+= input[i] + " ";
-              }
-          }
-    }
+	 std::cout << "Input not recognized." << std::endl;
+	 input = getInput();
+	 combinedInput = "";
+	 for(int i = 0; i<input.size(); i++){
+	    if(i == input.size()-1){
+	       combinedInput += input[i];
+	    }
+	    else{
+	       combinedInput+= input[i] + " ";
+	    }
+	 }
+      }
    }
    return retChoice;
 }
@@ -154,31 +154,31 @@ int UI::menuStartUp()
 
 
 /********************************************************************************
-makeNewGame() - creates a new game object if the user selects New Game
-**********************************************************************************/
+  makeNewGame() - creates a new game object if the user selects New Game
+ **********************************************************************************/
 void UI::makeNewGame() {
 
-    // Create new game object
-    this->currentGame = new game();
+   // Create new game object
+   this->currentGame = new game();
 
 }
 
 
 /********************************************************************************
-getInput() -
-**********************************************************************************/
+  getInput() -
+ **********************************************************************************/
 vector<string> UI::getInput(){
    string input = "";
 
    while(input.empty()){
       std::cout << "\nEnter choice: ";
       if(!std::getline(cin, input)){
-	       //IO ERROR
-        return {};
+	 //IO ERROR
+	 return {};
       }
       if(!input.empty()){
-        vector<string> input_vec = parseClean(input);
-        return input_vec;
+	 vector<string> input_vec = parseClean(input);
+	 return input_vec;
       }
    }
    return {};
@@ -187,89 +187,89 @@ vector<string> UI::getInput(){
 
 
 /********************************************************************************
-play() - gets input from the user and calls the game file accordingly.
-**********************************************************************************/
+  play() - gets input from the user and calls the game file accordingly.
+ **********************************************************************************/
 bool UI::play(){
 
-    // Get user input
-    std::vector<std::string> input = getInput();
+   // Get user input
+   std::vector<std::string> input = getInput();
 
-    // Variables to check input
-    int inputChoice = -1;
-    int generalActionStringSize = 1;
+   // Variables to check input
+   int inputChoice = -1;
+   int generalActionStringSize = 1;
 
-    // Check for one-word general actions
-    if(general_actions.find(input[0]) != general_actions.end()) {
-            inputChoice = general_actions[input[0]];
-    }
-    // One-word room action
-    if(rooms.find(input[0]) != rooms.end()){
-        inputChoice = rooms[input[0]];
-    }
+   // Check for one-word general actions
+   if(general_actions.find(input[0]) != general_actions.end()) {
+      inputChoice = general_actions[input[0]];
+   }
+   // One-word room action
+   if(rooms.find(input[0]) != rooms.end()){
+      inputChoice = rooms[input[0]];
+   }
 
-    // Check for two-word general actions
-    if(input.size()>1){
-            string tempString = input[0] + " " +input[1];
-            if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
-                inputChoice = general_actions[tempString];
-                generalActionStringSize = 2;
-            }
-    }
-    // Two-word room action
-    if(input.size()>1){
-        string tempString = input[0] + " " +input[1];
-        if(rooms.find(tempString) != rooms.end()){
-            inputChoice = rooms[tempString];
-            generalActionStringSize = 2;
-        }
-    }
+   // Check for two-word general actions
+   if(input.size()>1){
+      string tempString = input[0] + " " +input[1];
+      if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
+	 inputChoice = general_actions[tempString];
+	 generalActionStringSize = 2;
+      }
+   }
+   // Two-word room action
+   if(input.size()>1){
+      string tempString = input[0] + " " +input[1];
+      if(rooms.find(tempString) != rooms.end()){
+	 inputChoice = rooms[tempString];
+	 generalActionStringSize = 2;
+      }
+   }
 
-    // Check for three-word general actions
-    if(input.size()>2){
-        string tempString = input[0] + " " +input[1] + " " + input[2];
-        if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
-            inputChoice = general_actions[tempString];
-            generalActionStringSize = 3;
-        }
-    }
-    // Three-word room action
-    if(input.size()>2){
-        string tempString = input[0] + " " +input[1] + " " + input[2];
-        if(rooms.find(tempString) != rooms.end()){
-            inputChoice = rooms[tempString];
-            generalActionStringSize = 3;
-        }
-    }
+   // Check for three-word general actions
+   if(input.size()>2){
+      string tempString = input[0] + " " +input[1] + " " + input[2];
+      if(general_actions.find(tempString) != general_actions.end() || rooms.find(tempString) != rooms.end()){
+	 inputChoice = general_actions[tempString];
+	 generalActionStringSize = 3;
+      }
+   }
+   // Three-word room action
+   if(input.size()>2){
+      string tempString = input[0] + " " +input[1] + " " + input[2];
+      if(rooms.find(tempString) != rooms.end()){
+	 inputChoice = rooms[tempString];
+	 generalActionStringSize = 3;
+      }
+   }
 
-    // Do the input general action
-    if(inputChoice >=0 && inputChoice <= 13){
-        generalActions(input, inputChoice, generalActionStringSize);
-    }
-    // Else, we check for if this is an interactive action for the room
-    else{
-        // cout << "Input not recognized." << endl;
-        featureActionCall(input);
-    }
+   // Do the input general action
+   if(inputChoice >=0 && inputChoice <= 13){
+      generalActions(input, inputChoice, generalActionStringSize);
+   }
+   // Else, we check for if this is an interactive action for the room
+   else{
+      // cout << "Input not recognized." << endl;
+      featureActionCall(input);
+   }
 
-    // Call something here to update if there's still time from the game object here probably
-    // CODE HERE //
+   // Call something here to update if there's still time from the game object here probably
+   // CODE HERE //
 
-    return this->gameRunning;
+   return this->gameRunning;
 }
 
 /********************************************************************************
-parseClean - converts all the input from the user into upperCase, then
- parses the entire string of words to separate indexes in a vector.
-**********************************************************************************/
+  parseClean - converts all the input from the user into upperCase, then
+  parses the entire string of words to separate indexes in a vector.
+ **********************************************************************************/
 vector<string> UI::parseClean(string str){
 
-    // Converts the input string to all capital letters.
-    std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+   // Converts the input string to all capital letters.
+   std::transform(str.begin(), str.end(), str.begin(), ::toupper);
 
-    // Tokenizes the string into separate indexes of a vector
-    std::istringstream ss(str);
-    string word;
-    vector<string> input;
+   // Tokenizes the string into separate indexes of a vector
+   std::istringstream ss(str);
+   string word;
+   vector<string> input;
 
    while(ss >> word){
       input.push_back(word);
@@ -280,132 +280,216 @@ vector<string> UI::parseClean(string str){
 
 
 /********************************************************************************
-generalActions -
-**********************************************************************************/
+  generalActions -
+ **********************************************************************************/
 void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
    switch(actionChoice){
 
-       // Case to 'LOOK'
-       case 0: {
-           if(input.size() > actionSize){
-               cout << "Input not recognized." << endl;
-           }
-           else{
-               currentGame->lookDescription();
-           }
-           break;
-       }
-       // Case to 'HELP'
+      // Case to 'LOOK'
+      case 0: {
+		 if(input.size() > actionSize){
+		    cout << "Input not recognized." << endl;
+		 }
+		 else{
+		    currentGame->lookDescription();
+		 }
+		 break;
+	      }
+	      // Case to 'HELP'
       case 1:{
-          if(input.size() > actionSize){
-              cout << "Input not recognized." << endl;
-          }
-          else{
-              help();
-          }
-          break;
-      }
-      // Case to 'INVENTORY'
+		if(input.size() > actionSize){
+		   cout << "Input not recognized." << endl;
+		}
+		else{
+		   help();
+		}
+		break;
+	     }
+	     // Case to 'INVENTORY'
       case 2:{
-          if(input.size() > actionSize){
-              cout << "Input not recognized." << endl;
-          }
-          else{
-              currentGame->displayInventory();
-          }
-          break;
-      }
+		if(input.size() > actionSize){
+		   cout << "Input not recognized." << endl;
+		}
+		else{
+		   currentGame->displayInventory();
+		}
+		break;
+	     }
 
       case 3:
-	 break;
+	     break;
       case 4:
-	 break;
+	     break;
       case 5:
-	 break;
+	     break;
       case 6:
-	 break;
+	     break;
       case 7:
-	 break;
-      // Case to 'MAP'
+	     break;
+	     // Case to 'MAP'
       case 8:{
-          showMap();
-          break;
-      }
-	 // Case to 'LOOK AT <FEATURE>'
+		showMap();
+		break;
+	     }
+	     // Case to 'LOOK AT <FEATURE>'
       case 9:{
-          currentGame->lookAtFeatureCall(input, actionSize);
-          break;
-      }
-	 // Case to 'MOVE <ROOM>'
+		currentGame->lookAtFeatureCall(input, actionSize);
+		break;
+	     }
+	     // Case to 'MOVE <ROOM>'
       case 10: {
-          moveRoomCall(input, actionSize);
-          break;
-      }
+		  moveRoomCall(input, actionSize);
+		  break;
+	       }
 
-	 // Case to 'EXIT'
+	       // Case to 'EXIT'
       case 11: {
-          if(input.size() > actionSize){
-              cout << "Input not recognized." << endl;
-          }
-          else{
-              cout << "Exiting game now." << endl;
-              this->gameRunning = false;
-          }
-          break;
-      }
-      // Case to 'DROP <ITEM>'
+		  if(input.size() > actionSize){
+		     cout << "Input not recognized." << endl;
+		  }
+		  else{
+		     cout << "Exiting game now." << endl;
+		     this->gameRunning = false;
+		  }
+		  break;
+	       }
+	       // Case to 'DROP <ITEM>'
       case 12:{
-          dropTakeItemCall(input, actionChoice, actionSize);
-          break;
-      }
-      // Case to 'TAKE <ITEM>'
+		 dropTakeItemCall(input, actionChoice, actionSize);
+		 break;
+	      }
+	      // Case to 'TAKE <ITEM>'
       case 13:{
-          dropTakeItemCall(input, actionChoice, actionSize);
-          break;
-      }
+		 dropTakeItemCall(input, actionChoice, actionSize);
+		 break;
+	      }
    }
 }
 
 /********************************************************************************
-showMap() -
-**********************************************************************************/
+  showMap() -
+ **********************************************************************************/
 void UI::showMap(){
-   
-   //Eventuall have the game class return the player location
-   int player_location = 0;
 
-   std::cout << "print ASCII art of Map" << std::endl;
+   //Eventuall have the game class return the player location
+   int player_location  = this->currentGame->getCurrentRoomId();
+   
    std::cout << "           ________________________________                                  ________________________________" << std::endl;
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
    std::cout << "         /                 /               |                                |               \\                 \\" << std::endl;
    std::cout << "        /   ESCAPE POD    X                |                                |                X     REACTOR     \\" << std::endl;
-   std::cout << "       /                 /                /                                  \\                \\                 \\" << std::endl;
+
+   //Player in Escape Pod
+   if(player_location == 0){
+      std::cout << "       /        *        /                /                                  \\                \\                 \\" << std::endl;
+   }
+   //Player in Reactor
+   else if(player_location == 1){
+      std::cout << "       /                 /                /                                  \\                \\        *        \\" << std::endl;
+   } 
+   else{
+      std::cout << "       /                 /                /                                  \\                \\                 \\" << std::endl;
+   }
+
    std::cout << "      /_________________/                /                                    \\                \\_________________\\" << std::endl;
    std::cout << "     /                 /                /                                      \\                \\                 \\" << std::endl;
    std::cout << "    /                 /                /                                        \\                \\                 \\" << std::endl;
    std::cout << "   /    MED BAY      X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
-   std::cout << "  /                 /                /                                            \\                \\                 \\" << std::endl;
+
+   //Player in Med Bay
+   if(player_location == 2){
+      std::cout << "  /        *        /                /                                            \\                \\                 \\" << std::endl;
+   }
+   //Player in Engine Bay
+   else if(player_location == 3){
+      std::cout << "  /                 /                /                                            \\                \\        *        \\" << std::endl;
+   }
+   else{
+      std::cout << "  /                 /                /                                            \\                \\                 \\" << std::endl;
+   } 
    std::cout << " /_________________/                /                                              \\                \\_________________\\" << std::endl;
    std::cout << "|                  |       C       /                                                \\       C       |                  |" << std::endl;
    std::cout << "|                  |       O      /                                                  \\      O       |                  |" << std::endl;
    std::cout << "|   MAINFRAME      X       R      |__________________________________________________|      R       X    CAFETERIA     |" << std::endl;
-   std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
-   std::cout << "|__________________|       I                           CORRIDOR 2                           I       |__________________|" << std::endl;
-   std::cout << "|                  |       D                                                                D       |                  |" << std::endl;
+
+   //Player in Mainframe
+   if(player_location == 4){ 
+      std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
+   }
+   //Player in Cafeteria
+   else if(player_location == 5){
+      std::cout << "|                  |       R                                                                R       |        *         |" << std::endl;
+   }
+   else{
+      std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
+   }
+
+   //Player in Corridor 1
+   if(player_location == 6){
+      std::cout << "|__________________|  *    I                           CORRIDOR 2                           I       |__________________|" << std::endl;
+   }
+   //Player in Corridor 3
+   else if(player_location == 7){
+      std::cout << "|__________________|       I                           CORRIDOR 2                           I  *    |__________________|" << std::endl;
+   }
+   else{
+      std::cout << "|__________________|       I                           CORRIDOR 2                           I       |__________________|" << std::endl;
+   }
+
+   //Player in Corridor 2 
+   if(player_location == 8){
+      std::cout << "|                  |       D                               *                                D       |                  |" << std::endl;
+   }
+   else{
+      std::cout << "|                  |       D                                                                D       |                  |" << std::endl;
+   }
    std::cout << "|                  |       O       __________________________________________________       O       |    CAPTAIN'S     |" << std::endl;
    std::cout << "|  COMMUNICATIONS  X       R      |                                                  |      R       X      LODGE       |" << std::endl;
-   std::cout << "|                  |              \\                                                 /               |                  |" << std::endl;
+
+   //Plyaer in Communications
+   if(player_location == 9){
+      std::cout << "|        *         |              \\                                                 /               |                  |" << std::endl;
+   }
+   //Player in Captain's Lodge
+   else if(player_location == 10){
+      std::cout << "|                  |              \\                                                 /               |        *         |" << std::endl;
+   }
+   else{
+      std::cout << "|                  |              \\                                                 /               |                  |" << std::endl;
+   }
    std::cout << "|__________________|       1       \\                                               /        3       |__________________|" << std::endl;
    std::cout << " \\                  \\               \\                                             /                 /                 /" << std::endl;
    std::cout << "  \\                  \\               \\                                           /                 /     LIFE        /" << std::endl;
    std::cout << "   \\    ELECTRICAL    X               \\                                         /                 X     SUPPORT     /" << std::endl;
-   std::cout << "    \\                  \\               \\                                       /                 /        O2       /" << std::endl;
+
+   //Player in Electrical
+   if(player_location == 11){
+      std::cout << "    \\         *        \\               \\                                       /                 /        O2       /" << std::endl;
+   }
+   //Player in LifeSupport O2
+   else if(player_location == 12){
+      std::cout << "    \\                  \\               \\                                       /                 /     *  O2       /" << std::endl;
+   }
+   else{
+      std::cout << "    \\                  \\               \\                                       /                 /        O2       /" << std::endl;
+   }
    std::cout << "     \\__________________\\               \\                                     /                 /_________________/" << std::endl;
    std::cout << "      \\                  \\               \\                                   /                 /                 /" << std::endl;
    std::cout << "       \\                  \\               \\                                 /                 /     STORAGE     /" << std::endl;
    std::cout << "        \\    NAVIGATION    X               |                               |                 /                 /" << std::endl;
-   std::cout << "         \\                  \\              |                               |                /                 /" << std::endl;
+
+   //Player in Navigation
+   if(player_location == 13){
+      std::cout << "         \\         *        \\              |                               |                /                 /" << std::endl;
+   }
+   //Player in Storage
+   else if(player_location == 14){
+      std::cout << "         \\                  \\              |                               |                /         *       /" << std::endl;
+   }
+   else{
+      std::cout << "         \\                  \\              |                               |                /                 /" << std::endl;
+   }
    std::cout << "          \\__________________\\_____________|                               |______________ /_________________/" << std::endl;
 
 }

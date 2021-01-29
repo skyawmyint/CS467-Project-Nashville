@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class electrical.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-electrical::electrical()
+electrical::electrical() : room(11)
 {
     setName("ELECTRICAL");
     setLongDescription("There is the smell of burning ozone accompanied with a sizzling sound that makes your eardrums ring \n"

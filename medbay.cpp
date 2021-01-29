@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class medbay.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-medbay::medbay()
+medbay::medbay() : room(2)
 {
 
     // Set name and descriptions

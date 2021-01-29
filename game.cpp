@@ -56,7 +56,7 @@ game::game(){
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
     this->cafeteriaRoom = new cafeteria; // East-side
-    this->reactorRoom = new reactor;
+    this->reactorRoom = new reactor();
     this->engineBayRoom = new engineBay;
     this->storageRoom = new storage;
     this->lifeSupportO2Room = new lifeSupportO2;
@@ -346,6 +346,15 @@ void game::interactFeatureCall(string input) {
     this->currentPosition->interactRoom(input);
 
 }
+
+/********************************************************************************
+ getCurrentRoomId - return id of current room
+**********************************************************************************/
+
+int game::getCurrentRoomId(){
+   return this->currentPosition->getRoomId();
+}
+
 
 /********************************************************************************
 destructor

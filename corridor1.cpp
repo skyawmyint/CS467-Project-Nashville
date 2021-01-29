@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class corridor1.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-corridor1::corridor1()
+corridor1::corridor1() : room(6)
 {
 
     setName("CORRIDOR 1");

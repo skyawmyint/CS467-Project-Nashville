@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class cafeteria.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-cafeteria::cafeteria()
+cafeteria::cafeteria() : room(5)
 {
 
     setName("CAFETERIA");

@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class communications.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-communications::communications()
+communications::communications() : room(9)
 {
 
     setName("COMMUNICATIONS");

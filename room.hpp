@@ -32,6 +32,8 @@ class room{
 
 private:
 
+    int room_id;
+
     // Point to the player in the room
     character* playerPointer;
 
@@ -50,6 +52,7 @@ private:
 public:
 
     room(); // Default constructor
+    room(int id);
 
     // Functions dealing with the character
     void setCharacter(character* inputCharacter);
@@ -91,6 +94,8 @@ public:
     // Functions to deal with interacting with Room feature
     virtual void interactRoom(string inputString);
 
+    // Retrieve room ID
+    int getRoomId();
     // Destructor
     ~room();
 

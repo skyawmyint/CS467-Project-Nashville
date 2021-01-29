@@ -94,6 +94,7 @@ public:
     void moveRooms(string roomName);
     void lookAtFeatureCall(vector<string>input, int actionSize);
     void interactFeatureCall(string input);
+    int getCurrentRoomId();
     // bool isGameRunning();
 
     ~game(); // destructor

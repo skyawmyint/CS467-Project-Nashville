@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class captainsLodge.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-captainsLodge::captainsLodge()
+captainsLodge::captainsLodge() : room(10)
 {
     setName("CAPTAIN'S LODGE");
     setLongDescription("You enter what appears to be a bedroom. Clothes and half-filled suitcases are scattered \n"
