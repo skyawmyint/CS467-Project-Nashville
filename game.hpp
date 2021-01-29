@@ -82,12 +82,10 @@ private:
     // Add some flags here for unlocking doors or powering up electrical, etc
     bool gameStillRunning;
 
-
 public:
 
     game(); // constructor
     // game(txtInput) EVENTUALLY do a constructor with text file
-    // bool doGameCommand(int, string);
     void currentRoomDescription();
     void lookDescription();
     void dropItem(string itemName);
@@ -95,11 +93,10 @@ public:
     void displayInventory();
     void moveRooms(string roomName);
     void lookAtFeatureCall(vector<string>input, int actionSize);
+    void interactFeatureCall(string input);
+    // bool isGameRunning();
 
     ~game(); // destructor
 
-
 };
-
-
 #endif //CS467_PROJECT_NASHVILLE2_GAME_H

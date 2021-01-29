@@ -106,13 +106,28 @@ game::game(){
     this->corridor2Room->addItemStarting(wrenchItem);
     this->medbayRoom->addItemStarting(flareGunItem);
 
-    // Add all the rooms to the roomsVector
-    // MAYBE if we want to refactor a bit...
-
     // Set up a new character
     this->player = new character();
 
+    // Place a player pointer in each of the rooms
+    this->corridor1Room->setCharacter(player);
+    this->corridor2Room->setCharacter(player);
+    this->corridor3Room->setCharacter(player);
+    this->medbayRoom->setCharacter(player);
+    this->escapePodRoomRoom->setCharacter(player);
+    this->mainframeRoomRoom->setCharacter(player);
+    this->communicationsRoom->setCharacter(player);
+    this->electricalRoom->setCharacter(player);
+    this->navigationRoom->setCharacter(player);
+    this->cafeteriaRoom->setCharacter(player);
+    this->reactorRoom->setCharacter(player);
+    this->engineBayRoom->setCharacter(player);
+    this->storageRoom->setCharacter(player);
+    this->lifeSupportO2Room->setCharacter(player);
+    this->captainsLodgeRoom->setCharacter(player);
+
     // CHECKING IF ITEMS WORKING - TEMP!!!!
+    // this->player->addItem(wrenchItem);
     // this->player->addItem(badgeItem);
     // this->player->addItem(flareGunItem);
     // TEMP CODE!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -321,7 +336,16 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
     }
 }
 
+/********************************************************************************
+interactFeatureCall - calls a room function to do a certain interactive action with
+ the string input
+**********************************************************************************/
+void game::interactFeatureCall(string input) {
 
+    // Call the interactRoom for the current position
+    this->currentPosition->interactRoom(input);
+
+}
 
 /********************************************************************************
 destructor

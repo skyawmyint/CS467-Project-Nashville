@@ -14,6 +14,26 @@ room::room()
 
 }
 
+/********************************************************************************
+setCharacter - sets the character pointer
+**********************************************************************************/
+void room::setCharacter(character* inputCharacter)
+{
+
+    this->playerPointer = inputCharacter;
+
+}
+
+/********************************************************************************
+getCharacter - returns the character pointer
+**********************************************************************************/
+character* room::getCharacter()
+{
+
+    return this->playerPointer;
+
+}
+
 /*********************************************************************************
 setName sets the name of the room it takes a string as a parameter and returns nothing
 *************************************************************************************/
@@ -278,12 +298,9 @@ isTakeableFromStarting returns true if the item in the starting room is takeable
 *************************************************************************************/
 bool room::isTakeableFromStarting(string inputItemName){
 
+    return false;
 
 }
-
-
-
-
 
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
@@ -292,15 +309,12 @@ void room::lookAtFeature(string inputFeature) {
 
 }
 
+/*********************************************************************************
+interactRoom - works with the room to do a specific interactive action
+*************************************************************************************/
+void room::interactRoom(string inputString) {
 
-
-
-
-
-
-
-
-
+}
 
 /********************************************************************************
 destructor

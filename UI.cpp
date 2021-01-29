@@ -97,8 +97,11 @@ menuStartUp() - prompts the user if  they would like to create a New Game, Load
 **********************************************************************************/
 int UI::menuStartUp()
 {
-   int retChoice = -1;
 
+    // Track the menu startup choice
+    int retChoice = -1;
+
+   // Make a cool starting screen!
    cout << "|----------------------------|" << endl;
    cout << "|     Project Nashville      |" << endl;
    cout << "|----------------------------|" << endl;
@@ -108,6 +111,7 @@ int UI::menuStartUp()
    cout << "|----------------------------|" << endl;
    cout << endl;
 
+   // Get the input from the user
    std::vector<std::string> input = getInput();
 
    string combinedInput = "";
@@ -241,9 +245,14 @@ bool UI::play(){
     if(inputChoice >=0 && inputChoice <= 13){
         generalActions(input, inputChoice, generalActionStringSize);
     }
+    // Else, we check for if this is an interactive action for the room
     else{
-        cout << "Input not recognized." << endl;
+        // cout << "Input not recognized." << endl;
+        featureActionCall(input);
     }
+
+    // Call something here to update if there's still time from the game object here probably
+    // CODE HERE //
 
     return this->gameRunning;
 }
@@ -318,9 +327,11 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 	 break;
       case 7:
 	 break;
-      case 8:
-	 showMap();
-	 break;
+      // Case to 'MAP'
+      case 8:{
+          showMap();
+          break;
+      }
 	 // Case to 'LOOK AT <FEATURE>'
       case 9:{
           currentGame->lookAtFeatureCall(input, actionSize);
@@ -356,7 +367,9 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
    }
 }
 
-
+/********************************************************************************
+showMap() -
+**********************************************************************************/
 void UI::showMap(){
    
    //Eventuall have the game class return the player location
@@ -397,6 +410,10 @@ void UI::showMap(){
 
 }
 
+
+/********************************************************************************
+help() -
+**********************************************************************************/
 void UI::help(){
    for(auto command : general_actions){
       if(command.first == "GO"){
@@ -553,7 +570,28 @@ void UI::dropTakeItemCall(vector<string> input, int actionChoice, int actionSize
     }
 }
 
+/********************************************************************************
+featureActionCall - Parses for the interactive feature action to be passed into the
+ game object function.
+**********************************************************************************/
+void UI::featureActionCall(vector<string> input) {
 
+    // Parse back string vector into one string
+    if(input.size()!=0){
+
+        string combinedInput = input[0];
+        for(int i = 1; i<input.size();i++){
+            combinedInput+= " ";
+            combinedInput+= input[i];
+        }
+
+        // Call the game function to interact with the feature
+        currentGame->interactFeatureCall(combinedInput);
+    }
+    else{
+        cout << "Input not recognized." << endl;
+    }
+}
 
 
 

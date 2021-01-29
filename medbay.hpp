@@ -24,19 +24,19 @@ class medbay : public room {
 
 private:
 
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
     // Flags for room
     bool medicalBoxOpened = false;
     bool flareGunTaken = false;
 
 public:
 
-  
     medbay();    //constructor
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
-    //virtual void interactRoom();
-
-
+    void interactRoom(string inputString);
 
 };
 
