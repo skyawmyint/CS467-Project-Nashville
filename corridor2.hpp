@@ -24,13 +24,18 @@ class corridor2 : public room {
 
 
 private:
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
+    // Flags for the room
     bool wrenchTaken = false;
 
 public:
 
     corridor2();
-
-    // virtual void interactRoom();
+    void lookAtFeature(string featureInputName);
+    void interactRoom(string inputString);
 
     // ~corridor2();
 

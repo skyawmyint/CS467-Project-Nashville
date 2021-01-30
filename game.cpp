@@ -136,7 +136,8 @@ game::game(){
     this->currentPosition = medbayRoom;
 
     // Set up flags
-    this->gameStillRunning = true;
+    this->stationPowerRestored = 0; // No Power!
+    this->gameStillRunning = 1; // Game Running
 
     // First game room introduction should be here
     cout << endl;
@@ -356,14 +357,15 @@ int game::getCurrentRoomId(){
 }
 
 
+
+
+
 /********************************************************************************
 destructor
 **********************************************************************************/
 
 game::~game()
 {
-
-
 
 
 }

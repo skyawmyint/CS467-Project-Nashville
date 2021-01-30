@@ -61,6 +61,9 @@ UI::UI() {
    general_actions.insert({ "TAKE", 13 });
    general_actions.insert({ "PICK UP", 13 });
 
+   // Case 14 - Junk cases to deal with overriding some previous actions
+    general_actions.insert({ "LOOK OUT", 14 });
+
 
    // MENU OPTIONS
    menu_options.insert({"NEW", 0});
