@@ -80,7 +80,8 @@ private:
     room* currentPosition;
 
     // Add some flags here for unlocking doors or powering up electrical, etc
-    bool gameStillRunning;
+    int stationPowerRestored; // = 0 if no power to station, 1 if power restored to station
+    int gameStillRunning; // =0 is Exit game. =1 is still running.
 
 public:
 
@@ -95,7 +96,7 @@ public:
     void lookAtFeatureCall(vector<string>input, int actionSize);
     void interactFeatureCall(string input);
     int getCurrentRoomId();
-    // bool isGameRunning();
+    // int isGameRunning();
 
     ~game(); // destructor
 
