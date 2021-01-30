@@ -16,7 +16,7 @@ medbay::medbay() : room(2)
     setName("MEDBAY");
     setLongDescription("You see that you are surrounded by white walls that are very bright and clean, the air quite sterile with little in the room. \n"
                        "The only things that draw your eye are the surgical table that you woke up on with the SCALPEL on it, \n"
-                       "a metal table in the corner of the room,, a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. \n"
+                       "a metal table in the corner of the room, a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. \n"
                        "You also see a COMPUTER on top of the metal table that looks functional.");
     setShortDescription("A surgical table with the SCALPEL lays in the center of the room.  A COMPUTER sits atop of a metal table in the \n"
                         "corner with a MEDICAL BOX next to it.");
@@ -70,27 +70,23 @@ lookAtFeature - will output a description if a feature is found with the look at
 void medbay::lookAtFeature(string featureInputName) {
 
     // Set variable for found index
-    int foundIndex = -1;
+    int foundIndex;
 
     // Search for the feature
-    for(int i = 0; i<feature.size(); i++){
-        if(featureInputName == feature[i]){
-            foundIndex = i;
-        }
-    }
+    foundIndex = searchFeature(featureInputName);
 
     // Output the feature description
     // Found the SCALPEL
     if(foundIndex == 0 && searchItemStarting("SCALPEL") == true){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
     // Found the COMPUTER
     else if(foundIndex == 1){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
     // Found the MEDICAL BOX
     else if(foundIndex == 2 && medicalBoxOpened == false){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
     // Found the MEDICAL BOX, but OPENED now...
     else if(foundIndex == 2 && medicalBoxOpened == true){

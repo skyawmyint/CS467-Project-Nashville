@@ -299,6 +299,36 @@ void room::addFeature(string inputName, string inputDescription) {
 }
 
 /*********************************************************************************
+searchFeature searched for a feature and returns the index if it exists. Returns -1 if
+ no index is found
+*************************************************************************************/
+int room::searchFeature(string inputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(inputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    return foundIndex;
+
+}
+
+/*********************************************************************************
+displayFeatureDescription - displays the feature description at a given index
+*************************************************************************************/
+void room::displayFeatureDescription(int indexInput) {
+
+    cout << endl << this->featureDescription[indexInput] << endl;
+
+}
+
+
+/*********************************************************************************
 isTakeableFromStarting returns true if the item in the starting room is takeable
  from the starting vector outright. Otherwise returns false.
 *************************************************************************************/
