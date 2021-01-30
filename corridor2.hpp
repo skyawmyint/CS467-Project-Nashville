@@ -22,7 +22,6 @@ using std::make_shared;
 
 class corridor2 : public room {
 
-
 private:
 
     // Vector of action+feature interactions

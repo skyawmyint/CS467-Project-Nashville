@@ -99,6 +99,7 @@ public:
 
     // Functions to deal with interacting with Room feature
     virtual void interactRoom(string inputString);
+    virtual int interactRoom(string inputString, bool inputMap);
 
     // Retrieve room ID
     int getRoomId();

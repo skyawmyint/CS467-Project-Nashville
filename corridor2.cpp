@@ -14,7 +14,7 @@ corridor2::corridor2() : room(8)
 
     // Set initial room descriptions
     setName("CORRIDOR 2");
-    setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 2 on either side. A LARGE WINDOW on the north\n"
+    setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
                        "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It’s a ... person.\n"
                        "A MAN in a silver spacesuit lays face down on the floor. You give him a nudge, but he does not respond. He may not be breathing.");
     setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and 2 on either side. A LARGE WINDOW on the north wall overlooks the stars.\n"
@@ -96,7 +96,7 @@ void corridor2::interactRoom(string inputString) {
         getCharacter()->addItem(removeItemStarting("WRENCH"));
 
         // Set a new long description
-        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 2 on either side. A LARGE WINDOW on the north\n"
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
                            "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
                            "face down on the floor whom you found the WRENCH from.");
 

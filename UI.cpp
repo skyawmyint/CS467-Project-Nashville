@@ -332,9 +332,19 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 	     break;
 	     // Case to 'MAP'
       case 8:{
-		showMap();
-		break;
-	     }
+          if(input.size() > actionSize){
+              cout << "Input not recognized." << endl;
+          }
+          else{
+              if(currentGame->isMapMade() == true){
+                  showMap();
+              }
+              else{
+                  cout << "You do not have access the this yet!" << endl;
+              }
+          }
+          break;
+      }
 	     // Case to 'LOOK AT <FEATURE>'
       case 9:{
 		currentGame->lookAtFeatureCall(input, actionSize);
