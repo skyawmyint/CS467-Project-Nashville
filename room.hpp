@@ -32,6 +32,7 @@ class room{
 
 private:
 
+    // Room ID to keep track of map
     int room_id;
 
     // Point to the player in the room
@@ -47,12 +48,16 @@ private:
     vector<item*> startingItems;
     vector<item*> droppedItems;
 
+    // Features of the rooms
+    vector<string>feature;
+    vector<string>featureDescription;
+
     bool repeatVisit = false; // false if it is first visit. true for any other visit
 
 public:
 
     room(); // Default constructor
-    room(int id);
+    room(int id); // Constructor with just the room ID
 
     // Functions dealing with the character
     void setCharacter(character* inputCharacter);
@@ -86,10 +91,11 @@ public:
     virtual bool isTakeableFromStarting(string inputItemName);
 
     // Functions and variables to deal with features
-    vector<string>feature;
-    vector<string>featureDescription;
     void addFeature(string inputName, string inputDescription);
+    int searchFeature(string inputName);
+    void displayFeatureDescription(int indexInput);
     virtual void lookAtFeature(string inputFeature);
+
 
     // Functions to deal with interacting with Room feature
     virtual void interactRoom(string inputString);
