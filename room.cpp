@@ -353,6 +353,16 @@ void room::interactRoom(string inputString) {
 }
 
 /*********************************************************************************
+interactRoom - works with the room to do a specific interactive action
+*************************************************************************************/
+int room::interactRoom(string inputString, bool inputMap) {
+
+    return 0;
+
+}
+
+
+/*********************************************************************************
 getRoomId - returns room id
  *************************************************************************************/
 int room::getRoomId(){

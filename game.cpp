@@ -137,6 +137,7 @@ game::game(){
 
     // Set up flags
     this->stationPowerRestored = 0; // No Power!
+    this->mapSaved = false; // Map has not been saved yet.
     this->gameStillRunning = 1; // Game Running
 
     // First game room introduction should be here
@@ -344,19 +345,38 @@ interactFeatureCall - calls a room function to do a certain interactive action w
 void game::interactFeatureCall(string input) {
 
     // Call the interactRoom for the current position
-    this->currentPosition->interactRoom(input);
 
+    // For Corridors 1 + 3
+    if(this->currentPosition->getName() == "CORRIDOR 1" || this->currentPosition->getName() == "CORRIDOR 3"){
+
+        int makeMap = 0;
+        makeMap = this->currentPosition->interactRoom(input, this->mapSaved);
+        // Set the mapSaved to true in order for map command to be useable now.
+        if(makeMap == 1){
+            this->mapSaved = true;
+        }
+    }
+    // For all other rooms
+    else{
+        this->currentPosition->interactRoom(input);
+    }
 }
 
 /********************************************************************************
  getCurrentRoomId - return id of current room
 **********************************************************************************/
-
 int game::getCurrentRoomId(){
    return this->currentPosition->getRoomId();
 }
 
+/********************************************************************************
+isMapMade - returns the
+**********************************************************************************/
+bool game::isMapMade(){
 
+    return this->mapSaved;
+
+}
 
 
 
