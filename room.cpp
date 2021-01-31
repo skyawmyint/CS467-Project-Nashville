@@ -346,6 +346,13 @@ void room::lookAtFeature(string inputFeature) {
 }
 
 /*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void room::lookAtFeature(string inputFeature, int inputTime) {
+
+}
+
+/*********************************************************************************
 interactRoom - works with the room to do a specific interactive action
 *************************************************************************************/
 void room::interactRoom(string inputString) {
@@ -361,15 +368,12 @@ int room::interactRoom(string inputString, bool inputMap) {
 
 }
 
-
 /*********************************************************************************
 getRoomId - returns room id
  *************************************************************************************/
 int room::getRoomId(){
    return this->room_id;
 }
-
-
 
 /********************************************************************************
 destructor

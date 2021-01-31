@@ -95,6 +95,7 @@ public:
     int searchFeature(string inputName);
     void displayFeatureDescription(int indexInput);
     virtual void lookAtFeature(string inputFeature);
+    virtual void lookAtFeature(string inputFeature, int inputTime); // For look at TIME in corridor 3
 
 
     // Functions to deal with interacting with Room feature

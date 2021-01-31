@@ -13,29 +13,23 @@ corridor3::corridor3() : room(7)
 {
 
     setName("CORRIDOR 3");
-    setLongDescription("You enter yet another long vertical corridor. There are five doors along the east wall. \n"
-                       "A large screen spans across the east wall displaying a map. \n"
-                       "It’s almost a perfect mirror image of the first corridor entered. Why is there one less door? Mmm...");
-    setShortDescription("You enter a vertical long corridor. There are five doors along the east wall. \n"
-                        "A large screen spans across the east wall displaying a map.");
+    setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall. \n"
+                       "It’s almost a perfect mirror image of the first corridor entered. Why is there one less door though?\n"
+                       "A large CLOCK spans across the northwestern wall counting down. You also see a large PAINTING on the\n"
+                       "southwestern wall.");
+    setShortDescription("There are five doors along the east wall. A large CLOCK spans across the northwestern wall\n"
+                        "and a large PAINTING spans across the southwestern wall.");
 
     // Set initial features in the room
-    addFeature("INTERACTIVE MAP","You see a map with with the layout of the entire space station. It may be useful to UPLOAD the\n"
-                                 "INTERACTIVE MAP the handy tablet you have on you.");
-    addFeature("STATUE", "You're not sure how this will be useful in you escaping. What will happen if you TOUCH or KICK it?");
+    addFeature("CLOCK","You see a large clock.");
+    addFeature("PAINTING", "You see an image of a large man in front of a space station being constructed...\n"
+                           "Could this be the greedy president of this project? I wish I would just DESTROY this PAINTING");
 
     // Set initial feature actions in the room
-    // INTERACTIVE MAP interaction
-    featureInteraction.insert({ "UPLOAD INTERACTIVE MAP", 0 });
-    featureInteraction.insert({ "UPLOAD THE INTERACTIVE MAP", 0 });
-    featureInteraction.insert({ "UPLOAD MAP", 0 });
-    featureInteraction.insert({ "UPLOAD THE MAP", 0 });
-    // TOUCH STATUE interaction
-    featureInteraction.insert({ "TOUCH STATUE", 1 });
-    featureInteraction.insert({ "TOUCH THE STATUE", 1 });
-    // KICK STATUE interaction
-    featureInteraction.insert({ "KICK STATUE", 2 });
-    featureInteraction.insert({ "KICK THE STATUE", 2 });
+    // DESTROY interaction
+    featureInteraction.insert({ "DESTROY PAINTING", 0 });
+    featureInteraction.insert({ "DESTROY THIS PAINTING", 0 });
+    featureInteraction.insert({ "DESTROY THE PAINTING", 0 });
 
 }
 
@@ -43,16 +37,62 @@ corridor3::corridor3() : room(7)
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
-void corridor3::lookAtFeature(string featureInputName) {
+void corridor3::lookAtFeature(string featureInputName, int inputTime) {
 
+    // Set variable for found index
+    int foundIndex;
 
+    // Search for the feature
+    foundIndex = searchFeature(featureInputName);
+
+    // Output the feature description
+    // Found the CLOCK
+    if(foundIndex == 0){
+        cout << "\nYou see a large clock with the timer at: " << inputTime << " minutes.\n" <<
+        "You realize the station will explode once it reaches 0!" << endl;
+    }
+        // Found the PAINTING
+    else if(foundIndex == 1 && paintingDestroyed == false){
+        displayFeatureDescription(foundIndex);
+    }
+        // Found the PAINTING, but destroyed now
+    else if(foundIndex == 1 && paintingDestroyed == true){
+        cout << "\nYou see the painting with the head of man ripped out...You really hated this man!" << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
 }
 
 /*********************************************************************************
-interactRoom - if an interactive action was made for the Medbay room
+interactRoom - if an interactive action was made for the this room
 *************************************************************************************/
-int corridor3::interactRoom(string inputString, bool inputMap) {
+void corridor3::interactRoom(string inputString) {
 
+    // Track the feature action choice
+    int featureActionChoice = -1;
 
+    // Go through featureInteraction vector and find the associated command
+    if(featureInteraction.find(inputString) != featureInteraction.end()) {
+        featureActionChoice = featureInteraction[inputString];
+    }
 
+    // The case where the user wants to "DESTROY PAINTING"
+    if(featureActionChoice == 0){
+        // If not destroyed
+        if(paintingDestroyed == false){
+            cout << "\nThe rage inside of you builds up looking at the face in the painting. Suddenly, you grip at the\n"
+                    "canvas and rip apart the face from the rest of the image." << endl;
+            this->paintingDestroyed = true;
+        }
+            // If destroyed
+        else{
+            cout << "\nYou've destroyed this painting far enough!" << endl;
+        }
+    }
+        // Input not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
 }
