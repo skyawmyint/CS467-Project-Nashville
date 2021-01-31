@@ -1,14 +1,16 @@
 /******************************************************************
-Project Nashville
-CS467 - Online Capstone Project
+  Project Nashville
+  CS467 - Online Capstone Project
 Description: This is the class implementation file for the class game.
-******************************************************************/
+ ******************************************************************/
 
 #include "game.hpp"
+#include <iostream>
+
 
 /********************************************************************************
-default constructor
-**********************************************************************************/
+  default constructor
+ **********************************************************************************/
 game::game(){
 
     // Set up the items in the game
@@ -159,150 +161,150 @@ game::game(){
 }
 
 /********************************************************************************
-currentRoomDescription - outputs the description of the current room.
-**********************************************************************************/
+  currentRoomDescription - outputs the description of the current room.
+ **********************************************************************************/
 void game::currentRoomDescription(){
 
-    // Output the room name and long description
-    cout << "\nYou enter the room " << currentPosition->getName() << "..." << endl;
+   // Output the room name and long description
+   cout << "\nYou enter the room " << currentPosition->getName() << "..." << endl;
 
-    // Long description
-    if(currentPosition->isRepeatVisit()==false){
-        cout << currentPosition->getLongDescription();
-        currentPosition->listItemDropped();
-        cout << endl;
-        currentPosition->toggleEnteredRoom();
-    }
-    // Short description
-    else{
-        cout << currentPosition->getShortDescription();
-        currentPosition->listItemDropped();
-        cout << endl;
-    }
+   // Long description
+   if(currentPosition->isRepeatVisit()==false){
+      cout << currentPosition->getLongDescription();
+      currentPosition->listItemDropped();
+      cout << endl;
+      currentPosition->toggleEnteredRoom();
+   }
+   // Short description
+   else{
+      cout << currentPosition->getShortDescription();
+      currentPosition->listItemDropped();
+      cout << endl;
+   }
 }
 
 /********************************************************************************
-lookDescription - outputs the long description of the current room.
-**********************************************************************************/
+  lookDescription - outputs the long description of the current room.
+ **********************************************************************************/
 void game::lookDescription() {
 
-    cout << "\nYou look around the room..." << endl;
-    cout << currentPosition->getLongDescription();
-    currentPosition->listItemDropped();
-    cout << endl;
+   cout << "\nYou look around the room..." << endl;
+   cout << currentPosition->getLongDescription();
+   currentPosition->listItemDropped();
+   cout << endl;
 
 }
 
 /********************************************************************************
-dropItem - drops an item in the player's inventory to the room
-**********************************************************************************/
+  dropItem - drops an item in the player's inventory to the room
+ **********************************************************************************/
 void game::dropItem(string itemName) {
 
-    if(player->searchItem(itemName) == true){
-        cout << "\nYou drop the " << itemName << " on the floor of " << currentPosition->getName() << "." << endl;
-        currentPosition->addItemDropped(player->removeItem(itemName));
-    }
-    else{
-        cout << "Input not recognized." << endl;
-    }
+   if(player->searchItem(itemName) == true){
+      cout << "\nYou drop the " << itemName << " on the floor of " << currentPosition->getName() << "." << endl;
+      currentPosition->addItemDropped(player->removeItem(itemName));
+   }
+   else{
+      cout << "Input not recognized." << endl;
+   }
 }
 
 /********************************************************************************
-takeItem - takes an item and puts it into player's inventory from the room
-**********************************************************************************/
+  takeItem - takes an item and puts it into player's inventory from the room
+ **********************************************************************************/
 void game::takeItem(string itemName) {
 
-    if(currentPosition->searchItemDropped(itemName) == true){
-        cout << "\nYou take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
-        player->addItem(currentPosition->removeItemDropped(itemName));
-    }
-    else if(currentPosition->isTakeableFromStarting(itemName) == true){
-        cout << "\nYou take the " << itemName << " and put it in your inventory." << endl;
-        player->addItem(currentPosition->removeItemStarting(itemName));
-    }
-    else{
-        cout << "Input not recognized." << endl;
-    }
+   if(currentPosition->searchItemDropped(itemName) == true){
+      cout << "\nYou take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
+      player->addItem(currentPosition->removeItemDropped(itemName));
+   }
+   else if(currentPosition->isTakeableFromStarting(itemName) == true){
+      cout << "\nYou take the " << itemName << " and put it in your inventory." << endl;
+      player->addItem(currentPosition->removeItemStarting(itemName));
+   }
+   else{
+      cout << "Input not recognized." << endl;
+   }
 }
 
 /********************************************************************************
-moveRooms - changes the current room to the user input Room string name
-**********************************************************************************/
+  moveRooms - changes the current room to the user input Room string name
+ **********************************************************************************/
 void game::moveRooms(string roomNameInput){
 
-    // Check if this is a connected room
-    if(currentPosition->isConnectedRoom(roomNameInput) == true){
-        // Go through all our rooms and see if its the same room name
-        if(corridor1Room->getName() == roomNameInput){
-            currentPosition = corridor1Room;
-        }
-        else if(corridor2Room->getName() == roomNameInput){
-            currentPosition = corridor2Room;
-        }
-        else if(corridor3Room->getName() == roomNameInput){
-            currentPosition = corridor3Room;
-        }
-        else if(medbayRoom->getName() == roomNameInput){
-            currentPosition = medbayRoom;
-        }
-        else if(escapePodRoomRoom->getName() == roomNameInput){
-            currentPosition = escapePodRoomRoom;
-        }
-        else if(mainframeRoomRoom->getName() == roomNameInput){
-            currentPosition = mainframeRoomRoom;
-        }
-        else if(communicationsRoom->getName() == roomNameInput){
-            currentPosition = communicationsRoom;
-        }
-        else if(electricalRoom->getName() == roomNameInput){
-            currentPosition = electricalRoom;
-        }
-        else if(navigationRoom->getName() == roomNameInput){
-            currentPosition = navigationRoom;
-        }
-        else if(cafeteriaRoom->getName() == roomNameInput){
-            currentPosition = cafeteriaRoom;
-        }
-        else if(reactorRoom->getName() == roomNameInput){
-            currentPosition = reactorRoom;
-        }
-        else if(engineBayRoom->getName() == roomNameInput){
-            currentPosition = engineBayRoom;
-        }
-        else if(storageRoom->getName() == roomNameInput){
-            currentPosition = storageRoom;
-        }
-        else if(lifeSupportO2Room->getName() == roomNameInput){
-            currentPosition = lifeSupportO2Room;
-        }
-        else if(captainsLodgeRoom->getName() == roomNameInput){
-            currentPosition = captainsLodgeRoom;
-        }
+   // Check if this is a connected room
+   if(currentPosition->isConnectedRoom(roomNameInput) == true){
+      // Go through all our rooms and see if its the same room name
+      if(corridor1Room->getName() == roomNameInput){
+	 currentPosition = corridor1Room;
+      }
+      else if(corridor2Room->getName() == roomNameInput){
+	 currentPosition = corridor2Room;
+      }
+      else if(corridor3Room->getName() == roomNameInput){
+	 currentPosition = corridor3Room;
+      }
+      else if(medbayRoom->getName() == roomNameInput){
+	 currentPosition = medbayRoom;
+      }
+      else if(escapePodRoomRoom->getName() == roomNameInput){
+	 currentPosition = escapePodRoomRoom;
+      }
+      else if(mainframeRoomRoom->getName() == roomNameInput){
+	 currentPosition = mainframeRoomRoom;
+      }
+      else if(communicationsRoom->getName() == roomNameInput){
+	 currentPosition = communicationsRoom;
+      }
+      else if(electricalRoom->getName() == roomNameInput){
+	 currentPosition = electricalRoom;
+      }
+      else if(navigationRoom->getName() == roomNameInput){
+	 currentPosition = navigationRoom;
+      }
+      else if(cafeteriaRoom->getName() == roomNameInput){
+	 currentPosition = cafeteriaRoom;
+      }
+      else if(reactorRoom->getName() == roomNameInput){
+	 currentPosition = reactorRoom;
+      }
+      else if(engineBayRoom->getName() == roomNameInput){
+	 currentPosition = engineBayRoom;
+      }
+      else if(storageRoom->getName() == roomNameInput){
+	 currentPosition = storageRoom;
+      }
+      else if(lifeSupportO2Room->getName() == roomNameInput){
+	 currentPosition = lifeSupportO2Room;
+      }
+      else if(captainsLodgeRoom->getName() == roomNameInput){
+	 currentPosition = captainsLodgeRoom;
+      }
 
-        // Call the current room description
-        currentRoomDescription();
-    }
-    else if(currentPosition->getName() == roomNameInput){
-        cout << "\nYou are already in that room." << endl;
-    }
-    else{
-        cout << "\nYou look around to go there, but could not find the way to." << endl;
-    }
+      // Call the current room description
+      currentRoomDescription();
+   }
+   else if(currentPosition->getName() == roomNameInput){
+      cout << "\nYou are already in that room." << endl;
+   }
+   else{
+      cout << "\nYou look around to go there, but could not find the way to." << endl;
+   }
 }
 
 /********************************************************************************
-displayInventory - shows a list of all items that the character has
-**********************************************************************************/
+  displayInventory - shows a list of all items that the character has
+ **********************************************************************************/
 void game::displayInventory() {
 
-    this->player->listInventory();
+   this->player->listInventory();
 
 }
 
 /********************************************************************************
-lookAtFeatureCall - does the 'Look at' command for the current room the player is
- in.
-**********************************************************************************/
+  lookAtFeatureCall - does the 'Look at' command for the current room the player is
+  in.
+ **********************************************************************************/
 void game::lookAtFeatureCall(vector<string> input, int actionSize){
 
     // Add together all words after the ACTION, this must be the feature...
@@ -344,9 +346,9 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
 }
 
 /********************************************************************************
-interactFeatureCall - calls a room function to do a certain interactive action with
- the string input
-**********************************************************************************/
+  interactFeatureCall - calls a room function to do a certain interactive action with
+  the string input
+ **********************************************************************************/
 void game::interactFeatureCall(string input) {
 
     // Call the interactRoom for the current position
@@ -368,22 +370,61 @@ void game::interactFeatureCall(string input) {
 }
 
 /********************************************************************************
- getCurrentRoomId - return id of current room
-**********************************************************************************/
+  getCurrentRoomId - return id of current room
+ **********************************************************************************/
 int game::getCurrentRoomId(){
    return this->currentPosition->getRoomId();
 }
 
 /********************************************************************************
-isMapMade - returns the
-**********************************************************************************/
+  isMapMade - returns the
+ **********************************************************************************/
 bool game::isMapMade(){
 
-    return this->mapSaved;
+   return this->mapSaved;
 
 }
 
+/********************************************************************************
+  timeRanOut - returns true if time has run out
+ **********************************************************************************/
+bool game::timeRanOut(){
+   auto current_time = std::chrono::high_resolution_clock::now();
+   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   if((this->total_seconds - time_elapsed) <= 0){
+      std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
+      return true;
+   }
+   return false;
 
+}
+
+void game::printTime(){
+
+   auto current_time = std::chrono::high_resolution_clock::now();
+   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   int minutes = time_elapsed/60;
+   int seconds = time_elapsed % 60;
+
+   if(minutes <= 0){
+      std::cout << "00" << ":";
+   }
+   else if(minutes < 10){
+      std::cout << "0" << minutes << ":";
+   }
+   else{
+      std::cout << minutes << ":";
+   }
+   if(seconds <= 0){
+      std::cout << "00" << std::endl;
+   }
+   else if(seconds < 10){
+      std::cout << "0" << seconds << std::endl;
+   }
+   else{
+      std::cout << seconds << std::endl;
+   }
+}
 
 /********************************************************************************
 destructor

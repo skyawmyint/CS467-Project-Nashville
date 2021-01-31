@@ -14,6 +14,7 @@ It declares all our member variables and member function prototypes.
 #include <cstdlib>
 #include <memory>
 #include <string>
+#include <chrono>
 
 #include "character.hpp"
 #include "Item.hpp"
@@ -85,6 +86,13 @@ private:
     int timeLeft; // TEMPORARY til we figure out countdown.
     int gameStillRunning; // =0 is Exit game. =1 is still running.
 
+    int total_seconds; //Eventually user set time
+    //int start_time;
+    
+    std::chrono::high_resolution_clock::time_point start_time;
+
+    //std::chrono::time_point<std::chrono::system_clock> start_time;
+
 public:
 
     game(); // constructor
@@ -99,6 +107,8 @@ public:
     void interactFeatureCall(string input);
     int getCurrentRoomId();
     bool isMapMade();
+    bool timeRanOut();
+    void printTime();
 
     // int isGameRunning();
 
