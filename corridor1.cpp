@@ -60,7 +60,7 @@ void corridor1::lookAtFeature(string featureInputName) {
     else if(foundIndex == 1 && statueBroken == false){
         displayFeatureDescription(foundIndex);
     }
-        // Found the MAN without the WRENCH anymore
+        // FOUND the STATUE, but broken now
     else if(foundIndex == 1 && statueBroken == true){
         cout << "\nBreaking the statue seemed to do nothing..." << endl;
     }
@@ -71,7 +71,7 @@ void corridor1::lookAtFeature(string featureInputName) {
 }
 
 /*********************************************************************************
-interactRoom - if an interactive action was made for the Medbay room
+interactRoom - if an interactive action was made for this room
 *************************************************************************************/
 int corridor1::interactRoom(string inputString, bool inputMap) {
 

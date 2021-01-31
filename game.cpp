@@ -138,6 +138,7 @@ game::game(){
     // Set up flags
     this->stationPowerRestored = 0; // No Power!
     this->mapSaved = false; // Map has not been saved yet.
+    this->timeLeft = 30; // !!!!!!!!!!!Just temporary
     this->gameStillRunning = 1; // Game Running
 
     // First game room introduction should be here
@@ -332,6 +333,10 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
         dropLocation = currentPosition->itemIndexDrop(featureInputName);
         this->currentPosition->displayItemDropDescription(dropLocation);
     }
+    // Special 'LOOK AT' for Corridor 3
+    else if(currentPosition->getName() == "CORRIDOR 3"){
+        this->currentPosition->lookAtFeature(featureInputName, this->timeLeft);
+    }
     // Else check for room features
     else{
         this->currentPosition->lookAtFeature(featureInputName);
@@ -346,8 +351,8 @@ void game::interactFeatureCall(string input) {
 
     // Call the interactRoom for the current position
 
-    // For Corridors 1 + 3
-    if(this->currentPosition->getName() == "CORRIDOR 1" || this->currentPosition->getName() == "CORRIDOR 3"){
+    // For Corridors 1
+    if(this->currentPosition->getName() == "CORRIDOR 1"){
 
         int makeMap = 0;
         makeMap = this->currentPosition->interactRoom(input, this->mapSaved);
