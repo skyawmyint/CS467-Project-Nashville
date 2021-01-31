@@ -140,8 +140,11 @@ game::game(){
     // Set up flags
     this->stationPowerRestored = 0; // No Power!
     this->mapSaved = false; // Map has not been saved yet.
-    this->timeLeft = 30; // !!!!!!!!!!!Just temporary
     this->gameStillRunning = 1; // Game Running
+
+    this->time_left = 10; // We need to have a countdown for the CLOCK eventually.
+    this->total_seconds = 90; //Currently minute 30 seconds for testing, eventually have user set difficulty
+    this->start_time = std::chrono::high_resolution_clock::now();
 
     // First game room introduction should be here
     cout << endl;
@@ -337,7 +340,7 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
     }
     // Special 'LOOK AT' for Corridor 3
     else if(currentPosition->getName() == "CORRIDOR 3"){
-        this->currentPosition->lookAtFeature(featureInputName, this->timeLeft);
+        this->currentPosition->lookAtFeature(featureInputName, this->total_seconds);
     }
     // Else check for room features
     else{
@@ -392,13 +395,18 @@ bool game::timeRanOut(){
    auto current_time = std::chrono::high_resolution_clock::now();
    int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
    if((this->total_seconds - time_elapsed) <= 0){
-      std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
+
+       // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
+       std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
       return true;
    }
    return false;
 
 }
 
+/********************************************************************************
+  printTime- prints the time left in the game
+ **********************************************************************************/
 void game::printTime(){
 
    auto current_time = std::chrono::high_resolution_clock::now();
