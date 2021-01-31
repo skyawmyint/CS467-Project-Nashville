@@ -194,8 +194,17 @@ vector<string> UI::getInput(){
  **********************************************************************************/
 bool UI::play(){
 
+   if(this->currentGame->timeRanOut() == true){
+      return false;
+   }
+
    // Get user input
    std::vector<std::string> input = getInput();
+
+   if(this->currentGame->timeRanOut() == true){
+      return false;
+   }
+   this->currentGame->printTime();
 
    // Variables to check input
    int inputChoice = -1;
