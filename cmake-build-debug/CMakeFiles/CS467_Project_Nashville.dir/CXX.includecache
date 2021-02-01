@@ -90,12 +90,6 @@ room.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
 
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.cpp
-game.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp
-iostream
--
-
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/game.hpp
 iostream
 -
@@ -149,20 +143,6 @@ captainslodge.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/lifesupporto2.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
-
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/main.cpp
-iostream
--
-vector
--
-cstdlib
--
-memory
--
-string
--
-UI.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/mainframeroom.hpp
 room.hpp

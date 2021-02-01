@@ -23,7 +23,7 @@ corridor3::corridor3() : room(7)
     // Set initial features in the room
     addFeature("CLOCK","You see a large clock.");
     addFeature("PAINTING", "You see an image of a large man in front of a space station being constructed...\n"
-                           "Could this be the greedy president of this project? I wish I would just DESTROY this PAINTING");
+                           "Could this be the greedy president of this project? I wish I would just DESTROY this PAINTING!");
 
     // Set initial feature actions in the room
     // DESTROY interaction
