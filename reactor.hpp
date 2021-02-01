@@ -24,14 +24,20 @@ class reactor : public room {
 
 
 private:
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
+    // Flags for the room
     bool noisyValveOpen = true;
     bool navCommTaken = false;
 
 public:
 
     reactor();
-
-    // virtual void interactRoom();
+    void lookAtFeature(string featureInputName);
+    bool isTakeableFromStarting(string inputItemName);
+    void interactRoom(string inputString);
 
     // ~reactor();
 

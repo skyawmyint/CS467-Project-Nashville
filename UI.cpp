@@ -648,7 +648,7 @@ void UI::dropTakeItemCall(vector<string> input, int actionChoice, int actionSize
         }
     }
     // Check for four-word items
-    else if(input.size() == actionSize+3){
+    else if(input.size() == actionSize+4){
         tempName = input[actionSize] + " " + input[actionSize+1]+ " " + input[actionSize+2]+ " " + input[actionSize+3];
         if(items.find(tempName) != items.end()) {
             itemName = tempName;

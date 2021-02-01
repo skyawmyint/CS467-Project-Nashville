@@ -143,7 +143,7 @@ game::game(){
     this->gameStillRunning = 1; // Game Running
 
     this->time_left = 10; // We need to have a countdown for the CLOCK eventually.
-    this->total_seconds = 90; //Currently minute 30 seconds for testing, eventually have user set difficulty
+    this->total_seconds = 500; //Currently minute 30 seconds for testing, eventually have user set difficulty
     this->start_time = std::chrono::high_resolution_clock::now();
 
     // First game room introduction should be here
