@@ -31,7 +31,7 @@ private:
 public:
 
     communications();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~communications();

@@ -19,4 +19,33 @@ corridor1::corridor1()
     setShortDescription("You enter a long vertical corridor. There are six doors along the west wall. \n"
                         "A large screen spans across the west wall displaying a map.");
 
+    // Add features to the room
+    addFeature("MAP","This map appears to be able to be LOOKED AT, giving a layout of the station.");
+}
+
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void corridor1::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the MAP
+    if(foundIndex == 0){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
 }

@@ -29,7 +29,7 @@ private:
 public:
 
     corridor2();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~corridor2();

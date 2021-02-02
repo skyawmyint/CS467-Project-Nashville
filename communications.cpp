@@ -21,4 +21,38 @@ communications::communications()
     setShortDescription("A COMPUTER terminal that used to be your own sits against the far wall. Opposite, \n"
                         "a forgotten BIRTHDAY message from a coworker lies discarded. There was a time when you had fond memories of this place.");
 
+    // Add features to the room
+    addFeature("BIRTHDAY MESSAGE","Appears someone recently had themselves a special day..");
+    addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
+}
+
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void communications::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the BIRTHDAY MESSAGE
+    if(foundIndex == 0){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Found the COMPUTER
+    else if(foundIndex == 1 && hasPower == true ){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
 }

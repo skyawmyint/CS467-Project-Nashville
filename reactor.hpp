@@ -30,7 +30,7 @@ private:
 public:
 
     reactor();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~reactor();

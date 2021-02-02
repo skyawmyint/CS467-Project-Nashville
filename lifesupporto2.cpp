@@ -21,4 +21,38 @@ lifeSupportO2::lifeSupportO2()
     setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
                         "Next to some unused but full O2 CANISTERS was resting an EMPTY CONTAINER.");
 
+// Add features to the room
+    addFeature("EMPTY CONTAINER","This item may just be useful to TAKE with you.");
+    addFeature("O2 CANISTERS", "These O2 canisters appear to be blocking something behind them...");
+
+}
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void lifeSupportO2::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the EMPTY CONTAINER
+    if(foundIndex == 0 && emptyContainerTaken == false){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Found the O2 canisters
+    else if(foundIndex == 1){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
 }

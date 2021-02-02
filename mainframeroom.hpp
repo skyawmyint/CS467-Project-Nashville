@@ -31,7 +31,7 @@ private:
 public:
 
     mainframeRoom();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~mainframeRoom();

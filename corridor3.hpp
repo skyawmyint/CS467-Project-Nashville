@@ -31,7 +31,7 @@ private:
 public:
 
     corridor3();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~corridor3();
