@@ -30,7 +30,7 @@ private:
 public:
 
     navigation();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~navigation();
