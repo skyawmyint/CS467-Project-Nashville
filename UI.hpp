@@ -37,6 +37,7 @@ class UI {
    public:
      int menuStartUp();
      void makeNewGame();
+     void selectDifficulty();
      // void makeLoadGame();
      bool play();
       UI();

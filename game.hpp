@@ -86,9 +86,7 @@ private:
     int total_seconds; // TEMPORARY til we figure out countdown.
     int time_left; // TEMPORARY til we figure out countdown.
     int gameStillRunning; // =0 is Exit game. =1 is still running.
-    //int start_time;
     std::chrono::high_resolution_clock::time_point start_time;
-    //std::chrono::time_point<std::chrono::system_clock> start_time;
 
 public:
 
@@ -106,6 +104,7 @@ public:
     bool isMapMade();
     bool timeRanOut();
     void printTime();
+    void setTime(int seconds);
 
     // int isGameRunning();
 

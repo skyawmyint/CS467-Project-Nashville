@@ -108,7 +108,7 @@ int UI::menuStartUp()
    cout << "|----------------------------|" << endl;
    cout << "|     Project Nashville      |" << endl;
    cout << "|----------------------------|" << endl;
-   cout << "|          New game          |" << std::endl; //0
+   cout << "|          New  game         |" << std::endl; //0
    cout << "|          Load game         |" << std::endl; //1
    cout << "|          Exit game         |" << std::endl; //2
    cout << "|----------------------------|" << endl;
@@ -154,8 +154,36 @@ int UI::menuStartUp()
    return retChoice;
 }
 
+void UI::selectDifficulty(){
+ // Make a cool starting screen!
+ while(true){
+   cout << "|----------------------------|" << endl;
+   cout << "|      Select Difficulty:    |" << endl;
+   cout << "|----------------------------|" << endl;
+   cout << "|            Easy            |" << std::endl; //0
+   cout << "|           Medium           |" << std::endl; //1
+   cout << "|            Hard            |" << std::endl; //2
+   cout << "|----------------------------|" << endl;
+   cout << endl;
 
-
+   std::vector<string>choice = getInput();
+   if(choice[0] == "EASY"){
+      currentGame->setTime(900);
+      break;
+   }
+   else if(choice[0] == "MEDIUM"){
+      currentGame->setTime(600);
+      break;
+   }
+   else if(choice[0] == "HARD"){
+      currentGame->setTime(300);
+      break;
+   }
+   else{
+      std::cout << "Invalid selection." << std::endl;
+   }
+ }
+}
 /********************************************************************************
   makeNewGame() - creates a new game object if the user selects New Game
  **********************************************************************************/
