@@ -49,7 +49,7 @@ game::game(){
     // Setup Rooms in the game
     this->corridor1Room = new corridor1; // Corridors
     this->corridor2Room = new corridor2;
-    this->corridor3Room = new corridor3;
+    this->corridor3Room = new corridor3(this);
 
     this->medbayRoom = new medbay; // West-side
     this->escapePodRoomRoom = new escapePodRoom;
@@ -146,22 +146,9 @@ game::game(){
     this->total_seconds = 500; //Currently minute 30 seconds for testing, eventually have user set difficulty
     this->start_time = std::chrono::high_resolution_clock::now();
 
-    // First game room introduction should be here
-    cout << endl;
-    cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
-            "You hear a loud beeping sound accompanied by a voice counting down numbers. Something bad is going on!" << endl <<
-            "You sit up. You appear to be lying on some kind of surgical table. You get up and look around the room... " << endl <<
-            "there is no one in sight. The last thing you remember is working on a cure for a deadly virus affecting Earth " << endl <<
-            "on the Project Nashville space station." << endl;
-    cout << endl;
-    cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
-            "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
-            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
-            "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
-            "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
-            "something bad is happening to the station and you must escape by any means possible!" << endl;
 
 }
+
 
 /********************************************************************************
   currentRoomDescription - outputs the description of the current room.

@@ -167,6 +167,7 @@ void UI::selectDifficulty(){
    cout << endl;
 
    std::vector<string>choice = getInput();
+   std::cout << choice[0] << std::endl;
    if(choice[0] == "EASY"){
       currentGame->setTime(900);
       break;
@@ -183,6 +184,20 @@ void UI::selectDifficulty(){
       std::cout << "Invalid selection." << std::endl;
    }
  }
+
+    cout << endl;
+    cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
+            "You hear a loud beeping sound accompanied by a voice counting down numbers. Something bad is going on!" << endl <<
+            "You sit up. You appear to be lying on some kind of surgical table. You get up and look around the room... " << endl <<
+            "there is no one in sight. The last thing you remember is working on a cure for a deadly virus affecting Earth " << endl <<
+            "on the Project Nashville space station." << endl;
+    cout << endl;
+    cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
+            "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
+            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
+            "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
+            "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
+            "something bad is happening to the station and you must escape by any means possible!" << endl;
 }
 /********************************************************************************
   makeNewGame() - creates a new game object if the user selects New Game
@@ -191,7 +206,7 @@ void UI::makeNewGame() {
 
    // Create new game object
    this->currentGame = new game();
-
+  // First game room introduction should be here
 }
 
 
@@ -232,7 +247,6 @@ bool UI::play(){
    if(this->currentGame->timeRanOut() == true){
       return false;
    }
-   this->currentGame->printTime();
 
    // Variables to check input
    int inputChoice = -1;

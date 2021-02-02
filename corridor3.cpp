@@ -9,8 +9,8 @@ Description: This is the class implementation file for the class corridor3.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-corridor3::corridor3() : room(7)
-{
+corridor3::corridor3(game* currentGame) : room(7) {
+    this->currentGame = currentGame;
 
     setName("CORRIDOR 3");
     setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall. \n"
@@ -26,10 +26,13 @@ corridor3::corridor3() : room(7)
                            "Could this be the greedy president of this project? I wish I would just DESTROY this PAINTING!");
 
     // Set initial feature actions in the room
+    featureInteraction.insert({ "LOOK AT THE CLOCK", 0});
+    featureInteraction.insert({ "LOOK AT CLOCK", 0});
+
     // DESTROY interaction
-    featureInteraction.insert({ "DESTROY PAINTING", 0 });
-    featureInteraction.insert({ "DESTROY THIS PAINTING", 0 });
-    featureInteraction.insert({ "DESTROY THE PAINTING", 0 });
+    featureInteraction.insert({ "DESTROY PAINTING", 1});
+    featureInteraction.insert({ "DESTROY THIS PAINTING", 1});
+    featureInteraction.insert({ "DESTROY THE PAINTING", 1});
 
 }
 
@@ -48,8 +51,8 @@ void corridor3::lookAtFeature(string featureInputName, int inputTime) {
     // Output the feature description
     // Found the CLOCK
     if(foundIndex == 0){
-        cout << "\nYou see a large clock with the timer at: " << inputTime << " minutes.\n" <<
-        "You realize the station will explode once it reaches 0!" << endl;
+        cout << "\n Time until self-destruction: : "; 
+	currentGame->printTime();
     }
         // Found the PAINTING
     else if(foundIndex == 1 && paintingDestroyed == false){

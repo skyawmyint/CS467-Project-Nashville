@@ -12,6 +12,8 @@ It declares all our member variables and member function prototypes.
 
 #include "room.hpp"
 
+#include "game.hpp"
+
 using std::vector;
 using std::cin;
 using std::cout;
@@ -29,10 +31,11 @@ private:
 
     // Flags
     bool paintingDestroyed = false;
+    class game* currentGame;
 
 public:
 
-    corridor3();
+    corridor3(class game* currentGame);
     void lookAtFeature(string featureInputName, int inputTime);
     void interactRoom(string inputString);
     // ~corridor3();
