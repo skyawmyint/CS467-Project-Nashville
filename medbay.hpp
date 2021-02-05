@@ -23,19 +23,20 @@ using std::make_shared;
 class medbay : public room {
 
 private:
-    bool scalpelTaken = false;
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
+    // Flags for room
     bool medicalBoxOpened = false;
     bool flareGunTaken = false;
 
 public:
 
-  
     medbay();    //constructor
     void lookAtFeature(string featureInputName);
-
-    //virtual void interactRoom();
-
-
+    bool isTakeableFromStarting(string inputItemName);
+    void interactRoom(string inputString);
 
 };
 

@@ -15,6 +15,7 @@ It declares all our member variables and member function prototypes.
 #include <ctime>
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 #include "Item.hpp"
 #include "character.hpp"
@@ -31,6 +32,12 @@ class room{
 
 private:
 
+    // Room ID to keep track of map
+    int room_id;
+
+    // Point to the player in the room
+    character* playerPointer;
+
     // Initialize setup of room with descriptions
     string roomName;
     string longDescription;
@@ -41,11 +48,20 @@ private:
     vector<item*> startingItems;
     vector<item*> droppedItems;
 
-    bool repeatVisit; // false if it is first visit. true for any other visit
+    // Features of the rooms
+    vector<string>feature;
+    vector<string>featureDescription;
+
+    bool repeatVisit = false; // false if it is first visit. true for any other visit
 
 public:
 
     room(); // Default constructor
+    room(int id); // Constructor with just the room ID
+
+    // Functions dealing with the character
+    void setCharacter(character* inputCharacter);
+    character* getCharacter();
 
     // Name and description functions
     void setName(string nameIn);
@@ -71,16 +87,23 @@ public:
     void listItemDropped();
     int itemIndexDrop(string inputItemName);
     void displayItemDropDescription(int index);
+    // Take items from starting vector! - separated since some flags may be necessary to take
+    virtual bool isTakeableFromStarting(string inputItemName);
 
     // Functions and variables to deal with features
-    vector<string>feature;
-    vector<string>featureDescription;
-    vector<vector<string>>featureInteraction; //Each x index will iterate through different feature action. Each y will be synonyms for the action
     void addFeature(string inputName, string inputDescription);
+    int searchFeature(string inputName);
+    void displayFeatureDescription(int indexInput);
     virtual void lookAtFeature(string inputFeature);
+    virtual void lookAtFeature(string inputFeature, int inputTime); // For look at TIME in corridor 3
 
-    // virtual void interactRoom();
 
+    // Functions to deal with interacting with Room feature
+    virtual void interactRoom(string inputString);
+    virtual int interactRoom(string inputString, bool inputMap);
+
+    // Retrieve room ID
+    int getRoomId();
     // Destructor
     ~room();
 

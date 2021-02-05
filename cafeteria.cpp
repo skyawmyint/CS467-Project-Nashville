@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class cafeteria.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-cafeteria::cafeteria()
+cafeteria::cafeteria() : room(5)
 {
 
     setName("CAFETERIA");
@@ -19,7 +19,8 @@ cafeteria::cafeteria()
     setShortDescription("You enter a large room filled with cafeteria style bench tables. At the back of the room is a long counter \n"
                         "stacked with serving trays of rotting sandwiches. Smoke plumes from a stove behind the counter.");
 
-// Add features to the room
+
+    // Add features to the room
     addFeature("STOVE","At first glance this smoking STOVE seems quite unsafe, oil leaks form the bottom.");
     addFeature("LUNCH LINE", "The LUNCH LINE indicates Sloppy Joe's are apparently a station favorite.");
 }
@@ -52,5 +53,5 @@ void cafeteria::lookAtFeature(string featureInputName) {
     else{
         cout << "Input not recognized." << endl;
     }
-
 }
+

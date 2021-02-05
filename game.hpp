@@ -14,6 +14,7 @@ It declares all our member variables and member function prototypes.
 #include <cstdlib>
 #include <memory>
 #include <string>
+#include <chrono>
 
 #include "character.hpp"
 #include "Item.hpp"
@@ -80,14 +81,17 @@ private:
     room* currentPosition;
 
     // Add some flags here for unlocking doors or powering up electrical, etc
-    bool gameStillRunning;
-
+    int stationPowerRestored; // = 0 if no power to station, 1 if power restored to station
+    bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
+    int total_seconds; // TEMPORARY til we figure out countdown.
+    int time_left; // TEMPORARY til we figure out countdown.
+    int gameStillRunning; // =0 is Exit game. =1 is still running.
+    std::chrono::high_resolution_clock::time_point start_time;
 
 public:
 
     game(); // constructor
     // game(txtInput) EVENTUALLY do a constructor with text file
-    // bool doGameCommand(int, string);
     void currentRoomDescription();
     void lookDescription();
     void dropItem(string itemName);
@@ -95,11 +99,16 @@ public:
     void displayInventory();
     void moveRooms(string roomName);
     void lookAtFeatureCall(vector<string>input, int actionSize);
+    void interactFeatureCall(string input);
+    int getCurrentRoomId();
+    bool isMapMade();
+    bool timeRanOut();
+    void printTime();
+    void setTime(int seconds);
+
+    // int isGameRunning();
 
     ~game(); // destructor
 
-
 };
-
-
 #endif //CS467_PROJECT_NASHVILLE2_GAME_H

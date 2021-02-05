@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class escapePodRoom.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-escapePodRoom::escapePodRoom()
+escapePodRoom::escapePodRoom() : room(0)
 {
 
     setName("ESCAPE POD ROOM");
@@ -18,6 +18,7 @@ escapePodRoom::escapePodRoom()
                        "yet only one ESCAPE POD remains, its soft lights gently humming. Against a side wall is a metal table with a small \n"
                        "NOTEPAD atop. A door behind leads to the dark hall of CORRIDOR 1.");
     setShortDescription("One gently whirring ESCAPE POD lays primed in the far corner. A small NOTEPAD sits atop of a metal table against the side wall");
+
 
     // Add features to the room
     addFeature("ESCAPE POD","This item is the key to your salvation, if only...");

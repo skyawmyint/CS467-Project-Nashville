@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class storage.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-storage::storage()
+storage::storage() : room(14)
 {
 
     setName("STORAGE");

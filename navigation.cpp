@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class navigation.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-navigation::navigation()
+navigation::navigation() : room(13)
 {
 
     setName("NAVIGATION");
@@ -55,3 +55,4 @@ void navigation::lookAtFeature(string featureInputName) {
     }
 
 }
+

@@ -1,14 +1,16 @@
 /******************************************************************
-Project Nashville
-CS467 - Online Capstone Project
+  Project Nashville
+  CS467 - Online Capstone Project
 Description: This is the class implementation file for the class game.
-******************************************************************/
+ ******************************************************************/
 
 #include "game.hpp"
+#include <iostream>
+
 
 /********************************************************************************
-default constructor
-**********************************************************************************/
+  default constructor
+ **********************************************************************************/
 game::game(){
 
     // Set up the items in the game
@@ -47,7 +49,7 @@ game::game(){
     // Setup Rooms in the game
     this->corridor1Room = new corridor1; // Corridors
     this->corridor2Room = new corridor2;
-    this->corridor3Room = new corridor3;
+    this->corridor3Room = new corridor3(this);
 
     this->medbayRoom = new medbay; // West-side
     this->escapePodRoomRoom = new escapePodRoom;
@@ -56,7 +58,7 @@ game::game(){
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
     this->cafeteriaRoom = new cafeteria; // East-side
-    this->reactorRoom = new reactor;
+    this->reactorRoom = new reactor();
     this->engineBayRoom = new engineBay;
     this->storageRoom = new storage;
     this->lifeSupportO2Room = new lifeSupportO2;
@@ -106,13 +108,28 @@ game::game(){
     this->corridor2Room->addItemStarting(wrenchItem);
     this->medbayRoom->addItemStarting(flareGunItem);
 
-    // Add all the rooms to the roomsVector
-    // MAYBE if we want to refactor a bit...
-
     // Set up a new character
     this->player = new character();
 
+    // Place a player pointer in each of the rooms
+    this->corridor1Room->setCharacter(player);
+    this->corridor2Room->setCharacter(player);
+    this->corridor3Room->setCharacter(player);
+    this->medbayRoom->setCharacter(player);
+    this->escapePodRoomRoom->setCharacter(player);
+    this->mainframeRoomRoom->setCharacter(player);
+    this->communicationsRoom->setCharacter(player);
+    this->electricalRoom->setCharacter(player);
+    this->navigationRoom->setCharacter(player);
+    this->cafeteriaRoom->setCharacter(player);
+    this->reactorRoom->setCharacter(player);
+    this->engineBayRoom->setCharacter(player);
+    this->storageRoom->setCharacter(player);
+    this->lifeSupportO2Room->setCharacter(player);
+    this->captainsLodgeRoom->setCharacter(player);
+
     // CHECKING IF ITEMS WORKING - TEMP!!!!
+    // this->player->addItem(wrenchItem);
     // this->player->addItem(badgeItem);
     // this->player->addItem(flareGunItem);
     // TEMP CODE!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -121,170 +138,173 @@ game::game(){
     this->currentPosition = medbayRoom;
 
     // Set up flags
-    this->gameStillRunning = true;
+    this->stationPowerRestored = 0; // No Power!
+    this->mapSaved = false; // Map has not been saved yet.
+    this->gameStillRunning = 1; // Game Running
 
-    // First game room introduction should be here
-    cout << endl;
-    cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
-            "You hear a loud beeping sound accompanied by a voice counting down numbers. Something bad is going on!" << endl <<
-            "You sit up. You appear to be lying on some kind of surgical table. You get up and look around the room... " << endl <<
-            "there is no one in sight. The last thing you remember is working on a cure for a deadly virus affecting Earth " << endl <<
-            "on the Project Nashville space station." << endl;
-    cout << endl;
-    cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
-            "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
-            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
-            "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
-            "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
-            "something bad is happening to the station and you must escape by any means possible!" << endl;
+    this->time_left = 10; // We need to have a countdown for the CLOCK eventually.
+    this->total_seconds = 500; //Currently minute 30 seconds for testing, eventually have user set difficulty
+    this->start_time = std::chrono::high_resolution_clock::now();
+
 
 }
 
+
 /********************************************************************************
-currentRoomDescription - outputs the description of the current room.
-**********************************************************************************/
+  currentRoomDescription - outputs the description of the current room.
+ **********************************************************************************/
 void game::currentRoomDescription(){
 
-    // Output the room name and long description
-    cout << "\nYou enter the room " << currentPosition->getName() << "..." << endl;
+   // Output the room name and long description
+   cout << "\nYou enter the room " << currentPosition->getName() << "..." << endl;
 
-    // Long description
-    if(currentPosition->isRepeatVisit()==false){
-        cout << currentPosition->getLongDescription();
-        currentPosition->listItemDropped();
-        cout << endl;
-        currentPosition->toggleEnteredRoom();
-    }
-    // Short description
-    else{
-        cout << currentPosition->getShortDescription();
-        currentPosition->listItemDropped();
-        cout << endl;
-    }
+   // Long description
+   if(currentPosition->isRepeatVisit()==false){
+      cout << currentPosition->getLongDescription();
+      currentPosition->listItemDropped();
+      cout << endl;
+      currentPosition->toggleEnteredRoom();
+   }
+   // Short description
+   else{
+      cout << currentPosition->getShortDescription();
+      currentPosition->listItemDropped();
+      cout << endl;
+   }
 }
 
 /********************************************************************************
-lookDescription - outputs the long description of the current room.
-**********************************************************************************/
+  lookDescription - outputs the long description of the current room.
+ **********************************************************************************/
 void game::lookDescription() {
 
-    cout << "\nYou look around the room..." << endl;
-    cout << currentPosition->getLongDescription();
-    currentPosition->listItemDropped();
-    cout << endl;
+   cout << "\nYou look around the room..." << endl;
+   cout << currentPosition->getLongDescription();
+   currentPosition->listItemDropped();
+   cout << endl;
 
 }
 
 /********************************************************************************
-dropItem - drops an item in the player's inventory to the room
-**********************************************************************************/
+  dropItem - drops an item in the player's inventory to the room
+ **********************************************************************************/
 void game::dropItem(string itemName) {
 
-    if(player->searchItem(itemName) == true){
-        cout << "\nYou drop the " << itemName << " on the floor of " << currentPosition->getName() << "." << endl;
-        currentPosition->addItemDropped(player->removeItem(itemName));
-    }
-    else{
-        cout << "Input not recognized." << endl;
-    }
+   if(player->searchItem(itemName) == true){
+      cout << "\nYou drop the " << itemName << " on the floor of " << currentPosition->getName() << "." << endl;
+      currentPosition->addItemDropped(player->removeItem(itemName));
+   }
+   else{
+      cout << "Input not recognized." << endl;
+   }
 }
 
 /********************************************************************************
-takeItem - takes an item and puts it into player's inventory from the room
-**********************************************************************************/
+  takeItem - takes an item and puts it into player's inventory from the room
+ **********************************************************************************/
 void game::takeItem(string itemName) {
 
-    if(currentPosition->searchItemDropped(itemName) == true){
-        cout << "\nYou take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
-        player->addItem(currentPosition->removeItemDropped(itemName));
-    }
-    else{
-        cout << "Input not recognized." << endl;
-    }
+   if(currentPosition->searchItemDropped(itemName) == true){
+      cout << "\nYou take the " << itemName << " from the floor of " << currentPosition->getName() << "." << endl;
+      player->addItem(currentPosition->removeItemDropped(itemName));
+   }
+   else if(currentPosition->isTakeableFromStarting(itemName) == true){
+      cout << "\nYou take the " << itemName << " and put it in your inventory." << endl;
+      player->addItem(currentPosition->removeItemStarting(itemName));
+   }
+   else{
+      cout << "Input not recognized." << endl;
+   }
 }
 
 /********************************************************************************
-moveRooms - changes the current room to the user input Room string name
-**********************************************************************************/
+  moveRooms - changes the current room to the user input Room string name
+ **********************************************************************************/
 void game::moveRooms(string roomNameInput){
 
-    // Check if this is a connected room
-    if(currentPosition->isConnectedRoom(roomNameInput) == true){
-        // Go through all our rooms and see if its the same room name
-        if(corridor1Room->getName() == roomNameInput){
-            currentPosition = corridor1Room;
-        }
-        else if(corridor2Room->getName() == roomNameInput){
-            currentPosition = corridor2Room;
-        }
-        else if(corridor3Room->getName() == roomNameInput){
-            currentPosition = corridor3Room;
-        }
-        else if(medbayRoom->getName() == roomNameInput){
-            currentPosition = medbayRoom;
-        }
-        else if(escapePodRoomRoom->getName() == roomNameInput){
-            currentPosition = escapePodRoomRoom;
-        }
-        else if(mainframeRoomRoom->getName() == roomNameInput){
-            currentPosition = mainframeRoomRoom;
-        }
-        else if(communicationsRoom->getName() == roomNameInput){
-            currentPosition = communicationsRoom;
-        }
-        else if(electricalRoom->getName() == roomNameInput){
-            currentPosition = electricalRoom;
-        }
-        else if(navigationRoom->getName() == roomNameInput){
-            currentPosition = navigationRoom;
-        }
-        else if(cafeteriaRoom->getName() == roomNameInput){
-            currentPosition = cafeteriaRoom;
-        }
-        else if(reactorRoom->getName() == roomNameInput){
-            currentPosition = reactorRoom;
-        }
-        else if(engineBayRoom->getName() == roomNameInput){
-            currentPosition = engineBayRoom;
-        }
-        else if(storageRoom->getName() == roomNameInput){
-            currentPosition = storageRoom;
-        }
-        else if(lifeSupportO2Room->getName() == roomNameInput){
-            currentPosition = lifeSupportO2Room;
-        }
-        else if(captainsLodgeRoom->getName() == roomNameInput){
-            currentPosition = captainsLodgeRoom;
-        }
+   // Check if this is a connected room
+   if(currentPosition->isConnectedRoom(roomNameInput) == true){
+      // Go through all our rooms and see if its the same room name
+      if(corridor1Room->getName() == roomNameInput){
+	 currentPosition = corridor1Room;
+      }
+      else if(corridor2Room->getName() == roomNameInput){
+	 currentPosition = corridor2Room;
+      }
+      else if(corridor3Room->getName() == roomNameInput){
+	 currentPosition = corridor3Room;
+      }
+      else if(medbayRoom->getName() == roomNameInput){
+	 currentPosition = medbayRoom;
+      }
+      else if(escapePodRoomRoom->getName() == roomNameInput){
+	 currentPosition = escapePodRoomRoom;
+      }
+      else if(mainframeRoomRoom->getName() == roomNameInput){
+	 currentPosition = mainframeRoomRoom;
+      }
+      else if(communicationsRoom->getName() == roomNameInput){
+	 currentPosition = communicationsRoom;
+      }
+      else if(electricalRoom->getName() == roomNameInput){
+	 currentPosition = electricalRoom;
+      }
+      else if(navigationRoom->getName() == roomNameInput){
+	 currentPosition = navigationRoom;
+      }
+      else if(cafeteriaRoom->getName() == roomNameInput){
+	 currentPosition = cafeteriaRoom;
+      }
+      else if(reactorRoom->getName() == roomNameInput){
+	 currentPosition = reactorRoom;
+      }
+      else if(engineBayRoom->getName() == roomNameInput){
+	 currentPosition = engineBayRoom;
+      }
+      else if(storageRoom->getName() == roomNameInput){
+	 currentPosition = storageRoom;
+      }
+      else if(lifeSupportO2Room->getName() == roomNameInput){
+	 currentPosition = lifeSupportO2Room;
+      }
+      else if(captainsLodgeRoom->getName() == roomNameInput){
+	 currentPosition = captainsLodgeRoom;
+      }
 
-        // Call the current room description
-        currentRoomDescription();
-    }
-    else if(currentPosition->getName() == roomNameInput){
-        cout << "\nYou are already in that room." << endl;
-    }
-    else{
-        cout << "\nYou look around to go there, but could not find the way to." << endl;
-    }
+      // Call the current room description
+      currentRoomDescription();
+   }
+   else if(currentPosition->getName() == roomNameInput){
+      cout << "\nYou are already in that room." << endl;
+   }
+   else{
+      cout << "\nYou look around to go there, but could not find the way to." << endl;
+   }
 }
 
 /********************************************************************************
-displayInventory - shows a list of all items that the character has
-**********************************************************************************/
+  displayInventory - shows a list of all items that the character has
+ **********************************************************************************/
 void game::displayInventory() {
 
-    this->player->listInventory();
+   this->player->listInventory();
 
 }
 
 /********************************************************************************
-lookAtFeatureCall - does the 'Look at' command for the current room the player is
- in.
-**********************************************************************************/
+  lookAtFeatureCall - does the 'Look at' command for the current room the player is
+  in.
+ **********************************************************************************/
 void game::lookAtFeatureCall(vector<string> input, int actionSize){
 
     // Add together all words after the ACTION, this must be the feature...
-    string featureInputName = input[actionSize];
+    string featureInputName;
+    if(input.size()>actionSize){
+        featureInputName = input[actionSize];
+    }
+    else{
+        featureInputName = "BAD STUFF";
+    }
     if(input.size()>actionSize+1){
         for(int i = actionSize+1; i<input.size(); i++){
             featureInputName+= " ";
@@ -305,13 +325,109 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
         dropLocation = currentPosition->itemIndexDrop(featureInputName);
         this->currentPosition->displayItemDropDescription(dropLocation);
     }
+    // Special 'LOOK AT' for Corridor 3
+    else if(currentPosition->getName() == "CORRIDOR 3"){
+        this->currentPosition->lookAtFeature(featureInputName, this->total_seconds);
+    }
     // Else check for room features
     else{
         this->currentPosition->lookAtFeature(featureInputName);
     }
 }
 
+/********************************************************************************
+  interactFeatureCall - calls a room function to do a certain interactive action with
+  the string input
+ **********************************************************************************/
+void game::interactFeatureCall(string input) {
 
+    // Call the interactRoom for the current position
+
+    // For Corridors 1
+    if(this->currentPosition->getName() == "CORRIDOR 1"){
+
+        int makeMap = 0;
+        makeMap = this->currentPosition->interactRoom(input, this->mapSaved);
+        // Set the mapSaved to true in order for map command to be useable now.
+        if(makeMap == 1){
+            this->mapSaved = true;
+        }
+    }
+    // For all other rooms
+    else{
+        this->currentPosition->interactRoom(input);
+    }
+}
+
+/********************************************************************************
+  getCurrentRoomId - return id of current room
+ **********************************************************************************/
+int game::getCurrentRoomId(){
+   return this->currentPosition->getRoomId();
+}
+
+/********************************************************************************
+  isMapMade - returns the
+ **********************************************************************************/
+bool game::isMapMade(){
+
+   return this->mapSaved;
+
+}
+
+/********************************************************************************
+  timeRanOut - returns true if time has run out
+ **********************************************************************************/
+bool game::timeRanOut(){
+   auto current_time = std::chrono::high_resolution_clock::now();
+   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   if((this->total_seconds - time_elapsed) <= 0){
+
+       // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
+       std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
+      return true;
+   }
+   return false;
+
+}
+
+/********************************************************************************
+  printTime- prints the time left in the game
+ **********************************************************************************/
+void game::printTime(){
+
+   auto current_time = std::chrono::high_resolution_clock::now();
+   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   int minutes = time_elapsed/60;
+   int seconds = time_elapsed % 60;
+
+   if(minutes <= 0){
+      std::cout << "00" << ":";
+   }
+   else if(minutes < 10){
+      std::cout << "0" << minutes << ":";
+   }
+   else{
+      std::cout << minutes << ":";
+   }
+   if(seconds <= 0){
+      std::cout << "00" << std::endl;
+   }
+   else if(seconds < 10){
+      std::cout << "0" << seconds << std::endl;
+   }
+   else{
+      std::cout << seconds << std::endl;
+   }
+}
+
+/********************************************************************************
+  setTime - sets total time until station explodes
+ **********************************************************************************/
+
+void game::setTime(int seconds){
+   this->total_seconds = seconds;
+}
 
 /********************************************************************************
 destructor
@@ -319,8 +435,6 @@ destructor
 
 game::~game()
 {
-
-
 
 
 }

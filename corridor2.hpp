@@ -22,15 +22,19 @@ using std::make_shared;
 
 class corridor2 : public room {
 
-
 private:
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
+    // Flags for the room
     bool wrenchTaken = false;
 
 public:
 
     corridor2();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
+    void interactRoom(string inputString);
 
     // ~corridor2();
 

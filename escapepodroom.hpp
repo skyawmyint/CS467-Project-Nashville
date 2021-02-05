@@ -27,6 +27,7 @@ private:
     bool escapePodUnlocked = false;
 
 public:
+
     escapePodRoom();
     void lookAtFeature(string featureInputName);
     // virtual void interactRoom();

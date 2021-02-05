@@ -32,10 +32,12 @@ class UI {
       void help();
       void moveRoomCall(vector<string>input, int actionSize);
       void dropTakeItemCall(vector<string> input, int actionChoice, int actionSize);
+      void featureActionCall(vector<string>input);
 
    public:
      int menuStartUp();
      void makeNewGame();
+     void selectDifficulty();
      // void makeLoadGame();
      bool play();
       UI();

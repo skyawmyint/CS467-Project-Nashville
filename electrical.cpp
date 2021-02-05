@@ -9,7 +9,7 @@ Description: This is the class implementation file for the class electrical.
 /********************************************************************************
 default constructor
 **********************************************************************************/
-electrical::electrical()
+electrical::electrical() : room(11)
 {
     setName("ELECTRICAL");
     setLongDescription("There is the smell of burning ozone accompanied with a sizzling sound that makes your eardrums ring \n"
@@ -18,6 +18,7 @@ electrical::electrical()
                        "the PANEL, sits a COMPUTER on a desk that somehow seems to have power...you can always go back to CORRIDOR 1.");
     setShortDescription("A shattered ELECTRICAL PANEL hums on the far side of the room. \n"
                         "In a tiny corner across the way a COMPUTER sits alone and lonely.");
+
 
 // Add features to the room
     addFeature("COMMUNICATION","This appears to be some internal correspondence that can be LOOKED AT.");

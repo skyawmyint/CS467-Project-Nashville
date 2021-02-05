@@ -42,7 +42,6 @@ CMakeFiles/CS467_Project_Nashville.dir/captainslodge.cpp.o: ../room.hpp
 CMakeFiles/CS467_Project_Nashville.dir/character.cpp.o: ../Item.hpp
 CMakeFiles/CS467_Project_Nashville.dir/character.cpp.o: ../character.cpp
 CMakeFiles/CS467_Project_Nashville.dir/character.cpp.o: ../character.hpp
-CMakeFiles/CS467_Project_Nashville.dir/character.cpp.o: ../room.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/communications.cpp.o: ../Item.hpp
 CMakeFiles/CS467_Project_Nashville.dir/communications.cpp.o: ../character.hpp

@@ -13,6 +13,32 @@ room::room()
 {
 
 }
+/********************************************************************************
+set room id with constructor
+**********************************************************************************/
+room::room(int id)
+{
+   this->room_id = id;
+}
+/********************************************************************************
+setCharacter - sets the character pointer
+**********************************************************************************/
+void room::setCharacter(character* inputCharacter)
+{
+
+    this->playerPointer = inputCharacter;
+
+}
+
+/********************************************************************************
+getCharacter - returns the character pointer
+**********************************************************************************/
+character* room::getCharacter()
+{
+
+    return this->playerPointer;
+
+}
 
 /*********************************************************************************
 setName sets the name of the room it takes a string as a parameter and returns nothing
@@ -273,21 +299,81 @@ void room::addFeature(string inputName, string inputDescription) {
 }
 
 /*********************************************************************************
+searchFeature searched for a feature and returns the index if it exists. Returns -1 if
+ no index is found
+*************************************************************************************/
+int room::searchFeature(string inputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(inputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    return foundIndex;
+
+}
+
+/*********************************************************************************
+displayFeatureDescription - displays the feature description at a given index
+*************************************************************************************/
+void room::displayFeatureDescription(int indexInput) {
+
+    cout << endl << this->featureDescription[indexInput] << endl;
+
+}
+
+
+/*********************************************************************************
+isTakeableFromStarting returns true if the item in the starting room is takeable
+ from the starting vector outright. Otherwise returns false.
+*************************************************************************************/
+bool room::isTakeableFromStarting(string inputItemName){
+
+    return false;
+
+}
+
+/*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
 void room::lookAtFeature(string inputFeature) {
 
 }
 
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void room::lookAtFeature(string inputFeature, int inputTime) {
 
+}
 
+/*********************************************************************************
+interactRoom - works with the room to do a specific interactive action
+*************************************************************************************/
+void room::interactRoom(string inputString) {
 
+}
 
+/*********************************************************************************
+interactRoom - works with the room to do a specific interactive action
+*************************************************************************************/
+int room::interactRoom(string inputString, bool inputMap) {
 
+    return 0;
 
+}
 
-
-
+/*********************************************************************************
+getRoomId - returns room id
+ *************************************************************************************/
+int room::getRoomId(){
+   return this->room_id;
+}
 
 /********************************************************************************
 destructor

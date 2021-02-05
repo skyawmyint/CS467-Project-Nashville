@@ -12,6 +12,8 @@ It declares all our member variables and member function prototypes.
 
 #include "room.hpp"
 
+#include "game.hpp"
+
 using std::vector;
 using std::cin;
 using std::cout;
@@ -22,22 +24,21 @@ using std::make_shared;
 
 class corridor3 : public room {
 
-
 private:
 
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
-
+    // Flags
+    bool paintingDestroyed = false;
+    class game* currentGame;
 
 public:
 
-    corridor3();
-    void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    corridor3(class game* currentGame);
+    void lookAtFeature(string featureInputName, int inputTime);
+    void interactRoom(string inputString);
     // ~corridor3();
-
-
-
 };
 
 
