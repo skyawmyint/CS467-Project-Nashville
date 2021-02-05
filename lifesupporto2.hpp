@@ -31,7 +31,7 @@ private:
 public:
 
     lifeSupportO2();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~lifeSupportO2();

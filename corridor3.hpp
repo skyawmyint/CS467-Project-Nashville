@@ -39,7 +39,6 @@ public:
     void lookAtFeature(string featureInputName, int inputTime);
     void interactRoom(string inputString);
     // ~corridor3();
-
 };
 
 

@@ -56,7 +56,7 @@ lookAtFeature - will output a description if a feature is found with the look at
 void reactor::lookAtFeature(string featureInputName) {
 
     // Set variable for found index
-    int foundIndex;
+    int foundIndex = -1;
 
     // Search for the feature
     foundIndex = searchFeature(featureInputName);
@@ -82,7 +82,6 @@ void reactor::lookAtFeature(string featureInputName) {
     else{
         cout << "Input not recognized." << endl;
     }
-
 }
 
 /*********************************************************************************

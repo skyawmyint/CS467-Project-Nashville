@@ -13,6 +13,7 @@ corridor1::corridor1() : room(6)
 {
 
     setName("CORRIDOR 1");
+
     setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, as well\n"
                        "as six doors along the west wall. A large screen spans across the other wall displaying an INTERACTIVE MAP. On the corner of\n"
                        "the south wall, you see a STATUE of a person. Suddenly, you hear a rumbling. The room shakes and you stumble fighting\n"
@@ -125,6 +126,7 @@ int corridor1::interactRoom(string inputString, bool inputMap) {
         }
     }
         // Input not recognized
+
     else{
         cout << "Input not recognized." << endl;
     }
@@ -132,5 +134,4 @@ int corridor1::interactRoom(string inputString, bool inputMap) {
     return 0;
 
 }
-
 

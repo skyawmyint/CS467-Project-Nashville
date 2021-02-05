@@ -20,6 +20,7 @@ corridor3::corridor3(game* currentGame) : room(7) {
     setShortDescription("There are five doors along the east wall. A large CLOCK spans across the northwestern wall\n"
                         "and a large PAINTING spans across the southwestern wall.");
 
+
     // Set initial features in the room
     addFeature("CLOCK","You see a large clock.");
     addFeature("PAINTING", "You see an image of a large man in front of a space station being constructed...\n"
@@ -33,9 +34,7 @@ corridor3::corridor3(game* currentGame) : room(7) {
     featureInteraction.insert({ "DESTROY PAINTING", 1});
     featureInteraction.insert({ "DESTROY THIS PAINTING", 1});
     featureInteraction.insert({ "DESTROY THE PAINTING", 1});
-
 }
-
 
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action

@@ -29,7 +29,7 @@ private:
 public:
 
     captainsLodge();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~captainsLodge();

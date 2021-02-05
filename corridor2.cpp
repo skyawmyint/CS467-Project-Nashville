@@ -20,6 +20,7 @@ corridor2::corridor2() : room(8)
     setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and 2 on either side. A LARGE WINDOW on the north wall overlooks the stars.\n"
                         "You see an unresponsive MAN on the floor.");
 
+
     // Set initial features in the room
     addFeature("LARGE WINDOW","You see a LARGE WINDOW that shows the best view of outer space on the station. You may be able to LOOK OUT it for a better view!");
     addFeature("MAN", "You look closer at the MAN. He is dead...however you see a shiny tool underneath the body. You may be able to PULL or PUSH \n"
@@ -36,7 +37,6 @@ corridor2::corridor2() : room(8)
     featureInteraction.insert({ "PULL MAN", 1 });
     featureInteraction.insert({ "PUSH THE MAN", 1 });
     featureInteraction.insert({ "PUSH MAN", 1 });
-
 }
 
 /*********************************************************************************
@@ -45,7 +45,7 @@ lookAtFeature - will output a description if a feature is found with the look at
 void corridor2::lookAtFeature(string featureInputName) {
 
     // Set variable for found index
-    int foundIndex;
+    int foundIndex = -1;
 
     // Search for the feature
     foundIndex = searchFeature(featureInputName);

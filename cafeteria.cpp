@@ -19,4 +19,39 @@ cafeteria::cafeteria() : room(5)
     setShortDescription("You enter a large room filled with cafeteria style bench tables. At the back of the room is a long counter \n"
                         "stacked with serving trays of rotting sandwiches. Smoke plumes from a stove behind the counter.");
 
+
+    // Add features to the room
+    addFeature("STOVE","At first glance this smoking STOVE seems quite unsafe, oil leaks form the bottom.");
+    addFeature("LUNCH LINE", "The LUNCH LINE indicates Sloppy Joe's are apparently a station favorite.");
 }
+
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void cafeteria::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the STOVE
+    if(foundIndex == 0){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Found the LUNCH LINE
+    else if(foundIndex == 1){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+}
+

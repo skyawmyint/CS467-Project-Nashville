@@ -31,7 +31,7 @@ private:
 public:
 
     cafeteria();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~cafeteria();

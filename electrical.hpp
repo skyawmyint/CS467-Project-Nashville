@@ -29,7 +29,7 @@ private:
 public:
 
     electrical();
-
+    void lookAtFeature(string featureInputName);
     // virtual void interactRoom();
 
     // ~electrical();

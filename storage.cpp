@@ -21,4 +21,38 @@ storage::storage() : room(14)
     setShortDescription("A seemingly ordinary STORAGE room contains a small table with a scrawled NOTE upon it, \n"
                         "and directly against the far wall a fairly large CLOSET.");
 
+// Add features to the room
+    addFeature("CLOSET","A closet that can be OPENED stands against the far wall.");
+    addFeature("NOTE", "A note that can be looked at is stickied to a locker");
+
+}
+/*********************************************************************************
+lookAtFeature - will output a description if a feature is found with the look at action
+*************************************************************************************/
+void storage::lookAtFeature(string featureInputName) {
+
+    // Set variable for found index
+    int foundIndex = -1;
+
+    // Search for the feature
+    for(int i = 0; i<feature.size(); i++){
+        if(featureInputName == feature[i]){
+            foundIndex = i;
+        }
+    }
+
+    // Output the feature description
+    // Found the CLOSET
+    if(foundIndex == 0){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Found the NOTE
+    else if(foundIndex == 1){
+        cout << endl << featureDescription[foundIndex] << endl;
+    }
+        // Else this is not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
 }
