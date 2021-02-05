@@ -34,20 +34,16 @@ void cafeteria::lookAtFeature(string featureInputName) {
     int foundIndex = -1;
 
     // Search for the feature
-    for(int i = 0; i<feature.size(); i++){
-        if(featureInputName == feature[i]){
-            foundIndex = i;
-        }
-    }
+    foundIndex = searchFeature(featureInputName);
 
     // Output the feature description
     // Found the STOVE
     if(foundIndex == 0){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
         // Found the LUNCH LINE
     else if(foundIndex == 1){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
         // Else this is not recognized
     else{

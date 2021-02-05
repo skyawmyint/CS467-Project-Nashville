@@ -31,23 +31,19 @@ lookAtFeature - will output a description if a feature is found with the look at
 void navigation::lookAtFeature(string featureInputName) {
 
     // Set variable for found index
-    int foundIndex = -1;
+    int foundIndex;
 
     // Search for the feature
-    for(int i = 0; i<feature.size(); i++){
-        if(featureInputName == feature[i]){
-            foundIndex = i;
-        }
-    }
+    foundIndex = searchFeature(featureInputName);
 
     // Output the feature description
     // Found the COMMUNICATION
     if(foundIndex == 0){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
         // Found the COMPUTER
     else if(foundIndex == 1 && hasPower == true ){
-        cout << endl << featureDescription[foundIndex] << endl;
+        displayFeatureDescription(foundIndex);
     }
         // Else this is not recognized
     else{

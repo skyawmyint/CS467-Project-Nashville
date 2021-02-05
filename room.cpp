@@ -369,6 +369,15 @@ int room::interactRoom(string inputString, bool inputMap) {
 }
 
 /*********************************************************************************
+isO2CanistersDestroyed - for the entrance into the storage room.
+*************************************************************************************/
+bool room::isO2CanistersDestroyed(){
+
+    return false;
+
+}
+
+/*********************************************************************************
 getRoomId - returns room id
  *************************************************************************************/
 int room::getRoomId(){

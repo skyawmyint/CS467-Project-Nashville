@@ -62,10 +62,25 @@ CMakeFiles/CS467_Project_Nashville.dir/corridor2.cpp.o: ../corridor2.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor2.cpp.o: ../room.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../Item.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../cafeteria.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../captainslodge.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../character.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../communications.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../corridor1.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../corridor2.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../corridor3.cpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../corridor3.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../electrical.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../enginebay.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../escapepodroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../game.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../lifesupporto2.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../mainframeroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../medbay.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../navigation.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../reactor.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../room.hpp
+CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o: ../storage.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/electrical.cpp.o: ../Item.hpp
 CMakeFiles/CS467_Project_Nashville.dir/electrical.cpp.o: ../character.hpp

@@ -22,17 +22,21 @@ using std::make_shared;
 
 class lifeSupportO2 : public room {
 
-
 private:
-    bool O2CanistersDestroyed = false;
-    bool emptyContainerTaken = false;
 
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+
+    // Flags
+    bool O2CanistersDestroyed = false;
 
 public:
 
     lifeSupportO2();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
+    bool isTakeableFromStarting(string inputItemName);
+    bool isO2CanistersDestroyed();
+    void interactRoom(string inputString);
 
     // ~lifeSupportO2();
 

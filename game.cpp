@@ -222,6 +222,8 @@ void game::takeItem(string itemName) {
  **********************************************************************************/
 void game::moveRooms(string roomNameInput){
 
+    bool movedRooms = true;
+
    // Check if this is a connected room
    if(currentPosition->isConnectedRoom(roomNameInput) == true){
       // Go through all our rooms and see if its the same room name
@@ -262,17 +264,25 @@ void game::moveRooms(string roomNameInput){
 	 currentPosition = engineBayRoom;
       }
       else if(storageRoom->getName() == roomNameInput){
-	 currentPosition = storageRoom;
+          if(lifeSupportO2Room->isO2CanistersDestroyed() == true){
+              currentPosition = storageRoom;
+          }
+          else{
+              movedRooms = false;
+              cout << "You do not see the entrance to the STORAGE room." << endl;
+          }
       }
       else if(lifeSupportO2Room->getName() == roomNameInput){
-	 currentPosition = lifeSupportO2Room;
+          currentPosition = lifeSupportO2Room;
       }
       else if(captainsLodgeRoom->getName() == roomNameInput){
 	 currentPosition = captainsLodgeRoom;
       }
 
       // Call the current room description
-      currentRoomDescription();
+      if(movedRooms == true){
+          currentRoomDescription();
+      }
    }
    else if(currentPosition->getName() == roomNameInput){
       cout << "\nYou are already in that room." << endl;

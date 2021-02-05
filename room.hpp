@@ -97,10 +97,12 @@ public:
     virtual void lookAtFeature(string inputFeature);
     virtual void lookAtFeature(string inputFeature, int inputTime); // For look at TIME in corridor 3
 
-
     // Functions to deal with interacting with Room feature
     virtual void interactRoom(string inputString);
     virtual int interactRoom(string inputString, bool inputMap);
+
+    // Misc Virtual Functions
+    virtual bool isO2CanistersDestroyed();
 
     // Retrieve room ID
     int getRoomId();
