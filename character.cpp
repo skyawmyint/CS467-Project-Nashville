@@ -121,6 +121,17 @@ void character::listInventory() {
 
 }
 
+/*********************************************************************************
+returnItem - returns the item object at a given index of the character's inventory
+*************************************************************************************/
+item* character::returnItem(int inputItemIndex){
+
+    item* tempItemPointer = inventory[inputItemIndex];
+
+    return tempItemPointer;
+
+};
+
 /********************************************************************************
 destructor
 **********************************************************************************/

@@ -22,7 +22,6 @@ class item {
 private:
     string name; // name of item
     string description; // description of item
-    // bool triggered; // bool for item use
 
 public:
     item(); // default constructor
@@ -31,8 +30,6 @@ public:
     string getName() const; // returns name of the Item
     void setDescription(string descriptionIn);  //sets the description of the item
     string getDescription() const; //returns the description of the item
-    // void setTrigger(bool triggerIn); //sets the trigger of the item for usage
-    // bool getTrigger() const; //returns the trigger of the item for usage
     ~item(); // deconstructor
 
 };

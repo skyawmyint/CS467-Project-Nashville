@@ -41,6 +41,7 @@ public:
     void displayItemDescription(int index);
     item* removeItem(string inputItemName);
     void listInventory();
+    item* returnItem(int itemIndexInput);
     ~character(); // Destructor
 
 };

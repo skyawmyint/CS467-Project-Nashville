@@ -82,6 +82,7 @@ UI::UI() {
    items.insert("EMPTY CONTAINER");
    items.insert("WRENCH");
    items.insert("FLARE GUN");
+   items.insert("FILLED CONTAINER");
 
    this->gameRunning = true;
 
@@ -181,7 +182,7 @@ void UI::selectDifficulty(){
       break;
    }
    else{
-      std::cout << "Invalid selection." << std::endl;
+      std::cout << "Input not recognized." << std::endl;
    }
  }
 

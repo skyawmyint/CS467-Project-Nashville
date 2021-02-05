@@ -22,21 +22,18 @@ using std::make_shared;
 
 class cafeteria : public room {
 
-
 private:
 
-
-
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
+    bool containerFilled = false;
 
 public:
 
     cafeteria();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~cafeteria();
-
-
 
 };
 

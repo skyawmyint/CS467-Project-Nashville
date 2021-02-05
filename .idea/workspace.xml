@@ -42,9 +42,9 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -81,6 +81,7 @@
       <workItem from="1612131710286" duration="783000" />
       <workItem from="1612137190136" duration="5710000" />
       <workItem from="1612484986085" duration="5485000" />
+      <workItem from="1612502670471" duration="6944000" />
     </task>
     <servers />
   </component>
@@ -100,22 +101,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="676" y="457" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1611143183966" />
-    <state width="2126" height="441" key="GridCell.Tab.0.bottom" timestamp="1612490832253">
+    <state width="2126" height="441" key="GridCell.Tab.0.bottom" timestamp="1612511181688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2126" height="441" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1612490832253" />
-    <state width="2126" height="441" key="GridCell.Tab.0.center" timestamp="1612490832253">
+    <state width="2126" height="441" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1612511181688" />
+    <state width="2126" height="441" key="GridCell.Tab.0.center" timestamp="1612511181688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2126" height="441" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1612490832253" />
-    <state width="2126" height="441" key="GridCell.Tab.0.left" timestamp="1612490832253">
+    <state width="2126" height="441" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1612511181688" />
+    <state width="2126" height="441" key="GridCell.Tab.0.left" timestamp="1612511181688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2126" height="441" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1612490832253" />
-    <state width="2126" height="441" key="GridCell.Tab.0.right" timestamp="1612490832253">
+    <state width="2126" height="441" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1612511181688" />
+    <state width="2126" height="441" key="GridCell.Tab.0.right" timestamp="1612511181688">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2126" height="441" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1612490832253" />
+    <state width="2126" height="441" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1612511181688" />
     <state width="1924" height="493" key="GridCell.Tab.1.bottom" timestamp="1612143338868">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

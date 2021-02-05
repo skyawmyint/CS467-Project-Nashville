@@ -352,7 +352,6 @@ void game::lookAtFeatureCall(vector<string> input, int actionSize){
 void game::interactFeatureCall(string input) {
 
     // Call the interactRoom for the current position
-
     // For Corridors 1
     if(this->currentPosition->getName() == "CORRIDOR 1"){
 

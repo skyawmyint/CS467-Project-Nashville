@@ -24,15 +24,15 @@ class storage : public room {
 
 
 private:
-    bool keyTaken = false;
 
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     storage();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~storage();
 
 
