@@ -146,6 +146,20 @@ captainslodge.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
 
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/main.cpp
+iostream
+-
+vector
+-
+cstdlib
+-
+memory
+-
+string
+-
+UI.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
+
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/mainframeroom.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
@@ -185,6 +199,16 @@ character.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.cpp
+utilityFunctions.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
+iostream
+-
+string
+-
+sstream
+-
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 string
