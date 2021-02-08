@@ -407,8 +407,9 @@ void game::printTime(){
 
    auto current_time = std::chrono::high_resolution_clock::now();
    int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
-   int minutes = time_elapsed/60;
-   int seconds = time_elapsed % 60;
+   int time_left = this->total_seconds - time_elapsed;
+   int minutes = time_left/60;
+   int seconds = time_left % 60;
 
    if(minutes <= 0){
       std::cout << "00" << ":";
