@@ -41,7 +41,7 @@ It declares all our member variables and member function prototypes.
 class game {
 
 private:
-
+    
     // Character
     character* player;
 
@@ -62,7 +62,7 @@ private:
 
     room* medbayRoom; // West-side
     room* escapePodRoomRoom;
-    room* mainframeRoomRoom;
+    mainframeRoom* mainframeRoomRoom;
     room* communicationsRoom;
     room* electricalRoom;
     room* navigationRoom;
@@ -105,6 +105,7 @@ public:
     bool timeRanOut();
     void printTime();
     void setTime(int seconds);
+    void disableGameTimer();
 
     // int isGameRunning();
 

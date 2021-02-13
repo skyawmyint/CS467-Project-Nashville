@@ -35,7 +35,7 @@ UI::UI() {
    general_actions.insert({"GO TO", 10 });
    rooms.insert({"ESCAPE POD ROOM", 10});
    rooms.insert({"MEDBAY",10});
-   rooms.insert({"MAINFRAME ROOM" , 10});
+   rooms.insert({"MAINFRAME" , 10});
    rooms.insert({"COMMUNICATION", 10});
    rooms.insert({"ELECTRICAL", 10});
    rooms.insert({"NAVIGATION", 10});
@@ -741,8 +741,6 @@ void UI::featureActionCall(vector<string> input) {
         cout << "Input not recognized." << endl;
     }
 }
-
-
 
 /*
    std::vector<Room*> loadRooms(){

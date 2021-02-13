@@ -24,16 +24,16 @@ class mainframeRoom : public room {
 
 
 private:
+    bool timer_disabled;
     bool selfDestruct = true;
-
-
-
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 public:
 
     mainframeRoom();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
+    bool timerDisabled();
     // ~mainframeRoom();
 
 

@@ -12,7 +12,7 @@ Description: This is the class implementation file for the class game.
   default constructor
  **********************************************************************************/
 game::game(){
-
+    
     // Set up the items in the game
     this->keyItem = new item();
     this->keyItem->setName("KEY");
@@ -53,7 +53,7 @@ game::game(){
 
     this->medbayRoom = new medbay; // West-side
     this->escapePodRoomRoom = new escapePodRoom;
-    this->mainframeRoomRoom = new mainframeRoom;
+    this->mainframeRoomRoom = new mainframeRoom();
     this->communicationsRoom = new communications;
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
@@ -127,6 +127,8 @@ game::game(){
     this->storageRoom->setCharacter(player);
     this->lifeSupportO2Room->setCharacter(player);
     this->captainsLodgeRoom->setCharacter(player);
+
+
 
     // CHECKING IF ITEMS WORKING - TEMP!!!!
     // this->player->addItem(wrenchItem);
@@ -388,6 +390,9 @@ bool game::isMapMade(){
   timeRanOut - returns true if time has run out
  **********************************************************************************/
 bool game::timeRanOut(){
+    if(this->mainframeRoomRoom->timerDisabled()){
+        return false;
+    }
    auto current_time = std::chrono::high_resolution_clock::now();
    int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
    if((this->total_seconds - time_elapsed) <= 0){
@@ -404,7 +409,10 @@ bool game::timeRanOut(){
   printTime- prints the time left in the game
  **********************************************************************************/
 void game::printTime(){
-
+    if(this->mainframeRoomRoom->timerDisabled()){
+        std::cout << "disabled 00:00" << std::endl;
+        return;
+    }
    auto current_time = std::chrono::high_resolution_clock::now();
    int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
    int time_left = this->total_seconds - time_elapsed;

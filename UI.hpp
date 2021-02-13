@@ -24,8 +24,6 @@ class UI {
       std::unordered_map<std::string, int> menu_options;
       std::unordered_map<std::string, int> rooms;
       std::unordered_set<std::string> items;
-
-      std::vector<std::string> getInput();
       std::vector<std::string> parseClean(std::string);
       void generalActions(vector<string> input, int actionChoice, int actionSize);
       void showMap();
@@ -35,6 +33,7 @@ class UI {
       void featureActionCall(vector<string>input);
 
    public:
+     std::vector<std::string> getInput();
      int menuStartUp();
      void makeNewGame();
      void selectDifficulty();
