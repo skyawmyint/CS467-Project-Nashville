@@ -25,7 +25,7 @@ mainframeRoom::mainframeRoom() : room(4)
                         "a table on the far side contains a COMPUTER terminal with a NOTE attached.");
     // Add features to the room
     addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
-    addFeature("NOTE", "Could contain some useful information if LOOKED AT.");
+    addFeature("NOTE", "Looks like a crew member left a note.");
     
     featureInteraction.insert({ "HACK COMPUTER", 0 });
     featureInteraction.insert({ "HACK THE COMPUTER", 0 });
@@ -50,6 +50,12 @@ void mainframeRoom::lookAtFeature(string featureInputName) {
         // Found the NOTE
     else if(foundIndex == 1){
         displayFeatureDescription(foundIndex);
+        cout << "|---------------------------------------|" << endl;
+        cout << "| Who left O2 canisters in front of     |" << endl;
+        cout << "| storage? They're blocking the door!   |" << endl;
+        cout << "| They're too heavy to move. We might   |" << endl;
+        cout << "| have to blast them away!              |" << endl;
+        cout << "|---------------------------------------|" << endl;
     }
         // Else this is not recognized
     else{
