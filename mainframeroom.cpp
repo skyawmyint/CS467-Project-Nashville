@@ -9,12 +9,14 @@ Description: This is the class implementation file for the class mainframeRoom.
 #include <vector>
 #include <string>
 
-/********************************************************************************
+/******************************************************************************
 default constructor
 **********************************************************************************/
-mainframeRoom::mainframeRoom() : room(4)
+mainframeRoom::mainframeRoom(class game* current_game) : room(4)
 {
+    this->game = current_game;
     this->timer_disabled = false;
+    this->badge = false;
     setName("MAINFRAME");
     setLongDescription("If NAVIGATION could be considered the mind of the space station, and the CAPTAIN'S CABIN the soul, \n"
                        "then this room, the MAINFRAME, is surely the heart. Normally off limits to all but the most trusted of personnel, \n"
@@ -79,21 +81,21 @@ void mainframeRoom::interactRoom(string inputString) {
     
     // The case where the user wants to "HACK" the computer
     if(featureActionChoice == 0){
-        cout << "\nYou boot up the computer. A password prompt appears on the screen.\n"<< endl;
-        cout << "|----------------------------|" << endl;
-        cout << "|                            |" << endl;
-        cout << "|  Password: _ _ _ _ _ _ _   |" << endl;
-        cout << "|                            |" << endl;
-        cout << "|----------------------------|" << endl;
+        cout << "\nYou boot up the computer.\n"<< endl;
+        cout << "|----------------------------------------|" << endl;
+        cout << "|  SELF DESTRUCTION ENABLED              |" << endl;
+        cout << "|  Enter code to disable: _ _ _ _ _ _ _  |" << endl;
+        cout << "|                                        |" << endl;
+        cout << "|----------------------------------------|" << endl;
         cout << endl;
         UI* user_interface = new UI();
         vector<string>pass = user_interface->getInput();
         if(pass.size() >= 1 && pass[0] == "0101CAT"){
-            this->timer_disabled = true;
+            game->disableGameTimer();
             cout << "\nSuccess!\n"<< endl;
             cout << "|----------------------------|" << endl;
             cout << "|                            |" << endl;
-            cout << "|  Self Destruction disabled |" << endl;
+            cout << "|  SELF DESTRUCTION DISABLED |" << endl;
             cout << "|                            |" << endl;
             cout << "|----------------------------|" << endl;
         }
@@ -101,6 +103,3 @@ void mainframeRoom::interactRoom(string inputString) {
     }
 }
 
-bool mainframeRoom::timerDisabled(){
-    return this->timer_disabled;
-}

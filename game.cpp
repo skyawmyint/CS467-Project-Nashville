@@ -13,6 +13,7 @@ Description: This is the class implementation file for the class game.
  **********************************************************************************/
 game::game(){
     
+    this->gameTimerDisabled = false;
     // Set up the items in the game
     this->keyItem = new item();
     this->keyItem->setName("KEY");
@@ -53,7 +54,7 @@ game::game(){
 
     this->medbayRoom = new medbay; // West-side
     this->escapePodRoomRoom = new escapePodRoom;
-    this->mainframeRoomRoom = new mainframeRoom();
+    this->mainframeRoomRoom = new mainframeRoom(this);
     this->communicationsRoom = new communications;
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
@@ -218,7 +219,17 @@ void game::takeItem(string itemName) {
       cout << "Input not recognized." << endl;
    }
 }
-
+/********************************************************************************
+  hasItem - takes an item and puts it into player's inventory from the room
+ **********************************************************************************/
+bool game::hasItem(string itemName) {
+    if(player->searchItem(itemName)){
+        return true;
+    }
+    else{
+       return false;
+   }
+}
 /********************************************************************************
   moveRooms - changes the current room to the user input Room string name
  **********************************************************************************/
@@ -245,7 +256,14 @@ void game::moveRooms(string roomNameInput){
 	 currentPosition = escapePodRoomRoom;
       }
       else if(mainframeRoomRoom->getName() == roomNameInput){
-	 currentPosition = mainframeRoomRoom;
+          if(hasItem("badge")){
+              currentPosition = mainframeRoomRoom;
+          }
+          else{
+              cout << "The door is locked. A badge is required for entry." << endl;
+              movedRooms = false;
+              return;
+          }
       }
       else if(communicationsRoom->getName() == roomNameInput){
 	 currentPosition = communicationsRoom;
@@ -390,7 +408,7 @@ bool game::isMapMade(){
   timeRanOut - returns true if time has run out
  **********************************************************************************/
 bool game::timeRanOut(){
-    if(this->mainframeRoomRoom->timerDisabled()){
+    if(this->gameTimerDisabled){
         return false;
     }
    auto current_time = std::chrono::high_resolution_clock::now();
@@ -409,7 +427,7 @@ bool game::timeRanOut(){
   printTime- prints the time left in the game
  **********************************************************************************/
 void game::printTime(){
-    if(this->mainframeRoomRoom->timerDisabled()){
+    if(this->gameTimerDisabled){
         std::cout << "disabled 00:00" << std::endl;
         return;
     }
@@ -446,6 +464,12 @@ void game::printTime(){
 void game::setTime(int seconds){
    this->total_seconds = seconds;
 }
+
+
+void game::disableGameTimer(){
+    this->gameTimerDisabled = true;
+}
+
 
 /********************************************************************************
 destructor

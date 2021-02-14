@@ -42,6 +42,7 @@ class game {
 
 private:
     
+    bool gameTimerDisabled;
     // Character
     character* player;
 
@@ -96,6 +97,7 @@ public:
     void lookDescription();
     void dropItem(string itemName);
     void takeItem(string itemName);
+    bool hasItem(string itemName);
     void displayInventory();
     void moveRooms(string roomName);
     void lookAtFeatureCall(vector<string>input, int actionSize);
