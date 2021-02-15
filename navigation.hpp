@@ -31,6 +31,7 @@ public:
 
     navigation();
     void lookAtFeature(string featureInputName);
+    void flagCheck();
     // virtual void interactRoom();
 
     // ~navigation();

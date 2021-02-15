@@ -101,6 +101,10 @@ public:
     virtual void interactRoom(string inputString);
     virtual int interactRoom(string inputString, bool inputMap);
 
+    //Function to deal with setting and checking of flags due to other room interactions
+    virtual void flagCheck();
+    virtual void flagSet();
+
     // Misc Virtual Functions
     virtual bool isO2CanistersDestroyed();
 

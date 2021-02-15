@@ -25,13 +25,14 @@ class engineBay : public room {
 
 private:
     bool workGlovesTaken = false;
-    bool pumpPrimerEmpty = true;
+    bool pumpPrimerFull = false;
 
 
 public:
 
     engineBay();
     void lookAtFeature(string featureInputName);
+    void flagSet();
     // virtual void interactRoom();
 
     // ~engineBay();

@@ -30,6 +30,7 @@ public:
 
     electrical();
     void lookAtFeature(string featureInputName);
+    void flagSet();
     // virtual void interactRoom();
 
     // ~electrical();

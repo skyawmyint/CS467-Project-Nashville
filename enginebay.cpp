@@ -52,3 +52,20 @@ void engineBay::lookAtFeature(string featureInputName) {
     }
 
 }
+
+/*********************************************************************************
+flagSet - used to set various flags on the player character as they interact from room to room
+*************************************************************************************/
+void engineBay::flagSet() {
+
+    //check to see if pump if full, if not just exit
+    if (pumpPrimerFull) {
+        // Get character pointer from room instantiation
+        character *player = this->getCharacter();
+
+        // Check if the this flag has already been passed to the player, if not, do so
+        if (!player->getPrimer()) {
+            player->setPrimer(pumpPrimerFull);
+        }
+    }
+}
