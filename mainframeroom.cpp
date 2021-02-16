@@ -14,7 +14,7 @@ default constructor
 **********************************************************************************/
 mainframeRoom::mainframeRoom(class game* current_game) : room(4)
 {
-    this->game = current_game;
+    this->myGame = current_game;
     this->timer_disabled = false;
     this->badge = false;
     setName("MAINFRAME");
@@ -91,7 +91,7 @@ void mainframeRoom::interactRoom(string inputString) {
         UI* user_interface = new UI();
         vector<string>pass = user_interface->getInput();
         if(pass.size() >= 1 && pass[0] == "0101CAT"){
-            game->disableGameTimer();
+            myGame->disableGameTimer();
             cout << "\nSuccess!\n"<< endl;
             cout << "|----------------------------|" << endl;
             cout << "|                            |" << endl;
