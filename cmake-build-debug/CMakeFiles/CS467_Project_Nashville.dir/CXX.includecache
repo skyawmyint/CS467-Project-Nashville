@@ -12,16 +12,6 @@ string
 iostream
 -
 
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.cpp
-iostream
--
-algorithm
--
-sstream
--
-UI.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
-
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
 string
 -
@@ -151,6 +141,12 @@ iostream
 -
 vector
 -
+sys/ioctl.h
+-
+stdio.h
+-
+unistd.h
+-
 cstdlib
 -
 memory
@@ -199,16 +195,6 @@ character.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
-
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.cpp
-utilityFunctions.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
-iostream
--
-string
--
-sstream
--
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 string

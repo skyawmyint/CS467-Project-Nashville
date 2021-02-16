@@ -151,10 +151,27 @@ CMakeFiles/CS467_Project_Nashville.dir/main.cpp.o: ../storage.hpp
 CMakeFiles/CS467_Project_Nashville.dir/main.cpp.o: ../utilityFunctions.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../Item.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../UI.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../cafeteria.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../captainslodge.hpp
 CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../character.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../communications.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../corridor1.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../corridor2.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../corridor3.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../electrical.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../enginebay.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../escapepodroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../game.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../lifesupporto2.hpp
 CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../mainframeroom.cpp
 CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../mainframeroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../medbay.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../navigation.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../reactor.hpp
 CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../room.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../storage.hpp
+CMakeFiles/CS467_Project_Nashville.dir/mainframeroom.cpp.o: ../utilityFunctions.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/medbay.cpp.o: ../Item.hpp
 CMakeFiles/CS467_Project_Nashville.dir/medbay.cpp.o: ../character.hpp

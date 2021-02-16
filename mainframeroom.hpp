@@ -24,7 +24,7 @@ class mainframeRoom : public room {
 
 
 private:
-    game* game;
+    game* myGame;
     bool timer_disabled;
     bool badge;
     // Vector of action+feature interactions
