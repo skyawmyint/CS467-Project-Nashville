@@ -11,7 +11,6 @@ default constructor
 **********************************************************************************/
 navigation::navigation() : room(13)
 {
-
     setName("NAVIGATION");
     setLongDescription("The uncharted vistas of space can be seen stretching to event horizon outside of NAVIGATION's viewport. \n"
                        "Still takes your breath away. The room however has suffered worse than most, it appears several of the terminals \n"
@@ -50,5 +49,22 @@ void navigation::lookAtFeature(string featureInputName) {
         cout << "Input not recognized." << endl;
     }
 
+}
+
+/*********************************************************************************
+flagCheck - used to check if various flags in other rooms have been enabled by the player
+*************************************************************************************/
+void navigation::flagCheck() {
+
+    //check to see if power already restored, if so just exit
+    if (hasPower == false) {
+        // Get character pointer from room instantiation
+        character *player = this->getCharacter();
+
+        // Check if the two conditions for power being restored have been met
+        if (player->getPanel() && player->getPrimer()) {
+            hasPower = true;
+        }
+    }
 }
 

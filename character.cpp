@@ -132,6 +132,38 @@ item* character::returnItem(int inputItemIndex){
 
 };
 
+/*********************************************************************************
+setPrimer - called when the player finishes priming the pump in the engine room, flips bool
+*************************************************************************************/
+void character::setPrimer(bool pumpPrimer){
+
+    pumpPrimerFull = pumpPrimer;
+};
+
+/*********************************************************************************
+getPrimer - returns the bool for the primer pump to check if power is restored in comms and nav
+*************************************************************************************/
+bool character::getPrimer(){
+
+    return pumpPrimerFull;
+};
+
+/*********************************************************************************
+setPanel - called when the player finishes repairing the panel in electrical, flips bool
+*************************************************************************************/
+void character::setPanel(bool panelRepaired){
+
+    electricalPanelRepaired = panelRepaired;
+};
+
+/*********************************************************************************
+getPanel - returns the bool for the electrical panel to check if power is restored in comms and nav
+*************************************************************************************/
+bool character::getPanel(){
+
+    return electricalPanelRepaired;
+};
+
 /********************************************************************************
 destructor
 **********************************************************************************/

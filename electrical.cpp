@@ -51,3 +51,20 @@ void electrical::lookAtFeature(string featureInputName) {
     }
 
 }
+
+/*********************************************************************************
+flagSet - used to set various flags on the player character as they interact from room to room
+*************************************************************************************/
+void electrical::flagSet() {
+
+    //check to see if panel is repaired, if not just exit
+    if (electricalPanelRepaired) {
+        // Get character pointer from room instantiation
+        character *player = this->getCharacter();
+
+        // Check if the this flag has already been passed to the player, if not, do so
+        if (!player->getPanel()) {
+            player->setPanel(electricalPanelRepaired);
+        }
+    }
+}
