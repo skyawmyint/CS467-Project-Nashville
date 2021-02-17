@@ -137,7 +137,7 @@ setPrimer - called when the player finishes priming the pump in the engine room,
 *************************************************************************************/
 void character::setPrimer(bool pumpPrimer){
 
-    pumpPrimerFull = pumpPrimer;
+    this->pumpPrimerFull = pumpPrimer;
 };
 
 /*********************************************************************************
@@ -145,7 +145,7 @@ getPrimer - returns the bool for the primer pump to check if power is restored i
 *************************************************************************************/
 bool character::getPrimer(){
 
-    return pumpPrimerFull;
+    return this->pumpPrimerFull;
 };
 
 /*********************************************************************************
@@ -153,7 +153,7 @@ setPanel - called when the player finishes repairing the panel in electrical, fl
 *************************************************************************************/
 void character::setPanel(bool panelRepaired){
 
-    electricalPanelRepaired = panelRepaired;
+    this->electricalPanelRepaired = panelRepaired;
 };
 
 /*********************************************************************************
@@ -161,7 +161,7 @@ getPanel - returns the bool for the electrical panel to check if power is restor
 *************************************************************************************/
 bool character::getPanel(){
 
-    return electricalPanelRepaired;
+    return this->electricalPanelRepaired;
 };
 
 /*********************************************************************************
@@ -169,26 +169,41 @@ setNavigation - called when the player uploaded the navigation, flips bool
 *************************************************************************************/
 void character::setNavigation(){
 
-    navigationUploaded = true;
+    this->navigationUploaded = true;
 };
 
 /*********************************************************************************
-setNavigation - returns the bool for the navigation being uploaded
+getNavigation - returns the bool for the navigation being uploaded
 *************************************************************************************/
 bool character::getNavigation(){
 
-    return navigationUploaded;
+    return this->navigationUploaded;
+
 };
 
+/*********************************************************************************
+setNavigation - called when the player uploaded the navigation, flips bool
+*************************************************************************************/
+void character::setCaptainDoor(){
 
+    this->unlockCaptain = true;
+};
 
+/*********************************************************************************
+getNavigation - returns the bool for the navigation being uploaded
+*************************************************************************************/
+bool character::getCaptainDoor(){
 
+    return this->unlockCaptain;
+
+};
 
 /********************************************************************************
 destructor
 **********************************************************************************/
 character::~character()
 {
+
 
 
 }

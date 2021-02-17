@@ -135,7 +135,7 @@ game::game(){
 
 
     // CHECKING IF ITEMS WORKING - TEMP!!!!
-    // this->player->setNavigation();
+    // this->player->setCaptainDoor();
     // this->player->addItem(wrenchItem);
     // this->player->addItem(badgeItem);
     // this->player->addItem(flareGunItem);
@@ -334,7 +334,15 @@ void game::moveRooms(string roomNameInput){
           currentPosition = lifeSupportO2Room;
       }
       else if(captainsLodgeRoom->getName() == roomNameInput){
-	 currentPosition = captainsLodgeRoom;
+
+          // Check if the room has been unlocked
+          if(player->getCaptainDoor() == true){
+              currentPosition = captainsLodgeRoom;
+          }
+          else{
+              movedRooms = false;
+              cout << "The door to the CAPTAIN'S LODGE is locked. You muse unlock this from a computer somewhere..." << endl;
+          }
       }
 
       // Call the current room description
