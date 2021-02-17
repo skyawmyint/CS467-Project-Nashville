@@ -20,21 +20,20 @@ using std::string;
 using std::shared_ptr;
 using std::make_shared;
 
+class game;
 class escapePodRoom : public room {
 
 private:
-    bool navCoordinatesUploaded = false;
-    bool escapePodUnlocked = false;
+
+    game* myGame;
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
-    escapePodRoom();
+    escapePodRoom(class game* current_game);
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~escapePodRoom();
-
-
 
 };
 

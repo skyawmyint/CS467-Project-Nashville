@@ -12,8 +12,11 @@ Description: This is the class implementation file for the class game.
   default constructor
  **********************************************************************************/
 game::game(){
-    
+
+
+    // Set the game timer
     this->gameTimerDisabled = false;
+
     // Set up the items in the game
     this->keyItem = new item();
     this->keyItem->setName("KEY");
@@ -53,13 +56,13 @@ game::game(){
     this->corridor3Room = new corridor3(this);
 
     this->medbayRoom = new medbay; // West-side
-    this->escapePodRoomRoom = new escapePodRoom;
+    this->escapePodRoomRoom = new escapePodRoom(this);
     this->mainframeRoomRoom = new mainframeRoom(this);
     this->communicationsRoom = new communications;
     this->electricalRoom = new electrical;
     this->navigationRoom = new navigation;
     this->cafeteriaRoom = new cafeteria; // East-side
-    this->reactorRoom = new reactor();
+    this->reactorRoom = new reactor;
     this->engineBayRoom = new engineBay;
     this->storageRoom = new storage;
     this->lifeSupportO2Room = new lifeSupportO2;
@@ -132,6 +135,7 @@ game::game(){
 
 
     // CHECKING IF ITEMS WORKING - TEMP!!!!
+    // this->player->setNavigation();
     // this->player->addItem(wrenchItem);
     // this->player->addItem(badgeItem);
     // this->player->addItem(flareGunItem);
@@ -141,9 +145,7 @@ game::game(){
     this->currentPosition = medbayRoom;
 
     // Set up flags
-    this->stationPowerRestored = 0; // No Power!
     this->mapSaved = false; // Map has not been saved yet.
-    this->gameStillRunning = 1; // Game Running
 
     this->time_left = 10; // We need to have a countdown for the CLOCK eventually.
     this->total_seconds = 500; //Currently minute 30 seconds for testing, eventually have user set difficulty
@@ -236,12 +238,27 @@ bool game::hasItem(string itemName) {
 void game::moveRooms(string roomNameInput){
 
     bool movedRooms = true;
+    bool dropItemValidFlag = false;
 
    // Check if this is a connected room
    if(currentPosition->isConnectedRoom(roomNameInput) == true){
       // Go through all our rooms and see if its the same room name
       if(corridor1Room->getName() == roomNameInput){
-	 currentPosition = corridor1Room;
+          // If the player is in the MAINFRAME, make sure they have a badge when exiting to corridor 1
+          if(currentPosition->getName() == "MAINFRAME"){
+              if(hasItem("BADGE")){
+                  currentPosition = corridor1Room;
+              }
+              else{
+                  cout << "\nYou should TAKE the BADGE you've dropped with you. You may lock yourself out!" << endl;
+                  dropItemValidFlag = true;
+                  movedRooms = false;
+              }
+          }
+          // For all other corridor 1 cases
+          else{
+              currentPosition = corridor1Room;
+          }
       }
       else if(corridor2Room->getName() == roomNameInput){
 	 currentPosition = corridor2Room;
@@ -256,11 +273,12 @@ void game::moveRooms(string roomNameInput){
 	 currentPosition = escapePodRoomRoom;
       }
       else if(mainframeRoomRoom->getName() == roomNameInput){
-          if(hasItem("badge")){
+          // Need a badge to enter the MAINFRAME
+          if(hasItem("BADGE")){
               currentPosition = mainframeRoomRoom;
           }
           else{
-              cout << "The door is locked. A badge is required for entry." << endl;
+              cout << "\nThe door is locked. A BADGE is required for entry." << endl;
               movedRooms = false;
               return;
           }
@@ -269,7 +287,27 @@ void game::moveRooms(string roomNameInput){
 	 currentPosition = communicationsRoom;
       }
       else if(electricalRoom->getName() == roomNameInput){
-	 currentPosition = electricalRoom;
+          // Need the SCALPEL to enter the electrical room
+          if(electricalRoomDoorFixed == false && hasItem("SCALPEL")){
+
+              // You fix the electrical room door
+              electricalRoomDoorFixed = true;
+              cout << "\nYou try to go through the the door to ELECTRICAL, but see that it is locked. You see some wires hanging" << endl;
+              cout << "from the side of the security lock. Using the SCALPEL you have, you short-circuit the failed security lock by" << endl;
+              cout << "cutting a yellow loose wire!" << endl;
+              currentPosition = electricalRoom;
+          }
+          // Already fixed
+          else if(electricalRoomDoorFixed == true){
+              currentPosition = electricalRoom;
+          }
+          // Need scalpel to fix
+          else{
+              cout << "\nYou see that the door to ELECTRICAL is locked. However you see some wires hanging from the side of the" << endl;
+              cout << "security lock...maybe if you had something to cut these wires you can get in!" << endl;
+              movedRooms = false;
+              return;
+          }
       }
       else if(navigationRoom->getName() == roomNameInput){
 	 currentPosition = navigationRoom;
@@ -306,6 +344,9 @@ void game::moveRooms(string roomNameInput){
    }
    else if(currentPosition->getName() == roomNameInput){
       cout << "\nYou are already in that room." << endl;
+   }
+   else if(dropItemValidFlag == true){
+
    }
    else{
       cout << "\nYou look around to go there, but could not find the way to." << endl;
@@ -460,15 +501,36 @@ void game::printTime(){
 /********************************************************************************
   setTime - sets total time until station explodes
  **********************************************************************************/
-
 void game::setTime(int seconds){
    this->total_seconds = seconds;
 }
 
-
+/********************************************************************************
+  getTime - gets the game timer
+ **********************************************************************************/
 void game::disableGameTimer(){
     this->gameTimerDisabled = true;
 }
+
+/********************************************************************************
+ setEscape - sets the escapeStation flag to true
+ **********************************************************************************/
+void game::setEscape() {
+
+    this->escapeStation = true;
+
+}
+
+/********************************************************************************
+ getEscape - gets the escapeStation flag
+ **********************************************************************************/
+bool game::getEscape() {
+
+    return this->escapeStation;
+
+}
+
+
 
 
 /********************************************************************************

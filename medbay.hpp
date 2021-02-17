@@ -29,7 +29,6 @@ private:
 
     // Flags for room
     bool medicalBoxOpened = false;
-    bool flareGunTaken = false;
 
 public:
 

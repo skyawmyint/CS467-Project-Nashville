@@ -14,9 +14,9 @@ default constructor
 **********************************************************************************/
 mainframeRoom::mainframeRoom(class game* current_game) : room(4)
 {
+
     this->myGame = current_game;
-    this->timer_disabled = false;
-    this->badge = false;
+    this->timerFlag = false;
     setName("MAINFRAME");
     setLongDescription("If NAVIGATION could be considered the mind of the space station, and the CAPTAIN'S CABIN the soul, \n"
                        "then this room, the MAINFRAME, is surely the heart. Normally off limits to all but the most trusted of personnel, \n"
@@ -27,10 +27,12 @@ mainframeRoom::mainframeRoom(class game* current_game) : room(4)
                         "a table on the far side contains a COMPUTER terminal with a NOTE attached.");
     // Add features to the room
     addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
-    addFeature("NOTE", "Looks like a crew member left a note.");
+    addFeature("NOTE", "Looks like a crew member left a note. Maybe you can READ this.");
     
     featureInteraction.insert({ "HACK COMPUTER", 0 });
     featureInteraction.insert({ "HACK THE COMPUTER", 0 });
+    featureInteraction.insert({ "READ NOTE", 1 });
+    featureInteraction.insert({ "READ THE NOTE", 1 });
 
 }
 /*********************************************************************************
@@ -49,21 +51,14 @@ void mainframeRoom::lookAtFeature(string featureInputName) {
     if(foundIndex == 0){
         displayFeatureDescription(foundIndex);
     }
-        // Found the NOTE
+    // Found the NOTE
     else if(foundIndex == 1){
         displayFeatureDescription(foundIndex);
-        cout << "|---------------------------------------|" << endl;
-        cout << "| Who left O2 canisters in front of     |" << endl;
-        cout << "| storage? They're blocking the door!   |" << endl;
-        cout << "| They're too heavy to move. We might   |" << endl;
-        cout << "| have to blast them away!              |" << endl;
-        cout << "|---------------------------------------|" << endl;
     }
         // Else this is not recognized
     else{
         cout << "Input not recognized." << endl;
     }
-
 }
 
 /*********************************************************************************
@@ -79,8 +74,8 @@ void mainframeRoom::interactRoom(string inputString) {
         featureActionChoice = featureInteraction[inputString];
     }
     
-    // The case where the user wants to "HACK" the computer
-    if(featureActionChoice == 0){
+    // The case where the user wants to "HACK" the COMPUTER
+    if(featureActionChoice == 0 && timerFlag == false){
         cout << "\nYou boot up the computer.\n"<< endl;
         cout << "|----------------------------------------|" << endl;
         cout << "|  SELF DESTRUCTION ENABLED              |" << endl;
@@ -92,14 +87,39 @@ void mainframeRoom::interactRoom(string inputString) {
         vector<string>pass = user_interface->getInput();
         if(pass.size() >= 1 && pass[0] == "0101CAT"){
             myGame->disableGameTimer();
+            this->timerFlag = true;
             cout << "\nSuccess!\n"<< endl;
             cout << "|----------------------------|" << endl;
             cout << "|                            |" << endl;
             cout << "|  SELF DESTRUCTION DISABLED |" << endl;
             cout << "|                            |" << endl;
             cout << "|----------------------------|" << endl;
+            cout << "\nNow you can find a way to get off the station without it exploding!"<< endl;
+        }
+        else{
+            cout << "\nThe code did not appear to work!"<< endl;
         }
         free(user_interface);
     }
+    // COMPUTER has successfully been interacted with
+    else if(featureActionChoice == 0 && timerFlag == true){
+        cout << "\nYou have already used this computer to disable the explosion!"<< endl;
+    }
+    // User "READ"s the NOTE
+    else if(featureActionChoice == 1){
+
+        cout <<"\nYou pick up the NOTE and read the following:" << endl;
+        cout << "|---------------------------------------|" << endl;
+        cout << "| Who left O2 canisters in front of     |" << endl;
+        cout << "| storage? They're blocking the door!   |" << endl;
+        cout << "| They're too heavy to move. We might   |" << endl;
+        cout << "| have to blast them away!              |" << endl;
+        cout << "|---------------------------------------|" << endl;
+    }
+    // Input not recognized
+    else{
+        cout << "Input not recognized." << endl;
+    }
+
 }
 

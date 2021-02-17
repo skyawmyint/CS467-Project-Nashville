@@ -33,6 +33,7 @@ private:
     vector<item*> inventory;
     bool pumpPrimerFull = false;
     bool electricalPanelRepaired = false;
+    bool navigationUploaded = false;
 
 public:
 
@@ -48,6 +49,8 @@ public:
     bool getPrimer();
     void setPanel(bool panelRepaired);
     bool getPanel();
+    void setNavigation();
+    bool getNavigation();
     ~character(); // Destructor
 
 };

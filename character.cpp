@@ -164,6 +164,26 @@ bool character::getPanel(){
     return electricalPanelRepaired;
 };
 
+/*********************************************************************************
+setNavigation - called when the player uploaded the navigation, flips bool
+*************************************************************************************/
+void character::setNavigation(){
+
+    navigationUploaded = true;
+};
+
+/*********************************************************************************
+setNavigation - returns the bool for the navigation being uploaded
+*************************************************************************************/
+bool character::getNavigation(){
+
+    return navigationUploaded;
+};
+
+
+
+
+
 /********************************************************************************
 destructor
 **********************************************************************************/
