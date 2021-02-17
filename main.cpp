@@ -45,7 +45,7 @@ int main(){
     if(menuChoice1 == 0){
 
         user_interface->makeNewGame();
-	user_interface->selectDifficulty();
+	    user_interface->selectDifficulty();
 
     }
 

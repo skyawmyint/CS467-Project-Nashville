@@ -284,7 +284,7 @@ void game::moveRooms(string roomNameInput){
           }
       }
       else if(communicationsRoom->getName() == roomNameInput){
-	 currentPosition = communicationsRoom;
+          currentPosition = communicationsRoom;
       }
       else if(electricalRoom->getName() == roomNameInput){
           // Need the SCALPEL to enter the electrical room

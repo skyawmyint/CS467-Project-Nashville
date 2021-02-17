@@ -22,21 +22,18 @@ using std::make_shared;
 
 class navigation : public room {
 
-
 private:
-    bool hasPower = false;
-    bool navCoordinatesUploaded = false;
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     navigation();
     void lookAtFeature(string featureInputName);
     void flagCheck();
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~navigation();
-
-
 
 };
 
