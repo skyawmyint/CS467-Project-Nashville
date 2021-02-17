@@ -147,6 +147,9 @@ int UI::menuStartUp()
    return retChoice;
 }
 
+/********************************************************************************
+  selectDifficulty() - prompts the user the difficulty they'd like to play the game
+ **********************************************************************************/
 void UI::selectDifficulty(){
  // Make a cool starting screen!
  while(true){
@@ -191,6 +194,7 @@ void UI::selectDifficulty(){
             "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
             "something bad is happening to the station and you must escape by any means possible!" << endl;
 }
+
 /********************************************************************************
   makeNewGame() - creates a new game object if the user selects New Game
  **********************************************************************************/
@@ -203,7 +207,7 @@ void UI::makeNewGame() {
 
 
 /********************************************************************************
-  getInput() -
+  getInput() - gets input from the user and separates words to different indexes
  **********************************************************************************/
 vector<string> UI::getInput(){
    string input = "";
@@ -221,8 +225,6 @@ vector<string> UI::getInput(){
    }
    return {};
 }
-
-
 
 /********************************************************************************
   play() - gets input from the user and calls the game file accordingly.
@@ -328,9 +330,8 @@ vector<string> UI::parseClean(string str){
    return input;
 }
 
-
 /********************************************************************************
-  generalActions -
+  generalActions - does a specific call for a certain input parsing
  **********************************************************************************/
 void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
@@ -442,7 +443,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 }
 
 /********************************************************************************
-  showMap() -
+  showMap() - displays the map of the game to the user
  **********************************************************************************/
 void UI::showMap(){
 
@@ -569,7 +570,7 @@ void UI::showMap(){
 }
 
 /********************************************************************************
-help() -
+help() - displays all the general commands the player can do
 **********************************************************************************/
 void UI::help(){
    for(auto command : general_actions){
@@ -660,7 +661,6 @@ void UI::moveRoomCall(vector<string>input, int actionSize) {
     else{
         currentGame->moveRooms(roomName);
     };
-
 }
 
 /********************************************************************************
@@ -747,7 +747,6 @@ void UI::featureActionCall(vector<string> input) {
         cout << "Input not recognized." << endl;
     }
 }
-
 
 /********************************************************************************
   destructor

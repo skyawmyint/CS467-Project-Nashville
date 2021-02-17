@@ -51,7 +51,7 @@ void corridor3::lookAtFeature(string featureInputName, int inputTime) {
     // Found the CLOCK
     if(foundIndex == 0){
         cout << "\nTime until self-destruction: ";
-	currentGame->printTime();
+	    currentGame->printTime();
     }
         // Found the PAINTING
     else if(foundIndex == 1 && paintingDestroyed == false){

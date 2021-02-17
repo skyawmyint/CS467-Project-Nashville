@@ -22,19 +22,17 @@ using std::make_shared;
 
 class captainsLodge : public room {
 
-
 private:
-    bool badgeTaken = false;
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     captainsLodge();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~captainsLodge();
-
-
 
 };
 

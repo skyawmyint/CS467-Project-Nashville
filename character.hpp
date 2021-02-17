@@ -34,6 +34,7 @@ private:
     bool pumpPrimerFull = false;
     bool electricalPanelRepaired = false;
     bool navigationUploaded = false;
+    bool unlockCaptain = false;
 
 public:
 
@@ -51,6 +52,8 @@ public:
     bool getPanel();
     void setNavigation();
     bool getNavigation();
+    void setCaptainDoor();
+    bool getCaptainDoor();
     ~character(); // Destructor
 
 };
