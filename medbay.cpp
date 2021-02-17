@@ -85,18 +85,17 @@ void medbay::lookAtFeature(string featureInputName) {
         displayFeatureDescription(foundIndex);
     }
     // Found the MEDICAL BOX
-    else if(foundIndex == 2 && medicalBoxOpened == false){
+    else if(foundIndex == 2 && searchItemStarting("FLARE GUN") == true){
         displayFeatureDescription(foundIndex);
     }
     // Found the MEDICAL BOX, but OPENED now...
-    else if(foundIndex == 2 && medicalBoxOpened == true){
+    else if(foundIndex == 2 && searchItemStarting("FLARE GUN") == false){
         cout << "\nYou look at an opened MEDICAL BOX which you got a FLARE GUN from. It is now empty." << endl;
     }
     // Else this is not recognized
     else{
         cout << "Input not recognized." << endl;
     }
-
 }
 
 /*********************************************************************************
@@ -119,7 +118,7 @@ void medbay::interactRoom(string inputString) {
                 "You're the only one left on the station!" << endl;
     }
     // Case where the user wants to "OPEN" the medical box
-    else if(featureActionChoice == 1 && medicalBoxOpened == false){
+    else if(featureActionChoice == 1 && searchItemStarting("FLARE GUN") == true){
 
         // Check to see if the user has a wrench
         if(getCharacter()->searchItem("WRENCH") == true){
@@ -128,8 +127,6 @@ void medbay::interactRoom(string inputString) {
             cout <<"\nYou use the wrench to pry open a corner of the MEDICAL BOX. In it, you find a FLARE GUN! Wow! This could probably be\n"
                    "useful somewhere." << endl;
             getCharacter()->addItem(removeItemStarting("FLARE GUN"));
-            // Set the medical box as opened.
-            this->medicalBoxOpened = true;
         }
         else{
             // The user will need to get a wrench
@@ -138,7 +135,7 @@ void medbay::interactRoom(string inputString) {
         }
     }
     // Case where the user wants to "OPEN" the medical box, but it has already been open.
-    else if(featureActionChoice == 1 && medicalBoxOpened == true){
+    else if(featureActionChoice == 1 && searchItemStarting("FLARE GUN") == false){
         cout << "\nYou have already opened this MEDICAL BOX!" << endl;
     }
     // Input not recognized

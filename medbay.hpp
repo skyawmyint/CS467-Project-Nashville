@@ -27,9 +27,6 @@ private:
     // Vector of action+feature interactions
     std::unordered_map<std::string, int> featureInteraction;
 
-    // Flags for room
-    bool medicalBoxOpened = false;
-
 public:
 
     medbay();    //constructor

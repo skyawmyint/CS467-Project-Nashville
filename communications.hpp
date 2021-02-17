@@ -22,22 +22,20 @@ using std::make_shared;
 
 class communications : public room {
 
-
 private:
+
+    // Flags
     bool astronautHailed = false;
-    bool astronautCanBeHailed = true;
-    bool hasPower = false;
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     communications();
     void lookAtFeature(string featureInputName);
-    void flagCheck();
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~communications();
-
-
 
 };
 

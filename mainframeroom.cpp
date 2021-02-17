@@ -77,15 +77,15 @@ void mainframeRoom::interactRoom(string inputString) {
     // The case where the user wants to "HACK" the COMPUTER
     if(featureActionChoice == 0 && timerFlag == false){
         cout << "\nYou boot up the computer.\n"<< endl;
-        cout << "|----------------------------------------|" << endl;
-        cout << "|  SELF DESTRUCTION ENABLED              |" << endl;
-        cout << "|  Enter code to disable: _ _ _ _ _ _ _  |" << endl;
-        cout << "|                                        |" << endl;
-        cout << "|----------------------------------------|" << endl;
+        cout << "|---------------------------------------------|" << endl;
+        cout << "|  SELF DESTRUCTION ENABLED                   |" << endl;
+        cout << "|  Enter code to disable: _ _ _ _ _ _ _ _ _ _ |" << endl;
+        cout << "|                                             |" << endl;
+        cout << "|---------------------------------------------|" << endl;
         cout << endl;
         UI* user_interface = new UI();
         vector<string>pass = user_interface->getInput();
-        if(pass.size() >= 1 && pass[0] == "0101CAT"){
+        if(pass.size() >= 1 && pass[0] == "1225FLUFFY"){
             myGame->disableGameTimer();
             this->timerFlag = true;
             cout << "\nSuccess!\n"<< endl;

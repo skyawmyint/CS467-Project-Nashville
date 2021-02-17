@@ -36,7 +36,7 @@ UI::UI() {
    rooms.insert({"ESCAPE POD ROOM", 10});
    rooms.insert({"MEDBAY",10});
    rooms.insert({"MAINFRAME" , 10});
-   rooms.insert({"COMMUNICATION", 10});
+   rooms.insert({"COMMUNICATIONS", 10});
    rooms.insert({"ELECTRICAL", 10});
    rooms.insert({"NAVIGATION", 10});
    rooms.insert({"CORRIDOR 1", 10});
@@ -151,34 +151,35 @@ int UI::menuStartUp()
   selectDifficulty() - prompts the user the difficulty they'd like to play the game
  **********************************************************************************/
 void UI::selectDifficulty(){
- // Make a cool starting screen!
- while(true){
-   cout << "|----------------------------|" << endl;
-   cout << "|      Select Difficulty:    |" << endl;
-   cout << "|----------------------------|" << endl;
-   cout << "|            Easy            |" << std::endl; //0
-   cout << "|           Medium           |" << std::endl; //1
-   cout << "|            Hard            |" << std::endl; //2
-   cout << "|----------------------------|" << endl;
 
-   std::vector<string>choice = getInput();
-   std::cout << choice[0] << std::endl;
-   if(choice[0] == "EASY"){
-      currentGame->setTime(900);
-      break;
-   }
-   else if(choice[0] == "MEDIUM"){
-      currentGame->setTime(600);
-      break;
-   }
-   else if(choice[0] == "HARD"){
-      currentGame->setTime(300);
-      break;
-   }
-   else{
-      std::cout << "Input not recognized." << std::endl;
-   }
- }
+    // Make a cool starting screen!
+     while(true){
+       cout << "|----------------------------|" << endl;
+       cout << "|      Select Difficulty:    |" << endl;
+       cout << "|----------------------------|" << endl;
+       cout << "|            Easy            |" << std::endl; //0
+       cout << "|           Medium           |" << std::endl; //1
+       cout << "|            Hard            |" << std::endl; //2
+       cout << "|----------------------------|" << endl;
+
+       std::vector<string>choice = getInput();
+       // std::cout << choice[0] << std::endl;
+       if(choice[0] == "EASY"){
+          currentGame->setTime(900);
+          break;
+       }
+       else if(choice[0] == "MEDIUM"){
+          currentGame->setTime(600);
+          break;
+       }
+       else if(choice[0] == "HARD"){
+          currentGame->setTime(300);
+          break;
+       }
+       else{
+          std::cout << "Input not recognized." << std::endl;
+       }
+     }
 
     cout << endl;
     cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
@@ -189,7 +190,7 @@ void UI::selectDifficulty(){
     cout << endl;
     cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
             "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
-            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
+            "table that you woke up on with a SCALPEL on it, a MEDICAL BOX on the far wall, and a door leading to a " << endl <<
             "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
             "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
             "something bad is happening to the station and you must escape by any means possible!" << endl;
@@ -202,7 +203,7 @@ void UI::makeNewGame() {
 
    // Create new game object
    this->currentGame = new game();
-  // First game room introduction should be here
+
 }
 
 
@@ -232,7 +233,6 @@ vector<string> UI::getInput(){
 bool UI::play(){
 
    if(this->currentGame->timeRanOut() == true){
-       // SOME KIND OF STORY THAT SHOWS STATION EXPLODING. PLAYER DYING!
       return false;
    }
 
@@ -240,7 +240,6 @@ bool UI::play(){
    std::vector<std::string> input = getInput();
 
    if(this->currentGame->timeRanOut() == true){
-       // SOME KIND OF STORY THAT SHOWS STATION EXPLODING. PLAYER DYING!
       return false;
    }
 

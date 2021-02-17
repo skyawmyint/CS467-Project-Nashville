@@ -15,13 +15,13 @@ captainsLodge::captainsLodge() : room(10)
     setLongDescription("Clothes and half-filled suitcases are scattered across the floor in what appears to be a\n"
                        "bedroom. It looks like someone left in a hurry. An unmade bed and nightstand sit in the corner. \n"
                        "A FRAMED PHOTO of a tabby cat sits atop the nightstand. Smashed against the wall is an overturned DESK. \n"
-                       "CORRIDOR 3 remains the only exit");
+                       "CORRIDOR 3 remains the only exit.");
     setShortDescription("You enter what appears to be a bedroom. An unmade bed and nightstand sit in the corner. \n"
                         "A FRAMED PHOTO of a tabby cat sits atop the nightstand. Smashed against the wall is an overturned DESK.");
 
     // Add features to the room
     addFeature("DESK","The Captain's DESK has been overturned in a frenzy. Is there something trapped underneath?\n"
-                      "Maybe you can use something sharp ON THE DESK to get it out.");
+                      "Maybe you can USE something sharp ON THE DESK to get it out.");
     addFeature("FRAMED PHOTO", "A FRAMED PHOTO of an orange tabby cat on the dresser. You see a small inscription\n"
                               "on the top right of the picture. You may want to READ the FRAMED PHOTO MESSAGE.");
 
