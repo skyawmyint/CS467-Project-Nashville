@@ -387,14 +387,14 @@ int room::getRoomId(){
 /*********************************************************************************
 flagCheck - used to check if various flags in other rooms have been enabled by the player
 *************************************************************************************/
-void flagCheck(){
+void room::flagCheck(){
 
 }
 
 /*********************************************************************************
 flagSet - used to set various flags on the player character as they interact from room to room
 *************************************************************************************/
-void flagSet(){
+void room::flagSet(){
 
 }
 

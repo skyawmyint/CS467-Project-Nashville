@@ -21,7 +21,7 @@ cafeteria::cafeteria() : room(5)
 
     // Add features to the room
     addFeature("STOVE","At first glance this smoking STOVE seems quite unsafe, oil leaks form the bottom.\n"
-                       "Maybe you can PLACE a container UNDER the STOVE to use the oil somewhere?");
+                       "Maybe you can PLACE an EMPTY CONTAINER UNDER the STOVE to use the oil somewhere?");
     addFeature("SLOPPY JOES", "The SLOPPY JOES are apparently a station favorite. What if you EAT one?");
 
     // Set the interactive actions to the unordered map

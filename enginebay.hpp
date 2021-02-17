@@ -22,22 +22,20 @@ using std::make_shared;
 
 class engineBay : public room {
 
-
 private:
-    bool workGlovesTaken = false;
-    bool pumpPrimerFull = false;
 
+    // Flags
+    bool jumpersOpened = false;
+
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     engineBay();
     void lookAtFeature(string featureInputName);
-    void flagSet();
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~engineBay();
-
-
 
 };
 

@@ -89,13 +89,6 @@ UI::UI() {
 }
 
 /********************************************************************************
-  destructor
- **********************************************************************************/
-UI::~UI() {}
-
-
-
-/********************************************************************************
   menuStartUp() - prompts the user if  they would like to create a New Game, Load
   Game, or Exit game. This will then return an int value back to main.
  **********************************************************************************/
@@ -113,7 +106,6 @@ int UI::menuStartUp()
    cout << "|          Load game         |" << std::endl; //1
    cout << "|          Exit game         |" << std::endl; //2
    cout << "|----------------------------|" << endl;
-   cout << endl;
 
    // Get the input from the user
    std::vector<std::string> input = getInput();
@@ -165,7 +157,6 @@ void UI::selectDifficulty(){
    cout << "|           Medium           |" << std::endl; //1
    cout << "|            Hard            |" << std::endl; //2
    cout << "|----------------------------|" << endl;
-   cout << endl;
 
    std::vector<string>choice = getInput();
    std::cout << choice[0] << std::endl;
@@ -239,6 +230,7 @@ vector<string> UI::getInput(){
 bool UI::play(){
 
    if(this->currentGame->timeRanOut() == true){
+       // SOME KIND OF STORY THAT SHOWS STATION EXPLODING. PLAYER DYING!
       return false;
    }
 
@@ -246,6 +238,7 @@ bool UI::play(){
    std::vector<std::string> input = getInput();
 
    if(this->currentGame->timeRanOut() == true){
+       // SOME KIND OF STORY THAT SHOWS STATION EXPLODING. PLAYER DYING!
       return false;
    }
 
@@ -302,12 +295,14 @@ bool UI::play(){
    }
    // Else, we check for if this is an interactive action for the room
    else{
-      // cout << "Input not recognized." << endl;
       featureActionCall(input);
    }
 
-   // Call something here to update if there's still time from the game object here probably
-   // CODE HERE //
+   // Code here if the player wins the game!
+   if(this->currentGame->getEscape() == true){
+       // Set the game running to false
+       this->gameRunning = false;
+   }
 
    return this->gameRunning;
 }
@@ -376,12 +371,25 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 	     break;
       case 4:
 	     break;
-      case 5:
-	     break;
+
+      // Case to 'TIME' !!UNUSED for now. TIME implemented with CLOCK in corridor 3
+      case 5:{
+
+          cout << "Input not recognized." << endl;
+          break;
+      }
+
+
+
       case 6:
 	     break;
+
+
       case 7:
 	     break;
+
+
+
 	     // Case to 'MAP'
       case 8:{
           if(input.size() > actionSize){
@@ -402,6 +410,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		currentGame->lookAtFeatureCall(input, actionSize);
 		break;
 	     }
+
 	     // Case to 'MOVE <ROOM>'
       case 10: {
 		  moveRoomCall(input, actionSize);
@@ -414,7 +423,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		     cout << "Input not recognized." << endl;
 		  }
 		  else{
-		     cout << "Exiting game now." << endl;
+		     cout << "\nExiting game!" << endl;
 		     this->gameRunning = false;
 		  }
 		  break;
@@ -442,8 +451,8 @@ void UI::showMap(){
    
    std::cout << "           ________________________________                                  ________________________________" << std::endl;
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
-   std::cout << "         /                 /               |                                |               \\                 \\" << std::endl;
-   std::cout << "        /   ESCAPE POD    X                |                                |                X     REACTOR     \\" << std::endl;
+   std::cout << "         /  ESCAPE POD     /               |                                |               \\                 \\" << std::endl;
+   std::cout << "        /   ROOM          X                |                                |                X     REACTOR     \\" << std::endl;
 
    //Player in Escape Pod
    if(player_location == 0){
@@ -460,7 +469,7 @@ void UI::showMap(){
    std::cout << "      /_________________/                /                                    \\                \\_________________\\" << std::endl;
    std::cout << "     /                 /                /                                      \\                \\                 \\" << std::endl;
    std::cout << "    /                 /                /                                        \\                \\                 \\" << std::endl;
-   std::cout << "   /    MED BAY      X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
+   std::cout << "   /    MEDBAY       X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
 
    //Player in Med Bay
    if(player_location == 2){
@@ -559,7 +568,6 @@ void UI::showMap(){
 
 }
 
-
 /********************************************************************************
 help() -
 **********************************************************************************/
@@ -578,8 +586,6 @@ void UI::help(){
       std::cout << std::endl;
    }
 }
-
-
 
 /********************************************************************************
 moveRoomCall - calls the moveRoom from the game in order to change the character
@@ -741,6 +747,20 @@ void UI::featureActionCall(vector<string> input) {
         cout << "Input not recognized." << endl;
     }
 }
+
+
+/********************************************************************************
+  destructor
+ **********************************************************************************/
+UI::~UI() {
+
+
+
+
+}
+
+
+
 
 /*
    std::vector<Room*> loadRooms(){

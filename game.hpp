@@ -41,8 +41,7 @@ It declares all our member variables and member function prototypes.
 class game {
 
 private:
-    
-    bool gameTimerDisabled;
+
     // Character
     character* player;
 
@@ -62,7 +61,7 @@ private:
     room* corridor3Room;
 
     room* medbayRoom; // West-side
-    room* escapePodRoomRoom;
+    escapePodRoom* escapePodRoomRoom;
     mainframeRoom* mainframeRoomRoom;
     room* communicationsRoom;
     room* electricalRoom;
@@ -82,12 +81,13 @@ private:
     room* currentPosition;
 
     // Add some flags here for unlocking doors or powering up electrical, etc
-    int stationPowerRestored; // = 0 if no power to station, 1 if power restored to station
     bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
     int total_seconds; // TEMPORARY til we figure out countdown.
     int time_left; // TEMPORARY til we figure out countdown.
-    int gameStillRunning; // =0 is Exit game. =1 is still running.
     std::chrono::high_resolution_clock::time_point start_time;
+    bool gameTimerDisabled;
+    bool escapeStation = false;
+    bool electricalRoomDoorFixed = false;
 
 public:
 
@@ -108,6 +108,8 @@ public:
     void printTime();
     void setTime(int seconds);
     void disableGameTimer();
+    void setEscape();
+    bool getEscape();
 
     // int isGameRunning();
 

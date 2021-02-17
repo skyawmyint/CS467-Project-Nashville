@@ -95,10 +95,27 @@ CMakeFiles/CS467_Project_Nashville.dir/enginebay.cpp.o: ../enginebay.hpp
 CMakeFiles/CS467_Project_Nashville.dir/enginebay.cpp.o: ../room.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../Item.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../UI.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../cafeteria.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../captainslodge.hpp
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../character.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../communications.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../corridor1.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../corridor2.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../corridor3.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../electrical.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../enginebay.hpp
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../escapepodroom.cpp
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../escapepodroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../game.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../lifesupporto2.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../mainframeroom.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../medbay.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../navigation.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../reactor.hpp
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../room.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../storage.hpp
+CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o: ../utilityFunctions.hpp
 
 CMakeFiles/CS467_Project_Nashville.dir/game.cpp.o: ../Item.hpp
 CMakeFiles/CS467_Project_Nashville.dir/game.cpp.o: ../cafeteria.hpp
