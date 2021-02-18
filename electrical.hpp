@@ -23,15 +23,15 @@ using std::make_shared;
 class electrical : public room {
 
 private:
-    bool electricalPanelRepaired = false;
 
+    // Vector of action+feature interactions
+    std::unordered_map<std::string, int> featureInteraction;
 
 public:
 
     electrical();
     void lookAtFeature(string featureInputName);
-    // virtual void interactRoom();
-
+    void interactRoom(string inputString);
     // ~electrical();
 
 };

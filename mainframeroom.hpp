@@ -11,6 +11,7 @@ It declares all our member variables and member function prototypes.
 #define CS467_PROJECT_NASHVILLE2_MAINFRAMEROOM_H
 
 #include "room.hpp"
+
 using std::vector;
 using std::cin;
 using std::cout;
@@ -20,23 +21,20 @@ using std::shared_ptr;
 using std::make_shared;
 
 class game;
+
 class mainframeRoom : public room {
 
-
 private:
-    game* game;
-    bool timer_disabled;
-    bool badge;
-    // Vector of action+feature interactions
+    game* myGame;
     std::unordered_map<std::string, int> featureInteraction;
+    bool timerFlag;
+
 public:
 
     mainframeRoom(class game* current_game);
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
     // ~mainframeRoom();
-
-
 
 };
 

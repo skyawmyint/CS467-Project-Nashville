@@ -31,6 +31,10 @@ class character {
 private:
 
     vector<item*> inventory;
+    bool pumpPrimerFull = false;
+    bool electricalPanelRepaired = false;
+    bool navigationUploaded = false;
+    bool unlockCaptain = false;
 
 public:
 
@@ -42,6 +46,14 @@ public:
     item* removeItem(string inputItemName);
     void listInventory();
     item* returnItem(int itemIndexInput);
+    void setPrimer(bool pumpPrimer);
+    bool getPrimer();
+    void setPanel(bool panelRepaired);
+    bool getPanel();
+    void setNavigation();
+    bool getNavigation();
+    void setCaptainDoor();
+    bool getCaptainDoor();
     ~character(); // Destructor
 
 };

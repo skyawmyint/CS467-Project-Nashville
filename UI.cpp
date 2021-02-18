@@ -37,7 +37,7 @@ UI::UI() {
    rooms.insert({"ESCAPE POD ROOM", 10});
    rooms.insert({"MEDBAY",10});
    rooms.insert({"MAINFRAME" , 10});
-   rooms.insert({"COMMUNICATION", 10});
+   rooms.insert({"COMMUNICATIONS", 10});
    rooms.insert({"ELECTRICAL", 10});
    rooms.insert({"NAVIGATION", 10});
    rooms.insert({"CORRIDOR 1", 10});
@@ -90,13 +90,6 @@ UI::UI() {
 }
 
 /********************************************************************************
-  destructor
- **********************************************************************************/
-UI::~UI() {}
-
-
-
-/********************************************************************************
   menuStartUp() - prompts the user if  they would like to create a New Game, Load
   Game, or Exit game. This will then return an int value back to main.
  **********************************************************************************/
@@ -114,7 +107,6 @@ int UI::menuStartUp()
    cout << "|          Load game         |" << std::endl; //1
    cout << "|          Exit game         |" << std::endl; //2
    cout << "|----------------------------|" << endl;
-   cout << endl;
 
    // Get the input from the user
    std::vector<std::string> input = getInput();
@@ -156,36 +148,36 @@ int UI::menuStartUp()
    return retChoice;
 }
 
+/********************************************************************************
+  selectDifficulty() - prompts the user the difficulty they'd like to play the game
+ **********************************************************************************/
 void UI::selectDifficulty(){
- // Make a cool starting screen!
- while(true){
-   cout << "|----------------------------|" << endl;
-   cout << "|      Select Difficulty:    |" << endl;
-   cout << "|----------------------------|" << endl;
-   cout << "|            Easy            |" << std::endl; //0
-   cout << "|           Medium           |" << std::endl; //1
-   cout << "|            Hard            |" << std::endl; //2
-   cout << "|----------------------------|" << endl;
-   cout << endl;
+     while(true){
+       cout << "|----------------------------|" << endl;
+       cout << "|      Select Difficulty:    |" << endl;
+       cout << "|----------------------------|" << endl;
+       cout << "|            Easy            |" << std::endl; //0
+       cout << "|           Medium           |" << std::endl; //1
+       cout << "|            Hard            |" << std::endl; //2
+       cout << "|----------------------------|" << endl;
 
-   std::vector<string>choice = getInput();
-   std::cout << choice[0] << std::endl;
-   if(choice[0] == "EASY"){
-      currentGame->setTime(3600);
-      break;
-   }
-   else if(choice[0] == "MEDIUM"){
-      currentGame->setTime(1800);
-      break;
-   }
-   else if(choice[0] == "HARD"){
-      currentGame->setTime(90);
-      break;
-   }
-   else{
-      std::cout << "Input not recognized." << std::endl;
-   }
- }
+       std::vector<string>choice = getInput();
+       if(choice[0] == "EASY"){
+          currentGame->setTime(3600);
+          break;
+       }
+       else if(choice[0] == "MEDIUM"){
+          currentGame->setTime(1800);
+          break;
+       }
+       else if(choice[0] == "HARD"){
+          currentGame->setTime(900);
+          break;
+       }
+       else{
+          std::cout << "Input not recognized." << std::endl;
+       }
+     }
 
     cout << endl;
     cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
@@ -196,11 +188,12 @@ void UI::selectDifficulty(){
     cout << endl;
     cout << "As you look around, you see that you are surrounded by white walls that are very bright and clean." << endl <<
             "The walls feel empty with very little in the room. The only things in the room that you see are the surgical " << endl <<
-            "table that you woke up on with a SCALPEL on it, a metal table in the corner of the room, and a door leading to a " << endl <<
+            "table that you woke up on with a SCALPEL on it, a MEDICAL BOX on the far wall, and a door leading to a " << endl <<
             "dark hall. You also see a COMPUTER on top of the metal table that looks functional. Gathering all this information, " << endl <<
             "you remember that you must be in the MEDBAY and the door must lead to CORRIDOR 1. The countdown must mean that " << endl <<
             "something bad is happening to the station and you must escape by any means possible!" << endl;
 }
+
 /********************************************************************************
   makeNewGame() - creates a new game object if the user selects New Game
  **********************************************************************************/
@@ -208,12 +201,12 @@ void UI::makeNewGame() {
 
    // Create new game object
    this->currentGame = new game();
-  // First game room introduction should be here
+
 }
 
 
 /********************************************************************************
-  getInput() -
+  getInput() - gets input from the user and separates words to different indexes
  **********************************************************************************/
 vector<string> UI::getInput(){
    string input = "";
@@ -231,8 +224,6 @@ vector<string> UI::getInput(){
    }
    return {};
 }
-
-
 
 /********************************************************************************
   play() - gets input from the user and calls the game file accordingly.
@@ -303,12 +294,14 @@ bool UI::play(){
    }
    // Else, we check for if this is an interactive action for the room
    else{
-      // cout << "Input not recognized." << endl;
       featureActionCall(input);
    }
 
-   // Call something here to update if there's still time from the game object here probably
-   // CODE HERE //
+   // Code here if the player wins the game!
+   if(this->currentGame->getEscape() == true){
+       // Set the game running to false
+       this->gameRunning = false;
+   }
 
    return this->gameRunning;
 }
@@ -334,9 +327,8 @@ vector<string> UI::parseClean(string str){
    return input;
 }
 
-
 /********************************************************************************
-  generalActions -
+  generalActions - does a specific call for a certain input parsing
  **********************************************************************************/
 void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 
@@ -377,14 +369,24 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 	     break;
       case 4:
 	     break;
-      case 5:
-	     break;
-           // Pause game
+
+      // Case to 'TIME' !!UNUSED for now. TIME implemented with CLOCK in corridor 3
+      case 5:{
+
+          cout << "Input not recognized." << endl;
+          break;
+      }
+
       case 6:
            pauseGame();
 	     break;
+
+
       case 7:
 	     break;
+
+
+
 	     // Case to 'MAP'
       case 8:{
           if(input.size() > actionSize){
@@ -405,6 +407,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		currentGame->lookAtFeatureCall(input, actionSize);
 		break;
 	     }
+
 	     // Case to 'MOVE <ROOM>'
       case 10: {
 		  moveRoomCall(input, actionSize);
@@ -417,7 +420,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		     cout << "Input not recognized." << endl;
 		  }
 		  else{
-		     cout << "Exiting game now." << endl;
+		     cout << "\nExiting game!" << endl;
 		     this->gameRunning = false;
 		  }
 		  break;
@@ -436,7 +439,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 }
 
 /********************************************************************************
-  showMap() -
+  showMap() - displays the map of the game to the user
  **********************************************************************************/
 void UI::showMap(){
 
@@ -445,8 +448,8 @@ void UI::showMap(){
    
    std::cout << "           ________________________________                                  ________________________________" << std::endl;
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
-   std::cout << "         /                 /               |                                |               \\                 \\" << std::endl;
-   std::cout << "        /   ESCAPE POD    X                |                                |                X     REACTOR     \\" << std::endl;
+   std::cout << "         /  ESCAPE POD     /               |                                |               \\                 \\" << std::endl;
+   std::cout << "        /   ROOM          X                |                                |                X     REACTOR     \\" << std::endl;
 
    //Player in Escape Pod
    if(player_location == 0){
@@ -463,7 +466,7 @@ void UI::showMap(){
    std::cout << "      /_________________/                /                                    \\                \\_________________\\" << std::endl;
    std::cout << "     /                 /                /                                      \\                \\                 \\" << std::endl;
    std::cout << "    /                 /                /                                        \\                \\                 \\" << std::endl;
-   std::cout << "   /    MED BAY      X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
+   std::cout << "   /    MEDBAY       X                /                                          \\                X    ENGINE BAY   \\" << std::endl;
 
    //Player in Med Bay
    if(player_location == 2){
@@ -562,9 +565,8 @@ void UI::showMap(){
 
 }
 
-
 /********************************************************************************
-help() -
+help() - displays all the general commands the player can do
 **********************************************************************************/
 void UI::help(){
    for(auto command : general_actions){
@@ -581,8 +583,6 @@ void UI::help(){
       std::cout << std::endl;
    }
 }
-
-
 
 /********************************************************************************
 moveRoomCall - calls the moveRoom from the game in order to change the character
@@ -657,7 +657,6 @@ void UI::moveRoomCall(vector<string>input, int actionSize) {
     else{
         currentGame->moveRooms(roomName);
     };
-
 }
 
 /********************************************************************************
@@ -758,6 +757,13 @@ void UI::pauseGame(){
     unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
     this->currentGame->addBackPauseTime(time_elapsed);
 }
+/*********************************************************************************************************
+  destructor
+ *******************************************************************/
+UI::~UI() {
+
+}
+
 /*
    std::vector<Room*> loadRooms(){
 
