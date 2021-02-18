@@ -119,3 +119,12 @@ void escapePodRoom::interactRoom(string inputString) {
     }
 }
 
+/********************************************************************************
+destructor
+**********************************************************************************/
+escapePodRoom::~escapePodRoom()
+{
+
+    featureInteraction.clear();
+
+}

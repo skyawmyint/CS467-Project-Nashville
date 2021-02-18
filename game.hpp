@@ -112,8 +112,6 @@ public:
     void setEscape();
     bool getEscape();
 
-    // int isGameRunning();
-
     ~game(); // destructor
 
 };

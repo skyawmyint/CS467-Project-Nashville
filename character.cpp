@@ -204,6 +204,17 @@ destructor
 character::~character()
 {
 
+    // Free all the inventory items
+    item* tempItemPointer;
+    int inventorySize = inventory.size();
 
+    for (int i = 0; i < inventorySize; i++)
+    {
+
+        tempItemPointer = inventory[inventorySize-1-i];
+        inventory.pop_back();
+        free(tempItemPointer);
+
+    }
 
 }

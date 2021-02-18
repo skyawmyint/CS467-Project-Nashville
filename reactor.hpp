@@ -22,7 +22,6 @@ using std::make_shared;
 
 class reactor : public room {
 
-
 private:
 
     // Vector of action+feature interactions
@@ -30,7 +29,6 @@ private:
 
     // Flags for the room
     bool noisyValveOpen = true;
-    bool navCommTaken = false;
 
 public:
 
@@ -38,10 +36,7 @@ public:
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
     void interactRoom(string inputString);
-
-    // ~reactor();
-
-
+    ~reactor();
 
 };
 

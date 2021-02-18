@@ -32,7 +32,7 @@ public:
     electrical();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
-    // ~electrical();
+    ~electrical();
 
 };
 

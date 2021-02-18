@@ -139,3 +139,13 @@ void engineBay::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+engineBay::~engineBay()
+{
+
+    featureInteraction.clear();
+
+}

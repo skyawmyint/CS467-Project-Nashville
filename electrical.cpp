@@ -127,3 +127,13 @@ void electrical::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+electrical::~electrical()
+{
+
+    featureInteraction.clear();
+
+}

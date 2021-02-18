@@ -35,7 +35,7 @@ public:
     communications();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
-    // ~communications();
+    ~communications();
 
 };
 

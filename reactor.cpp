@@ -130,3 +130,13 @@ void reactor::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+reactor::~reactor()
+{
+
+    featureInteraction.clear();
+
+}

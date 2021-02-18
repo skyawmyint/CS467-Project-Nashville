@@ -135,3 +135,12 @@ int corridor1::interactRoom(string inputString, bool inputMap) {
 
 }
 
+/********************************************************************************
+destructor
+**********************************************************************************/
+corridor1::~corridor1()
+{
+
+    featureInteraction.clear();
+
+}

@@ -72,6 +72,8 @@ int main(){
 
     }while(continueSim == true);
 
+    // Free memory from user_interface
+    free(user_interface);
 
     return 0;
 
