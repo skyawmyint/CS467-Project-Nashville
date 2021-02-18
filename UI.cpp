@@ -170,15 +170,15 @@ void UI::selectDifficulty(){
    std::vector<string>choice = getInput();
    std::cout << choice[0] << std::endl;
    if(choice[0] == "EASY"){
-      currentGame->setTime(900);
+      currentGame->setTime(3600);
       break;
    }
    else if(choice[0] == "MEDIUM"){
-      currentGame->setTime(600);
+      currentGame->setTime(1800);
       break;
    }
    else if(choice[0] == "HARD"){
-      currentGame->setTime(300);
+      currentGame->setTime(900);
       break;
    }
    else{
