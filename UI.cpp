@@ -445,7 +445,7 @@ void UI::showMap(){
 
    //Eventuall have the game class return the player location
    int player_location  = this->currentGame->getCurrentRoomId();
-   
+
    std::cout << "           ________________________________                                  ________________________________" << std::endl;
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
    std::cout << "         /  ESCAPE POD     /               |                                |               \\                 \\" << std::endl;
@@ -458,7 +458,7 @@ void UI::showMap(){
    //Player in Reactor
    else if(player_location == 1){
       std::cout << "       /                 /                /                                  \\                \\        *        \\" << std::endl;
-   } 
+   }
    else{
       std::cout << "       /                 /                /                                  \\                \\                 \\" << std::endl;
    }
@@ -478,14 +478,14 @@ void UI::showMap(){
    }
    else{
       std::cout << "  /                 /                /                                            \\                \\                 \\" << std::endl;
-   } 
+   }
    std::cout << " /_________________/                /                                              \\                \\_________________\\" << std::endl;
    std::cout << "|                  |       C       /                                                \\       C       |                  |" << std::endl;
    std::cout << "|                  |       O      /                                                  \\      O       |                  |" << std::endl;
    std::cout << "|   MAINFRAME      X       R      |__________________________________________________|      R       X    CAFETERIA     |" << std::endl;
 
    //Player in Mainframe
-   if(player_location == 4){ 
+   if(player_location == 4){
       std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
    }
    //Player in Cafeteria
@@ -508,7 +508,7 @@ void UI::showMap(){
       std::cout << "|__________________|       I                           CORRIDOR 2                           I       |__________________|" << std::endl;
    }
 
-   //Player in Corridor 2 
+   //Player in Corridor 2
    if(player_location == 8){
       std::cout << "|                  |       D                               *                                D       |                  |" << std::endl;
    }
@@ -749,10 +749,8 @@ pauseGame
 **********************************************************************************/
 void UI::pauseGame(){
     auto start_time = std::chrono::high_resolution_clock::now();
-    std::cout << "\nGame paused. Press any key to continue." << std::endl;
-    cin.get();
-    std::cout << "\nGame resumed." << std::endl;
-    
+    std::cout << "\nGame paused. Press ENTER to continue." << std::endl;
+    system("read");
     auto current_time = std::chrono::high_resolution_clock::now();
     unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
     this->currentGame->addBackPauseTime(time_elapsed);
