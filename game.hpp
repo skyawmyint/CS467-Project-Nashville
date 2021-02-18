@@ -84,7 +84,7 @@ private:
     // Add some flags here for unlocking doors or powering up electrical, etc
     int stationPowerRestored; // = 0 if no power to station, 1 if power restored to station
     bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
-    int total_seconds; // TEMPORARY til we figure out countdown.
+    unsigned long long total_seconds; // TEMPORARY til we figure out countdown.
     int time_left; // TEMPORARY til we figure out countdown.
     int gameStillRunning; // =0 is Exit game. =1 is still running.
     std::chrono::high_resolution_clock::time_point start_time;
@@ -108,6 +108,7 @@ public:
     void printTime();
     void setTime(int seconds);
     void disableGameTimer();
+    void addBackPauseTime(unsigned long long pauseSeconds);
 
     // int isGameRunning();
 

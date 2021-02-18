@@ -6,6 +6,7 @@ Description: This is the class implementation file for the class game.
 
 #include "game.hpp"
 #include <iostream>
+#include <thread>
 
 
 /********************************************************************************
@@ -146,7 +147,6 @@ game::game(){
     this->gameStillRunning = 1; // Game Running
 
     this->start_time = std::chrono::high_resolution_clock::now();
-
 
 }
 
@@ -406,15 +406,15 @@ bool game::isMapMade(){
 
 /********************************************************************************
   timeRanOut - returns true if time has run out
+   addBackPauseTime - paused time to add back, optional parameter
  **********************************************************************************/
 bool game::timeRanOut(){
     if(this->gameTimerDisabled){
         return false;
     }
    auto current_time = std::chrono::high_resolution_clock::now();
-   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
    if((this->total_seconds - time_elapsed) <= 0){
-
        // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
        std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
       return true;
@@ -425,6 +425,7 @@ bool game::timeRanOut(){
 
 /********************************************************************************
   printTime- prints the time left in the game
+  addBackPauseTime - paused time to add back, optional parameter
  **********************************************************************************/
 void game::printTime(){
     if(this->gameTimerDisabled){
@@ -432,10 +433,11 @@ void game::printTime(){
         return;
     }
    auto current_time = std::chrono::high_resolution_clock::now();
-   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
-   int time_left = this->total_seconds - time_elapsed;
-   int minutes = time_left/60;
-   int seconds = time_left % 60;
+   unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+    //this->start_time = current_time;
+   unsigned long long time_left = this->total_seconds - time_elapsed;
+   unsigned long long minutes = time_left/60;
+    unsigned long long seconds = time_left % 60;
 
    if(minutes <= 0){
       std::cout << "00" << ":";
@@ -465,6 +467,14 @@ void game::setTime(int seconds){
    this->total_seconds = seconds;
 }
 
+
+/********************************************************************************
+  addBackPauseTime- adds back time lost while paused
+ **********************************************************************************/
+
+void game::addBackPauseTime(unsigned long long pauseSeconds){
+    this->total_seconds += pauseSeconds;
+}
 
 void game::disableGameTimer(){
     this->gameTimerDisabled = true;

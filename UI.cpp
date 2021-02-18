@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
+#include <chrono>
 
 #include "UI.hpp"
 
@@ -22,7 +23,7 @@ UI::UI() {
    general_actions.insert({ "LOADGAME", 4 });
    general_actions.insert({ "TIME", 5 });
    general_actions.insert({ "PAUSE", 6 });
-   general_actions.insert({ "UNPAUSE", 7 });
+ //  general_actions.insert({ "UNPAUSE", 7 });
 
    // Case 8 - MAP
    general_actions.insert({ "MAP", 8 });
@@ -178,7 +179,7 @@ void UI::selectDifficulty(){
       break;
    }
    else if(choice[0] == "HARD"){
-      currentGame->setTime(900);
+      currentGame->setTime(90);
       break;
    }
    else{
@@ -378,7 +379,9 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 	     break;
       case 5:
 	     break;
+           // Pause game
       case 6:
+           pauseGame();
 	     break;
       case 7:
 	     break;
@@ -742,6 +745,19 @@ void UI::featureActionCall(vector<string> input) {
     }
 }
 
+/********************************************************************************
+pauseGame
+**********************************************************************************/
+void UI::pauseGame(){
+    auto start_time = std::chrono::high_resolution_clock::now();
+    std::cout << "\nGame paused. Press any key to continue." << std::endl;
+    cin.get();
+    std::cout << "\nGame resumed." << std::endl;
+    
+    auto current_time = std::chrono::high_resolution_clock::now();
+    unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
+    this->currentGame->addBackPauseTime(time_elapsed);
+}
 /*
    std::vector<Room*> loadRooms(){
 
