@@ -156,3 +156,12 @@ void navigation::interactRoom(string inputString) {
     }
 }
 
+/********************************************************************************
+destructor
+**********************************************************************************/
+navigation::~navigation()
+{
+
+    featureInteraction.clear();
+
+}

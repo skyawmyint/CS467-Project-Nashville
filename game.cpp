@@ -270,20 +270,16 @@ void game::moveRooms(string roomNameInput){
       else if(escapePodRoomRoom->getName() == roomNameInput){
 	 currentPosition = escapePodRoomRoom;
       }
-      else if(mainframeRoomRoom->getName() == roomNameInput){
-	    currentPosition = mainframeRoomRoom;
-
-	 /*     if(hasItem("badge")){
-		=======
-	 // Need a badge to enter the MAINFRAME
-	 if(hasItem("BADGE")){
-	 currentPosition = mainframeRoomRoom;
-	 }
-	 else{
-	 cout << "\nThe door is locked. A BADGE is required for entry." << endl;
-	 movedRooms = false;
-	 return;
-	 }*/
+      else if(mainframeRoomRoom->getName() == roomNameInput) {
+          // Need a badge to enter the MAINFRAME
+          if (hasItem("BADGE")) {
+              currentPosition = mainframeRoomRoom;
+          }
+          else {
+              cout << "\nThe door is locked. A BADGE is required for entry." << endl;
+              movedRooms = false;
+              return;
+          }
       }
       else if(communicationsRoom->getName() == roomNameInput){
 	 currentPosition = communicationsRoom;
@@ -550,15 +546,30 @@ void game::moveRooms(string roomNameInput){
 
    }
 
-
-
-
    /********************************************************************************
      destructor
     **********************************************************************************/
-
    game::~game()
    {
 
+       // Free the character object
+       free(this->player);
+
+       // Free all the rooms
+       free(this->corridor1Room);
+       free(this->corridor2Room);
+       free(this->corridor3Room);
+       free(this->medbayRoom);
+       free(this->escapePodRoomRoom);
+       free(this->mainframeRoomRoom);
+       free(this->communicationsRoom);
+       free(this->electricalRoom);
+       free(this->navigationRoom);
+       free(this->cafeteriaRoom);
+       free(this->reactorRoom);
+       free(this->engineBayRoom);
+       free(this->storageRoom);
+       free(this->lifeSupportO2Room);
+       free(this->captainsLodgeRoom);
 
    }

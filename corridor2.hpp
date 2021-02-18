@@ -35,8 +35,7 @@ public:
     corridor2();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
-
-    // ~corridor2();
+    ~corridor2();
 
 
 

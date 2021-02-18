@@ -97,3 +97,13 @@ void cafeteria::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+cafeteria::~cafeteria()
+{
+
+    featureInteraction.clear();
+
+}

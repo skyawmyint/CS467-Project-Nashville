@@ -38,7 +38,7 @@ public:
     corridor3(class game* currentGame);
     void lookAtFeature(string featureInputName, int inputTime);
     void interactRoom(string inputString);
-    // ~corridor3();
+    ~corridor3();
 };
 
 

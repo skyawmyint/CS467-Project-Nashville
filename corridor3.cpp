@@ -81,7 +81,7 @@ void corridor3::interactRoom(string inputString) {
     }
 
     // The case where the user wants to "DESTROY PAINTING"
-    if(featureActionChoice == 0){
+    if(featureActionChoice == 1){
         // If not destroyed
         if(paintingDestroyed == false){
             cout << "\nThe rage inside of you builds up looking at the face in the painting. Suddenly, you grip at the\n"
@@ -97,4 +97,14 @@ void corridor3::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+corridor3::~corridor3()
+{
+
+    featureInteraction.clear();
+
 }

@@ -201,6 +201,7 @@ void UI::makeNewGame() {
 
    // Create new game object
    this->currentGame = new game();
+   this->gameMade = true;
 
 }
 
@@ -755,10 +756,22 @@ void UI::pauseGame(){
     unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
     this->currentGame->addBackPauseTime(time_elapsed);
 }
+
 /*********************************************************************************************************
   destructor
  *******************************************************************/
 UI::~UI() {
+
+    // Free the current game
+    if(gameMade == true){
+        free(this->currentGame);
+    }
+
+    // Clear all the unordered maps
+    general_actions.clear();
+    menu_options.clear();
+    rooms.clear();
+    items.clear();
 
 }
 

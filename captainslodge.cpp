@@ -115,3 +115,13 @@ void captainsLodge::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+captainsLodge::~captainsLodge()
+{
+
+    featureInteraction.clear();
+
+}
