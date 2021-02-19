@@ -465,7 +465,16 @@ bool game::timeRanOut(){
    if((this->total_seconds - time_elapsed) <= 0){
 
        // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
-       std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
+       std::cout << "\nYour palms are slippery with sweat \n"
+                    "as your realize there is no future. \n"
+                    "Why did you linger? \n"
+                    "In what room did you spend too much time? \n"
+                    "Why you? \n"
+                    "Why not you? \n"
+                    "The station quakes, and the roar of the self destruct begins \n"
+                    "as the reactor goes critical. \n"
+                    "You face oblivion, remembering words from a dream... \n"
+                    "Good luck....god speed."<< std::endl;
       return true;
    }
    return false;

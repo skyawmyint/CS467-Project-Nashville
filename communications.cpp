@@ -105,8 +105,16 @@ void communications::interactRoom(string inputString) {
 
         // Show backstory of the station here! Also set astronaut as being hailed
         this->astronautHailed = true;
-        cout << "\nSTATION DISASTER BACKSTORY HERE!!!!\n"
-                "XXXXXXXXXXXXXXXXXXX" << endl;
+        cout << "\nHello...can...anyone...me? \n"
+                "This is Major Sanderson. \n"
+                "If someone can hear me. \n"
+                "Project Nashville has been compromised. \n"
+                "I barely managed to escape. \n"
+                "But there should be one pod still remaining. \n"
+                "Need...key and...nav...\n"
+                "Repeat, the station....compromised. \n"
+                "Self-destruct has been activated... \n"
+                "Good luck....god speed."<< endl;
     }
 
     // Else if the power is restored and the astronaut has already been hailed

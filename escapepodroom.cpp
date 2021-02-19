@@ -84,7 +84,16 @@ void escapePodRoom::interactRoom(string inputString) {
         myGame->setEscape();
 
         // If you can make some kind of end game story here!
-        cout <<"\nYou enter the escape pod and escape!" << endl;
+        cout << "\nAs your escape pod jettisons itself free \n"
+                "from the space station that contains the results \n"
+                "of humanity's haunting hubris that was Project Nashville, \n"
+                "there is time for a moment of reflection. \n"
+                "Why you? \n"
+                "What was Project Nashville? \n"
+                "Questions the government will surely have ready and waiting \n"
+                "on the Earth below. \n"
+                "For now you sleep, remembering words from a dream... \n"
+                "Good luck....god speed."<< endl;
 
     }
     // "ENTER" escape pod, but do not have the necessary stuff
