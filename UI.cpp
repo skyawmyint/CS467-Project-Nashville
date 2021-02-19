@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
+#include <chrono>
 
 #include "UI.hpp"
 
@@ -22,7 +23,7 @@ UI::UI() {
    general_actions.insert({ "LOADGAME", 4 });
    general_actions.insert({ "TIME", 5 });
    general_actions.insert({ "PAUSE", 6 });
-   general_actions.insert({ "UNPAUSE", 7 });
+ //  general_actions.insert({ "UNPAUSE", 7 });
 
    // Case 8 - MAP
    general_actions.insert({ "MAP", 8 });
@@ -151,8 +152,6 @@ int UI::menuStartUp()
   selectDifficulty() - prompts the user the difficulty they'd like to play the game
  **********************************************************************************/
 void UI::selectDifficulty(){
-
-    // Make a cool starting screen!
      while(true){
        cout << "|----------------------------|" << endl;
        cout << "|      Select Difficulty:    |" << endl;
@@ -163,17 +162,16 @@ void UI::selectDifficulty(){
        cout << "|----------------------------|" << endl;
 
        std::vector<string>choice = getInput();
-       // std::cout << choice[0] << std::endl;
        if(choice[0] == "EASY"){
-          currentGame->setTime(900);
+          currentGame->setTime(3600);
           break;
        }
        else if(choice[0] == "MEDIUM"){
-          currentGame->setTime(600);
+          currentGame->setTime(1800);
           break;
        }
        else if(choice[0] == "HARD"){
-          currentGame->setTime(300);
+          currentGame->setTime(900);
           break;
        }
        else{
@@ -203,6 +201,7 @@ void UI::makeNewGame() {
 
    // Create new game object
    this->currentGame = new game();
+   this->gameMade = true;
 
 }
 
@@ -379,9 +378,8 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
           break;
       }
 
-
-
       case 6:
+           pauseGame();
 	     break;
 
 
@@ -448,7 +446,7 @@ void UI::showMap(){
 
    //Eventuall have the game class return the player location
    int player_location  = this->currentGame->getCurrentRoomId();
-   
+
    std::cout << "           ________________________________                                  ________________________________" << std::endl;
    std::cout << "          /                 /              |                                |              \\                 \\" << std::endl;
    std::cout << "         /  ESCAPE POD     /               |                                |               \\                 \\" << std::endl;
@@ -461,7 +459,7 @@ void UI::showMap(){
    //Player in Reactor
    else if(player_location == 1){
       std::cout << "       /                 /                /                                  \\                \\        *        \\" << std::endl;
-   } 
+   }
    else{
       std::cout << "       /                 /                /                                  \\                \\                 \\" << std::endl;
    }
@@ -481,14 +479,14 @@ void UI::showMap(){
    }
    else{
       std::cout << "  /                 /                /                                            \\                \\                 \\" << std::endl;
-   } 
+   }
    std::cout << " /_________________/                /                                              \\                \\_________________\\" << std::endl;
    std::cout << "|                  |       C       /                                                \\       C       |                  |" << std::endl;
    std::cout << "|                  |       O      /                                                  \\      O       |                  |" << std::endl;
    std::cout << "|   MAINFRAME      X       R      |__________________________________________________|      R       X    CAFETERIA     |" << std::endl;
 
    //Player in Mainframe
-   if(player_location == 4){ 
+   if(player_location == 4){
       std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
    }
    //Player in Cafeteria
@@ -511,7 +509,7 @@ void UI::showMap(){
       std::cout << "|__________________|       I                           CORRIDOR 2                           I       |__________________|" << std::endl;
    }
 
-   //Player in Corridor 2 
+   //Player in Corridor 2
    if(player_location == 8){
       std::cout << "|                  |       D                               *                                D       |                  |" << std::endl;
    }
@@ -748,17 +746,34 @@ void UI::featureActionCall(vector<string> input) {
 }
 
 /********************************************************************************
-  destructor
- **********************************************************************************/
-UI::~UI() {
-
-
-
-
+pauseGame
+**********************************************************************************/
+void UI::pauseGame(){
+    auto start_time = std::chrono::high_resolution_clock::now();
+    std::cout << "\nGame paused. Press ENTER to continue." << std::endl;
+    system("read");
+    auto current_time = std::chrono::high_resolution_clock::now();
+    unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - start_time).count();
+    this->currentGame->addBackPauseTime(time_elapsed);
 }
 
+/*********************************************************************************************************
+  destructor
+ *******************************************************************/
+UI::~UI() {
 
+    // Free the current game
+    if(gameMade == true){
+        free(this->currentGame);
+    }
 
+    // Clear all the unordered maps
+    general_actions.clear();
+    menu_options.clear();
+    rooms.clear();
+    items.clear();
+
+}
 
 /*
    std::vector<Room*> loadRooms(){

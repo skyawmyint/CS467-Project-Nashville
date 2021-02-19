@@ -133,3 +133,12 @@ void communications::interactRoom(string inputString) {
     }
 }
 
+/********************************************************************************
+destructor
+**********************************************************************************/
+communications::~communications()
+{
+
+    featureInteraction.clear();
+
+}

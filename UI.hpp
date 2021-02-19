@@ -19,7 +19,7 @@ class UI {
 
       game* currentGame;
       bool gameRunning; // Flag to see if the game is ever to exit.
-
+      bool gameMade = false;
       std::unordered_map<std::string, int> general_actions;
       std::unordered_map<std::string, int> menu_options;
       std::unordered_map<std::string, int> rooms;
@@ -31,6 +31,7 @@ class UI {
       void moveRoomCall(vector<string>input, int actionSize);
       void dropTakeItemCall(vector<string> input, int actionChoice, int actionSize);
       void featureActionCall(vector<string>input);
+      void pauseGame();
 
    public:
      std::vector<std::string> getInput();

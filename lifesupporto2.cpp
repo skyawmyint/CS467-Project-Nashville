@@ -159,3 +159,13 @@ void lifeSupportO2::interactRoom(string inputString) {
         cout << "Input not recognized." << endl;
     }
 }
+
+/********************************************************************************
+destructor
+**********************************************************************************/
+lifeSupportO2::~lifeSupportO2()
+{
+
+    featureInteraction.clear();
+
+}

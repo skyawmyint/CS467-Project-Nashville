@@ -123,3 +123,12 @@ void mainframeRoom::interactRoom(string inputString) {
 
 }
 
+/********************************************************************************
+destructor
+**********************************************************************************/
+mainframeRoom::~mainframeRoom()
+{
+
+    featureInteraction.clear();
+
+}

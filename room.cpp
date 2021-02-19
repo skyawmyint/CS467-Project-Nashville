@@ -390,6 +390,32 @@ destructor
 room::~room()
 {
 
+    // Free all the starting items
+    item* tempItemPointer;
+    int startingSize = startingItems.size();
 
+    for (int i = 0; i < startingSize; i++)
+    {
+        tempItemPointer = startingItems[startingSize-1-i];
+        startingItems.pop_back();
+        free(tempItemPointer);
+    }
+
+    // Free all the dropped items
+    int droppedSize = droppedItems.size();
+
+    for (int i = 0; i < droppedSize; i++)
+    {
+        tempItemPointer = droppedItems[droppedSize-1-i];
+        droppedItems.pop_back();
+        free(tempItemPointer);
+    }
+
+    // Clear connected rooms
+    connectedRooms.clear();
+
+    // Clear features
+    feature.clear();
+    featureDescription.clear();
 
 }

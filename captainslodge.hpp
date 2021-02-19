@@ -32,7 +32,7 @@ public:
     captainsLodge();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
-    // ~captainsLodge();
+    ~captainsLodge();
 
 };
 

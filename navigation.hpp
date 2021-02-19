@@ -31,9 +31,8 @@ public:
 
     navigation();
     void lookAtFeature(string featureInputName);
-    void flagCheck();
     void interactRoom(string inputString);
-    // ~navigation();
+    ~navigation();
 
 };
 

@@ -22,7 +22,6 @@ using std::make_shared;
 
 class storage : public room {
 
-
 private:
 
     // Vector of action+feature interactions
@@ -33,9 +32,7 @@ public:
     storage();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
-    // ~storage();
-
-
+    ~storage();
 
 };
 
