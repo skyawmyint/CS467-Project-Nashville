@@ -443,8 +443,8 @@ bool game::timeRanOut(){
         return false;
     }
    auto current_time = std::chrono::high_resolution_clock::now();
-   int time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
-   if((this->total_seconds - time_elapsed) <= 0){
+   unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+   if(time_elapsed > this->total_seconds){
 
        // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
        std::cout << "\nYour palms are slippery with sweat \n"
