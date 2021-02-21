@@ -90,8 +90,13 @@ void storage::interactRoom(string inputString) {
     }
     // Case where the user wants to "READ" the NOTE.
     else if(featureActionChoice == 1){
-        cout << "\nYou read the following: \"Why is the storage room, which everyone needs to use, so difficult\n"
-                "to find???\"" << endl;
+        cout << "\nYou read the following:" << endl;
+        cout << "|---------------------------------------|" << endl;
+        cout << "| Why is the storage room, which        |" << endl;
+        cout << "| everyone needs to use, so difficult   |" << endl;
+        cout << "| to find???                            |" << endl;
+        cout << "|                                       |" << endl;
+        cout << "|---------------------------------------|" << endl;
     }
         // Input not recognized
     else{

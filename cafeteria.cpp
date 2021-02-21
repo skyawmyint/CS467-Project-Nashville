@@ -21,7 +21,7 @@ cafeteria::cafeteria() : room(5)
 
     // Add features to the room
     addFeature("STOVE","At first glance this smoking STOVE seems quite unsafe, oil leaks form the bottom.\n"
-                       "Maybe you can PLACE an EMPTY CONTAINER UNDER the STOVE to use the oil somewhere?");
+                       "Maybe you can find a container and PLACE it UNDER the STOVE to use the oil somewhere?");
     addFeature("SLOPPY JOES", "The SLOPPY JOES are apparently a station favorite. What if you EAT one?");
 
     // Set the interactive actions to the unordered map
@@ -32,6 +32,12 @@ cafeteria::cafeteria() : room(5)
     featureInteraction.insert({ "PLACE THE EMPTY CONTAINER UNDER THE STOVE", 0 });
     featureInteraction.insert({ "FILL THE EMPTY CONTAINER", 0 });
     featureInteraction.insert({ "FILL EMPTY CONTAINER", 0 });
+    featureInteraction.insert({ "PLACE CONTAINER UNDER STOVE", 0 });
+    featureInteraction.insert({ "PLACE CONTAINER UNDER THE STOVE", 0 });
+    featureInteraction.insert({ "PLACE THE CONTAINER UNDER STOVE", 0 });
+    featureInteraction.insert({ "PLACE THE CONTAINER UNDER THE STOVE", 0 });
+    featureInteraction.insert({ "FILL THE CONTAINER", 0 });
+    featureInteraction.insert({ "FILL CONTAINER", 0 });
     // Sloppy Joes interaction
     featureInteraction.insert({ "EAT SLOPPY JOES", 1 });
     featureInteraction.insert({ "EAT THE SLOPPY JOES", 1 });
@@ -85,8 +91,14 @@ void cafeteria::interactRoom(string inputString) {
                 "You fill up the container and take it with you!" << endl;
         // Change item into a filled container
         getCharacter()->returnItem(getCharacter()->itemIndex("EMPTY CONTAINER"))->setName("FILLED CONTAINER");
-        getCharacter()->returnItem(getCharacter()->itemIndex("FILLED CONTAINER"))->setDescription("A container filled up with oil, you can probably EMPTY it somewhere!");
+        getCharacter()->returnItem(getCharacter()->itemIndex("FILLED CONTAINER"))->setDescription("A container filled up with oil.");
         this->containerFilled = true;
+    }
+    else if(featureActionChoice == 0 && getCharacter()->searchItem("EMPTY CONTAINER") == false && containerFilled == false){
+        cout << "\nYou need some kind of container!" << endl;
+    }
+    else if(featureActionChoice == 0 && containerFilled == true){
+        cout << "\nCannot do anything else with this!" << endl;
     }
     // Case where the user wants to "EAT" the sloppy joes
     else if(featureActionChoice == 1) {

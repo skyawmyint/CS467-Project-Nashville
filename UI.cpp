@@ -379,9 +379,13 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
       }
 
       case 6:
-           pauseGame();
-	     break;
-
+          if(input.size() > actionSize){
+              cout << "Input not recognized." << endl;
+          }
+          else {
+              pauseGame();
+          }
+          break;
 
       case 7:
 	     break;
@@ -570,19 +574,20 @@ void UI::showMap(){
 help() - displays all the general commands the player can do
 **********************************************************************************/
 void UI::help(){
-   for(auto command : general_actions){
-      if(command.first == "GO"){
-	 continue;
-      }
-      std::cout << command.first;
-      if(command.first == "GO TO"){
-	 std::cout << " <ROOM>";
-      }
-      else if(command.first == "LOOK AT"){
-	 std::cout <<" <OBJECT>";
-      }
-      std::cout << std::endl;
-   }
+
+    cout << "\nGeneral Actions:" << endl;
+    cout << "Look - repeats the long form explanation of the room currently in." << endl;
+    cout << "Go to <Room> - navigates to the specific room." << endl;
+    cout << "Look at <Object/Feature> - Gives explanation of the feature or object in the room or inventory. Interact with features\n"
+            "in rooms by inputting the Interactive Verbs hinted at using this command." << endl;
+    cout << "Inventory - lists the contents of your inventory." << endl;
+    cout << "Help - lists a set of general actions the game understands." << endl;
+    cout << "Pause - pauses the countdown timer of the self-destruct until another command is inputted." << endl;
+    cout << "Map - shows the player the map of the space station. (Must be unlocked)" << endl;
+    cout << "Save Game - saves the game." << endl;
+    cout << "Load Game - loads a previously saved game." << endl;
+    cout << "Exit Game - stops and exits the game." << endl;
+
 }
 
 /********************************************************************************

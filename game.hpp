@@ -83,7 +83,7 @@ private:
     // Add some flags here for unlocking doors or powering up electrical, etc
     bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
     unsigned long long total_seconds; // TEMPORARY til we figure out countdown.
-    int time_left; // TEMPORARY til we figure out countdown.
+    // int time_left; // TEMPORARY til we figure out countdown.
     std::chrono::high_resolution_clock::time_point start_time;
     bool gameTimerDisabled;
     bool escapeStation = false;

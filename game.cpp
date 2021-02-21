@@ -133,15 +133,6 @@ game::game(){
    this->lifeSupportO2Room->setCharacter(player);
    this->captainsLodgeRoom->setCharacter(player);
 
-
-
-   // CHECKING IF ITEMS WORKING - TEMP!!!!
-   // this->player->setCaptainDoor();
-   // this->player->addItem(wrenchItem);
-   // this->player->addItem(badgeItem);
-   // this->player->addItem(flareGunItem);
-   // TEMP CODE!!!!!!!!!!!!!!!!!!!!!!!!!
-
    // Set up the current position on the game board
    this->currentPosition = medbayRoom;
 
