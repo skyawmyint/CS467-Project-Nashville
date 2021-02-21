@@ -457,7 +457,10 @@ bool game::timeRanOut(){
                     "as the reactor goes critical. \n"
                     "You face oblivion, remembering words from a dream... \n"
                     "Good luck....god speed."<< std::endl;
-      return true;
+       return true;
+   }
+      return false;
+}
       
    /********************************************************************************
      getCurrentRoomId - return id of current room
@@ -472,25 +475,6 @@ bool game::timeRanOut(){
    bool game::isMapMade(){
 
       return this->mapSaved;
-
-   }
-
-   /********************************************************************************
-     timeRanOut - returns true if time has run out
-     addBackPauseTime - paused time to add back, optional parameter
-    **********************************************************************************/
-   bool game::timeRanOut(){
-      if(this->gameTimerDisabled){
-	 return false;
-      }
-      auto current_time = std::chrono::high_resolution_clock::now();
-      unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
-      if((this->total_seconds - time_elapsed) <= 0){
-	 // !! ADD SOME KIND OF STORY FOR STATION EXPLODING EVENTUALLY HERE
-	 std::cout << "TIME RAN OUT. GAME OVER" << std::endl;
-	 return true;
-      }
-      return false;
 
    }
 
