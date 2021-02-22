@@ -36,6 +36,8 @@ private:
 public:
 
     corridor3(class game* currentGame);
+    corridor3(bool inputLoad, class game* currentGame);
+    void insertInteractions();
     void lookAtFeature(string featureInputName, int inputTime);
     void interactRoom(string inputString);
     void saveGame();

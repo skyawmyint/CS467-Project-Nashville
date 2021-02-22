@@ -1,7 +1,0 @@
-startingItems
-NAV COMM UPDATE MODULE
-empty droppedItems
-repeatVisit 
-0
-noisyValveOpen 
-1

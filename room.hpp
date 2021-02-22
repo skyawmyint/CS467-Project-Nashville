@@ -105,11 +105,13 @@ public:
     // Virtual function to deal with save/load
     virtual void saveGame();
     void saveInputFile(std::ofstream &inputFile);
+    void addLoadGameEntry(string inputString, int doType);
 
     // Misc Virtual Functions
     virtual bool isO2CanistersDestroyed();
 
     // Retrieve room ID
+    void setRoomID(int inputNumber);
     int getRoomId();
     // Destructor
     ~room();

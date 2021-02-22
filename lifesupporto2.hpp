@@ -33,6 +33,8 @@ private:
 public:
 
     lifeSupportO2();
+    lifeSupportO2(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
     bool isO2CanistersDestroyed();
@@ -41,6 +43,5 @@ public:
     ~lifeSupportO2();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_LIFESUPPORTO2_H

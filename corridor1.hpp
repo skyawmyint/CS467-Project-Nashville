@@ -22,7 +22,6 @@ using std::make_shared;
 
 class corridor1 : public room {
 
-
 private:
 
     // Vector of action+feature interactions
@@ -34,12 +33,13 @@ private:
 public:
 
     corridor1();
+    corridor1(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     int interactRoom(string inputString, bool inputMap);
     void saveGame();
     ~corridor1();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_CORRIDOR1_H

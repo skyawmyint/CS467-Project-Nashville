@@ -30,12 +30,13 @@ private:
 public:
 
     storage();
+    storage(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
     void saveGame();
     ~storage();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_STORAGE_H

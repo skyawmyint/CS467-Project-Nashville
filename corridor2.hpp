@@ -33,14 +33,13 @@ private:
 public:
 
     corridor2();
+    corridor2(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
     void saveGame();
     ~corridor2();
 
-
-
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_CORRIDOR2_H

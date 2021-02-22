@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <vector>
-#include <sys/ioctl.h>
+// #include <sys/ioctl.h>
 #include <stdio.h>
 #include <unistd.h>
 
@@ -23,8 +23,8 @@ int main(){
 
     // Check if the console screen size is adequate
     // Reference: https://stackoverflow.com/questions/1022957/getting-terminal-width-in-c
-    struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    // struct winsize w;
+    // ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
     // Need a size of 30x130. Uncomment when finished!
     /*
     if(w.ws_row < 30 || w.ws_col < 130){
@@ -52,11 +52,15 @@ int main(){
     // Load an existing game here
     else if(menuChoice1 == 1){
 
-        // We will probably call something like user_interface->makeLoadGame();
-        cout << "Load game has not been implemented yet. Sorry!" << endl;
-        continueSim = false;
-        return 0;
+        bool loadGameMade;
+        loadGameMade = user_interface->makeLoadGame();
 
+        // Make a new game if load game couldn't be done
+        if(loadGameMade == false){
+            cout << "\nNo existing load file found. Starting New Game!\n" << endl;
+            user_interface->makeNewGame();
+            user_interface->selectDifficulty();
+        }
     }
     // Else exit game
     else{

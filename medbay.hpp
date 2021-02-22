@@ -30,6 +30,8 @@ private:
 public:
 
     medbay();    //constructor
+    medbay(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
     void interactRoom(string inputString);
@@ -37,6 +39,5 @@ public:
     ~medbay();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_MEDBAY_H

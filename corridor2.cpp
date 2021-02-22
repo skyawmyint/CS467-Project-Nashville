@@ -11,6 +11,82 @@ default constructor
 **********************************************************************************/
 corridor2::corridor2() : room(8)
 {
+    // Place all default information
+    insertInteractions();
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+corridor2::corridor2(bool inputLoad) : room(8)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(8);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCorridor2.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "wrenchTaken"){
+                getline (myfile,line);
+                this->wrenchTaken = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+    // Change description for wrench taken
+    if(wrenchTaken == true){
+        // Set a new long description
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
+                           "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
+                           "face down on the floor whom you found the WRENCH from.");
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void corridor2::insertInteractions() {
 
     // Set initial room descriptions
     setName("CORRIDOR 2");
@@ -37,6 +113,7 @@ corridor2::corridor2() : room(8)
     featureInteraction.insert({ "PULL MAN", 1 });
     featureInteraction.insert({ "PUSH THE MAN", 1 });
     featureInteraction.insert({ "PUSH MAN", 1 });
+
 }
 
 /*********************************************************************************
@@ -127,7 +204,7 @@ void corridor2::saveGame() {
     saveInputFile(MyFile);
 
     // Put flags from this child
-    MyFile << "wrenchTaken \n" << this->wrenchTaken  << endl;
+    MyFile << "wrenchTaken\n" << this->wrenchTaken  << endl;
 
     // Close the text file
     MyFile.close();

@@ -33,6 +33,8 @@ private:
 public:
 
     reactor();
+    reactor(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
     void interactRoom(string inputString);
@@ -40,6 +42,5 @@ public:
     ~reactor();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_REACTOR_H
