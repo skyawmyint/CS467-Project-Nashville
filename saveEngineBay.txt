@@ -1,0 +1,7 @@
+startingItems
+WORK GLOVES
+empty droppedItems
+repeatVisit 
+0
+jumpersOpened 
+0

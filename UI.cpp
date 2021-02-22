@@ -16,14 +16,28 @@ using std::vector;
  **********************************************************************************/
 UI::UI() {
 
+    // Case 0 - LOOK
    general_actions.insert({ "LOOK", 0 });
+
+   // Case 1 - HELP
    general_actions.insert({ "HELP", 1 });
+
+   // Case 2 - INVENTORY
    general_actions.insert({ "INVENTORY", 2 });
+
+   // Case 3 - SAVE GAME
+   general_actions.insert({ "SAVE GAME", 3 });
    general_actions.insert({ "SAVEGAME", 3 });
+
+   // Case 4 - LOAD GAME
    general_actions.insert({ "LOADGAME", 4 });
+
    general_actions.insert({ "TIME", 5 });
+
+   // Case 6 - PAUSE
    general_actions.insert({ "PAUSE", 6 });
- //  general_actions.insert({ "UNPAUSE", 7 });
+
+   //general_actions.insert({ "UNPAUSE", 7 });
 
    // Case 8 - MAP
    general_actions.insert({ "MAP", 8 });
@@ -64,7 +78,6 @@ UI::UI() {
 
    // Case 14 - Junk cases to deal with overriding some previous actions
     general_actions.insert({ "LOOK OUT", 14 });
-
 
    // MENU OPTIONS
    menu_options.insert({"NEW", 0});
@@ -366,8 +379,16 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		break;
 	     }
 
-      case 3:
-	     break;
+	     // Case to 'SAVE GAME'
+
+	     case 3:
+             if(input.size() > actionSize){
+                 cout << "Input not recognized." << endl;
+             }
+             else{
+                 currentGame->saveGame();
+             }
+	         break;
       case 4:
 	     break;
 
@@ -578,9 +599,11 @@ void UI::help(){
     cout << "\nGeneral Actions:" << endl;
     cout << "Look - repeats the long form explanation of the room currently in." << endl;
     cout << "Go to <Room> - navigates to the specific room." << endl;
-    cout << "Look at <Object/Feature> - Gives explanation of the feature or object in the room or inventory. Interact with features\n"
+    cout << "Look at <Item/Feature> - Gives explanation of the feature or item in the room or inventory. Interact with features\n"
             "in rooms by inputting the Interactive Verbs hinted at using this command." << endl;
     cout << "Inventory - lists the contents of your inventory." << endl;
+    cout << "Take <Item> - picks up an item from the floor." << endl;
+    cout << "Drop <Item> - drops an item to the floor." << endl;
     cout << "Help - lists a set of general actions the game understands." << endl;
     cout << "Pause - pauses the countdown timer of the self-destruct until another command is inputted." << endl;
     cout << "Map - shows the player the map of the space station. (Must be unlocked)" << endl;

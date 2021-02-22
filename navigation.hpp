@@ -32,6 +32,7 @@ public:
     navigation();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~navigation();
 
 };

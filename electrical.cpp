@@ -128,6 +128,22 @@ void electrical::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void electrical::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveElectrical.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

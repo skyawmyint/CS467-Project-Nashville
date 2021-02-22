@@ -160,6 +160,25 @@ void lifeSupportO2::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void lifeSupportO2::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveLifeSupportO2.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "O2CanistersDestroyed \n" << this->O2CanistersDestroyed  << endl;
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

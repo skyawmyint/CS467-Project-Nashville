@@ -35,6 +35,7 @@ public:
     engineBay();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~engineBay();
 
 };

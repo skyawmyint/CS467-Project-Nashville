@@ -34,9 +34,9 @@ public:
     mainframeRoom(class game* current_game);
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~mainframeRoom();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_MAINFRAMEROOM_H

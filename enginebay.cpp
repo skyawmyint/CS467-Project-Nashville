@@ -140,6 +140,25 @@ void engineBay::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void engineBay::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveEngineBay.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "jumpersOpened \n" << this->jumpersOpened  << endl;
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

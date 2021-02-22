@@ -116,6 +116,22 @@ void captainsLodge::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void captainsLodge::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCaptainsLodge.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

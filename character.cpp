@@ -198,6 +198,37 @@ bool character::getCaptainDoor(){
 
 };
 
+/*********************************************************************************
+saveGame - saves flags and inventory to a txt file
+*************************************************************************************/
+bool character::saveGame(){
+
+    // Create and open a text file
+    std::ofstream MyFile("savePlayer.txt");
+
+    // Save the inventory
+    // If inventory is not empty
+    if(inventory.size() != 0){
+        MyFile << "inventory\n";
+        for(int i = 0; i < inventory.size(); i++){
+            MyFile << inventory[i]->getName() << endl;
+        }
+    }
+    else{
+        MyFile << "empty inventory" << endl;
+    }
+
+    // Save the flags
+    MyFile << "pumpPrimerFull\n" << this->pumpPrimerFull << endl;
+    MyFile << "electricalPanelRepaired\n" << this->electricalPanelRepaired << endl;
+    MyFile << "navigationUploaded\n" << this->navigationUploaded << endl;
+    MyFile << "unlockCaptain\n" << this->unlockCaptain << endl;
+
+    // Close the text file
+    MyFile.close();
+
+};
+
 /********************************************************************************
 destructor
 **********************************************************************************/

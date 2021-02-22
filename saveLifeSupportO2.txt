@@ -1,0 +1,7 @@
+startingItems
+EMPTY CONTAINER
+empty droppedItems
+repeatVisit 
+0
+O2CanistersDestroyed 
+0

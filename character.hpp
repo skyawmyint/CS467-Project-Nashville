@@ -15,6 +15,7 @@ It declares all our member variables and member function prototypes.
 #include <ctime>
 #include <vector>
 #include <memory>
+#include <fstream>
 
 #include "Item.hpp"
 
@@ -54,6 +55,7 @@ public:
     bool getNavigation();
     void setCaptainDoor();
     bool getCaptainDoor();
+    bool saveGame();
     ~character(); // Destructor
 
 };

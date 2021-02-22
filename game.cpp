@@ -8,12 +8,10 @@ Description: This is the class implementation file for the class game.
 #include <iostream>
 #include <thread>
 
-
 /********************************************************************************
   default constructor
  **********************************************************************************/
 game::game(){
-
 
    // Set the game timer
    this->gameTimerDisabled = false;
@@ -544,6 +542,77 @@ bool game::timeRanOut(){
       return this->escapeStation;
 
    }
+
+/********************************************************************************
+saveGame - creates savegame txt files for the game
+**********************************************************************************/
+void game::saveGame() {
+
+    // Save the time
+    auto current_time = std::chrono::high_resolution_clock::now();
+    unsigned long long time_elapsed = std::chrono::duration_cast<std::chrono::seconds>(current_time - this->start_time).count();
+
+    // Verify player wants to save the game
+    cout << "\nAre you sure you'd like to save your game?" << endl;
+    string input = "";
+
+    // Get input from the user
+    //while(input.empty()) {
+    std::cout << "Enter choice (Yes/No): ";
+    std::getline(cin, input);
+    //}
+
+    // If the player wants to save the game
+    if(input == "YES" || input == "YEs" || input == "Yes" || input == "yeS" || input == "yES" || input == "yes" ){
+
+        cout << "\nSaving Game!" << endl;
+
+        // Create and open a text file
+        std::ofstream MyFile("saveGame.txt");
+
+        // Save all flags
+        MyFile << "currentRoom\n" << this->currentPosition->getName() << endl;
+        MyFile << "mapSaved\n" << this->mapSaved << endl;
+        unsigned long long time_left = this->total_seconds - time_elapsed;
+        MyFile << "total_seconds\n" << time_left << endl;
+        MyFile << "gameTimerDisabled\n" << this->gameTimerDisabled << endl;
+        MyFile << "escapeStation\n" << this->escapeStation << endl;
+        MyFile << "electricalRoomDoorFixed\n" << this->electricalRoomDoorFixed << endl;
+        MyFile.close();
+
+        // Call the save function for character
+        this->player->saveGame();
+
+        // Call the save function for rooms
+        this->corridor1Room->saveGame();
+        this->corridor2Room->saveGame();
+        this->corridor3Room->saveGame();
+        this->medbayRoom->saveGame();
+        this->escapePodRoomRoom->saveGame();
+        this->mainframeRoomRoom->saveGame();
+        this->communicationsRoom->saveGame();
+        this->electricalRoom->saveGame();
+        this->navigationRoom->saveGame();
+        this->cafeteriaRoom->saveGame();
+        this->reactorRoom->saveGame();
+        this->engineBayRoom->saveGame();
+        this->storageRoom->saveGame();
+        this->lifeSupportO2Room->saveGame();
+        this->captainsLodgeRoom->saveGame();
+
+    }
+
+    // Player does not want to save the game
+    else if(input == "NO" || input == "No" || input == "nO" || input == "no"){
+
+        cout << "\nNot saving game!" << endl;
+
+    }
+    // Invalid input
+    else{
+        cout << "\nInput not recognized." << endl;
+    }
+}
 
    /********************************************************************************
      destructor

@@ -115,6 +115,25 @@ void corridor2::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void corridor2::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCorridor2.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "wrenchTaken \n" << this->wrenchTaken  << endl;
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/
