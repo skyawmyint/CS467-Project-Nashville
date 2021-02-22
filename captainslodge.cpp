@@ -107,7 +107,7 @@ void captainsLodge::interactRoom(string inputString) {
     else if(featureActionChoice == 1){
 
         cout << "\nYou read the inscription:\n"
-                "\"My beloved Fluffy\"" << endl;
+                "\"My beloved Memphis.\"" << endl;
     }
 
     // Input not recognized

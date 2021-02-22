@@ -15,9 +15,9 @@ corridor1::corridor1() : room(6)
     setName("CORRIDOR 1");
 
     setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, as well\n"
-                       "as six doors along the west wall. A large screen spans across the other wall displaying an INTERACTIVE MAP. On the corner of\n"
-                       "the south wall, you see a STATUE of a person. Suddenly, you hear a rumbling. The room shakes and you stumble fighting\n"
-                       "for balance. You feel a sinking sensation of doom...");
+                       "as six doors along the west wall. A large screen spans across the other wall displaying an INTERACTIVE MAP. On the\n"
+                       "corner of the south wall, you see a STATUE of a person. Suddenly, you hear a rumbling. The room shakes and\n"
+                       "you stumble fighting for balance. You feel a sinking sensation of doom...");
     setShortDescription("You see another long corridor headed east. There are six doors along the west wall. A large screen spans across\n"
                         "the west wall displaying an INTERACTIVE MAP. There is a STATUE on the corner of the south wall.");
 

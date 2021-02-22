@@ -14,7 +14,7 @@ navigation::navigation() : room(13)
     setName("NAVIGATION");
     setLongDescription("The uncharted vistas of space can be seen stretching to event horizon outside of NAVIGATION's viewport. \n"
                        "Still takes your breath away. The room however has suffered worse than most, it appears several of the terminals \n"
-                       "have been smashed and there are signs of a scuffle. The captain's COMPUTER however, situated at the main command chair, \n"
+                       "have been smashed and there are signs of a scuffle. The captain's COMPUTER however, situated at the main command chair,\n"
                        "may still have some functionality. There appears to be some sort of blinking light coming from a MESSAGE RECORDER\n"
                        "next to the COMPUTER as well. The exit leads back to CORRIDOR 1");
     setShortDescription("The captains' COMPUTER terminal sits across from his now empty leather chair with a MESSAGE RECORDER next to it.\n"

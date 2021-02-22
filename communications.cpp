@@ -105,15 +105,17 @@ void communications::interactRoom(string inputString) {
 
         // Show backstory of the station here! Also set astronaut as being hailed
         this->astronautHailed = true;
-        cout << "\nHello...can...anyone...me? \n"
+        cout << "\nYou quickly send out a mayday, and are shocked when the stars answer? \n"
+                "Hello...can...anyone...me? \n"
                 "This is Major Sanderson. \n"
                 "If someone can hear me. \n"
                 "Project Nashville has been compromised. \n"
                 "I barely managed to escape. \n"
-                "But there should be one pod still remaining. \n"
-                "Need...key and...nav...\n"
+                "But there should be one escape pod still remaining. \n"
+                "Need...key and...nav Comm module...\n"
                 "Repeat, the station....compromised. \n"
                 "Self-destruct has been activated... \n"
+                "Get out of there! Save yourself... \n"
                 "Good luck....god speed."<< endl;
     }
 

@@ -85,7 +85,7 @@ void mainframeRoom::interactRoom(string inputString) {
         cout << endl;
         UI* user_interface = new UI();
         vector<string>pass = user_interface->getInput();
-        if(pass.size() >= 1 && pass[0] == "1225FLUFFY"){
+        if(pass.size() >= 1 && pass[0] == "1225Memphis"){
             myGame->disableGameTimer();
             this->timerFlag = true;
             cout << "\nSuccess!\n"<< endl;

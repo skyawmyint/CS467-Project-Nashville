@@ -14,7 +14,7 @@ corridor3::corridor3(game* currentGame) : room(7) {
 
     setName("CORRIDOR 3");
     setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall. \n"
-                       "It’s almost a perfect mirror image of the first corridor entered. Why is there one less door though?\n"
+                       "It is almost a perfect mirror image of the first corridor entered. Why is there one less door though?\n"
                        "A large CLOCK spans across the northwestern wall counting down. You also see a large PAINTING on the\n"
                        "southwestern wall.");
     setShortDescription("There are five doors along the east wall. A large CLOCK spans across the northwestern wall\n"

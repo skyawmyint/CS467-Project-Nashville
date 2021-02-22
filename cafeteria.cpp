@@ -15,7 +15,7 @@ cafeteria::cafeteria() : room(5)
     setName("CAFETERIA");
     setLongDescription("You see a large room filled with cafeteria style bench tables. At the back of the room is\n"
                        "a long counter stacked with serving trays filled with half-rotting sandwiches. Looks like SLOPPY JOES.\n"
-                       "Yuck.  Smoke plumes from a STOVE behind the counter. CORRIDOR 3 looms behind.");
+                       "Yuck. Smoke plumes from a STOVE behind the counter. CORRIDOR 3 looms behind.");
     setShortDescription("You enter a large room filled with cafeteria style bench tables. At the back of the room is a long counter \n"
                         "stacked with serving trays of rotting SLOPPY JOES. Smoke plumes from a STOVE behind the counter.");
 

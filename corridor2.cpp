@@ -15,10 +15,11 @@ corridor2::corridor2() : room(8)
     // Set initial room descriptions
     setName("CORRIDOR 2");
     setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
-                       "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It’s a ... person.\n"
-                       "A MAN in a silver spacesuit lays face down on the floor. You give him a nudge, but he does not respond. He may not be breathing.");
-    setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and 2 on either side. A LARGE WINDOW on the north wall overlooks the stars.\n"
-                        "You see an unresponsive MAN on the floor.");
+                       "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It is a ... person.\n"
+                       "A MAN in a silver spacesuit lays face down on the floor. You give him a nudge, but he does not respond. \n"
+                       "He may not breathing");
+    setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW \n"
+                        "on the north wall overlooks the stars. You see an unresponsive MAN on the floor.");
 
 
     // Set initial features in the room
@@ -91,8 +92,8 @@ void corridor2::interactRoom(string inputString) {
     else if(featureActionChoice == 1 && wrenchTaken == false){
 
         // Get the WRENCH from the MAN
-        cout <<"\nYou use your strength to move the MAN off from the tool. Man! Should have worked out a bit more. You finally use all your\n"
-               "might to lift him slightly in order to remove it! You pick up a WRENCH!" << endl;
+        cout <<"\nYou use your strength to move the MAN off from the tool. Man! Should have worked out a bit more. You finally use all \n"
+               "your might to lift him slightly in order to remove it! You pick up a WRENCH!" << endl;
         getCharacter()->addItem(removeItemStarting("WRENCH"));
 
         // Set a new long description

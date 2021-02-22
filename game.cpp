@@ -330,7 +330,7 @@ void game::moveRooms(string roomNameInput){
 	 }
 	 else{
 	    movedRooms = false;
-	    cout << "The door to the CAPTAIN'S LODGE is locked. You muse unlock this from a computer somewhere..." << endl;
+	    cout << "The door to the CAPTAIN'S LODGE is locked. You must unlock this from a computer somewhere..." << endl;
 	 }
       }
 
