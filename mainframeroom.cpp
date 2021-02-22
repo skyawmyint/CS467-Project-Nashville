@@ -14,9 +14,79 @@ default constructor
 **********************************************************************************/
 mainframeRoom::mainframeRoom(class game* current_game) : room(4)
 {
-
+    // Place all default information
     this->myGame = current_game;
     this->timerFlag = false;
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+mainframeRoom::mainframeRoom(bool inputLoad, class game* current_game) : room(4)
+{
+    // Place all default information
+    this->myGame = current_game;
+    insertInteractions();
+    setRoomID(4);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveMainframeRoom.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "timerFlag"){
+                getline (myfile,line);
+                this->timerFlag = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void mainframeRoom::insertInteractions() {
+
     setName("MAINFRAME");
     setLongDescription("If NAVIGATION could be considered the mind of the space station, and the CAPTAIN'S CABIN the soul, \n"
                        "then this room, the MAINFRAME, is surely the heart. Normally off limits to all but the most trusted of personnel, \n"
@@ -28,13 +98,14 @@ mainframeRoom::mainframeRoom(class game* current_game) : room(4)
     // Add features to the room
     addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
     addFeature("NOTE", "Looks like a crew member left a note. Maybe you can READ this.");
-    
+
     featureInteraction.insert({ "HACK COMPUTER", 0 });
     featureInteraction.insert({ "HACK THE COMPUTER", 0 });
     featureInteraction.insert({ "READ NOTE", 1 });
     featureInteraction.insert({ "READ THE NOTE", 1 });
 
 }
+
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
@@ -135,7 +206,7 @@ void mainframeRoom::saveGame() {
     saveInputFile(MyFile);
 
     // Put flags from this child
-    MyFile << "timerFlag \n" << this->timerFlag  << endl;
+    MyFile << "timerFlag\n" << this->timerFlag  << endl;
 
     // Close the text file
     MyFile.close();

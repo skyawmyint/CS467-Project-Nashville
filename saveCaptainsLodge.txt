@@ -1,5 +1,0 @@
-startingItems
-BADGE
-empty droppedItems
-repeatVisit 
-0

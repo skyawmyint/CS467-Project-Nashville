@@ -11,6 +11,76 @@ default constructor
 **********************************************************************************/
 communications::communications() : room(9)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+communications::communications(bool inputLoad) : room(9)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(9);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCommunications.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "astronautHailed"){
+                getline (myfile,line);
+                this->astronautHailed = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void communications::insertInteractions() {
 
     setName("COMMUNICATIONS");
     setLongDescription("Ahhh...COMMUNICATIONS. This was your first duty onboard this station, monitoring incoming voice chatter, \n"
@@ -145,7 +215,7 @@ void communications::saveGame() {
     saveInputFile(MyFile);
 
     // Put flags from this child
-    MyFile << "astronautHailed \n" << this->astronautHailed  << endl;
+    MyFile << "astronautHailed\n" << this->astronautHailed  << endl;
 
     // Close the text file
     MyFile.close();

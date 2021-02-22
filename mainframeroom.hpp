@@ -32,6 +32,8 @@ private:
 public:
 
     mainframeRoom(class game* current_game);
+    mainframeRoom(bool inputLoad, class game* current_game);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
     void saveGame();

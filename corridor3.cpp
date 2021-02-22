@@ -10,7 +10,78 @@ Description: This is the class implementation file for the class corridor3.
 default constructor
 **********************************************************************************/
 corridor3::corridor3(game* currentGame) : room(7) {
+
     this->currentGame = currentGame;
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+corridor3::corridor3(bool inputLoad, game* currentGame) : room(7)
+{
+    // Place all default information
+    this->currentGame = currentGame;
+    insertInteractions();
+    setRoomID(7);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCorridor3.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "paintingDestroyed"){
+                getline (myfile,line);
+                this->paintingDestroyed = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void corridor3::insertInteractions() {
 
     setName("CORRIDOR 3");
     setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall. \n"
@@ -34,6 +105,7 @@ corridor3::corridor3(game* currentGame) : room(7) {
     featureInteraction.insert({ "DESTROY PAINTING", 1});
     featureInteraction.insert({ "DESTROY THIS PAINTING", 1});
     featureInteraction.insert({ "DESTROY THE PAINTING", 1});
+
 }
 
 /*********************************************************************************
@@ -111,7 +183,7 @@ void corridor3::saveGame() {
     saveInputFile(MyFile);
 
     // Put flags from this child
-    MyFile << "paintingDestroyed \n" << this->paintingDestroyed  << endl;
+    MyFile << "paintingDestroyed\n" << this->paintingDestroyed  << endl;
 
     // Close the text file
     MyFile.close();

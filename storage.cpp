@@ -11,6 +11,72 @@ default constructor
 **********************************************************************************/
 storage::storage() : room(14)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+storage::storage(bool inputLoad) : room(14)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(14);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveStorage.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+            // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+            // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void storage::insertInteractions() {
 
     setName("STORAGE");
     setLongDescription("The shattered wreckage of the destroyed O2 CANISTERS make maneuvering into room a tad difficult, \n"
@@ -34,9 +100,8 @@ storage::storage() : room(14)
     featureInteraction.insert({ "READ NOTE", 1 });
     featureInteraction.insert({ "SKIM NOTE", 1 });
     featureInteraction.insert({ "SKIM THE NOTE", 1 });
-
-
 }
+
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/

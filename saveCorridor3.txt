@@ -1,6 +1,0 @@
-empty startingItems
-empty droppedItems
-repeatVisit 
-0
-paintingDestroyed 
-0

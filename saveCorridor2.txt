@@ -1,7 +1,0 @@
-startingItems
-WRENCH
-empty droppedItems
-repeatVisit 
-0
-wrenchTaken 
-0

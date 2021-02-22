@@ -46,16 +46,6 @@ private:
     // Character
     character* player;
 
-    // Items in the game
-    item* keyItem;
-    item* badgeItem;
-    item* scalpelItem;
-    item* workGlovesItem;
-    item* navCommUpdateModuleItem;
-    item* emptyContainerItem;
-    item* wrenchItem;
-    item* flareGunItem;
-
     // Rooms in the game
     room* corridor1Room; // Corridors
     room* corridor2Room;
@@ -75,9 +65,6 @@ private:
     room* lifeSupportO2Room;
     room* captainsLodgeRoom;
 
-    // Vector of rooms in the game
-    // vector<room*> roomVector;
-
     // Current room
     room* currentPosition;
 
@@ -91,8 +78,8 @@ private:
 
 public:
 
-    game(); // constructor
-    // game(txtInput) EVENTUALLY do a constructor with text file
+    game(); // default constructor
+    game(bool loadGameInput); // constructor for load game
     void currentRoomDescription();
     void lookDescription();
     void dropItem(string itemName);
@@ -112,7 +99,6 @@ public:
     void setEscape();
     bool getEscape();
     void saveGame();
-
     ~game(); // destructor
 
 };

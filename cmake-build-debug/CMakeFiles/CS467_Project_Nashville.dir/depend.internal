@@ -33,34 +33,40 @@ CMakeFiles/CS467_Project_Nashville.dir/cafeteria.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cafeteria.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/captainslodge.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/captainslodge.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/captainslodge.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/character.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/communications.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/communications.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/communications.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor1.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/corridor1.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/corridor1.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor2.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/corridor2.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/corridor2.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cafeteria.hpp
@@ -82,18 +88,21 @@ CMakeFiles/CS467_Project_Nashville.dir/corridor3.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/reactor.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/electrical.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/electrical.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/electrical.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/enginebay.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/enginebay.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/enginebay.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/escapepodroom.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
@@ -138,12 +147,14 @@ CMakeFiles/CS467_Project_Nashville.dir/game.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/reactor.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/lifesupporto2.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/lifesupporto2.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/lifesupporto2.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/main.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
@@ -196,29 +207,34 @@ CMakeFiles/CS467_Project_Nashville.dir/medbay.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/medbay.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/medbay.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/navigation.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/navigation.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/navigation.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/reactor.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/reactor.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/reactor.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/room.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/storage.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/Item.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/character.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/storage.hpp
+ /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp
 CMakeFiles/CS467_Project_Nashville.dir/utilityFunctions.cpp.o
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.cpp
  /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/utilityFunctions.hpp

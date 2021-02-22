@@ -31,12 +31,13 @@ private:
 public:
 
     escapePodRoom(class game* current_game);
+    escapePodRoom(bool inputLoad, class game* current_game);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
     void saveGame();
     ~escapePodRoom();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_ESCAPEPODROOM_H
