@@ -33,6 +33,7 @@ public:
     void lookAtFeature(string featureInputName);
     bool isTakeableFromStarting(string inputItemName);
     void interactRoom(string inputString);
+    void saveGame();
     ~medbay();
 
 };

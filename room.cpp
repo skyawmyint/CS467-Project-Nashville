@@ -384,6 +384,46 @@ int room::getRoomId(){
    return this->room_id;
 }
 
+/*********************************************************************************
+saveGame() - virtual function to save room flags
+ *************************************************************************************/
+void room::saveGame(){
+
+}
+
+/*********************************************************************************
+saveInputFile - takes in an input file txt and places flags in it
+ *************************************************************************************/
+void room::saveInputFile(std::ofstream &inputFile){
+
+    // Save the starting
+    // If starting is not empty
+    if(startingItems.size() != 0){
+        inputFile << "startingItems\n";
+        for(int i = 0; i < startingItems.size(); i++){
+            inputFile << startingItems[i]->getName() << endl;
+        }
+    }
+    else{
+        inputFile << "empty startingItems" << endl;
+    }
+
+    // Save droppedItems
+    if(droppedItems.size() != 0){
+        inputFile << "droppedItems\n";
+        for(int i = 0; i < droppedItems.size(); i++){
+            inputFile << droppedItems[i]->getName() << endl;
+        }
+    }
+    else{
+        inputFile << "empty droppedItems" << endl;
+    }
+
+    // Other flags
+    inputFile << "repeatVisit \n" << this->repeatVisit  << endl;
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

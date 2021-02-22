@@ -131,6 +131,25 @@ void reactor::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void reactor::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveReactor.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "noisyValveOpen \n" << this->noisyValveOpen  << endl;
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

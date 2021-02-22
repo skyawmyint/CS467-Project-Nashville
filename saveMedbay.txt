@@ -1,0 +1,6 @@
+startingItems
+SCALPEL
+FLARE GUN
+empty droppedItems
+repeatVisit 
+1

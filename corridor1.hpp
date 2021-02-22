@@ -36,6 +36,7 @@ public:
     corridor1();
     void lookAtFeature(string featureInputName);
     int interactRoom(string inputString, bool inputMap);
+    void saveGame();
     ~corridor1();
 
 };

@@ -1,0 +1,4 @@
+empty startingItems
+empty droppedItems
+repeatVisit 
+0

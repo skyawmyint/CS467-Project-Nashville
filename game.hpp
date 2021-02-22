@@ -15,6 +15,7 @@ It declares all our member variables and member function prototypes.
 #include <memory>
 #include <string>
 #include <chrono>
+#include <fstream>
 
 #include "character.hpp"
 #include "Item.hpp"
@@ -83,7 +84,6 @@ private:
     // Add some flags here for unlocking doors or powering up electrical, etc
     bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
     unsigned long long total_seconds; // TEMPORARY til we figure out countdown.
-    // int time_left; // TEMPORARY til we figure out countdown.
     std::chrono::high_resolution_clock::time_point start_time;
     bool gameTimerDisabled;
     bool escapeStation = false;
@@ -111,6 +111,7 @@ public:
     void addBackPauseTime(unsigned long long pauseSeconds);
     void setEscape();
     bool getEscape();
+    void saveGame();
 
     ~game(); // destructor
 

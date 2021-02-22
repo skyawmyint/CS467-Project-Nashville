@@ -133,6 +133,25 @@ void communications::interactRoom(string inputString) {
     }
 }
 
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void communications::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCommunications.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "astronautHailed \n" << this->astronautHailed  << endl;
+
+    // Close the text file
+    MyFile.close();
+
+}
+
 /********************************************************************************
 destructor
 **********************************************************************************/

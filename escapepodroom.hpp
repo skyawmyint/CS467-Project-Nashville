@@ -33,6 +33,7 @@ public:
     escapePodRoom(class game* current_game);
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~escapePodRoom();
 
 };

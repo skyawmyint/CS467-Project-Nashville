@@ -35,11 +35,22 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RunManager">
-    <configuration name="CS467_Project_Nashville" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS467_Project_Nashville" TARGET_NAME="CS467_Project_Nashville" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS467_Project_Nashville" RUN_TARGET_NAME="CS467_Project_Nashville">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CS467_Project_Nashville" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS467_Project_Nashville" TARGET_NAME="CS467_Project_Nashville" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS467_Project_Nashville" RUN_TARGET_NAME="CS467_Project_Nashville">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -86,6 +97,9 @@
       <workItem from="1613639487922" duration="2549000" />
       <workItem from="1613642788175" duration="3198000" />
       <workItem from="1613893899701" duration="6949000" />
+      <workItem from="1613950136623" duration="2218000" />
+      <workItem from="1613952358409" duration="72000" />
+      <workItem from="1613952431664" duration="5693000" />
     </task>
     <servers />
   </component>
@@ -93,6 +107,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="505" y="363" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613952471504">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="505" y="363" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1613952471504" />
     <state x="658" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611529532090">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -101,26 +119,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1611141055241" />
-    <state x="676" y="457" key="FileChooserDialogImpl" timestamp="1613526623729">
+    <state x="676" y="457" key="FileChooserDialogImpl" timestamp="1613952418033">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="676" y="457" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1613526623729" />
-    <state width="1992" height="492" key="GridCell.Tab.0.bottom" timestamp="1613902839311">
+    <state x="676" y="457" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1613952418033" />
+    <state width="1992" height="450" key="GridCell.Tab.0.bottom" timestamp="1613958131288">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1992" height="492" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1613902839311" />
-    <state width="1992" height="492" key="GridCell.Tab.0.center" timestamp="1613902839311">
+    <state width="1992" height="450" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1613958131288" />
+    <state width="1992" height="450" key="GridCell.Tab.0.center" timestamp="1613958131288">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1992" height="492" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1613902839311" />
-    <state width="1992" height="492" key="GridCell.Tab.0.left" timestamp="1613902839311">
+    <state width="1992" height="450" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1613958131288" />
+    <state width="1992" height="450" key="GridCell.Tab.0.left" timestamp="1613958131288">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1992" height="492" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1613902839311" />
-    <state width="1992" height="492" key="GridCell.Tab.0.right" timestamp="1613902839311">
+    <state width="1992" height="450" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1613958131288" />
+    <state width="1992" height="450" key="GridCell.Tab.0.right" timestamp="1613958131288">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1992" height="492" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1613902839311" />
+    <state width="1992" height="450" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1613958131288" />
     <state width="1992" height="492" key="GridCell.Tab.1.bottom" timestamp="1613902839311">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -137,14 +155,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1992" height="492" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1613902839311" />
-    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1613526630503">
+    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1613952428573">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel/0.0.2560.1400@0.0.2560.1400" timestamp="1613526630503" />
-    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel" timestamp="1613526630503">
+    <state width="640" height="204" key="ImportCMakeProjectWizard.bottomPanel/0.0.2560.1400@0.0.2560.1400" timestamp="1613952428573" />
+    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel" timestamp="1613952428573">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel/0.0.2560.1400@0.0.2560.1400" timestamp="1613526630503" />
+    <state width="640" height="476" key="ImportCMakeProjectWizard.topPanel/0.0.2560.1400@0.0.2560.1400" timestamp="1613952428573" />
+    <state x="552" y="353" key="SettingsEditor" timestamp="1613952299287">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="552" y="353" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1613952299287" />
     <state x="410" y="432" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1611697276322">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

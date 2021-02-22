@@ -37,6 +37,7 @@ public:
     bool isTakeableFromStarting(string inputItemName);
     bool isO2CanistersDestroyed();
     void interactRoom(string inputString);
+    void saveGame();
     ~lifeSupportO2();
 
 };

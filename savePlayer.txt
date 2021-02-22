@@ -1,0 +1,9 @@
+empty inventory
+pumpPrimerFull
+0
+electricalPanelRepaired
+0
+navigationUploaded
+0
+unlockCaptain
+0
