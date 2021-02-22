@@ -11,6 +11,76 @@ default constructor
 **********************************************************************************/
 engineBay::engineBay() : room(3)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+engineBay::engineBay(bool inputLoad) : room(3)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(3);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveEngineBay.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "jumpersOpened"){
+                getline (myfile,line);
+                this->jumpersOpened = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void engineBay::insertInteractions() {
 
     setName("ENGINE BAY");
     setLongDescription("Multiple tables covered in scattered parts in various stages of disrepair mark the ENGINE BAY. \n"
@@ -138,6 +208,25 @@ void engineBay::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void engineBay::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveEngineBay.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "jumpersOpened\n" << this->jumpersOpened  << endl;
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

@@ -12,6 +12,77 @@ default constructor
 cafeteria::cafeteria() : room(5)
 {
 
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+cafeteria::cafeteria(bool inputLoad) : room(5)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(5);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCafeteria.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+            // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+            // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "containerFilled"){
+                getline (myfile,line);
+                this->containerFilled = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void cafeteria::insertInteractions() {
+
     setName("CAFETERIA");
     setLongDescription("You see a large room filled with cafeteria style bench tables. At the back of the room is\n"
                        "a long counter stacked with serving trays filled with half-rotting sandwiches. Looks like SLOPPY JOES.\n"
@@ -43,7 +114,6 @@ cafeteria::cafeteria() : room(5)
     featureInteraction.insert({ "EAT THE SLOPPY JOES", 1 });
     featureInteraction.insert({ "GRAB SLOPPY JOES", 1 });
     featureInteraction.insert({ "GRAB THE SLOPPY JOES", 1 });
-
 }
 
 /*********************************************************************************
@@ -108,6 +178,25 @@ void cafeteria::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void cafeteria::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCafeteria.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "containerFilled\n" << this->containerFilled  << endl;
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

@@ -11,6 +11,71 @@ default constructor
 **********************************************************************************/
 navigation::navigation() : room(13)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+navigation::navigation(bool inputLoad) : room(13)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(13);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveNavigation.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void navigation::insertInteractions() {
+
     setName("NAVIGATION");
     setLongDescription("The uncharted vistas of space can be seen stretching to event horizon outside of NAVIGATION's viewport. \n"
                        "Still takes your breath away. The room however has suffered worse than most, it appears several of the terminals \n"
@@ -46,7 +111,6 @@ navigation::navigation() : room(13)
     // Upload nav comm module
     featureInteraction.insert({ "UPLOAD NAV COMM UPDATE MODULE", 3 });
     featureInteraction.insert({ "UPLOAD THE NAV COMM UPDATE MODULE", 3 });
-
 }
 
 /*********************************************************************************
@@ -154,6 +218,22 @@ void navigation::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void navigation::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveNavigation.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

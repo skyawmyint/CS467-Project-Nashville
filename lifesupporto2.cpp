@@ -11,6 +11,103 @@ default constructor
 **********************************************************************************/
 lifeSupportO2::lifeSupportO2() : room(12)
 {
+    // Place all default information
+    insertInteractions();
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+lifeSupportO2::lifeSupportO2(bool inputLoad) : room(12)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(12);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveLifeSupportO2.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "O2CanistersDestroyed"){
+                getline (myfile,line);
+                this->O2CanistersDestroyed = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+
+    // Set descriptions based on flags
+    // Container there, canisters destroyed
+    if(searchItemStarting("EMPTY CONTAINER") == true && O2CanistersDestroyed == true){
+        setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
+                           "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
+                           "A quick glance shows that all read-outs are at nominal or slightly above. You see an EMPTY CONTAINER\n"
+                           "still intact after the explosion near the entrance to the STORAGE room.");
+        setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
+                            "You see an EMPTY CONTAINER right by the entrance to the STORAGE room");
+    }
+    // Container not there, canisters not destroyed
+    else if(searchItemStarting("EMPTY CONTAINER") == false && O2CanistersDestroyed == false){
+        setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
+                           "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
+                           "A quick glance shows that all read-outs are at nominal or slightly above. You see a stack of \n"
+                           "unused yet full O2 CANISTERS. While the only nominal exit is back to CORRIDOR 3, something \n"
+                           "seems off about this room...");
+        setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
+                            "You see some unused, but full O2 CANISTERS stacked together against the wall.");
+    }
+    // Container not there, canisters destroyed
+    else if(searchItemStarting("EMPTY CONTAINER") == false && O2CanistersDestroyed == true){
+        setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
+                           "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
+                           "A quick glance shows that all read-outs are at nominal or slightly above. You see the remains of the destroyed\n"
+                           "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room");
+        setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
+                            "You see a newly opened entrance to the STORAGE room.");
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void lifeSupportO2::insertInteractions() {
 
     setName("LIFE SUPPORT O2");
     setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
@@ -158,6 +255,25 @@ void lifeSupportO2::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void lifeSupportO2::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveLifeSupportO2.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "O2CanistersDestroyed\n" << this->O2CanistersDestroyed  << endl;
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

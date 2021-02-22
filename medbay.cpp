@@ -11,6 +11,79 @@ default constructor
 **********************************************************************************/
 medbay::medbay() : room(2)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+medbay::medbay(bool inputLoad) : room(2)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(2);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveMedbay.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+
+    // Edit description based on flag
+    if(searchItemStarting("SCALPEL") == false){
+        // The item will have been taken at this point, remove scalpel from long/short description.
+        setLongDescription("You see that you are surrounded by white walls that are very bright and clean, the air quite sterile with little in the room. \n"
+                           "The only things that draw your eye are the empty surgical table that you woke up on, a metal table in the corner of the room, \n"
+                           "a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. You also see a COMPUTER on top of the metal table that looks functional.");
+        setShortDescription("A surgical table lays in the center of the room.  A COMPUTER sits atop of a metal table in the corner with a MEDICAL BOX next to it.");
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void medbay::insertInteractions() {
 
     // Set name and descriptions
     setName("MEDBAY");
@@ -143,6 +216,22 @@ void medbay::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void medbay::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveMedbay.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

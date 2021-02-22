@@ -11,6 +11,72 @@ default constructor
 **********************************************************************************/
 captainsLodge::captainsLodge() : room(10)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+captainsLodge::captainsLodge(bool inputLoad) : room(10)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(10);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCaptainsLodge.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void captainsLodge::insertInteractions() {
+
     setName("CAPTAIN'S LODGE");
     setLongDescription("Clothes and half-filled suitcases are scattered across the floor in what appears to be a\n"
                        "bedroom. It looks like someone left in a hurry. An unmade bed and nightstand sit in the corner. \n"
@@ -23,7 +89,7 @@ captainsLodge::captainsLodge() : room(10)
     addFeature("DESK","The Captain's DESK has been overturned in a frenzy. Is there something trapped underneath?\n"
                       "Maybe you can USE something sharp ON THE DESK to get it out.");
     addFeature("FRAMED PHOTO", "A FRAMED PHOTO of an orange tabby cat on the dresser. You see a small inscription\n"
-                              "on the top right of the picture. You may want to READ the FRAMED PHOTO MESSAGE.");
+                               "on the top right of the picture. You may want to READ the FRAMED PHOTO MESSAGE.");
 
     // Set the interactive actions to the unordered map
     // DESK interaction
@@ -62,7 +128,6 @@ void captainsLodge::lookAtFeature(string featureInputName) {
     else{
         cout << "Input not recognized." << endl;
     }
-
 }
 
 /*********************************************************************************
@@ -114,6 +179,22 @@ void captainsLodge::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void captainsLodge::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCaptainsLodge.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

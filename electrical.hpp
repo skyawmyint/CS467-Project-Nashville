@@ -30,8 +30,11 @@ private:
 public:
 
     electrical();
+    electrical(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~electrical();
 
 };

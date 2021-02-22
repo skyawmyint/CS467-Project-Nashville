@@ -15,6 +15,7 @@ It declares all our member variables and member function prototypes.
 #include <memory>
 #include <string>
 #include <chrono>
+#include <fstream>
 
 #include "character.hpp"
 #include "Item.hpp"
@@ -45,16 +46,6 @@ private:
     // Character
     character* player;
 
-    // Items in the game
-    item* keyItem;
-    item* badgeItem;
-    item* scalpelItem;
-    item* workGlovesItem;
-    item* navCommUpdateModuleItem;
-    item* emptyContainerItem;
-    item* wrenchItem;
-    item* flareGunItem;
-
     // Rooms in the game
     room* corridor1Room; // Corridors
     room* corridor2Room;
@@ -74,16 +65,12 @@ private:
     room* lifeSupportO2Room;
     room* captainsLodgeRoom;
 
-    // Vector of rooms in the game
-    // vector<room*> roomVector;
-
     // Current room
     room* currentPosition;
 
     // Add some flags here for unlocking doors or powering up electrical, etc
     bool mapSaved; // = false if map hasn't been saved. = true when map has been saved.
     unsigned long long total_seconds; // TEMPORARY til we figure out countdown.
-    // int time_left; // TEMPORARY til we figure out countdown.
     std::chrono::high_resolution_clock::time_point start_time;
     bool gameTimerDisabled;
     bool escapeStation = false;
@@ -91,8 +78,8 @@ private:
 
 public:
 
-    game(); // constructor
-    // game(txtInput) EVENTUALLY do a constructor with text file
+    game(); // default constructor
+    game(bool loadGameInput); // constructor for load game
     void currentRoomDescription();
     void lookDescription();
     void dropItem(string itemName);
@@ -111,7 +98,7 @@ public:
     void addBackPauseTime(unsigned long long pauseSeconds);
     void setEscape();
     bool getEscape();
-
+    void saveGame();
     ~game(); // destructor
 
 };

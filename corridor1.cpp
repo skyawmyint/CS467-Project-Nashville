@@ -12,6 +12,87 @@ default constructor
 corridor1::corridor1() : room(6)
 {
 
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+corridor1::corridor1(bool inputLoad) : room(6)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(6);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveCorridor1.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "statueBroken"){
+                getline (myfile,line);
+                this->statueBroken = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+
+    else{
+        cout << "Unable to open file";
+    }
+
+    // Change description if statue is broken
+    // If not broken
+    if(statueBroken == true){
+        setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, as well\n"
+                           "as six doors along the west wall. A large screen spans across the other wall displaying an INTERACTIVE MAP. On the corner of\n"
+                           "the south wall, you see remains of a shattered STATUE. Suddenly, you hear a rumbling. The room shakes and you stumble fighting \n"
+                           "for balance. You feel a sinking sensation of doom...");
+        setShortDescription("You see another long corridor headed east. There are six doors along the west wall. A large screen spans across\n"
+                            "the west wall displaying an INTERACTIVE MAP. There are remains of a broken STATUE on the corner of the south wall.");
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void corridor1::insertInteractions() {
+
     setName("CORRIDOR 1");
 
     setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, as well\n"
@@ -132,6 +213,25 @@ int corridor1::interactRoom(string inputString, bool inputMap) {
     }
 
     return 0;
+
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void corridor1::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveCorridor1.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "statueBroken\n" << this->statueBroken  << endl;
+
+    // Close the text file
+    MyFile.close();
 
 }
 

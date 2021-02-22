@@ -15,8 +15,10 @@ It declares all our member variables and member function prototypes.
 #include <ctime>
 #include <vector>
 #include <memory>
+#include <fstream>
 
 #include "Item.hpp"
+#include "utilityFunctions.hpp"
 
 using std::cin;
 using std::cout;
@@ -38,7 +40,8 @@ private:
 
 public:
 
-    character();  // Constructor
+    character();  // Default
+    character(bool loadInput); // Constructor for load game
     void addItem(item* inputItem);
     bool searchItem(string inputItemName);
     int itemIndex(string inputItemName);
@@ -54,6 +57,7 @@ public:
     bool getNavigation();
     void setCaptainDoor();
     bool getCaptainDoor();
+    void saveGame();
     ~character(); // Destructor
 
 };

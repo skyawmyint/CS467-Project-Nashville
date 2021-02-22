@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <sstream>
 #include <chrono>
+#include <fstream>
 
 #include "UI.hpp"
 
@@ -16,14 +17,31 @@ using std::vector;
  **********************************************************************************/
 UI::UI() {
 
+    // Case 0 - LOOK
    general_actions.insert({ "LOOK", 0 });
+
+   // Case 1 - HELP
    general_actions.insert({ "HELP", 1 });
+
+   // Case 2 - INVENTORY
    general_actions.insert({ "INVENTORY", 2 });
+
+   // Case 3 - SAVE GAME
+   general_actions.insert({ "SAVE GAME", 3 });
    general_actions.insert({ "SAVEGAME", 3 });
+    general_actions.insert({ "SAVE", 3 });
+
+   // Case 4 - LOAD GAME
+   general_actions.insert({ "LOAD GAME", 4 });
    general_actions.insert({ "LOADGAME", 4 });
+   general_actions.insert({ "LOAD", 4 });
+
    general_actions.insert({ "TIME", 5 });
+
+   // Case 6 - PAUSE
    general_actions.insert({ "PAUSE", 6 });
- //  general_actions.insert({ "UNPAUSE", 7 });
+
+   //general_actions.insert({ "UNPAUSE", 7 });
 
    // Case 8 - MAP
    general_actions.insert({ "MAP", 8 });
@@ -64,7 +82,6 @@ UI::UI() {
 
    // Case 14 - Junk cases to deal with overriding some previous actions
     general_actions.insert({ "LOOK OUT", 14 });
-
 
    // MENU OPTIONS
    menu_options.insert({"NEW", 0});
@@ -366,10 +383,26 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
 		break;
 	     }
 
-      case 3:
-	     break;
-      case 4:
-	     break;
+	     // Case to 'SAVE GAME'
+
+	     case 3: {
+             if (input.size() > actionSize) {
+                 cout << "Input not recognized." << endl;
+             } else {
+                 currentGame->saveGame();
+             }
+             break;
+         }
+
+         // Case to 'LOAD GAME'
+         case 4: {
+          if (input.size() > actionSize) {
+              cout << "Input not recognized." << endl;
+          } else {
+              loadGameFromRunning();
+          }
+          break;
+      }
 
       // Case to 'TIME' !!UNUSED for now. TIME implemented with CLOCK in corridor 3
       case 5:{
@@ -378,6 +411,7 @@ void UI::generalActions(vector<string> input, int actionChoice, int actionSize){
           break;
       }
 
+      // Case to 'PAUSE'
       case 6:
           if(input.size() > actionSize){
               cout << "Input not recognized." << endl;
@@ -491,7 +525,7 @@ void UI::showMap(){
 
    //Player in Mainframe
    if(player_location == 4){
-      std::cout << "|                  |       R                                                                R       |                  |" << std::endl;
+      std::cout << "|         *        |       R                                                                R       |                  |" << std::endl;
    }
    //Player in Cafeteria
    else if(player_location == 5){
@@ -578,9 +612,11 @@ void UI::help(){
     cout << "\nGeneral Actions:" << endl;
     cout << "Look - repeats the long form explanation of the room currently in." << endl;
     cout << "Go to <Room> - navigates to the specific room." << endl;
-    cout << "Look at <Object/Feature> - Gives explanation of the feature or object in the room or inventory. Interact with features\n"
+    cout << "Look at <Item/Feature> - Gives explanation of the feature or item in the room or inventory. Interact with features\n"
             "in rooms by inputting the Interactive Verbs hinted at using this command." << endl;
     cout << "Inventory - lists the contents of your inventory." << endl;
+    cout << "Take <Item> - picks up an item from the floor." << endl;
+    cout << "Drop <Item> - drops an item to the floor." << endl;
     cout << "Help - lists a set of general actions the game understands." << endl;
     cout << "Pause - pauses the countdown timer of the self-destruct until another command is inputted." << endl;
     cout << "Map - shows the player the map of the space station. (Must be unlocked)" << endl;
@@ -762,6 +798,80 @@ void UI::pauseGame(){
     this->currentGame->addBackPauseTime(time_elapsed);
 }
 
+/********************************************************************************
+makeLoadGame - creates a game from a load text file
+**********************************************************************************/
+bool UI::makeLoadGame(){
+
+    /* try to open file to read */
+    std::ifstream ifile;
+    ifile.open("saveGame.txt");
+    // If a txt file exists
+    if(ifile) {
+
+        // Close the file
+        ifile.close();
+
+        // Make a load game
+        cout << "\nLoading existing game!" << endl;
+        this->currentGame = new game(true);
+        this->gameMade = true;
+        return true;
+    }
+    // There is no txt file
+    else {
+        return false;
+    }
+}
+
+/********************************************************************************
+loadGameFromRunning - loads an existing game while it is running
+**********************************************************************************/
+void UI::loadGameFromRunning(){
+
+    // Verify player wants to save the game
+    cout << "\nAre you sure you'd like to load previous game?" << endl;
+    string input = "";
+    std::cout << "Enter choice (Yes/No): ";
+    std::getline(cin, input);
+
+    // If the player wants to load the game
+    if(input == "YES" || input == "YEs" || input == "Yes" || input == "yeS" || input == "yES" || input == "yes" ) {
+
+        /* try to open file to read */
+        std::ifstream ifile;
+        ifile.open("saveGame.txt");
+        // If a txt file exists
+        if (ifile) {
+
+            // Close the file
+            ifile.close();
+
+            // Delete game currently running
+            free(this->currentGame);
+
+            // Make a load game
+            cout << "\nLoading existing game!" << endl;
+            this->currentGame = new game(true);
+            this->gameMade = true;
+        }
+            // There is no txt file
+        else {
+            cout << "\nNo load file exists!" << endl;
+        }
+    }
+        // Player does not want to load the game
+    else if(input == "NO" || input == "No" || input == "nO" || input == "no"){
+
+        cout << "\nNot loading game!" << endl;
+
+    }
+        // Invalid input
+    else{
+        cout << "\nInput not recognized." << endl;
+    }
+}
+
 /*********************************************************************************************************
   destructor
  *******************************************************************/
@@ -779,23 +889,3 @@ UI::~UI() {
     items.clear();
 
 }
-
-/*
-   std::vector<Room*> loadRooms(){
-
-   Load room files and return a Rooms vec to Game?
-   start with instantiating with items current in room
-
-   }
-   */
-
-
-
-/*void saveRoomFiles(std::vector<Room*> rooms, int time = -1){
-  If timer does not equal -1, timer is not disabled
-  store curr_time to file and timer state to a game file
-  Read out room files?
-  Room files have vector of Items
-  Iterate through Items to store file
-  Different room states ?
-  }*/

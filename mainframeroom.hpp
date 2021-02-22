@@ -32,11 +32,13 @@ private:
 public:
 
     mainframeRoom(class game* current_game);
+    mainframeRoom(bool inputLoad, class game* current_game);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~mainframeRoom();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_MAINFRAMEROOM_H

@@ -31,11 +31,13 @@ private:
 public:
 
     cafeteria();
+    cafeteria(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~cafeteria();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_CAFETERIA_H

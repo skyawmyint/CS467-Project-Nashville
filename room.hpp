@@ -16,6 +16,7 @@ It declares all our member variables and member function prototypes.
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <fstream>
 
 #include "Item.hpp"
 #include "character.hpp"
@@ -101,10 +102,16 @@ public:
     virtual void interactRoom(string inputString);
     virtual int interactRoom(string inputString, bool inputMap);
 
+    // Virtual function to deal with save/load
+    virtual void saveGame();
+    void saveInputFile(std::ofstream &inputFile);
+    void addLoadGameEntry(string inputString, int doType);
+
     // Misc Virtual Functions
     virtual bool isO2CanistersDestroyed();
 
     // Retrieve room ID
+    void setRoomID(int inputNumber);
     int getRoomId();
     // Destructor
     ~room();

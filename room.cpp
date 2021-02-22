@@ -378,10 +378,180 @@ bool room::isO2CanistersDestroyed(){
 }
 
 /*********************************************************************************
+setRoomID - sets the room ID number
+ *************************************************************************************/
+void room::setRoomID(int inputNum){
+
+    this->room_id = inputNum;
+
+}
+
+/*********************************************************************************
 getRoomId - returns room id
  *************************************************************************************/
 int room::getRoomId(){
    return this->room_id;
+}
+
+/*********************************************************************************
+saveGame() - virtual function to save room flags
+ *************************************************************************************/
+void room::saveGame(){
+
+}
+
+/*********************************************************************************
+saveInputFile - takes in an input file txt and places flags in it
+ *************************************************************************************/
+void room::saveInputFile(std::ofstream &inputFile){
+
+    // Save the starting
+    // If starting is not empty
+    if(startingItems.size() != 0){
+        inputFile << "startingItems\n";
+        for(int i = 0; i < startingItems.size(); i++){
+            inputFile << startingItems[i]->getName() << endl;
+        }
+    }
+    else{
+        inputFile << "empty startingItems" << endl;
+    }
+    inputFile << "END" << endl;
+
+    // Save droppedItems
+    if(droppedItems.size() != 0){
+        inputFile << "droppedItems\n";
+        for(int i = 0; i < droppedItems.size(); i++){
+            inputFile << droppedItems[i]->getName() << endl;
+        }
+    }
+    else{
+        inputFile << "empty droppedItems" << endl;
+    }
+    inputFile << "END" << endl;
+
+    // Other flags
+    inputFile << "repeatVisit\n" << this->repeatVisit  << endl;
+
+}
+
+/*********************************************************************************
+addLoadGameEntry() - virtual function to load room flags specifically
+ *************************************************************************************/
+void room::addLoadGameEntry(string inputString, int doType){
+
+    // Add to starting vector
+    if(doType == 0){
+        if(inputString == "KEY"){
+            item* keyItem = new item();
+            keyItem->setName("KEY");
+            keyItem->setDescription("This KEY can be used to escape in the ESCAPE POD.");
+            addItemStarting(keyItem);
+        }
+        else if(inputString == "BADGE"){
+            item* badgeItem = new item();
+            badgeItem->setName("BADGE");
+            badgeItem->setDescription("This BADGE allows access to open the MAINFRAME ROOM.");
+            addItemStarting(badgeItem);
+        }
+        else if(inputString == "SCALPEL"){
+            item* scalpelItem = new item();
+            scalpelItem->setName("SCALPEL");
+            scalpelItem->setDescription("This is a handy SCALPEL that can be used in multiple objects to cut and pry.");
+            addItemStarting(scalpelItem);
+        }
+        else if(inputString == "WORK GLOVES"){
+            item* workGlovesItem = new item();
+            workGlovesItem->setName("WORK GLOVES");
+            workGlovesItem->setDescription("These WORK GLOVES can be handy in working with dangerous electrical objects.");
+            addItemStarting(workGlovesItem);
+        }
+        else if(inputString == "NAV COMM UPDATE MODULE"){
+            item* navCommUpdateModuleItem = new item();
+            navCommUpdateModuleItem->setName("NAV COMM UPDATE MODULE");
+            navCommUpdateModuleItem->setDescription("The NAV COMM UPDATE MODULE can be used on a computer to allow a safe route on an escape pod.");
+            addItemStarting(navCommUpdateModuleItem);
+        }
+        else if(inputString == "EMPTY CONTAINER"){
+            item* emptyContainerItem = new item();
+            emptyContainerItem->setName("EMPTY CONTAINER");
+            emptyContainerItem->setDescription("This EMPTY CONTAINER can be filled with something.");
+            addItemStarting(emptyContainerItem);
+        }
+        else if(inputString == "WRENCH"){
+            item* wrenchItem = new item();
+            wrenchItem->setName("WRENCH");
+            wrenchItem->setDescription("This WRENCH can be used to turn valves or bolts.");
+            addItemStarting(wrenchItem);
+        }
+        else if(inputString == "FLARE GUN"){
+            item* flareGunItem = new item();
+            flareGunItem->setName("FLARE GUN");
+            flareGunItem->setDescription("This FLARE GUN can probably be used to ignite something with O2.");
+            addItemStarting(flareGunItem);
+        }
+    }
+    // Add to dropped items
+    else if(doType == 1){
+        if(inputString == "KEY"){
+            item* keyItem = new item();
+            keyItem->setName("KEY");
+            keyItem->setDescription("This KEY can be used to escape in the ESCAPE POD.");
+            addItemDropped(keyItem);
+        }
+        else if(inputString == "BADGE"){
+            item* badgeItem = new item();
+            badgeItem->setName("BADGE");
+            badgeItem->setDescription("This BADGE allows access to open the MAINFRAME ROOM.");
+            addItemDropped(badgeItem);
+        }
+        else if(inputString == "SCALPEL"){
+            item* scalpelItem = new item();
+            scalpelItem->setName("SCALPEL");
+            scalpelItem->setDescription("This is a handy SCALPEL that can be used in multiple objects to cut and pry.");
+            addItemDropped(scalpelItem);
+        }
+        else if(inputString == "WORK GLOVES"){
+            item* workGlovesItem = new item();
+            workGlovesItem->setName("WORK GLOVES");
+            workGlovesItem->setDescription("These WORK GLOVES can be handy in working with dangerous electrical objects.");
+            addItemDropped(workGlovesItem);
+        }
+        else if(inputString == "NAV COMM UPDATE MODULE"){
+            item* navCommUpdateModuleItem = new item();
+            navCommUpdateModuleItem->setName("NAV COMM UPDATE MODULE");
+            navCommUpdateModuleItem->setDescription("The NAV COMM UPDATE MODULE can be used on a computer to allow a safe route on an escape pod.");
+            addItemDropped(navCommUpdateModuleItem);
+        }
+        else if(inputString == "EMPTY CONTAINER"){
+            item* emptyContainerItem = new item();
+            emptyContainerItem->setName("EMPTY CONTAINER");
+            emptyContainerItem->setDescription("This EMPTY CONTAINER can be filled with something.");
+            addItemDropped(emptyContainerItem);
+        }
+        else if(inputString == "FILLED CONTAINER") {
+            item *emptyContainerItem = new item();
+            emptyContainerItem->setName("FILLED CONTAINER");
+            emptyContainerItem->setDescription("A container filled up with oil.");
+            addItemDropped(emptyContainerItem);
+        }
+        else if(inputString == "WRENCH"){
+            item* wrenchItem = new item();
+            wrenchItem->setName("WRENCH");
+            wrenchItem->setDescription("This WRENCH can be used to turn valves or bolts.");
+            addItemDropped(wrenchItem);
+        }
+        else if(inputString == "FLARE GUN"){
+            item* flareGunItem = new item();
+            flareGunItem->setName("FLARE GUN");
+            flareGunItem->setDescription("This FLARE GUN can probably be used to ignite something with O2.");
+            addItemDropped(flareGunItem);
+        }
+    }
+    // repeatVisit flag
+    else if(doType == 2){
+        this->repeatVisit = ToBoolean(inputString);
+    }
 }
 
 /********************************************************************************

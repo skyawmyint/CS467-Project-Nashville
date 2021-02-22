@@ -33,11 +33,13 @@ private:
 public:
 
     engineBay();
+    engineBay(bool inputLoad);
+    void insertInteractions();
     void lookAtFeature(string featureInputName);
     void interactRoom(string inputString);
+    void saveGame();
     ~engineBay();
 
 };
-
 
 #endif //CS467_PROJECT_NASHVILLE2_ENGINEBAY_H

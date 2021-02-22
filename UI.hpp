@@ -38,7 +38,8 @@ class UI {
      int menuStartUp();
      void makeNewGame();
      void selectDifficulty();
-     // void makeLoadGame();
+     bool makeLoadGame();
+     void loadGameFromRunning();
      bool play();
       UI();
       ~UI();

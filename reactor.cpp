@@ -11,6 +11,83 @@ default constructor
 **********************************************************************************/
 reactor::reactor() : room(1)
 {
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+reactor::reactor(bool inputLoad) : room(1)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(1);
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveReactor.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+            // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+            // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+            else if(line == "noisyValveOpen"){
+                getline (myfile,line);
+                this->noisyValveOpen = ToBoolean(line);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+
+    // Change description based on flag
+    if(noisyValveOpen == false){
+        // Now update the descriptions to show it is less noisy!
+        setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
+                           "You see the VALVE that you closed to stop that deafening clanking. However, you still hear a pinging...this is coming\n"
+                           "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?");
+        setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.");
+    }
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void reactor::insertInteractions() {
 
     setName("REACTOR");
     setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
@@ -31,9 +108,7 @@ reactor::reactor() : room(1)
     featureInteraction.insert({ "CLOSE THE VALVE", 0 });
     featureInteraction.insert({ "TURN THE VALVE", 0 });
     featureInteraction.insert({ "TURN VALVE", 0 });
-
 }
-
 
 /*********************************************************************************
 isTakeableFromStarting - will return true if the player can TAKE an item from the
@@ -129,6 +204,25 @@ void reactor::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void reactor::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveReactor.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Put flags from this child
+    MyFile << "noisyValveOpen\n" << this->noisyValveOpen  << endl;
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************

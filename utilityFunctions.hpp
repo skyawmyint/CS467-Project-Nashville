@@ -10,6 +10,7 @@
 
 using std::string;
 
+bool ToBoolean(string value);
 
 #endif  
 

@@ -16,6 +16,72 @@ escapePodRoom::escapePodRoom(class game* current_game) : room(0)
 {
 
     this->myGame = current_game;
+    // Place all default information
+    insertInteractions();
+
+}
+
+/********************************************************************************
+constructor
+**********************************************************************************/
+escapePodRoom::escapePodRoom(bool inputLoad, class game* current_game) : room(0)
+{
+    // Place all default information
+    insertInteractions();
+    setRoomID(0);
+    this->myGame = current_game;
+
+    // Read from txt file
+    string line;
+    std::ifstream myfile ("saveEscapePodRoom.txt");
+    if (myfile.is_open())
+    {
+        while ( getline (myfile,line) )
+        {
+            // For starting items
+            if(line == "startingItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,0);
+                    }
+                }
+            }
+                // For dropped items
+            else if(line == "droppedItems"){
+                bool endReached = false;
+                while(endReached == false){
+                    getline (myfile,line);
+                    if(line == "END"){
+                        endReached = true;
+                    }
+                    else{
+                        addLoadGameEntry(line,1);
+                    }
+                }
+            }
+                // Do other flags
+            else if(line == "repeatVisit"){
+                getline (myfile,line);
+                addLoadGameEntry(line, 2);
+            }
+        }
+        myfile.close();
+    }
+    else{
+        cout << "Unable to open file";
+    }
+
+}
+
+/*********************************************************************************
+insertInteractions() - places all the feature interactions in the object
+*************************************************************************************/
+void escapePodRoom::insertInteractions() {
 
     setName("ESCAPE POD ROOM");
     setLongDescription("The room is barren and stark, necessary except with the vain hope that it would never have to be used. This ESCAPE POD \n"
@@ -39,6 +105,7 @@ escapePodRoom::escapePodRoom(class game* current_game) : room(0)
     featureInteraction.insert({ "READ THE NOTEPAD", 1 });
 
 }
+
 /*********************************************************************************
 lookAtFeature - will output a description if a feature is found with the look at action
 *************************************************************************************/
@@ -126,6 +193,22 @@ void escapePodRoom::interactRoom(string inputString) {
     else{
         cout << "Input not recognized." << endl;
     }
+}
+
+/*********************************************************************************
+saveGame - saves to a text file flags and important vectors
+*************************************************************************************/
+void escapePodRoom::saveGame() {
+
+    // Create and open a text file
+    std::ofstream MyFile("saveEscapePodRoom.txt");
+
+    // Put flags from the Room parent
+    saveInputFile(MyFile);
+
+    // Close the text file
+    MyFile.close();
+
 }
 
 /********************************************************************************
