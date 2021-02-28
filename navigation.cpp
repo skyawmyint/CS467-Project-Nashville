@@ -83,7 +83,8 @@ void navigation::insertInteractions() {
                        "may still have some functionality. There appears to be some sort of blinking light coming from a MESSAGE RECORDER\n"
                        "next to the COMPUTER as well. The exit leads back to CORRIDOR 1");
     setShortDescription("The captains' COMPUTER terminal sits across from his now empty leather chair with a MESSAGE RECORDER next to it.\n"
-                        "These seem to be the only piece of equipment possible of functioning. This room has seen much the worse for wear.");
+                        "These seem to be the only piece of equipment possible of functioning. This room has seen much the worse for wear.\n"
+                        "The exit leads back to CORRIDOR 1.");
 
     // Add features to the room
     addFeature("MESSAGE RECORDER","You see a blinking red light going off on the MESSAGE RECORDER. Maybe you can PLAY THE MESSAGE\n"

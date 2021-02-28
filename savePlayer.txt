@@ -1,0 +1,16 @@
+inventory
+SCALPEL
+WRENCH
+FLARE GUN
+KEY
+WORK GLOVES
+BADGE
+END
+pumpPrimerFull
+1
+electricalPanelRepaired
+1
+navigationUploaded
+1
+unlockCaptain
+1

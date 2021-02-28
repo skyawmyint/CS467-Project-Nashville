@@ -84,7 +84,7 @@ void electrical::insertInteractions() {
                        "being quite dangerous to approach and causing the lights to flicker. In the corner however, safely out of range of \n"
                        "the panel, sits a COMPUTER on a desk that somehow seems to have power...you can always go back to CORRIDOR 1.");
     setShortDescription("A shattered ELECTRICAL PANEL hums on the far side of the room. In a tiny corner across the way \n"
-                        "a COMPUTER sits alone and lonely.");
+                        "a COMPUTER sits alone and lonely. The way out is back to CORRIDOR 1.");
 
     // Add features to the room
     addFeature("COMPUTER","There appears to be some kind of EMAIL on the screen that you can READ.");

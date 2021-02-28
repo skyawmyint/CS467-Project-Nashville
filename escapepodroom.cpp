@@ -88,7 +88,8 @@ void escapePodRoom::insertInteractions() {
                        "ROOM should have had at least a half-dozen pods primed and ready for jump in case of emergency, \n"
                        "yet only one ESCAPE POD remains, its soft lights gently humming. Against a side wall is a metal table with a small \n"
                        "NOTEPAD atop. A door behind leads back to the dark hall of CORRIDOR 1.");
-    setShortDescription("One gently whirring ESCAPE POD lays primed in the far corner. A small NOTEPAD sits atop of a metal table against the side wall");
+    setShortDescription("One gently whirring ESCAPE POD lays primed in the far corner. A small NOTEPAD sits atop of a metal table against the side wall.\n"
+                        "A door behind leads back to the dark hall of CORRIDOR 1.");
 
     // Add features to the room
     addFeature("ESCAPE POD","This is the key to your salvation, if only you knew how to get it working! Then you can ENTER it");
@@ -100,6 +101,8 @@ void escapePodRoom::insertInteractions() {
     featureInteraction.insert({ "ENTER THE ESCAPE POD", 0 });
     featureInteraction.insert({ "USE ESCAPE POD", 0 });
     featureInteraction.insert({ "USE THE ESCAPE POD", 0 });
+    featureInteraction.insert({ "ESCAPE USING THE ESCAPE POD", 0 });
+    featureInteraction.insert({ "ESCAPE USING ESCAPE POD", 0 });
     // Notepad interaction
     featureInteraction.insert({ "READ NOTEPAD", 1 });
     featureInteraction.insert({ "READ THE NOTEPAD", 1 });

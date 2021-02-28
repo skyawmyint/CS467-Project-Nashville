@@ -76,7 +76,8 @@ medbay::medbay(bool inputLoad) : room(2)
         setLongDescription("You see that you are surrounded by white walls that are very bright and clean, the air quite sterile with little in the room. \n"
                            "The only things that draw your eye are the empty surgical table that you woke up on, a metal table in the corner of the room, \n"
                            "a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. You also see a COMPUTER on top of the metal table that looks functional.");
-        setShortDescription("A surgical table lays in the center of the room.  A COMPUTER sits atop of a metal table in the corner with a MEDICAL BOX next to it.");
+        setShortDescription("A surgical table lays in the center of the room.  A COMPUTER sits atop of a metal table in the corner with a MEDICAL BOX next to it.\n"
+                            "There is a door leading to CORRIDOR 1.");
     }
 }
 
@@ -92,7 +93,7 @@ void medbay::insertInteractions() {
                        "a metal table in the corner of the room, a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. \n"
                        "You also see a COMPUTER on top of the metal table that looks functional.");
     setShortDescription("A surgical table with the SCALPEL lays in the center of the room.  A COMPUTER sits atop of a metal table in the \n"
-                        "corner with a MEDICAL BOX next to it.");
+                        "corner with a MEDICAL BOX next to it. There is a door leading to CORRIDOR 1.");
 
     // Toggle the game to say it has been visited already since it is where we begin
     toggleEnteredRoom();
@@ -129,7 +130,7 @@ bool medbay::isTakeableFromStarting(string inputItemName){
                            "The only things that draw your eye are the empty surgical table that you woke up on, a metal table in the corner of the room, \n"
                            "a MEDICAL BOX on the far wall, and a door leading to a dark hall, CORRIDOR 1. You also see a COMPUTER on top of the metal table that looks functional.");
         setShortDescription("A surgical table lays in the center of the room. A COMPUTER sits atop of a metal table in the corner with a \n"
-                            "MEDICAL BOX next to it");
+                            "MEDICAL BOX next to it. There is a door leading to CORRIDOR 1.");
 
         return true;
     }

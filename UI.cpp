@@ -196,6 +196,18 @@ void UI::selectDifficulty(){
        }
      }
 
+     // INSTRUCTIONS
+     cout << endl;
+     cout << "|----------------------------------------------------------------------------------------------------|" << endl;
+     cout << "|                                              INSTRUCTIONS                                          |" << endl;
+     cout << "|----------------------------------------------------------------------------------------------------|" << endl;
+     cout << "| Project Nashville utilizes user inputs in navigating and interacting with the game. The player may |" << endl;
+     cout << "| use the command GO TO <ROOM NAME> to navigate to a specific room. The command LOOK repeats the     |" << endl;
+     cout << "| description of a room. The command LOOK AT <FEATURE NAME> returns a description of a feature or    |" << endl;
+     cout << "| item, likely giving a hint for further interactions. For all the general actions that are present  |" << endl;
+     cout << "| in the game, use the command HELP.                                                                 |" << endl;
+     cout << "|----------------------------------------------------------------------------------------------------|" << endl;
+
     cout << endl;
     cout << "You jolt awake. Cold steel presses against your back and a bright lamp glares overhead. " << endl <<
             "You hear a loud beeping sound accompanied by a voice counting down numbers. Something bad is going on!" << endl <<

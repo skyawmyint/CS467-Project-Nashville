@@ -85,7 +85,7 @@ void storage::insertInteractions() {
                        "One small table sits directly to the right, upon which lies a furiously scrawled NOTE. Directly back is the \n"
                        "passage back into LIFE SUPPORT O2.");
     setShortDescription("A seemingly ordinary STORAGE room contains a small table with a scrawled NOTE upon it, \n"
-                        "and directly against the far wall a fairly large CLOSET.");
+                        "and directly against the far wall a fairly large CLOSET. The only way out is to LIFE SUPPORT O2.");
 
     // Add features to the room
     addFeature("CLOSET","A closet that you can OPEN stands against the far wall.");
@@ -95,6 +95,10 @@ void storage::insertInteractions() {
     // Closet interaction
     featureInteraction.insert({ "OPEN CLOSET", 0 });
     featureInteraction.insert({ "OPEN THE CLOSET", 0 });
+    featureInteraction.insert({ "CHECK CLOSET", 0 });
+    featureInteraction.insert({ "CHECK THE CLOSET", 0 });
+    featureInteraction.insert({ "SEARCH CLOSET", 0 });
+    featureInteraction.insert({ "SEARCH THE CLOSET", 0 });
     // Note interaction
     featureInteraction.insert({ "READ THE NOTE", 1 });
     featureInteraction.insert({ "READ NOTE", 1 });
