@@ -79,9 +79,9 @@ lifeSupportO2::lifeSupportO2(bool inputLoad) : room(12)
         setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
                            "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
                            "A quick glance shows that all read-outs are at nominal or slightly above. You see an EMPTY CONTAINER\n"
-                           "still intact after the explosion near the entrance to the STORAGE room.");
+                           "still intact after the explosion near the entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
         setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                            "You see an EMPTY CONTAINER right by the entrance to the STORAGE room");
+                            "You see an EMPTY CONTAINER right by the entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
     }
     // Container not there, canisters not destroyed
     else if(searchItemStarting("EMPTY CONTAINER") == false && O2CanistersDestroyed == false){
@@ -91,16 +91,16 @@ lifeSupportO2::lifeSupportO2(bool inputLoad) : room(12)
                            "unused yet full O2 CANISTERS. While the only nominal exit is back to CORRIDOR 3, something \n"
                            "seems off about this room...");
         setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                            "You see some unused, but full O2 CANISTERS stacked together against the wall.");
+                            "You see some unused, but full O2 CANISTERS stacked together against the wall. The only exit is back to CORRIDOR 3.");
     }
     // Container not there, canisters destroyed
     else if(searchItemStarting("EMPTY CONTAINER") == false && O2CanistersDestroyed == true){
         setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
                            "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
                            "A quick glance shows that all read-outs are at nominal or slightly above. You see the remains of the destroyed\n"
-                           "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room");
+                           "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
         setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                            "You see a newly opened entrance to the STORAGE room.");
+                            "You see a newly opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
     }
 }
 
@@ -116,7 +116,7 @@ void lifeSupportO2::insertInteractions() {
                        "unused yet full O2 CANISTERS sits an EMPTY CONTAINER, ideal for holding any manner of liquid. \n"
                        "While the only nominal exit is back to CORRIDOR 3, something seems off about this room...");
     setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                        "Next to some unused, but full O2 CANISTERS was resting an EMPTY CONTAINER.");
+                        "Next to some unused, but full O2 CANISTERS was resting an EMPTY CONTAINER. The only exit is back to CORRIDOR 3.");
 
     // Add features to the room
     addFeature("EMPTY CONTAINER","This item may just be useful to TAKE with you.");
@@ -146,7 +146,7 @@ bool lifeSupportO2::isTakeableFromStarting(string inputItemName){
                            "unused yet full O2 CANISTERS. While the only nominal exit is back to CORRIDOR 3, something \n"
                            "seems off about this room...");
         setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                            "You see some unused, but full O2 CANISTERS stacked together against the wall.");
+                            "You see some unused, but full O2 CANISTERS stacked together against the wall. The only exit is back to CORRIDOR 3.");
         return true;
     }
     // Taking the empty container, while O2 canisters NOT there!
@@ -154,9 +154,9 @@ bool lifeSupportO2::isTakeableFromStarting(string inputItemName){
         setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
                            "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
                            "A quick glance shows that all read-outs are at nominal or slightly above. You see the remains of the destroyed\n"
-                           "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room");
+                           "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
         setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                            "You see a newly opened entrance to the STORAGE room.");
+                            "You see a newly opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
         return true;
     }
     else{
@@ -233,17 +233,17 @@ void lifeSupportO2::interactRoom(string inputString) {
                 setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
                                    "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
                                    "A quick glance shows that all read-outs are at nominal or slightly above. You see an EMPTY CONTAINER\n"
-                                   "still intact after the explosion near the entrance to the STORAGE room.");
+                                   "still intact after the explosion near the entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
                 setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                                    "You see an EMPTY CONTAINER right by the entrance to the STORAGE room");
+                                    "You see an EMPTY CONTAINER right by the entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
             }
             else{
                 setLongDescription("You breathe a sigh of relief that all appears functional in this room, no pun intended. \n"
                                    "Rows and Rows of O2 sterilization and life support maintenance terminals cover every square inch. \n"
                                    "A quick glance shows that all read-outs are at nominal or slightly above. You see the remains of the destroyed\n"
-                                   "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room");
+                                   "O2 CANISTERS which you shot at scattered near an opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
                 setShortDescription("Life support and O2 appear to not be in any danger of critical failure, as all machines appear functional. \n"
-                                    "You see a newly opened entrance to the STORAGE room.");
+                                    "You see a newly opened entrance to the STORAGE room. Back out is the way to CORRIDOR 3.");
             }
         }
         // Say that you need the FLARE GUN

@@ -12,20 +12,6 @@ string
 iostream
 -
 
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.cpp
-iostream
--
-algorithm
--
-sstream
--
-chrono
--
-fstream
--
-UI.hpp
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
-
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
 string
 -
@@ -155,6 +141,16 @@ captainslodge.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/lifesupporto2.hpp
 room.hpp
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/room.hpp
+
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/mainframeroom.cpp
+mainframeroom.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/mainframeroom.hpp
+UI.hpp
+/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/UI.hpp
+vector
+-
+string
+-
 
 /cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/mainframeroom.hpp
 room.hpp

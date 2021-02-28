@@ -87,9 +87,9 @@ void communications::insertInteractions() {
                        "in what feels like over a dozen lifetimes ago. Your old COMPUTER TERMINAL sits against the far wall, \n"
                        "untouched but for a thick sheen of dust that sends shivers down your spine. From here it is impossible to tell if \n"
                        "it has any functionality. On the terminal opposite yours, you see a tossed CARD on the table. The only exit \n"
-                       "appears to be back out to CORRIDOR 1");
-    setShortDescription("A COMPUTER TERMINAL that used to be your own sits against the far wall. Opposite, \n"
-                        "a forgotten CARD from a coworker lies discarded. There was a time when you had fond memories of this place.");
+                       "appears to be back out to CORRIDOR 1.");
+    setShortDescription("A COMPUTER TERMINAL that used to be your own sits against the far wall. Opposite, a forgotten CARD from a\n"
+                        "coworker lies discarded. There was a time when you had fond memories of this place. The only exit is back to CORRIDOR 1.");
 
     // Add features to the room
     addFeature("CARD","Appears someone recently had themselves a special day. You should READ THE BIRTHDAY MESSAGE for a closer look.");
@@ -99,6 +99,8 @@ void communications::insertInteractions() {
     // CARD interactions
     featureInteraction.insert({ "READ THE BIRTHDAY MESSAGE", 0 });
     featureInteraction.insert({ "READ BIRTHDAY MESSAGE", 0 });
+    featureInteraction.insert({ "READ THE MESSAGE", 0 });
+    featureInteraction.insert({ "READ MESSAGE", 0 });
     featureInteraction.insert({ "READ CARD", 0 });
     featureInteraction.insert({ "READ THE CARD", 0 });
     // COMPUTER TERMINAL interactions

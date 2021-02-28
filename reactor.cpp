@@ -79,8 +79,10 @@ reactor::reactor(bool inputLoad) : room(1)
         // Now update the descriptions to show it is less noisy!
         setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
                            "You see the VALVE that you closed to stop that deafening clanking. However, you still hear a pinging...this is coming\n"
-                           "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?");
-        setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.");
+                           "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?\n"
+                           "CORRIDOR 3 is the only way out.");
+        setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.\n"
+                            "CORRIDOR 3 is the only way out.");
     }
 }
 
@@ -95,7 +97,7 @@ void reactor::insertInteractions() {
                        "Your eardrums splitting, it is impossible to discern anything else about this space while the racket continues. \n"
                        "The door back to CORRIDOR 3 at least offers a quiet place to think.");
     setShortDescription("A VALVE that has been the source of a deafening noise rests deep within the heart of this room.\n"
-                        "Not much else appears to be of note.");
+                        "Not much else appears to be of note. CORRIDOR 3 is the only way out.");
 
     // Add features to the room
     addFeature("VALVE","You may be able to CLOSE or TURN the VALVE  with a tool in order to stop the noise!");
@@ -187,8 +189,10 @@ void reactor::interactRoom(string inputString) {
             // Now update the descriptions to show it is less noisy!
             setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
                                "You see the VALVE that you closed to stop that deafening clanking. However, you still hear a pinging...this is coming\n"
-                               "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?");
-            setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.");
+                               "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?\n"
+                               "CORRIDOR 3 is the only way out.");
+            setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.\n"
+                                "CORRIDOR 3 is the only way out.");
         }
         else{
             // The user will need to get a wrench

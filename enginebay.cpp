@@ -88,7 +88,7 @@ void engineBay::insertInteractions() {
                        "In the back corner sits the PUMP PRIMER, needed for restoring power. On the floor right at your feet lies \n"
                        "a discarded pair of WORKER'S JUMPERS which, alas, are not your size. Behind you is the route back to CORRIDOR 3.");
     setShortDescription("Multiple tables lay covered with various disassembled engine parts. In the back corner sits a PUMP PRIMER. \n"
-                        "At your feet lies a pair of forgotten WORKERS' JUMPERS.");
+                        "At your feet lies a pair of forgotten WORKERS' JUMPERS. Behind you is the route back to CORRIDOR 3.");
 
     // Add features to the room
     addFeature("PUMP PRIMER","If you FILL the PUMP PRIMER with fuel, perhaps power could be restored.");
@@ -99,6 +99,12 @@ void engineBay::insertInteractions() {
     // PUMP PRIMER
     featureInteraction.insert({ "FILL PUMP PRIMER", 0 });
     featureInteraction.insert({ "FILL THE PUMP PRIMER", 0 });
+    featureInteraction.insert({ "USE FILLED CONTAINER", 0 });
+    featureInteraction.insert({ "USE FILLED CONTAINER ON PUMP PRIMER", 0 });
+    featureInteraction.insert({ "USE THE FILLED CONTAINER", 0 });
+    featureInteraction.insert({ "USE THE FILLED CONTAINER ON PUMP PRIMER", 0 });
+    featureInteraction.insert({ "USE FILLED CONTAINER ON THE PUMP PRIMER", 0 });
+    featureInteraction.insert({ "USE THE FILLED CONTAINER ON THE PUMP PRIMER", 0 });
     // WORKERS' JUMPERS
     featureInteraction.insert({ "OPEN THE POCKETS OF THE WORKER'S JUMPERS", 1 });
     featureInteraction.insert({ "OPEN POCKETS OF THE WORKER'S JUMPERS", 1 });
@@ -106,6 +112,18 @@ void engineBay::insertInteractions() {
     featureInteraction.insert({ "OPEN POCKETS OF WORKER'S JUMPERS", 1 });
     featureInteraction.insert({ "OPEN POCKETS", 1 });
     featureInteraction.insert({ "OPEN THE POCKETS", 1 });
+    featureInteraction.insert({ "CHECK THE POCKETS OF THE WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "CHECK POCKETS OF THE WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "CHECK THE POCKETS OF WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "CHECK POCKETS OF WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "CHECK POCKETS", 1 });
+    featureInteraction.insert({ "CHECK THE POCKETS", 1 });
+    featureInteraction.insert({ "SEARCH THE POCKETS OF THE WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "SEARCH POCKETS OF THE WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "SEARCH THE POCKETS OF WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "SEARCH POCKETS OF WORKER'S JUMPERS", 1 });
+    featureInteraction.insert({ "SEARCH POCKETS", 1 });
+    featureInteraction.insert({ "SEARCH THE POCKETS", 1 });
 
 }
 

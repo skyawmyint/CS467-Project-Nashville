@@ -1,0 +1,8 @@
+empty startingItems
+END
+empty droppedItems
+END
+repeatVisit
+0
+astronautHailed
+0

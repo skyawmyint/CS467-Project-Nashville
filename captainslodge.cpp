@@ -83,7 +83,8 @@ void captainsLodge::insertInteractions() {
                        "A FRAMED PHOTO of a tabby cat sits atop the nightstand. Smashed against the wall is an overturned DESK. \n"
                        "CORRIDOR 3 remains the only exit.");
     setShortDescription("You enter what appears to be a bedroom. An unmade bed and nightstand sit in the corner. \n"
-                        "A FRAMED PHOTO of a tabby cat sits atop the nightstand. Smashed against the wall is an overturned DESK.");
+                        "A FRAMED PHOTO of a tabby cat sits atop the nightstand. Smashed against the wall is an overturned DESK.\n"
+                        "CORRIDOR 3 remains the only exit.");
 
     // Add features to the room
     addFeature("DESK","The Captain's DESK has been overturned in a frenzy. Is there something trapped underneath?\n"
@@ -101,6 +102,8 @@ void captainsLodge::insertInteractions() {
     featureInteraction.insert({ "READ THE FRAMED PHOTO MESSAGE", 1 });
     featureInteraction.insert({ "READ MESSAGE", 1 });
     featureInteraction.insert({ "READ THE MESSAGE", 1 });
+    featureInteraction.insert({ "READ PHOTO MESSAGE", 1 });
+    featureInteraction.insert({ "READ THE PHOTO MESSAGE", 1 });
 
 }
 

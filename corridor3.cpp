@@ -84,13 +84,14 @@ insertInteractions() - places all the feature interactions in the object
 void corridor3::insertInteractions() {
 
     setName("CORRIDOR 3");
-    setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall. \n"
-                       "It is almost a perfect mirror image of the first corridor entered. Why is there one less door though?\n"
+    setLongDescription("You see that it is a long vertical corridor. There are five doors along the east wall labelled \n"
+                       "from north to south as follows: REACTOR, ENGINE BAY, CAFETERIA, CAPTAIN'S LODGE, and LIFE SUPPORT O2.\n"
+                       "It is almost a perfect mirror image of the first corridor entered...but why is there one less door though?\n"
                        "A large CLOCK spans across the northwestern wall counting down. You also see a large PAINTING on the\n"
-                       "southwestern wall.");
-    setShortDescription("There are five doors along the east wall. A large CLOCK spans across the northwestern wall\n"
-                        "and a large PAINTING spans across the southwestern wall.");
-
+                       "southwestern wall. To the west is CORRIDOR 2.");
+    setShortDescription("There are five doors along the east wall to the following: REACTOR, ENGINE BAY, CAFETERIA,\n"
+                        "CAPTAIN'S LODGE, and LIFE SUPPORT O2. A large CLOCK spans across the northwestern wall and a large\n"
+                        "PAINTING spans across the southwestern wall. To the west is CORRIDOR 2.");
 
     // Set initial features in the room
     addFeature("CLOCK","You see a large clock.");
@@ -105,6 +106,12 @@ void corridor3::insertInteractions() {
     featureInteraction.insert({ "DESTROY PAINTING", 1});
     featureInteraction.insert({ "DESTROY THIS PAINTING", 1});
     featureInteraction.insert({ "DESTROY THE PAINTING", 1});
+    featureInteraction.insert({ "TEAR PAINTING", 1});
+    featureInteraction.insert({ "TEAR THIS PAINTING", 1});
+    featureInteraction.insert({ "TEAR THE PAINTING", 1});
+    featureInteraction.insert({ "RIP PAINTING", 1});
+    featureInteraction.insert({ "RIP THIS PAINTING", 1});
+    featureInteraction.insert({ "RIP THE PAINTING", 1});
 
 }
 

@@ -94,13 +94,15 @@ void mainframeRoom::insertInteractions() {
                        "However your eye is drawn to what looks like a central COMPUTER terminal with a NOTE taped to the corner that appears \n"
                        "to be functional. Behind you lies the dark hall back to CORRIDOR 1.");
     setShortDescription("Panels of switches stretch across the walls. Amidst the sounds of hard drives and servers cooling, \n"
-                        "a table on the far side contains a COMPUTER terminal with a NOTE attached.");
+                        "a table on the far side contains a COMPUTER terminal with a NOTE attached. Behind you lies CORRIDOR 1.");
     // Add features to the room
     addFeature("COMPUTER", "Looks like you can HACK this computer with the skills you already have!");
     addFeature("NOTE", "Looks like a crew member left a note. Maybe you can READ this.");
 
     featureInteraction.insert({ "HACK COMPUTER", 0 });
     featureInteraction.insert({ "HACK THE COMPUTER", 0 });
+    featureInteraction.insert({ "USE COMPUTER", 0 });
+    featureInteraction.insert({ "USE THE COMPUTER", 0 });
     featureInteraction.insert({ "READ NOTE", 1 });
     featureInteraction.insert({ "READ THE NOTE", 1 });
 
@@ -156,7 +158,7 @@ void mainframeRoom::interactRoom(string inputString) {
         cout << endl;
         UI* user_interface = new UI();
         vector<string>pass = user_interface->getInput();
-        if(pass.size() >= 1 && pass[0] == "1225Memphis"){
+        if(pass.size() >= 1 && pass[0] == "1225MEMPHIS"){
             myGame->disableGameTimer();
             this->timerFlag = true;
             cout << "\nSuccess!\n"<< endl;

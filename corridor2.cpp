@@ -77,7 +77,7 @@ corridor2::corridor2(bool inputLoad) : room(8)
     // Change description for wrench taken
     if(wrenchTaken == true){
         // Set a new long description
-        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
                            "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
                            "face down on the floor whom you found the WRENCH from.");
     }
@@ -90,11 +90,11 @@ void corridor2::insertInteractions() {
 
     // Set initial room descriptions
     setName("CORRIDOR 2");
-    setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
-                       "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It is a ... person.\n"
+    setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
+                       "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It is a...person.\n"
                        "A MAN in a silver spacesuit lays face down on the floor. You give him a nudge, but he does not respond. \n"
-                       "He may not breathing");
-    setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW \n"
+                       "He may not breathing.");
+    setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW \n"
                         "on the north wall overlooks the stars. You see an unresponsive MAN on the floor.");
 
 
@@ -108,12 +108,13 @@ void corridor2::insertInteractions() {
     featureInteraction.insert({ "LOOK OUT LARGE WINDOW", 0 });
     featureInteraction.insert({ "LOOK OUT WINDOW", 0 });
     featureInteraction.insert({ "LOOK OUT THE LARGE WINDOW", 0 });
-    featureInteraction.insert({ "VIEW OUT LARGE WINDOW", 0 });
     // MAN interaction
     featureInteraction.insert({ "PULL THE MAN", 1 });
     featureInteraction.insert({ "PULL MAN", 1 });
     featureInteraction.insert({ "PUSH THE MAN", 1 });
     featureInteraction.insert({ "PUSH MAN", 1 });
+    featureInteraction.insert({ "MOVE THE MAN", 1 });
+    featureInteraction.insert({ "MOVE MAN", 1 });
 
 }
 
@@ -174,7 +175,7 @@ void corridor2::interactRoom(string inputString) {
         getCharacter()->addItem(removeItemStarting("WRENCH"));
 
         // Set a new long description
-        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and 3 on either side. A LARGE WINDOW on the north\n"
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
                            "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
                            "face down on the floor whom you found the WRENCH from.");
 
