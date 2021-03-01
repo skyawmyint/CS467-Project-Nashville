@@ -77,9 +77,9 @@ corridor2::corridor2(bool inputLoad) : room(8)
     // Change description for wrench taken
     if(wrenchTaken == true){
         // Set a new long description
-        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
-                           "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
-                           "face down on the floor whom you found the WRENCH from.");
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. \n"
+                           "A LARGE WINDOW on the north wall overlooks the stars. As you walk through the corridor, \n"
+                           "you see the MAN in the silver spacesuit laying face down on the floor whom you found the WRENCH from.");
     }
 }
 
@@ -99,9 +99,10 @@ void corridor2::insertInteractions() {
 
 
     // Set initial features in the room
-    addFeature("LARGE WINDOW","You see a LARGE WINDOW that shows the best view of outer space on the station. You may be able to LOOK OUT it for a better view!");
-    addFeature("MAN", "You look closer at the MAN. He is dead...however you see a shiny tool underneath the body. You may be able to PULL or PUSH \n"
-                      "the MAN to reveal the tool.");
+    addFeature("LARGE WINDOW","You see a LARGE WINDOW that shows the best view of outer space on the station. \n"
+                              "You may be able to LOOK OUT it for a better view!");
+    addFeature("MAN", "You look closer at the MAN. He is dead...however you see a shiny tool underneath the body. \n"
+                      "You may be able to PULL or PUSH the MAN to reveal the tool.");
 
     // Set initial feature actions in the room
     // LARGE WINDOW interaction

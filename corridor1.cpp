@@ -80,13 +80,14 @@ corridor1::corridor1(bool inputLoad) : room(6)
     // If not broken
     if(statueBroken == true){
         setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, which\n"
-                           "you remember as CORRIDOR 2. There are six doors along the west wall labelled from north to south as follows: ESCAPE POD ROOM,\n"
-                           "MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, AND NAVIGATION. A large screen spans across the other wall displaying an \n"
-                           "INTERACTIVE MAP. On the corner of the south wall, you see remains of a broken STATUE. Suddenly, you hear a rumbling. The room\n"
-                           "shakes and you stumble fighting for balance. You feel a sinking sensation of doom...");
-        setShortDescription("You see another long corridor headed east, called CORRIDOR 2. There are six doors along the west wall: ESCAPE POD ROOM,\n"
-                            "MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, and NAVIGATION. A large screen spans across the east wall displaying an\n"
-                            "INTERACTIVE MAP. There are remains of a broken STATUE on the corner of the south wall.");
+                           "you remember as CORRIDOR 2. There are six doors along the west wall labelled from north to south as follows:\n"
+                           "ESCAPE POD ROOM, MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, AND NAVIGATION. A large screen spans across \n"
+                           "the other wall displaying an INTERACTIVE MAP. On the corner of the south wall, you see remains of a broken STATUE. \n"
+                           "Suddenly, you hear a rumbling. The room shakes and you stumble fighting for balance.\n"
+                           "You feel a sinking sensation of doom...");
+        setShortDescription("You see another long corridor headed east, called CORRIDOR 2. There are six doors along the west wall: \n"
+                            "ESCAPE POD ROOM, MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, and NAVIGATION. A large screen spans across \n"
+                            "the east wall displaying an INTERACTIVE MAP. There are remains of a broken STATUE on the corner of the south wall.");
     }
 }
 
@@ -98,17 +99,18 @@ void corridor1::insertInteractions() {
     setName("CORRIDOR 1");
 
     setLongDescription("Bright overhead lights flicker on, illuminating a long corridor. You see another long corridor headed east, which\n"
-                       "you remember as CORRIDOR 2. There are six doors along the west wall labelled from north to south as follows: ESCAPE POD ROOM,\n"
-                       "MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, AND NAVIGATION. A large screen spans across the other wall displaying an \n"
-                       "INTERACTIVE MAP. On the corner of the south wall, you see a STATUE of a person. Suddenly, you hear a rumbling. The room\n"
-                       "shakes and you stumble fighting for balance. You feel a sinking sensation of doom...");
-    setShortDescription("You see another long corridor headed east, called CORRIDOR 2. There are six doors along the west wall: ESCAPE POD ROOM,\n"
-                        "MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, and NAVIGATION. A large screen spans across the east wall displaying an\n"
-                        "INTERACTIVE MAP. There is a STATUE on the corner of the south wall.");
+                       "you remember as CORRIDOR 2. There are six doors along the west wall labelled from north to south as follows:\n"
+                       "ESCAPE POD ROOM, MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, AND NAVIGATION. A large screen spans across \n"
+                       "the other wall displaying an INTERACTIVE MAP. On the corner of the south wall, you see the STATUE of a person. \n"
+                       "Suddenly, you hear a rumbling. The room shakes and you stumble fighting for balance.\n"
+                       "You feel a sinking sensation of doom...");
+    setShortDescription("You see another long corridor headed east, called CORRIDOR 2. There are six doors along the west wall: \n"
+                        "ESCAPE POD ROOM, MEDBAY, MAINFRAME, COMMUNICATIONS, ELECTRICAL, and NAVIGATION. A large screen spans across \n"
+                        "the east wall displaying an INTERACTIVE MAP. There is a STATUE on the corner of the south wall.");
 
     // Set initial features in the room
     addFeature("INTERACTIVE MAP","You see a map with with the layout of the entire space station. It may be useful to UPLOAD the\n"
-                                 "INTERACTIVE MAP the handy tablet you have on you.");
+                                 "INTERACTIVE MAP to the handy tablet you have on you.");
     addFeature("STATUE", "You're not sure how this will be useful in you escaping. What will happen if you TOUCH or KICK it?");
 
     // Set initial feature actions in the room
