@@ -93,7 +93,7 @@ void corridor2::insertInteractions() {
     setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
                        "wall overlooks the stars. As you walk through the corridor, your foot hits something soft. It is a...person.\n"
                        "A MAN in a silver spacesuit lays face down on the floor. You give him a nudge, but he does not respond. \n"
-                       "He may not breathing.");
+                       "He may not be breathing.");
     setShortDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW \n"
                         "on the north wall overlooks the stars. You see an unresponsive MAN on the floor.");
 
@@ -164,8 +164,8 @@ void corridor2::interactRoom(string inputString) {
 
     // The case where the user wants to "LOOK OUT THE WINDOW"
     if(featureActionChoice == 0){
-        cout << "\nYou look out the LARGE WINDOW and see what appears to be a satellite crashed into the side of the station. Looks like it\n"
-                "entered part of the REACTOR area...It may be useful to take a visit there!"<< endl;
+        cout << "\nYou look out the LARGE WINDOW and see what appears to be a satellite crashed into the side of the station. \n"
+                "Looks like it entered part of the REACTOR area...It may be useful to take a visit there!"<< endl;
     }
         // Case where the user wants to PUSH the man
     else if(featureActionChoice == 1 && wrenchTaken == false){
@@ -176,9 +176,9 @@ void corridor2::interactRoom(string inputString) {
         getCharacter()->addItem(removeItemStarting("WRENCH"));
 
         // Set a new long description
-        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. A LARGE WINDOW on the north\n"
-                           "wall overlooks the stars. As you walk through the corridor, you see the MAN in the silver spacesuit laying\n"
-                           "face down on the floor whom you found the WRENCH from.");
+        setLongDescription("You enter a long horizontal corridor with CORRIDOR 1 and CORRIDOR 3 on either side. \n"
+                           "A LARGE WINDOW on the north wall overlooks the stars. As you walk through the corridor, \n"
+                           "you see the MAN in the silver spacesuit laying face down on the floor whom you found the WRENCH from.");
 
         // Set the wrench as taken!
         this->wrenchTaken = true;

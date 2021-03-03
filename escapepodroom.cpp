@@ -84,12 +84,12 @@ insertInteractions() - places all the feature interactions in the object
 void escapePodRoom::insertInteractions() {
 
     setName("ESCAPE POD ROOM");
-    setLongDescription("The room is barren and stark, necessary except with the vain hope that it would never have to be used. This ESCAPE POD \n"
-                       "ROOM should have had at least a half-dozen pods primed and ready for jump in case of emergency, \n"
-                       "yet only one ESCAPE POD remains, its soft lights gently humming. Against a side wall is a metal table with a small \n"
-                       "NOTEPAD atop. A door behind leads back to the dark hall of CORRIDOR 1.");
-    setShortDescription("One gently whirring ESCAPE POD lays primed in the far corner. A small NOTEPAD sits atop of a metal table against the side wall.\n"
-                        "A door behind leads back to the dark hall of CORRIDOR 1.");
+    setLongDescription("The room is barren and stark, necessary except with the vain hope that it would never have to be used. \n"
+                       "This ESCAPE POD ROOM should have had at least a half-dozen pods primed and ready for jump in case of \n"
+                       "emergency, yet only one ESCAPE POD remains, its soft lights gently humming. Against a side wall \n"
+                       "is a metal table with a small NOTEPAD atop. A door behind leads back to the dark hall of CORRIDOR 1.");
+    setShortDescription("One gently whirring ESCAPE POD lays primed in the far corner. A small NOTEPAD sits atop of a \n"
+                        "metal table against the side wall. A door behind leads back to the dark hall of CORRIDOR 1.");
 
     // Add features to the room
     addFeature("ESCAPE POD","This is the key to your salvation, if only you knew how to get it working! Then you can ENTER it");

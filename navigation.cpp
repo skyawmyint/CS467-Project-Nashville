@@ -77,18 +77,19 @@ insertInteractions() - places all the feature interactions in the object
 void navigation::insertInteractions() {
 
     setName("NAVIGATION");
-    setLongDescription("The uncharted vistas of space can be seen stretching to event horizon outside of NAVIGATION's viewport. \n"
-                       "Still takes your breath away. The room however has suffered worse than most, it appears several of the terminals \n"
-                       "have been smashed and there are signs of a scuffle. The captain's COMPUTER however, situated at the main command chair,\n"
-                       "may still have some functionality. There appears to be some sort of blinking light coming from a MESSAGE RECORDER\n"
-                       "next to the COMPUTER as well. The exit leads back to CORRIDOR 1");
-    setShortDescription("The captains' COMPUTER terminal sits across from his now empty leather chair with a MESSAGE RECORDER next to it.\n"
-                        "These seem to be the only piece of equipment possible of functioning. This room has seen much the worse for wear.\n"
-                        "The exit leads back to CORRIDOR 1.");
+    setLongDescription("The uncharted vistas of space can be seen stretching to event horizon outside of NAVIGATION's \n"
+                       "viewport. Still takes your breath away. The room however has suffered worse than most, it appears \n"
+                       "several of the terminals have been smashed and there are signs of a scuffle. The captain's COMPUTER \n"
+                       "however, situated at the main command chair, may still have some functionality. There appears to be \n"
+                       "some sort of blinking light coming from a MESSAGE RECORDER next to the COMPUTER as well. \n"
+                       "The exit leads back to CORRIDOR 1");
+    setShortDescription("The captains' COMPUTER terminal sits across from his now empty leather chair with a \n"
+                        "MESSAGE RECORDER next to it. These seem to be the only piece of equipment possible of functioning. \n"
+                        "This room has seen much the worse for wear. The exit leads back to CORRIDOR 1.");
 
     // Add features to the room
-    addFeature("MESSAGE RECORDER","You see a blinking red light going off on the MESSAGE RECORDER. Maybe you can PLAY THE MESSAGE\n"
-                                  "and see if it's anything important.");
+    addFeature("MESSAGE RECORDER","You see a blinking red light going off on the MESSAGE RECORDER. \n"
+                                  "Maybe you can PLAY THE MESSAGE and see if it's anything important.");
     addFeature("COMPUTER", "Maybe you can HACK this COMPUTER with the skills you already have!");
 
     // Set the interactive actions to the unordered map

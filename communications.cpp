@@ -83,17 +83,19 @@ insertInteractions() - places all the feature interactions in the object
 void communications::insertInteractions() {
 
     setName("COMMUNICATIONS");
-    setLongDescription("Ahhh...COMMUNICATIONS. This was your first duty onboard this station, monitoring incoming voice chatter, \n"
-                       "in what feels like over a dozen lifetimes ago. Your old COMPUTER TERMINAL sits against the far wall, \n"
-                       "untouched but for a thick sheen of dust that sends shivers down your spine. From here it is impossible to tell if \n"
-                       "it has any functionality. On the terminal opposite yours, you see a tossed CARD on the table. The only exit \n"
-                       "appears to be back out to CORRIDOR 1.");
-    setShortDescription("A COMPUTER TERMINAL that used to be your own sits against the far wall. Opposite, a forgotten CARD from a\n"
-                        "coworker lies discarded. There was a time when you had fond memories of this place. The only exit is back to CORRIDOR 1.");
-
+    setLongDescription("Ahhh...COMMUNICATIONS. This was your first duty onboard this station, monitoring incoming \n"
+                       "voice chatter, in what feels like over a dozen lifetimes ago. Your old COMPUTER TERMINAL sits against \n"
+                       "the far wall, untouched but for a thick sheen of dust that sends shivers down your spine. \n"
+                       "From here it is impossible to tell if it has any functionality. On the terminal opposite yours, \n"
+                       "you see a tossed CARD on the table. The only exit appears to be back out to CORRIDOR 1.");
+    setShortDescription("A COMPUTER TERMINAL that used to be your own sits against the far wall. Opposite, a forgotten \n"
+                        "CARD from a coworker lies discarded. There was a time when you had fond memories of this place. \n"
+                        "The only exit is back to CORRIDOR 1.");
     // Add features to the room
-    addFeature("CARD","Appears someone recently had themselves a special day. You should READ THE BIRTHDAY MESSAGE for a closer look.");
-    addFeature("COMPUTER TERMINAL", "Looks like you can HACK THE COMPUTER TERMINAL with the skills you already have!");
+    addFeature("CARD","Appears someone recently had themselves a special day. \n"
+                      "You should READ THE BIRTHDAY MESSAGE for a closer look.");
+    addFeature("COMPUTER TERMINAL", "Looks like you can HACK THE COMPUTER TERMINAL with the skills \n"
+                     "you already have!");
 
     // Set the interactive actions to the unordered map
     // CARD interactions

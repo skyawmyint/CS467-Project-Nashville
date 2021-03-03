@@ -87,10 +87,10 @@ void captainsLodge::insertInteractions() {
                         "CORRIDOR 3 remains the only exit.");
 
     // Add features to the room
-    addFeature("DESK","The Captain's DESK has been overturned in a frenzy. Is there something trapped underneath?\n"
-                      "Maybe you can USE something sharp ON THE DESK to get it out.");
-    addFeature("FRAMED PHOTO", "A FRAMED PHOTO of an orange tabby cat on the dresser. You see a small inscription\n"
-                               "on the top right of the picture. You may want to READ the FRAMED PHOTO MESSAGE.");
+    addFeature("DESK","The Captain's DESK has been overturned in a frenzy. Is there something \n"
+                      "trapped underneath? Maybe you can USE something sharp ON THE DESK to get it out.");
+    addFeature("FRAMED PHOTO", "A FRAMED PHOTO of an orange tabby cat on the dresser. You see a \n"
+                               "small inscription on the top right of the picture. You may want to READ the FRAMED PHOTO MESSAGE.");
 
     // Set the interactive actions to the unordered map
     // DESK interaction

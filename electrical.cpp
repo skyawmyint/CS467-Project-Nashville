@@ -80,9 +80,10 @@ void electrical::insertInteractions() {
 
     setName("ELECTRICAL");
     setLongDescription("There is the smell of burning ozone accompanied with a sizzling sound that makes your eardrums ring \n"
-                       "as you enter ELECTRICAL. Against the far wall a shattered ELECTRICAL PANEL emits wave after wave of dangerous sparks, \n"
-                       "being quite dangerous to approach and causing the lights to flicker. In the corner however, safely out of range of \n"
-                       "the panel, sits a COMPUTER on a desk that somehow seems to have power...you can always go back to CORRIDOR 1.");
+                       "as you enter ELECTRICAL. Against the far wall a shattered ELECTRICAL PANEL emits wave after wave \n"
+                       "of dangerous sparks, being quite dangerous to approach and causing the lights to flicker. \n"
+                       "In the corner however, safely out of range of the panel, sits a COMPUTER on a desk that somehow \n"
+                       "seems to have power...you can always go back to CORRIDOR 1.");
     setShortDescription("A shattered ELECTRICAL PANEL hums on the far side of the room. In a tiny corner across the way \n"
                         "a COMPUTER sits alone and lonely. The way out is back to CORRIDOR 1.");
 

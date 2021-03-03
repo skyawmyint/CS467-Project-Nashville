@@ -84,9 +84,10 @@ void engineBay::insertInteractions() {
 
     setName("ENGINE BAY");
     setLongDescription("Multiple tables covered in scattered parts in various stages of disrepair mark the ENGINE BAY. \n"
-                       "Normally a shop filled with the hustle and bustle of ongoing maintenance, the silence present is quite eerie. \n"
-                       "In the back corner sits the PUMP PRIMER, needed for restoring power. On the floor right at your feet lies \n"
-                       "a discarded pair of WORKER'S JUMPERS which, alas, are not your size. Behind you is the route back to CORRIDOR 3.");
+                       "Normally a shop filled with the hustle and bustle of ongoing maintenance, the silence present is \n"
+                       "quite eerie. In the back corner sits the PUMP PRIMER, needed for restoring power. On the floor \n"
+                       "right at your feet lies a discarded pair of WORKER'S JUMPERS which, alas, are not your size. \n"
+                       "Behind you is the route back to CORRIDOR 3.");
     setShortDescription("Multiple tables lay covered with various disassembled engine parts. In the back corner sits a PUMP PRIMER. \n"
                         "At your feet lies a pair of forgotten WORKERS' JUMPERS. Behind you is the route back to CORRIDOR 3.");
 

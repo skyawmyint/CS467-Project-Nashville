@@ -77,12 +77,12 @@ reactor::reactor(bool inputLoad) : room(1)
     // Change description based on flag
     if(noisyValveOpen == false){
         // Now update the descriptions to show it is less noisy!
-        setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
-                           "You see the VALVE that you closed to stop that deafening clanking. However, you still hear a pinging...this is coming\n"
-                           "from a crashed SATELLITE on the side of the reactor hull! Maybe there's something useful if you look closely?\n"
-                           "CORRIDOR 3 is the only way out.");
-        setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of the reactor hull.\n"
-                            "CORRIDOR 3 is the only way out.");
+        setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into \n"
+                           "the darkness. You see the VALVE that you closed to stop that deafening clanking. However, you still \n"
+                           "hear a pinging...this is coming from a crashed SATELLITE on the side of the reactor hull! \n"
+                           "Maybe there's something useful if you look closely? CORRIDOR 3 is the only way out.");
+        setShortDescription("You see a closed VALVE in this maze of a room with a SATELLITE crashed to the side of \n"
+                            "the reactor hull. CORRIDOR 3 is the only way out.");
     }
 }
 
@@ -92,17 +92,17 @@ insertInteractions() - places all the feature interactions in the object
 void reactor::insertInteractions() {
 
     setName("REACTOR");
-    setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into the darkness. \n"
-                       "An extremely loud, almost-deafening clanking can be heard coming from an open VALVE deep within the machine. \n"
-                       "Your eardrums splitting, it is impossible to discern anything else about this space while the racket continues. \n"
-                       "The door back to CORRIDOR 3 at least offers a quiet place to think.");
+    setLongDescription("This room is more maze than a room with pipes, ducts and catwalks twisting and turning into \n"
+                       "the darkness. An extremely loud, almost-deafening clanking can be heard coming from an open VALVE deep \n"
+                       "within the machine. Your eardrums splitting, it is impossible to discern anything else about this \n"
+                       "space while the racket continues. The door back to CORRIDOR 3 at least offers a quiet place to think.");
     setShortDescription("A VALVE that has been the source of a deafening noise rests deep within the heart of this room.\n"
                         "Not much else appears to be of note. CORRIDOR 3 is the only way out.");
 
     // Add features to the room
     addFeature("VALVE","You may be able to CLOSE or TURN the VALVE  with a tool in order to stop the noise!");
-    addFeature("SATELLITE", "You see something attached to the hull of the SATELLITE...It's a NAV COMM UPDATE MODULE! It may be\n"
-                            "handy for you to TAKE this!");
+    addFeature("SATELLITE", "You see something attached to the hull of the SATELLITE... \n"
+                            "It's a NAV COMM UPDATE MODULE! It may be handy for you to TAKE this!");
 
     // Set the interactive actions to the unordered map
     // VALVE interaction

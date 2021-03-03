@@ -84,10 +84,10 @@ insertInteractions() - places all the feature interactions in the object
 void cafeteria::insertInteractions() {
 
     setName("CAFETERIA");
-    setLongDescription("You see a large room filled with cafeteria style bench tables. You smell a bad stench coming from\n"
-                       "this room...You look around and see the back of the room is a long counter stacked with serving trays\n"
-                       "filled with half-rotting sandwiches. Looks like SLOPPY JOES. Yuck! You also see some smoke pluming\n"
-                       "from a STOVE behind the counter. CORRIDOR 3 looms behind.");
+    setLongDescription("You see a large room filled with cafeteria style bench tables. You smell a bad stench coming \n"
+                       "from this room...You look around and see the back of the room is a long counter stacked with serving \n"
+                       "trays filled with half-rotting sandwiches. Looks like SLOPPY JOES. Yuck! You also see some smoke \n"
+                       "pluming from a STOVE behind the counter. CORRIDOR 3 looms behind.");
     setShortDescription("At the back of the room is a long counter stacked with serving trays of rotting SLOPPY JOES.\n"
                         "Smoke plumes from a STOVE behind the counter. CORRIDOR 3 looms behind.");
 
