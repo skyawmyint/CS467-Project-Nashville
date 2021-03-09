@@ -1,3 +1,0 @@
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles/CS467_Project_Nashville.dir
-/cygdrive/c/Users/Stuart/Documents/CS467-Project-Nashville/cmake-build-debug/CMakeFiles/edit_cache.dir

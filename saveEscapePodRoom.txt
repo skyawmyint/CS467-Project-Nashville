@@ -1,6 +1,0 @@
-empty startingItems
-END
-empty droppedItems
-END
-repeatVisit
-0

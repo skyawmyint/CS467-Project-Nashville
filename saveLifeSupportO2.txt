@@ -1,8 +1,0 @@
-empty startingItems
-END
-empty droppedItems
-END
-repeatVisit
-1
-O2CanistersDestroyed
-1

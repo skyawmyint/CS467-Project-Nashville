@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <vector>
-// #include <sys/ioctl.h>
+#include <sys/ioctl.h>
 #include <stdio.h>
 #include <unistd.h>
 
@@ -23,15 +23,15 @@ int main(){
 
     // Check if the console screen size is adequate
     // Reference: https://stackoverflow.com/questions/1022957/getting-terminal-width-in-c
-    // struct winsize w;
-    // ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    struct winsize w;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
     // Need a size of 30x130. Uncomment when finished!
-    /*
+    
     if(w.ws_row < 30 || w.ws_col < 130){
         cout << "Please resize console screen to have a minimum 30 width by 130 height!" << endl;
         return 0;
     }
-     */
+    
 
     UI* user_interface = new UI();
 

@@ -70,4 +70,4 @@ cafeteria.o: cafeteria.cpp cafeteria.hpp
 	g++ -std=c++0x -c cafeteria.cpp
 
 clean:
-	rm *.o nashville
+	rm *.o *.txt nashville
